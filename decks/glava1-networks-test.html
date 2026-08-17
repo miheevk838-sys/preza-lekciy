@@ -8,6 +8,7 @@
 :root{
   --bg:#0b0710;--panel:#150d22;--line:#20142f;--line2:#2c1c42;
   --mag:#ff2e88;--vio:#7a3bea;--vio2:#a884ff;--white:#efe9f7;--dim:#9c8fb8;--ink:#0b0710;
+  --ok:#39e6a0;--warn:#ffd166;--mono:"Space Mono",monospace;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{height:100%}
@@ -158,6 +159,93 @@ h2 .hl{color:var(--mag)}
 .nav button{width:46px;height:46px;border:1px solid var(--line2);background:var(--panel);color:var(--white);
   font-family:Unbounded;font-size:19px;cursor:pointer;display:grid;place-items:center;transition:.2s}
 .nav button:hover{background:var(--mag);border-color:var(--mag);color:var(--ink)}
+
+/* ==== доп. компоненты движка (из деки 5-6) ==== */
+.small{font-size:clamp(13px,1.35vw,17px);line-height:1.5;color:var(--dim)}
+.formula.sm{font-size:clamp(16px,2.2vw,30px)}
+.steps{display:grid;gap:0;grid-column:1/-1}
+.steps .st{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:baseline;
+  padding:clamp(8px,1.4vh,14px) 0;border-top:1px solid var(--line2)}
+.steps .st:last-child{border-bottom:1px solid var(--line2)}
+.steps .st .sn{font-family:var(--mono);font-weight:700;color:var(--vio2);font-size:clamp(12px,1.3vw,16px)}
+.steps .st .sx{font-size:clamp(15px,1.75vw,23px);line-height:1.35}
+.steps .st .sx b{color:var(--mag);font-weight:600}
+.steps .st .sr{font-family:var(--mono);font-weight:700;font-size:clamp(14px,1.6vw,21px);color:var(--white);white-space:nowrap}
+.steps .st.res{background:var(--panel);padding-left:12px;padding-right:12px;border-top:1px solid var(--mag);border-bottom:1px solid var(--mag)}
+.steps .st.res .sr{color:var(--mag)}
+.bits{display:flex;gap:clamp(3px,.5vw,7px);flex-wrap:nowrap;justify-content:flex-start}
+.bits .bit{flex:1 1 0;min-width:0;aspect-ratio:1/1.25;border:1px solid var(--line2);background:var(--panel);
+  display:grid;place-content:center;gap:2px;cursor:pointer;transition:.16s;position:relative;text-align:center}
+.bits .bit .v{font-family:Unbounded;font-weight:800;font-size:clamp(15px,2.4vw,30px);line-height:1;color:var(--dim)}
+.bits .bit .w{font-family:var(--mono);font-size:clamp(8px,.95vw,12px);color:var(--vio2);letter-spacing:.04em}
+.bits .bit.on{background:var(--mag);border-color:var(--mag)}
+.bits .bit.on .v{color:var(--ink)}.bits .bit.on .w{color:rgba(24,13,10,.72)}
+.bits .bit:hover{border-color:var(--mag)}
+.bits.ro .bit{cursor:default}
+.bits .bit.flash{animation:fl .5s}
+.bigval{font-family:Unbounded;font-weight:800;font-size:clamp(44px,9vw,140px);line-height:.9;color:var(--mag)}
+.bigval small{font-family:var(--mono);font-weight:700;font-size:.16em;color:var(--dim);display:block;letter-spacing:.2em;text-transform:uppercase;margin-top:8px}
+.tblwrap{grid-column:1/-1;overflow-x:auto;border:1px solid var(--line2);background:var(--panel)}
+table{border-collapse:collapse;width:100%;min-width:520px}
+th,td{padding:clamp(6px,.9vh,11px) clamp(8px,1vw,14px);text-align:left;border-bottom:1px solid var(--line2);
+  font-size:clamp(12px,1.3vw,17px)}
+th{font:700 clamp(9px,1vw,12px)/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--dim);background:#20100c;white-space:nowrap}
+td{font-family:var(--mono);color:#e6dcbe}
+td.t{font-family:Inter;color:var(--white)}
+tr.hot td{color:var(--mag)}
+tr:hover td{background:#2e1712}
+td b{color:var(--mag);font-weight:700}
+td .vv{color:var(--vio2)}
+.barnet{grid-column:1/-1;display:flex;height:clamp(34px,5vh,54px);border:1px solid var(--line2);overflow:hidden}
+.barnet .p{display:grid;place-items:center;font:700 clamp(10px,1.2vw,15px)/1 var(--mono);letter-spacing:.12em;
+  text-transform:uppercase;transition:width .45s cubic-bezier(.16,1,.3,1);overflow:hidden;white-space:nowrap}
+.barnet .p.n{background:var(--mag);color:var(--ink)}
+.barnet .p.s{background:var(--vio);color:#fff}
+.barnet .p.h{background:var(--panel);color:var(--vio2)}
+.panelbox{background:var(--panel);border:1px solid var(--line2);padding:clamp(12px,1.8vw,22px);display:grid;gap:clamp(8px,1.4vh,16px)}
+.panelbox.hotb{border-color:var(--mag)}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+input[type=text],select{background:#1e0f0b;border:1px solid var(--line2);color:var(--white);
+  font-family:var(--mono);font-size:clamp(14px,1.6vw,20px);padding:9px 12px;min-width:0}
+input[type=text]:focus,select:focus{outline:none;border-color:var(--mag)}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;background:var(--line2);outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;background:var(--mag);cursor:pointer;border:0}
+input[type=range]::-moz-range-thumb{width:20px;height:20px;background:var(--mag);cursor:pointer;border:0}
+button.btn{font-family:Unbounded;font-weight:700;text-transform:uppercase;font-size:clamp(12px,1.3vw,16px);
+  background:transparent;border:1.5px solid var(--vio2);color:var(--vio2);padding:10px 16px;cursor:pointer;transition:.18s}
+button.btn:hover{background:var(--mag);border-color:var(--mag);color:var(--ink)}
+button.btn.pri{background:var(--mag);border-color:var(--mag);color:var(--ink)}
+button.btn.pri:hover{background:var(--vio);border-color:var(--vio);color:#fff}
+.out{font-family:var(--mono);font-size:clamp(13px,1.5vw,20px);line-height:1.7;color:#e6dcbe}
+.out b{color:var(--mag)}.out i{color:var(--vio2);font-style:normal}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-family:var(--mono);font-size:clamp(12px,1.4vw,18px)}
+.kv .k{color:var(--dim);text-transform:uppercase;letter-spacing:.1em;font-size:.8em;align-self:center}
+.kv .v{color:var(--white)}
+.kv .v.m{color:var(--mag)}
+.game{grid-column:1/-1;display:grid;gap:clamp(10px,1.6vh,18px)}
+.gtop{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+.gstat{display:flex;gap:clamp(12px,2vw,30px)}
+.gstat div{font-family:var(--mono);font-size:clamp(10px,1.1vw,13px);letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+.gstat div b{display:block;font-family:Unbounded;font-weight:800;font-size:clamp(22px,3.2vw,40px);color:var(--mag);letter-spacing:0;margin-top:4px}
+.gtarget{font-family:Unbounded;font-weight:800;font-size:clamp(40px,7.5vw,110px);line-height:1;color:var(--white)}
+.gtarget.win{color:var(--ok)}
+.gbar{height:6px;background:var(--line2);overflow:hidden}
+.gbar i{display:block;height:100%;background:var(--mag);width:100%;transition:width .2s linear}
+.gmsg{font-family:var(--mono);font-size:clamp(13px,1.5vw,19px);color:var(--vio2);min-height:1.6em}
+.gmsg.ok{color:var(--ok)}.gmsg.bad{color:var(--warn)}
+.subs{grid-column:1/-1;display:grid;gap:6px}
+.subrow{display:flex;gap:4px}
+.subblk{flex:1 1 0;border:1px solid var(--line2);background:var(--panel);padding:clamp(6px,1vw,12px);
+  font-family:var(--mono);font-size:clamp(9px,1.05vw,14px);color:#e6dcbe;min-width:0;transition:.25s}
+.subblk b{display:block;font-family:Unbounded;font-weight:700;font-size:clamp(11px,1.3vw,17px);color:var(--mag);margin-bottom:4px}
+.subblk.a{border-color:var(--mag)}.subblk.b{border-color:var(--vio2)}
+.subblk small{display:block;color:var(--dim);font-size:.85em;margin-top:3px}
+.cnt{position:fixed;left:50%;transform:translateX(-50%);bottom:9px;z-index:10;
+  font:700 10px/1 var(--mono);letter-spacing:.2em;color:var(--dim)}
+.qa.task .q::before{content:"6";font-family:var(--mono)}
+.more.wide{grid-column:1/-1;max-width:none;justify-self:stretch}
+.mid.two.rev{grid-template-columns:.95fr 1.15fr}
+.slide canvas{width:100%;display:block;background:var(--panel);border:1px solid var(--line2)}
 </style>
 
 <div class="prog" id="prog"></div>
@@ -211,15 +299,86 @@ h2 .hl{color:var(--mag)}
   <div class="mid">
     <h2>СОДЕР<span class="hl">ЖАНИЕ</span></h2>
     <div class="toc">
+      <a onclick="showId('zachem')"><span class="num">00</span><span class="ti">Зачем вообще сеть<span class="ds">провода и здравый смысл</span></span></a>
       <a onclick="showId('svyaz')"><span class="num">01</span><span class="ti">Связь и сообщение<span class="ds">1.1 · базис</span></span></a>
       <a onclick="showId('set')"><span class="num">02</span><span class="ti">Что такое сеть<span class="ds">1.2 · определение</span></span></a>
       <a onclick="showId('elementy')"><span class="num">03</span><span class="ti">Из чего состоит<span class="ds">1.3 · элементы</span></span></a>
       <a onclick="showId('razvitie')"><span class="num">04</span><span class="ti">Развитие<span class="ds">1.4 · история</span></span></a>
       <a onclick="showId('tipy')"><span class="num">05</span><span class="ti">Типы сетей<span class="ds">1.5 · BAN … WAN</span></span></a>
       <a onclick="showId('zhizn')"><span class="num">06</span><span class="ti">Сети в жизни<span class="ds">1.6 · применение</span></span></a>
+      <a onclick="showId('topo')"><span class="num">07</span><span class="ti">Топология и LAN vs WAN<span class="ds">1.5 · сравнение</span></span></a>
+      <a onclick="showId('quiz')"><span class="num">08</span><span class="ti">Викторина<span class="ds">12 вопросов на скорость</span></span></a>
+      <a onclick="showId('zadachnik1')"><span class="num">09</span><span class="ti">Задачники<span class="ds">понятия и ситуации</span></span></a>
+      <a onclick="showId('itog1')"><span class="num">10</span><span class="ti">Итог и словарь<span class="ds">обозначения главы</span></span></a>
     </div>
   </div>
   <div class="bot"><span>Глава 01</span><span>Ананко · Качур</span></div>
+</section>
+
+<!-- ===== БЛОК 00 · НА ПАЛЬЦАХ ===== -->
+<section class="slide" id="zachem">
+  <span class="bignum"></span>
+  <div class="top"><span class="k"><i></i>Блок 00 · С нуля</span><span>Зачем сеть</span></div>
+  <div class="mid two">
+    <div style="display:flex;flex-direction:column;gap:clamp(14px,2.4vh,26px)">
+      <h1>ДВА<br><span class="blk">КОМПЬЮТЕРА</span></h1>
+      <p class="def">Соединить два компьютера просто: один провод. Проблемы начинаются с третьего.</p>
+      <div class="more open" onclick="this.classList.toggle('open')">
+        <div class="mh"><span class="pl">+</span>В чём подвох</div>
+        <div class="ma"><div>Чтобы каждый мог поговорить с каждым, нужен провод <b>к каждому</b>. Три компьютера — три провода. Десять — уже сорок пять. Сто — почти пять тысяч. Никакой стены не хватит.</div></div>
+      </div>
+    </div>
+    <div class="rlist"><div class="cap">Считаем провода</div><ul>
+      <li><s>2</s>1 линия<small>всё ещё просто</small></li>
+      <li><s>3</s>3 линии<small>уже треугольник</small></li>
+      <li><s>10</s>45 линий<small>стена в проводах</small></li>
+      <li><s>100</s>4950 линий<small>невозможно</small></li>
+    </ul></div>
+  </div>
+  <div class="bot"><span class="rec">Каждый с каждым — тупик</span><span>Ананко · Качур · VK · TG</span></div>
+</section>
+
+<section class="slide" data-init="links">
+  <span class="bignum"></span>
+  <div class="top"><span class="k"><i></i>Блок 00 · Интерактив</span><span>Провода против сети</span></div>
+  <div class="mid two">
+    <div style="display:flex;flex-direction:column;gap:clamp(12px,2vh,22px)">
+      <h2>СКОЛЬКО <span class="hl">ПРОВОДОВ</span></h2>
+      <div class="formula sm">L = N·(N−1) / 2</div>
+      <input type="range" id="lnR" min="2" max="30" value="6">
+      <div class="kv">
+        <span class="k">Узлов N</span><span class="v m" id="lnN">6</span>
+        <span class="k">Каждый с каждым</span><span class="v m" id="lnMesh">15</span>
+        <span class="k">Через коммутатор</span><span class="v" id="lnStar">6</span>
+        <span class="k">Экономия</span><span class="v" id="lnSave">9 линий</span>
+      </div>
+      <p class="small">Слева на схеме — «все со всеми», справа — та же задача через один узел. Тяни ползунок и смотри, как левая картинка превращается в клубок.</p>
+    </div>
+    <canvas id="lnCv" height="380"></canvas>
+  </div>
+  <div class="bot"><span>Ползунок 2 … 30 узлов</span><span>Ананко · Качур</span></div>
+</section>
+
+<section class="slide">
+  <span class="bignum"></span>
+  <div class="top"><span class="k"><i></i>Блок 00 · С нуля</span><span>Идея сети</span></div>
+  <div class="mid two">
+    <div style="display:flex;flex-direction:column;gap:clamp(14px,2.4vh,26px)">
+      <h2>ОБЩАЯ <span class="hl">ДОРОГА</span> ВМЕСТО ЛИЧНЫХ ТРОПИНОК</h2>
+      <p class="def" style="max-width:32ch">Сеть — это когда все подключаются к <b>общей инфраструктуре</b>, а не тянут провод друг к другу.</p>
+      <div class="more" onclick="this.classList.toggle('open')">
+        <div class="mh"><span class="pl">+</span>На пальцах: почта и дороги</div>
+        <div class="ma"><div>Никто не строит личную дорогу к каждому знакомому. Есть <b>общие дороги</b> и <b>почта</b>: письмо с адресом само доезжает куда надо. Компьютерная сеть — ровно эта же идея, только вместо писем данные, а вместо почтальонов коммутаторы и маршрутизаторы.</div></div>
+      </div>
+    </div>
+    <div class="rlist"><div class="cap">Что даёт общая дорога</div><ul>
+      <li><s>01</s>Один порт вместо N<small>подключился — доступен всем</small></li>
+      <li><s>02</s>Легко добавить узел<small>ещё один провод к коммутатору</small></li>
+      <li><s>03</s>Общие ресурсы<small>принтер, диск, интернет-канал</small></li>
+      <li><s>04</s>Управляемость<small>правила задаются в одном месте</small></li>
+    </ul></div>
+  </div>
+  <div class="bot"><span class="rec">Сеть = общая инфраструктура</span><span>Ананко · Качур · VK · TG</span></div>
 </section>
 
 <!-- ===== 1.1 ===== -->
@@ -340,6 +499,59 @@ h2 .hl{color:var(--mag)}
     </div>
   </div>
   <div class="bot"><span>1.2 · Компьютерная сеть</span><span>Ананко · Качур</span></div>
+</section>
+
+<!-- ===== ПАКЕТЫ, УЗЛЫ, РОЛИ ===== -->
+<section class="slide">
+  <span class="bignum"></span>
+  <div class="top"><span class="k"><i></i>1.2 · На пальцах</span><span>Коммутация пакетов</span></div>
+  <div class="mid">
+    <h2>ПОЧЕМУ ДАННЫЕ РЕЖУТ НА <span class="hl">ПАКЕТЫ</span></h2>
+    <div class="steps">
+      <div class="st"><span class="sn">1</span><span class="sx">Большой файл делится на маленькие куски</span><span class="sr">пакеты</span></div>
+      <div class="st"><span class="sn">2</span><span class="sx">К каждому куску приклеивается «конверт» с адресами отправителя и получателя</span><span class="sr">заголовок</span></div>
+      <div class="st"><span class="sn">3</span><span class="sx">Пакеты едут по общим линиям, возможно <b>разными путями</b></span><span class="sr">маршрутизация</span></div>
+      <div class="st"><span class="sn">4</span><span class="sx">На той стороне их складывают обратно по номерам</span><span class="sr">сборка</span></div>
+      <div class="st res"><span class="sn">→</span><span class="sx">Линия не занята одним разговором — по ней едут все сразу</span><span class="sr">общий канал</span></div>
+    </div>
+    <p class="note" style="max-width:none">Аналогия: перевезти шкаф целиком — нужен отдельный грузовик и пустая дорога. Разобрать на детали — детали уедут попутками вперемешку с чужими вещами, а собрать шкаф можно на месте. Именно так интернет и работает.</p>
+  </div>
+  <div class="bot"><span class="rec">Пакеты едут вперемешку по общим линиям</span><span>Ананко · Качур · VK · TG</span></div>
+</section>
+
+<section class="slide">
+  <span class="bignum"></span>
+  <div class="top"><span class="k"><i></i>1.2 · Определения</span><span>Узел и хост</span></div>
+  <div class="mid two">
+    <div style="display:flex;flex-direction:column;gap:clamp(14px,2.4vh,26px)">
+      <h2>УЗЕЛ, ХОСТ, <span class="hl">СЕРВЕР</span>, КЛИЕНТ</h2>
+      <p class="def" style="max-width:32ch">Всё, что подключено к сети и имеет адрес, — это <b>узел</b>. Конечные узлы, с которых работает человек или сервис, называют <b>хостами</b>.</p>
+    </div>
+    <div class="rlist"><div class="cap">Кто есть кто</div><ul>
+      <li><s>УЗЕЛ</s>Node<small>любое подключённое устройство</small></li>
+      <li><s>ХОСТ</s>Host<small>оконечный узел: ПК, телефон, сервер</small></li>
+      <li><s>СЕРВЕР</s>Server<small>предоставляет ресурс или услугу</small></li>
+      <li><s>КЛИЕНТ</s>Client<small>запрашивает и получает услугу</small></li>
+    </ul></div>
+  </div>
+  <div class="bot"><span class="rec">Узел · хост · сервер · клиент</span><span>Ананко · Качур · VK · TG</span></div>
+</section>
+
+<section class="slide">
+  <span class="bignum"></span>
+  <div class="top"><span class="k"><i></i>1.2 · Итог блока</span><span>Что запомнить</span></div>
+  <div class="mid two">
+    <div style="display:flex;flex-direction:column;gap:clamp(14px,2.4vh,26px)">
+      <h2>ИЗ БЛОКА 1.2 <span class="hl">ЗАПОМНИТЬ</span></h2>
+      <p class="def" style="max-width:30ch">Три предложения, которые надо уметь сказать своими словами.</p>
+    </div>
+    <ul class="bul">
+      <li><span class="gn">01</span><span class="gt">Сеть — <b>устройства + ПО + правила</b> для обмена данными</span></li>
+      <li><span class="gn">02</span><span class="gt">Данные едут <b>пакетами</b> по общим линиям</span></li>
+      <li><span class="gn">03</span><span class="gt">У каждого узла есть <b>адрес</b>, иначе доставить некуда</span></li>
+    </ul>
+  </div>
+  <div class="bot"><span class="rec">Итог 1.2</span><span>Ананко · Качур · VK · TG</span></div>
 </section>
 
 <!-- ===== 1.3 ===== -->
@@ -557,6 +769,47 @@ h2 .hl{color:var(--mag)}
   <div class="bot"><span>1.4 · Развитие</span><span>Ананко · Качур</span></div>
 </section>
 
+<!-- ===== ИСТОРИЯ ===== -->
+<section class="slide scroll">
+  <span class="bignum"></span>
+  <div class="top"><span class="k"><i></i>1.4 · История</span><span>Как это выросло</span></div>
+  <div class="mid">
+    <h2>ОТ ДВУХ МАШИН <span class="hl">ДО ИНТЕРНЕТА</span></h2>
+    <div class="tblwrap">
+      <table>
+        <tr><th>Год</th><th>Событие</th><th>Почему это важно</th></tr>
+        <tr class="hot"><td>1969</td><td class="t">Связаны две ЭВМ в Калифорнии, запущена сеть ARPANET</td><td class="t">Первая работающая сеть с коммутацией пакетов — прародитель Интернета</td></tr>
+        <tr><td>1970</td><td class="t">Сеть ALOHAnet на Гавайях</td><td class="t">Показала, что узлы могут делить общую радиосреду</td></tr>
+        <tr><td>1971</td><td class="t">Электронная почта, символ <b>@</b> в адресе</td><td class="t">Появился первый массовый сетевой сервис</td></tr>
+        <tr><td>1972</td><td class="t">Telnet</td><td class="t">Удалённая работа на чужой машине</td></tr>
+        <tr><td>1976</td><td class="t">Ethernet</td><td class="t">Технология, на которой до сих пор стоят локальные сети</td></tr>
+        <tr class="hot"><td>1981</td><td class="t">Стек протоколов <b>TCP/IP</b></td><td class="t">Общий язык, позволивший связать разные сети в одну</td></tr>
+        <tr><td>1984</td><td class="t">Система доменных имён <b>DNS</b></td><td class="t">Имена сайтов вместо цифровых адресов</td></tr>
+        <tr><td>1985</td><td class="t">FTP, протокол Spanning Tree</td><td class="t">Передача файлов и защита сети от петель</td></tr>
+        <tr><td>1990</td><td class="t">Домен .su, позже .ru</td><td class="t">Страна появилась в сети под своим именем</td></tr>
+        <tr class="hot"><td>1991</td><td class="t"><b>World Wide Web</b> в CERN</td><td class="t">Гипертекст и браузер — сеть стала массовой</td></tr>
+        <tr><td>1993</td><td class="t">Графический браузер Mosaic</td><td class="t">Интернет стал понятен обычному пользователю</td></tr>
+      </table>
+    </div>
+    <p class="note" style="max-width:none">Обратите внимание на разрыв: от первой сети до привычного веба прошло <b>больше двадцати лет</b>. Всё это время решались ровно те задачи, которые мы разбираем в курсе: адресация, протоколы, надёжная доставка.</p>
+  </div>
+  <div class="bot"><span class="rec">1969 → 1991: ключевые вехи</span><span>Ананко · Качур · VK · TG</span></div>
+</section>
+
+<section class="slide">
+  <span class="bignum"></span>
+  <div class="top"><span class="k"><i></i>1.4 · История</span><span>Что из этого следует</span></div>
+  <div class="mid">
+    <h2>ТРИ <span class="hl">УРОКА</span> ИЗ ИСТОРИИ</h2>
+    <div class="bento c3">
+      <div class="cell hot"><span class="n">01</span><b>Сеть выросла из задачи</b><p>ARPANET делали не «чтобы было», а чтобы соединить дорогие вычислительные машины и делить их между исследователями.</p></div>
+      <div class="cell vio"><span class="n">02</span><b>Победил общий язык</b><p>Сетей было много и все разные. Объединил их TCP/IP — общий набор правил, а не самая быстрая технология.</p></div>
+      <div class="cell"><span class="n">03</span><b>Удобство решает</b><p>Веб взлетел, когда появился браузер с картинками. Технология без удобного входа остаётся уделом специалистов.</p></div>
+    </div>
+  </div>
+  <div class="bot"><span class="rec">Задача · общий язык · удобство</span><span>Ананко · Качур · VK · TG</span></div>
+</section>
+
 <!-- ===== 1.5 ===== -->
 <!-- ТИПЫ: ЗУМ -->
 <section class="slide" id="tipy">
@@ -720,6 +973,184 @@ h2 .hl{color:var(--mag)}
   <div class="bot"><span>1.6 · Сети в жизни</span><span>Ананко · Качур</span></div>
 </section>
 
+<!-- ===== ТОПОЛОГИИ И ХАРАКТЕРИСТИКИ ===== -->
+<section class="slide" id="topo">
+  <span class="bignum"></span>
+  <div class="top"><span class="k"><i></i>1.5 · Топология</span><span>Физическая и логическая</span></div>
+  <div class="mid two">
+    <div style="display:flex;flex-direction:column;gap:clamp(14px,2.4vh,26px)">
+      <h2>ТОПОЛОГИЯ: <span class="hl">КАК СОЕДИНЕНЫ</span></h2>
+      <p class="def" style="max-width:32ch"><b>Физическая</b> топология — как реально лежат провода и где стоят устройства. <b>Логическая</b> — как по этой схеме идут данные.</p>
+      <div class="more" onclick="this.classList.toggle('open')">
+        <div class="mh"><span class="pl">+</span>Почему они не совпадают</div>
+        <div class="ma"><div>Провода могут расходиться <b>звездой</b> от коммутатора, а данные при этом ходить строго от узла к узлу, как по кольцу. Схема на стене и схема движения — разные документы, и оба нужны.</div></div>
+      </div>
+    </div>
+    <div class="rlist"><div class="cap">Что описывает каждая</div><ul>
+      <li><s>ФИЗ</s>Физическая<small>где розетки, кабели, устройства</small></li>
+      <li><s>ЛОГ</s>Логическая<small>какой узел с каким обменивается и через кого</small></li>
+      <li><s>ОБЕ</s>Нужны вместе<small>по одной чинят кабель, по другой ищут маршрут</small></li>
+    </ul></div>
+  </div>
+  <div class="bot"><span class="rec">Физическая ≠ логическая</span><span>Ананко · Качур · VK · TG</span></div>
+</section>
+
+<section class="slide">
+  <span class="bignum"></span>
+  <div class="top"><span class="k"><i></i>1.5 · Сравнение</span><span>LAN и WAN</span></div>
+  <div class="mid">
+    <h2>ЧЕМ LAN ОТЛИЧАЕТСЯ ОТ <span class="hl">WAN</span></h2>
+    <div class="versus">
+      <div class="vcol a"><h3>LAN · локальная</h3><ul>
+        <li>Небольшая территория: <b>здание, этаж, кампус</b></li>
+        <li>Обычно <b>один владелец</b> — организация или человек</li>
+        <li><b>Высокие скорости</b> внутри и своё оборудование</li>
+        <li>Правила задаёт сам владелец</li>
+      </ul></div>
+      <div class="vs">vs</div>
+      <div class="vcol b"><h3>WAN · глобальная</h3><ul>
+        <li>Большие расстояния: <b>города, страны</b></li>
+        <li>Обычно <b>несколько владельцев</b>, чаще провайдеры связи</li>
+        <li>Скорости ниже, а каналы <b>арендуются</b></li>
+        <li>Соединяет между собой отдельные LAN</li>
+      </ul></div>
+    </div>
+    <p class="note" style="max-width:none">Интернет — это <b>WAN без единого владельца</b>: множество сетей разных операторов, договорившихся об общих правилах передачи данных.</p>
+  </div>
+  <div class="bot"><span class="rec">LAN — своя, WAN — общая</span><span>Ананко · Качур · VK · TG</span></div>
+</section>
+
+<section class="slide" data-init="types">
+  <span class="bignum"></span>
+  <div class="top"><span class="k"><i></i>1.5 · Интерактив</span><span>Какая это сеть</span></div>
+  <div class="mid two">
+    <div class="panelbox hotb">
+      <div class="cap">Выбери ситуацию</div>
+      <div class="row">
+        <button class="btn" onclick="typeSet(0)">Наушники и часы</button>
+        <button class="btn" onclick="typeSet(1)">Ноутбук и телефон</button>
+        <button class="btn pri" onclick="typeSet(2)">Офис на этаже</button>
+        <button class="btn" onclick="typeSet(3)">Университет</button>
+        <button class="btn" onclick="typeSet(4)">Район города</button>
+        <button class="btn" onclick="typeSet(5)">Филиалы в разных странах</button>
+      </div>
+      <p class="small">Тип сети определяется не техникой, а <b>масштабом</b>: до какого расстояния она дотягивается и кто ею владеет.</p>
+    </div>
+    <div class="kv" id="typeOut"></div>
+  </div>
+  <div class="bot"><span>От BAN до WAN — по расстоянию</span><span>Ананко · Качур</span></div>
+</section>
+
+<!-- ===== ВИКТОРИНА, ЗАДАЧНИКИ, ИТОГ ===== -->
+<section class="slide" id="quiz" data-init="quiz">
+  <span class="bignum"></span>
+  <div class="top"><span class="k"><i></i>Интерактив · Викторина</span><span>Проверка на скорость</span></div>
+  <div class="mid">
+    <div class="game">
+      <div class="gtop">
+        <div>
+          <div class="cap">Вопрос</div>
+          <div class="gtarget" id="qzQ" style="font-size:clamp(22px,3.4vw,44px);max-width:22ch;line-height:1.1">Нажми «Старт»</div>
+        </div>
+        <div class="gstat">
+          <div>Верно<b id="qzOk">0</b></div>
+          <div>Всего<b id="qzAll">0</b></div>
+        </div>
+      </div>
+      <div class="row" id="qzBtns"></div>
+      <div class="gmsg" id="qzMsg">Двенадцать вопросов по всей главе. Ошибся — покажу, почему правильный ответ другой.</div>
+      <div class="row"><button class="btn pri" id="qzStart">Старт</button></div>
+    </div>
+  </div>
+  <div class="bot"><span>Кликай вариант ответа</span><span>Ананко · Качур</span></div>
+</section>
+
+<section class="slide scroll" id="zadachnik1">
+  <span class="bignum"></span>
+  <div class="top"><span class="k"><i></i>Задачник · 1</span><span>Понятия</span></div>
+  <div class="mid">
+    <h2>ЗАДАЧНИК · <span class="hl">ПОНЯТИЯ</span></h2>
+    <div class="qawrap">
+      <div class="qa task" onclick="this.classList.toggle('open')"><div class="q">Чем сообщение отличается от информации</div><div class="a">Информация — <b>что</b> передаём (смысл). Сообщение — та же информация, <b>упакованная</b> под конкретный канал: звук, текст, сигнал в проводе.</div></div>
+      <div class="qa task" onclick="this.classList.toggle('open')"><div class="q">Сколько линий нужно 8 узлам «каждый с каждым»</div><div class="a">8·7/2 = <b>28</b> линий. Через коммутатор хватит 8.</div></div>
+      <div class="qa task" onclick="this.classList.toggle('open')"><div class="q">Ноутбук, коммутатор, принтер — что оконечное</div><div class="a">Оконечные — <b>ноутбук и принтер</b>: они источник или получатель данных. Коммутатор промежуточный, он только передаёт дальше.</div></div>
+      <div class="qa task" onclick="this.classList.toggle('open')"><div class="q">Почему интернет относят к WAN</div><div class="a">Он связывает сети на больших расстояниях, между городами и странами, и у него <b>нет единого владельца</b>.</div></div>
+      <div class="qa task" onclick="this.classList.toggle('open')"><div class="q">Сеть в общежитии на одном этаже — это что</div><div class="a"><b>LAN</b>: одно здание, один владелец, своё оборудование.</div></div>
+      <div class="qa task" onclick="this.classList.toggle('open')"><div class="q">Наушники, подключённые к телефону по Bluetooth</div><div class="a">Это <b>PAN</b> — персональная сеть в пределах пары метров. Если устройства на самом человеке (фитнес-браслет, датчики) — говорят о <b>BAN</b>.</div></div>
+      <div class="qa task" onclick="this.classList.toggle('open')"><div class="q">Сеть университета из нескольких корпусов</div><div class="a"><b>CAN</b> — сеть кампуса: несколько зданий на общей территории у одного владельца.</div></div>
+      <div class="qa task" onclick="this.classList.toggle('open')"><div class="q">Прошивка роутера — это ПО?</div><div class="a">Да. К программному обеспечению относятся и приложения, и сервисы, и <b>прошивка</b> внутри сетевых устройств.</div></div>
+      <div class="qa task" onclick="this.classList.toggle('open')"><div class="q">Что такое конвергентная сеть</div><div class="a">Одна сеть, по которой идут <b>голос, видео и данные</b> вместе, вместо трёх отдельных сетей под каждую задачу.</div></div>
+    </div>
+  </div>
+  <div class="bot"><span>Клик по карточке — ответ</span><span>Ананко · Качур</span></div>
+</section>
+
+<section class="slide scroll">
+  <span class="bignum"></span>
+  <div class="top"><span class="k"><i></i>Задачник · 2</span><span>Ситуации</span></div>
+  <div class="mid">
+    <h2>ЗАДАЧНИК · <span class="hl">СИТУАЦИИ</span></h2>
+    <div class="qawrap c2">
+      <div class="qa task" onclick="this.classList.toggle('open')"><div class="q">В офисе 40 сотрудников. Что закупаем и почему</div><div class="a">Это LAN. Нужны: <b>коммутаторы</b> (подключить рабочие места), <b>маршрутизатор</b> с выходом в интернет, кабельная система, точки доступа Wi-Fi для ноутбуков и телефонов, плюс средства защиты. Тянуть провода «каждый с каждым» не нужно — 40 узлов дали бы 780 линий.</div></div>
+      <div class="qa task" onclick="this.classList.toggle('open')"><div class="q">Два офиса в разных городах должны работать как один</div><div class="a">Каждый офис — своя LAN, между ними — канал через провайдера, то есть <b>WAN</b>. Оборудование на стыке — маршрутизаторы; они и решают, что отправлять наружу, а что оставить внутри.</div></div>
+      <div class="qa task" onclick="this.classList.toggle('open')"><div class="q">Файл «раздают» сто человек друг другу без сервера</div><div class="a">Это <b>одноранговая</b> архитектура (P2P): каждый узел одновременно и клиент, и сервер. Дёшево и быстро стартует, но плохо масштабируется и слабо защищено.</div></div>
+      <div class="qa task" onclick="this.classList.toggle('open')"><div class="q">Видеоконференция на 200 сотрудников тормозит</div><div class="a">Смотрим на характеристики канала и на то, какая это сеть: внутри LAN скорости высокие, а наружу через WAN канал арендованный и узкий. Проблема почти всегда на стыке, а не «в интернете вообще».</div></div>
+      <div class="qa task" onclick="this.classList.toggle('open')"><div class="q">Зачем сети стандарты, если всё и так работает</div><div class="a">Стандарты — это договорённости, чтобы оборудование <b>разных производителей</b> понимало друг друга. Без них каждая фирма делала бы свою сеть, несовместимую с соседней. Ровно так и было до TCP/IP.</div></div>
+      <div class="qa task" onclick="this.classList.toggle('open')"><div class="q">Чем протокол отличается от стандарта</div><div class="a">Стандарт — общий документ о том, как всё устроено. Протокол — <b>конкретный набор правил обмена</b>: какие сообщения, в каком порядке, что делать при ошибке. Протоколы описываются в стандартах.</div></div>
+    </div>
+  </div>
+  <div class="bot"><span>Клик по карточке — разбор</span><span>Ананко · Качур</span></div>
+</section>
+
+<section class="slide scroll" id="itog1">
+  <span class="bignum"></span>
+  <div class="top"><span class="k"><i></i>Итог</span><span>Обозначения</span></div>
+  <div class="mid">
+    <h2>СЛОВАРЬ <span class="hl">ГЛАВЫ</span></h2>
+    <div class="tblwrap">
+      <table>
+        <tr><th>Термин</th><th>Что это</th></tr>
+        <tr><td>Связь</td><td class="t">Передача чего-либо от источника к получателю по каналу.</td></tr>
+        <tr><td>Информация</td><td class="t">Сведения, которые снижают неопределённость у получателя.</td></tr>
+        <tr><td>Сообщение</td><td class="t">Информация, оформленная для передачи по конкретному каналу.</td></tr>
+        <tr><td>Компьютерная сеть</td><td class="t">Совокупность устройств, ПО и правил, обеспечивающих обмен данными.</td></tr>
+        <tr><td>Узел</td><td class="t">Любое подключённое к сети устройство с адресом.</td></tr>
+        <tr><td>Хост</td><td class="t">Оконечный узел: компьютер, телефон, сервер.</td></tr>
+        <tr><td>Сервер / клиент</td><td class="t">Тот, кто предоставляет услугу, и тот, кто её запрашивает.</td></tr>
+        <tr><td>Пакет</td><td class="t">Порция данных с заголовком, в которой указаны адреса.</td></tr>
+        <tr><td>Протокол</td><td class="t">Набор правил обмена: какие сообщения, в каком порядке, что делать при ошибке.</td></tr>
+        <tr><td>Стандарт</td><td class="t">Общий документ, чтобы оборудование разных производителей было совместимо.</td></tr>
+        <tr><td>Топология</td><td class="t">Физическая — как проложены линии; логическая — как ходят данные.</td></tr>
+        <tr><td>BAN / PAN</td><td class="t">Сети «вокруг тела» и персональные, единицы метров.</td></tr>
+        <tr><td>LAN / CAN</td><td class="t">Локальная сеть здания и сеть кампуса из нескольких зданий.</td></tr>
+        <tr><td>MAN / WAN</td><td class="t">Сеть города и глобальная сеть между городами и странами.</td></tr>
+        <tr><td>WLAN / SAN</td><td class="t">Беспроводная локальная сеть и сеть хранения данных.</td></tr>
+        <tr><td>Конвергентная сеть</td><td class="t">Одна сеть для голоса, видео и данных.</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="bot"><span class="rec">Словарь главы 01</span><span>Ананко · Качур · VK · TG</span></div>
+</section>
+
+<section class="slide scroll">
+  <span class="bignum"></span>
+  <div class="top"><span class="k"><i></i>Итог</span><span>Коротко</span></div>
+  <div class="mid">
+    <h2>ВОСЕМЬ ФРАЗ — И ГЛАВА <span class="hl">В ГОЛОВЕ</span></h2>
+    <div class="qawrap">
+      <div class="qa" onclick="this.classList.toggle('open')"><div class="q">01 · Связь — это доставка</div><div class="a">Что-то у одного должно оказаться у другого: доставить, без искажений и на понятном языке.</div></div>
+      <div class="qa" onclick="this.classList.toggle('open')"><div class="q">02 · Каждый с каждым не работает</div><div class="a">N·(N−1)/2 линий растёт лавиной. Поэтому подключаются к общей инфраструктуре.</div></div>
+      <div class="qa" onclick="this.classList.toggle('open')"><div class="q">03 · Сеть = устройства + ПО + правила</div><div class="a">Железо без правил обмена бесполезно, правила без железа — тоже.</div></div>
+      <div class="qa" onclick="this.classList.toggle('open')"><div class="q">04 · Данные едут пакетами</div><div class="a">Порезали, подписали адресами, отправили по общим линиям, собрали на месте.</div></div>
+      <div class="qa" onclick="this.classList.toggle('open')"><div class="q">05 · Узлы бывают оконечные и промежуточные</div><div class="a">Одни создают и принимают данные, другие передают их дальше.</div></div>
+      <div class="qa" onclick="this.classList.toggle('open')"><div class="q">06 · Тип сети — это масштаб</div><div class="a">BAN → PAN → LAN → CAN → MAN → WAN: от нескольких сантиметров до всего мира.</div></div>
+      <div class="qa" onclick="this.classList.toggle('open')"><div class="q">07 · Стандарты дают совместимость</div><div class="a">Победил не самый быстрый, а тот, кого понимают все: TCP/IP.</div></div>
+      <div class="qa" onclick="this.classList.toggle('open')"><div class="q">08 · Дальше — по слоям</div><div class="a">Следующие главы разбирают сеть по уровням: адресация, протоколы, физическая передача.</div></div>
+    </div>
+  </div>
+  <div class="bot"><span class="rec">Шпаргалка главы 01</span><span>Ананко · Качур · VK · TG</span></div>
+</section>
+
 <!-- ВОПРОСИКИ -->
 <section class="slide scroll">
   <span class="bignum"></span>
@@ -740,31 +1171,287 @@ h2 .hl{color:var(--mag)}
 
 </div>
 
+<div class="cnt" id="cnt"></div>
 <div class="nav"><button id="prev">‹</button><button id="next">›</button></div>
 
 <script>
+/* ============ ДВИЖОК ============ */
 const slides=[...document.querySelectorAll('.slide')];
 let i=0;const n=slides.length;
 const prog=document.getElementById('prog');
+const cnt=document.getElementById('cnt');
 const pad=x=>String(x).padStart(2,'0');
 slides.forEach((s,j)=>{const b=s.querySelector('.bignum');if(b)b.textContent=pad(j+1)});
+
+const inits={};
+let raf=null;
+function stopAnim(){if(raf){cancelAnimationFrame(raf);raf=null}}
+
 function show(k){
   i=(k+n)%n;
+  stopAnim();
   slides.forEach((s,j)=>s.classList.toggle('on',j===i));
   const sc=slides[i];if(sc)sc.scrollTop=0;
   prog.style.width=(i/(n-1)*100)+'%';
+  if(cnt)cnt.textContent=pad(i+1)+' / '+pad(n);
+  const key=sc&&sc.dataset?sc.dataset.init:null;
+  if(key&&inits[key])inits[key]();
 }
 function showId(id){const el=document.getElementById(id);if(el)show(slides.indexOf(el))}
 document.getElementById('next').onclick=()=>show(i+1);
 document.getElementById('prev').onclick=()=>show(i-1);
 addEventListener('keydown',e=>{
+  const t=e.target.tagName;
+  if(t==='INPUT'||t==='SELECT'||t==='TEXTAREA')return;
   if(['ArrowRight',' ','PageDown'].includes(e.key)){e.preventDefault();show(i+1)}
   if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();show(i-1)}
-  if(e.key==='Home')show(0);if(e.key==='End')show(n-1);
+  if(e.key==='Home')show(0);
+  if(e.key==='End')show(n-1);
 });
 let x0=null,y0=null;
 addEventListener('touchstart',e=>{x0=e.touches[0].clientX;y0=e.touches[0].clientY},{passive:true});
 addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0,dy=e.changedTouches[0].clientY-y0;
   if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy))show(i+(dx<0?1:-1));x0=null});
+
+const PAL={mag:'#ff2e88',vio:'#7a3bea',vio2:'#a884ff',dim:'#9c8fb8',line:'#2c1c42',white:'#efe9f7'};
+function cv(id){
+  const c=document.getElementById(id);if(!c)return null;
+  const w=c.clientWidth||600,h=c.height||360,d=window.devicePixelRatio||1;
+  c.width=w*d;c.style.height=h+'px';c.height=h*d;
+  const g=c.getContext('2d');g.setTransform(d,0,0,d,0,0);g.clearRect(0,0,w,h);
+  return {g:g,w:w,h:h};
+}
+
+/* ============ 1. ПРОВОДА vs СЕТЬ ============ */
+inits.links=function(){
+  const r=document.getElementById('lnR');
+  if(!r)return;
+  r.oninput=()=>lnDraw(+r.value);
+  lnDraw(+r.value);
+};
+function lnDraw(N){
+  const mesh=N*(N-1)/2;
+  document.getElementById('lnN').textContent=N;
+  document.getElementById('lnMesh').textContent=mesh;
+  document.getElementById('lnStar').textContent=N;
+  document.getElementById('lnSave').textContent=(mesh-N)+' линий';
+  const c=cv('lnCv');if(!c)return;
+  const g=c.g,W=c.w,H=c.h;
+  const half=W/2, rad=Math.min(half,H)/2-34;
+  function nodes(cx,cy){
+    const a=[];for(let k=0;k<N;k++){const t=-Math.PI/2+k*2*Math.PI/N;a.push([cx+rad*Math.cos(t),cy+rad*Math.sin(t)])}
+    return a;
+  }
+  // слева: каждый с каждым
+  const A=nodes(half/2,H/2);
+  g.strokeStyle=PAL.vio2;g.globalAlpha=.45;g.lineWidth=1;
+  for(let a=0;a<N;a++)for(let b=a+1;b<N;b++){g.beginPath();g.moveTo(A[a][0],A[a][1]);g.lineTo(A[b][0],A[b][1]);g.stroke()}
+  g.globalAlpha=1;g.fillStyle=PAL.mag;
+  A.forEach(p=>{g.beginPath();g.arc(p[0],p[1],5,0,7);g.fill()});
+  // справа: звезда через коммутатор
+  const B=nodes(half+half/2,H/2), cx=half+half/2, cy=H/2;
+  g.strokeStyle=PAL.mag;g.globalAlpha=.7;
+  B.forEach(p=>{g.beginPath();g.moveTo(cx,cy);g.lineTo(p[0],p[1]);g.stroke()});
+  g.globalAlpha=1;g.fillStyle=PAL.vio2;
+  B.forEach(p=>{g.beginPath();g.arc(p[0],p[1],5,0,7);g.fill()});
+  g.fillStyle=PAL.mag;g.fillRect(cx-11,cy-8,22,16);
+  // подписи
+  g.fillStyle=PAL.dim;g.font='700 11px "Space Mono",monospace';
+  g.textAlign='center';
+  g.fillText('КАЖДЫЙ С КАЖДЫМ · '+mesh+' ЛИНИЙ',half/2,H-10);
+  g.fillText('ЧЕРЕЗ КОММУТАТОР · '+N+' ЛИНИЙ',half+half/2,H-10);
+  g.fillText('узлы N = '+N,half/2,16);
+  g.fillText('узлы N = '+N,half+half/2,16);
+  g.textAlign='left';
+  g.strokeStyle=PAL.line;g.beginPath();g.moveTo(half,20);g.lineTo(half,H-24);g.stroke();
+}
+
+/* ============ 2. КАКАЯ ЭТО СЕТЬ ============ */
+const TYPES=[
+ {t:'BAN',n:'Сеть вокруг тела',d:'сантиметры — 1–2 метра',ex:'фитнес-браслет, наушники, медицинские датчики',w:'один человек',tech:'Bluetooth и подобные маломощные каналы'},
+ {t:'PAN',n:'Персональная сеть',d:'до нескольких метров',ex:'телефон, ноутбук, колонка на столе',w:'один пользователь',tech:'Bluetooth, Wi-Fi Direct, кабель'},
+ {t:'LAN',n:'Локальная сеть',d:'здание или этаж',ex:'офис, квартира, компьютерный класс',w:'одна организация или человек',tech:'Ethernet, Wi-Fi (тогда это WLAN)'},
+ {t:'CAN',n:'Сеть кампуса',d:'несколько зданий рядом',ex:'университет, завод, больничный городок',w:'одна организация',tech:'связка LAN оптикой между корпусами'},
+ {t:'MAN',n:'Сеть города',d:'город и окрестности',ex:'сеть оператора в пределах города',w:'обычно провайдер',tech:'оптические магистрали, беспроводные каналы'},
+ {t:'WAN',n:'Глобальная сеть',d:'страны и континенты',ex:'филиалы в разных странах, сам Интернет',w:'много владельцев, чаще провайдеры',tech:'арендованные каналы связи'}
+];
+inits.types=function(){typeSet(2)};
+function typeSet(k){
+  const o=document.getElementById('typeOut');if(!o)return;
+  const t=TYPES[k];
+  o.innerHTML=
+    '<span class="k">Тип</span><span class="v m">'+t.t+'</span>'+
+    '<span class="k">Название</span><span class="v">'+t.n+'</span>'+
+    '<span class="k">Масштаб</span><span class="v">'+t.d+'</span>'+
+    '<span class="k">Примеры</span><span class="v">'+t.ex+'</span>'+
+    '<span class="k">Владелец</span><span class="v">'+t.w+'</span>'+
+    '<span class="k">Чем строят</span><span class="v">'+t.tech+'</span>';
+}
+
+/* ============ 3. ВИКТОРИНА ============ */
+const QZ=[
+ {q:'Сеть офиса на одном этаже — это…',a:['LAN','WAN'],ok:0,why:'Одно здание и один владелец — локальная сеть.'},
+ {q:'Каналы арендуются у провайдера, расстояние между городами:',a:['LAN','WAN'],ok:1,why:'Большие расстояния и несколько владельцев — глобальная сеть.'},
+ {q:'Коммутатор — это узел…',a:['оконечный','промежуточный'],ok:1,why:'Он не источник и не получатель данных, он передаёт их дальше.'},
+ {q:'Принтер в сети — это узел…',a:['оконечный','промежуточный'],ok:0,why:'Он конечная точка: получает задание на печать.'},
+ {q:'Кухня готовит для всех гостей — это архитектура…',a:['клиент-сервер','одноранговая'],ok:0,why:'Есть выделенный поставщик услуги — сервер.'},
+ {q:'Каждый узел и раздаёт, и качает — это…',a:['клиент-сервер','одноранговая'],ok:1,why:'P2P: узел одновременно и клиент, и сервер.'},
+ {q:'Фитнес-браслет и наушники на человеке:',a:['BAN','MAN'],ok:0,why:'Сеть вокруг тела, дальность — сантиметры и метры.'},
+ {q:'Университет из пяти корпусов:',a:['CAN','PAN'],ok:0,why:'Сеть кампуса: несколько зданий одного владельца.'},
+ {q:'Информация — это…',a:['смысл, снижающий неопределённость','упаковка под канал'],ok:0,why:'Упаковка под канал — это уже сообщение.'},
+ {q:'TCP/IP — это…',a:['модель, придуманная для учебников','рабочий стек протоколов Интернета'],ok:1,why:'OSI — эталонная модель для понимания, TCP/IP — то, на чём всё работает.'},
+ {q:'Голос, видео и данные в одной сети — это сеть…',a:['конвергентная','одноранговая'],ok:0,why:'Конвергенция — схождение разных видов трафика в одну сеть.'},
+ {q:'Восьми узлам «каждый с каждым» нужно линий:',a:['8','28'],ok:1,why:'8·7/2 = 28. Через коммутатор хватило бы восьми.'}
+];
+let qzI=0,qzOk=0,qzAll=0,qzRun=false;
+inits.quiz=function(){
+  const b=document.getElementById('qzStart');
+  if(!b)return;
+  b.onclick=qzStart;
+  qzRun=false;
+  document.getElementById('qzQ').textContent='Нажми «Старт»';
+  document.getElementById('qzBtns').innerHTML='';
+};
+function qzStart(){
+  qzI=0;qzOk=0;qzAll=0;qzRun=true;
+  document.getElementById('qzOk').textContent='0';
+  document.getElementById('qzAll').textContent='0';
+  qzShow();
+}
+function qzShow(){
+  const box=document.getElementById('qzBtns');
+  if(qzI>=QZ.length){
+    document.getElementById('qzQ').textContent='Готово!';
+    box.innerHTML='';
+    const m=document.getElementById('qzMsg');
+    m.className='gmsg ok';
+    m.textContent='Результат: '+qzOk+' из '+QZ.length+(qzOk===QZ.length?' — идеально.':'. Нажми «Старт», чтобы пройти ещё раз.');
+    qzRun=false;return;
+  }
+  const it=QZ[qzI];
+  document.getElementById('qzQ').textContent=it.q;
+  box.innerHTML='';
+  it.a.forEach((txt,k)=>{
+    const b=document.createElement('button');
+    b.className='btn'+(k===0?' pri':'');
+    b.textContent=txt;
+    b.onclick=()=>qzAnswer(k);
+    box.appendChild(b);
+  });
+}
+function qzAnswer(k){
+  if(!qzRun)return;
+  const it=QZ[qzI],m=document.getElementById('qzMsg');
+  qzAll++;
+  if(k===it.ok){qzOk++;m.className='gmsg ok';m.textContent='Верно. '+it.why}
+  else{m.className='gmsg bad';m.textContent='Нет. Правильный ответ: «'+it.a[it.ok]+'». '+it.why}
+  document.getElementById('qzOk').textContent=qzOk;
+  document.getElementById('qzAll').textContent=qzAll;
+  qzI++;
+  setTimeout(()=>{if(qzRun)qzShow()},1400);
+}
+
 show(0);
 </script>
+<!-- ============================================================
+     МОДУЛЬ РЕДАКТОРА И РИСОВАНИЯ
+     Вставить целиком в конец страницы, после основного скрипта движка.
+     Зависит только от наличия элементов .slide и .slide.on.
+     Без внешних библиотек, без localStorage (пометки живут в памяти).
+     Горячие клавиши:  D — рисовать,  E — править текст,
+                       C — стереть пометки слайда,  [ ] — толщина,
+                       1..5 — цвет пера.
+     ============================================================ -->
+<style>
+  #drawbar{position:fixed; left:clamp(16px,4vw,40px); bottom:46px; z-index:30;
+    display:flex; gap:6px; align-items:center; padding:6px 8px; border-radius:10px;
+    background:rgba(20,20,30,.6); backdrop-filter:blur(6px);
+    border:1px solid var(--hair-strong,rgba(255,255,255,.25)); font-family:var(--mono,monospace);
+    opacity:.4; transition:opacity .2s;}
+  #drawbar:hover{opacity:1;}
+  #drawbar button{width:30px; height:30px; border-radius:7px; cursor:pointer;
+    border:1px solid var(--hair,rgba(255,255,255,.15)); background:transparent;
+    color:var(--white,#efe9f7); font-size:.85rem; display:flex; align-items:center; justify-content:center;}
+  #drawbar button.on{background:var(--mag,#ff2e88); color:var(--ink,#0b0710); border-color:var(--mag,#ff2e88);}
+  #drawbar .sw{width:18px; height:18px; border-radius:50%; border:2px solid transparent; cursor:pointer;}
+  #drawbar .sw.on{border-color:var(--wheat,#fff);}
+  #annotateCv{position:fixed; inset:0; z-index:25; pointer-events:none; touch-action:none; background:transparent; border:0;}
+  #annotateCv.live{pointer-events:auto; cursor:crosshair;}
+  .slide.editing .wrap{outline:1px dashed var(--mag,#ff2e88); outline-offset:8px;}
+</style>
+<canvas id="annotateCv"></canvas>
+<div id="drawbar">
+  <button id="btnDraw" title="Рисовать (D)">✎</button>
+  <button id="btnEdit" title="Править текст (E)">T</button>
+  <span class="sw on" data-c="var(--terra)" style="background:var(--mag,#ff2e88)"></span>
+  <span class="sw" data-c="var(--cyan)" style="background:var(--vio2,#a884ff)"></span>
+  <span class="sw" data-c="var(--wheat)" style="background:var(--white,#efe9f7)"></span>
+  <span class="sw" data-c="#e54" style="background:#e54"></span>
+  <button id="btnErase" title="Ластик">⌫</button>
+  <button id="btnClear" title="Стереть слайд (C)">✕</button>
+</div>
+<script>
+(function(){
+  const cvs = document.getElementById('annotateCv');
+  const ctx = cvs.getContext('2d');
+  const allSlides = [...document.querySelectorAll('.slide')];
+  const strokesBySlide = new Map();      // index -> [ {color,width,erase,pts:[{x,y}...]} ]  (x,y нормированы 0..1)
+  let drawMode=false, editMode=false, erase=false, color='var(--terra)', width=3, drawing=false, cur0=0;
+
+  function activeIndex(){ const a=document.querySelector('.slide.on'); return Math.max(0, allSlides.indexOf(a)); }
+  function resize(){ const dpr=window.devicePixelRatio||1; cvs.width=innerWidth*dpr; cvs.height=innerHeight*dpr; ctx.setTransform(dpr,0,0,dpr,0,0); redraw(); }
+  function resolve(c){ if(!c.startsWith('var(')) return c; const name=c.slice(4,-1).trim(); return getComputedStyle(document.documentElement).getPropertyValue(name).trim()||'#d98'; }
+  function redraw(){
+    ctx.clearRect(0,0,innerWidth,innerHeight);
+    const list = strokesBySlide.get(activeIndex())||[];
+    for(const s of list){
+      ctx.globalCompositeOperation = s.erase ? 'destination-out' : 'source-over';
+      ctx.strokeStyle=resolve(s.color); ctx.lineWidth=s.width; ctx.lineCap='round'; ctx.lineJoin='round';
+      ctx.beginPath();
+      s.pts.forEach((p,i)=>{ const x=p.x*innerWidth, y=p.y*innerHeight; i?ctx.lineTo(x,y):ctx.moveTo(x,y); });
+      ctx.stroke();
+    }
+    ctx.globalCompositeOperation='source-over';
+  }
+  // следим за сменой активного слайда
+  new MutationObserver(()=>{ const i=activeIndex(); if(i!==cur0){ cur0=i; if(editMode) setEdit(false); redraw(); } })
+    .observe(document.querySelector('.deck')||document.body, {subtree:true, attributes:true, attributeFilter:['class']});
+
+  function setDraw(v){ drawMode=v; cvs.classList.toggle('live',v); document.getElementById('btnDraw').classList.toggle('on',v); if(v&&editMode) setEdit(false); }
+  function setEdit(v){
+    editMode=v; document.getElementById('btnEdit').classList.toggle('on',v);
+    const a=document.querySelector('.slide.on'); if(!a) return;
+    const wrap=a.querySelector('.wrap')||a; wrap.contentEditable = v?'true':'false'; a.classList.toggle('editing',v);
+    if(v){ if(drawMode) setDraw(false); wrap.focus(); }
+  }
+  function pt(e){ const t=e.touches?e.touches[0]:e; return {x:t.clientX/innerWidth, y:t.clientY/innerHeight}; }
+  function start(e){ if(!drawMode) return; e.preventDefault(); drawing=true;
+    const list=strokesBySlide.get(activeIndex())||[]; list.push({color,width,erase,pts:[pt(e)]}); strokesBySlide.set(activeIndex(),list); }
+  function move(e){ if(!drawMode||!drawing) return; e.preventDefault();
+    const list=strokesBySlide.get(activeIndex()); list[list.length-1].pts.push(pt(e)); redraw(); }
+  function end(){ drawing=false; }
+
+  cvs.addEventListener('pointerdown',start); cvs.addEventListener('pointermove',move);
+  addEventListener('pointerup',end); addEventListener('resize',resize);
+  document.getElementById('btnDraw').onclick=()=>setDraw(!drawMode);
+  document.getElementById('btnEdit').onclick=()=>setEdit(!editMode);
+  document.getElementById('btnErase').onclick=function(){ erase=!erase; this.classList.toggle('on',erase); if(erase&&!drawMode) setDraw(true); };
+  document.getElementById('btnClear').onclick=()=>{ strokesBySlide.set(activeIndex(),[]); redraw(); };
+  [...document.querySelectorAll('#drawbar .sw')].forEach(sw=>sw.onclick=function(){
+    document.querySelectorAll('#drawbar .sw').forEach(s=>s.classList.remove('on')); this.classList.add('on');
+    color=this.dataset.c; erase=false; document.getElementById('btnErase').classList.remove('on'); if(!drawMode) setDraw(true);
+  });
+  addEventListener('keydown',e=>{
+    if(e.target.isContentEditable) { if(e.key==='Escape') setEdit(false); return; }
+    const k=e.key.toLowerCase();
+    if(k==='d'){ setDraw(!drawMode); }
+    else if(k==='e'){ setEdit(!editMode); }
+    else if(k==='c'){ strokesBySlide.set(activeIndex(),[]); redraw(); }
+    else if(k==='['){ width=Math.max(1,width-1); }
+    else if(k===']'){ width=Math.min(24,width+1); }
+    else if('12345'.includes(k)){ const sw=document.querySelectorAll('#drawbar .sw')[+k-1]; if(sw) sw.click(); }
+  }, true);
+  resize();
+})();
+</script>
+
