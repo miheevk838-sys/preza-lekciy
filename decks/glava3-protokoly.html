@@ -43,7 +43,7 @@ b,strong{font-weight:900}
   clip-path:polygon(50% 0,63% 37%,100% 50%,63% 63%,50% 100%,37% 63%,0 50%,37% 37%)}
 .bullets.dark li::before{background:var(--blue)}
 .steps{list-style:none;display:grid;gap:20px;counter-reset:s}
-.steps li{position:relative;padding-left:78px;font-family:var(--fb);line-height:1.32;min-height:56px;display:flex;align-items:center}
+.steps li{position:relative;padding-left:78px;font-family:var(--fb);line-height:1.34;min-height:52px;padding-top:6px}
 .steps li::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:0;width:56px;height:56px;
   border-radius:50%;background:var(--blue);color:#fff;font-family:var(--fd);font-weight:700;font-size:32px;
   display:grid;place-items:center}
@@ -128,7 +128,7 @@ svg .rough{filter:url(#rough)}
 </svg>
 
 <div id="stage"><div class="deck" id="deck">
-<section class="slide bg-blue on-blue" data-c>
+<section class="slide bg-blue on-blue">
   <svg class="doodle" style="left:-140px;bottom:-160px;width:820px;height:680px;opacity:.14" viewBox="0 0 600 500" preserveAspectRatio="none"><path d="M60,180 C40,80 160,20 300,30 C460,40 590,70 560,220 C540,340 590,470 420,470 C280,470 120,500 70,400 C30,320 80,270 60,180 Z" fill="var(--white)"/></svg>
   <svg class="doodle" style="right:120px;top:120px;width:150px;transform:rotate(-12deg)" viewBox="0 0 100 100"><use href="#spark" fill="var(--yellow)"/></svg>
   <svg class="doodle" style="left:70px;top:360px;width:110px;transform:rotate(8deg)" viewBox="0 0 100 100"><path d="M50 2 L60 40 L98 50 L60 60 L50 98 L40 60 L2 50 L40 40 Z" fill="none" stroke="var(--yellow)" stroke-width="6" stroke-linejoin="round"/></svg>
@@ -144,10 +144,9 @@ svg .rough{filter:url(#rough)}
 <section class="slide bg-white on-white">
   <div class="tophint">о чём эта глава</div>
   <svg class="doodle" style="right:130px;top:110px;width:120px;transform:rotate(14deg)" viewBox="0 0 100 100"><use href="#spark" fill="var(--yellow)"/></svg>
-  <svg class="doodle" style="right:-220px;bottom:-200px;width:700px;height:560px;opacity:.06" viewBox="0 0 600 500" preserveAspectRatio="none"><path d="M60,180 C40,80 160,20 300,30 C460,40 590,70 560,220 C540,340 590,470 420,470 C280,470 120,500 70,400 C30,320 80,270 60,180 Z" fill="var(--blue)"/></svg>
   <div class="pad" style="display:flex;flex-direction:column;justify-content:center">
-    <h2 class="h-d h-md blue" style="margin-bottom:54px">ТРИ ВОПРОСА<br>ЭТОЙ ГЛАВЫ</h2>
-    <ul class="steps b-xl ink" style="max-width:30ch">
+    <h2 class="h-d h-md blue" style="margin-bottom:54px">ТРИ ВОПРОСА ЭТОЙ ГЛАВЫ</h2>
+    <ul class="steps b-xl ink" style="max-width:40ch;gap:34px">
       <li>Какие <b>правила обмена</b> сообщениями нужны устройствам</li>
       <li>Какими бывают <b>способы рассылки</b> — одному, группе, всем</li>
       <li>Как устроены <b>сетевые модели</b> и протоколы — OSI и TCP/IP</li>
@@ -169,7 +168,7 @@ svg .rough{filter:url(#rough)}
 
 <section class="slide bg-white on-white">
   <div class="tophint">1.1 · зачем правила</div>
-  <div class="pad g2a" style="top:70px">
+  <div class="pad g2a" style="top:80px">
     <div class="col">
       <h2 class="h-d h-sm blue" style="margin-bottom:30px">МАЛО ОБЩЕГО ЯЗЫКА —<br>НУЖНЫ ПРАВИЛА РАЗГОВОРА</h2>
       <p class="body b-md ink" style="max-width:34ch;margin-bottom:26px">Сети придуманы ради одной вещи — <b>обмена данными</b>. Чтобы разговор состоялся, двум собеседникам мало общего языка. Нужны негласные правила:</p>
@@ -179,10 +178,7 @@ svg .rough{filter:url(#rough)}
         <li>что делать, если фразу заглушил шум</li>
       </ul>
     </div>
-    <div class="card analogy b-lg">
-      <span class="tag">Аналогия</span>
-      Один говорит по-русски, другой отвечает азбукой Морзе в темноте — обмена не выйдет, даже если оба очень хотят пообщаться.
-    </div>
+    <div class="card analogy b-lg"><span class="tag">Аналогия</span>Один говорит по-русски, другой отвечает азбукой Морзе в темноте — обмена не выйдет, даже если оба очень хотят пообщаться.</div>
   </div>
 </section>
 
@@ -203,25 +199,19 @@ svg .rough{filter:url(#rough)}
   <div class="tophint">1.1 · стандарты</div>
   <div class="pad" style="top:60px">
     <h2 class="h-d h-sm blue" style="margin-bottom:16px">ПОЧЕМУ ПОБЕДИЛИ СТАНДАРТЫ</h2>
-    <p class="body b-md ink" style="max-width:52ch;margin-bottom:20px">Сеть по определению соединяет устройства <b>разных производителей</b>. Если бы каждый вендор говорил на своём диалекте, единого интернета не было бы. Стандарт — решение проблемы «вавилонского смешения»: договорились один раз и глобально.</p>
+    <p class="body b-md ink" style="max-width:60ch;margin-bottom:20px">Сеть по определению соединяет устройства <b>разных производителей</b>. Если бы каждый вендор говорил на своём диалекте, единого интернета не было бы. Стандарт — решение проблемы «вавилонского смешения»: договорились один раз и глобально.</p>
     <svg viewBox="0 0 1680 470" style="width:100%;height:520px">
       <g class="rough" fill="none" stroke="var(--blue)" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
-        <!-- стандарт: связь есть -->
-        <rect x="70" y="150" width="230" height="170" rx="26"/>
-        <rect x="740" y="150" width="230" height="170" rx="26"/>
-        <path d="M300 235 L740 235"/>
-        <rect x="410" y="196" width="220" height="80" rx="24" fill="var(--yellow)" stroke="var(--ink)"/>
+        <rect x="70" y="150" width="230" height="170" rx="26"/><rect x="740" y="150" width="230" height="170" rx="26"/>
+        <path d="M300 235 L740 235"/><rect x="410" y="196" width="220" height="80" rx="24" fill="var(--yellow)" stroke="var(--ink)"/>
       </g>
       <text x="185" y="245" text-anchor="middle" class="lab">Вендор A</text>
       <text x="855" y="245" text-anchor="middle" class="lab">Вендор B</text>
       <text x="520" y="243" text-anchor="middle" class="lab-s">стандартный протокол</text>
       <text x="520" y="120" text-anchor="middle" class="lab" fill="var(--blue)">СВЯЗЬ УСТАНОВЛЕНА</text>
-      <!-- разнобой: связи нет -->
       <g class="rough" fill="none" stroke="#9aa0c8" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
-        <rect x="1120" y="150" width="200" height="150" rx="24"/>
-        <rect x="1470" y="150" width="200" height="150" rx="24"/>
-        <path d="M1330 300 L1460 175" stroke="#d24" stroke-width="8"/>
-        <path d="M1460 300 L1330 175" stroke="#d24" stroke-width="8"/>
+        <rect x="1120" y="150" width="200" height="150" rx="24"/><rect x="1470" y="150" width="200" height="150" rx="24"/>
+        <path d="M1330 300 L1460 175" stroke="#d24" stroke-width="8"/><path d="M1460 300 L1330 175" stroke="#d24" stroke-width="8"/>
       </g>
       <text x="1220" y="240" text-anchor="middle" class="lab-s" fill="#6b6f97">свой язык</text>
       <text x="1570" y="240" text-anchor="middle" class="lab-s" fill="#6b6f97">свой язык</text>
@@ -231,115 +221,170 @@ svg .rough{filter:url(#rough)}
 </section>
 
 <section class="slide bg-white on-white">
-  <div class="tophint">1.1 · условия доставки</div>
-  <svg class="doodle" style="right:120px;top:120px;width:100px;transform:rotate(10deg)" viewBox="0 0 100 100"><path d="M50 2 L60 40 L98 50 L60 60 L50 98 L40 60 L2 50 L40 40 Z" fill="none" stroke="var(--yellow)" stroke-width="6" stroke-linejoin="round"/></svg>
-  <div class="pad" style="top:70px">
-    <h2 class="h-d h-sm blue" style="margin-bottom:14px">ПЯТЬ УСЛОВИЙ, ЧТОБЫ СООБЩЕНИЕ ДОШЛО</h2>
-    <p class="body b-sm ink" style="opacity:.75;margin-bottom:34px">Симметрия: 1–2 — про отправителя, 3 — про путь, 4–5 — про получателя.</p>
-    <div class="g3" style="align-items:stretch">
-      <div class="card" style="border-radius:26px;padding:32px 34px">
-        <div class="kick blue" style="font-size:34px;margin-bottom:8px">Отправитель</div>
-        <ul class="steps b-sm ink" style="gap:14px">
+  <div class="tophint">1.1 · условия доставки · 1 из 2</div>
+  <div class="pad" style="top:80px">
+    <h2 class="h-d h-sm blue" style="margin-bottom:10px">ПЯТЬ УСЛОВИЙ, ЧТОБЫ СООБЩЕНИЕ ДОШЛО</h2>
+    <p class="body b-sm ink" style="opacity:.75;margin-bottom:40px">Симметрия: 1–2 — про отправителя, 3 — про путь, 4–5 — про получателя.</p>
+    <div class="g2" style="align-items:stretch">
+      <div class="card" style="border-radius:26px;padding:40px 44px">
+        <div class="kick blue" style="font-size:40px;margin-bottom:16px">Отправитель</div>
+        <ul class="steps b-md ink">
           <li>Знает, <b>кому</b> отправляет — может однозначно опознать получателя</li>
           <li>Имеет <b>возможность</b> отправить: превратит сообщение в сигналы, при нужде разобьёт на части</li>
         </ul>
       </div>
-      <div class="card analogy" style="border-radius:26px;padding:32px 34px">
-        <div class="kick" style="font-size:34px;margin-bottom:8px">Путь</div>
-        <ul class="steps b-sm ink" style="gap:14px;counter-reset:s 2">
-          <li>Сеть отправителя принимает сигналы и <b>передаёт дальше</b> — к получателю или в соседнюю сеть</li>
-        </ul>
-      </div>
-      <div class="card" style="border-radius:26px;padding:32px 34px">
-        <div class="kick blue" style="font-size:34px;margin-bottom:8px">Получатель</div>
-        <ul class="steps b-sm ink" style="gap:14px;counter-reset:s 3">
-          <li>Сеть получателя превращает сообщение в <b>понятные</b> ему сигналы (те же протоколы)</li>
-          <li>Устройство получателя <b>расшифровывает</b>, собирает из частей и показывает в приложении</li>
+      <div class="card analogy" style="border-radius:26px;padding:40px 44px">
+        <div class="kick" style="font-size:40px;margin-bottom:16px">Путь</div>
+        <ul class="steps b-md ink" style="counter-reset:s 2">
+          <li>Сеть отправителя <b>принимает</b> сигналы и передаёт дальше — к получателю или в соседнюю сеть по направлению к нему</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
+<section class="slide bg-white on-white">
+  <div class="tophint">1.1 · условия доставки · 2 из 2</div>
+  <div class="pad" style="top:110px">
+    <h2 class="h-d h-sm blue" style="margin-bottom:40px">…И НА СТОРОНЕ ПОЛУЧАТЕЛЯ</h2>
+    <div class="g2" style="align-items:stretch">
+      <div class="card" style="border-radius:26px;padding:40px 44px">
+        <div class="kick blue" style="font-size:40px;margin-bottom:16px">Сеть получателя</div>
+        <ul class="steps b-md ink" style="counter-reset:s 3">
+          <li>Превращает сообщение в <b>понятные</b> устройству сигналы — если работает на тех же протоколах</li>
+        </ul>
+      </div>
+      <div class="card" style="border-radius:26px;padding:40px 44px">
+        <div class="kick blue" style="font-size:40px;margin-bottom:16px">Устройство получателя</div>
+        <ul class="steps b-md ink" style="counter-reset:s 4">
+          <li>Принимает сигналы, <b>расшифровывает</b>, при нужде собирает из частей и показывает в приложении</li>
+        </ul>
+      </div>
+    </div>
+    <p class="note-hand" style="margin-top:34px">отправитель → сеть → получатель — эту тройку встретим снова и снова</p>
+  </div>
+</section>
+
 <section class="slide bg-blue on-blue">
-  <div class="tophint">раздел 2 · задачи протоколов</div>
-  <div class="pad" style="top:60px">
-    <h2 class="h-d h-sm" style="margin-bottom:20px">ЧЕТЫРЕ ЗАДАЧИ <span class="yl">ПРОТОКОЛОВ</span></h2>
-    <svg viewBox="0 0 1680 640" style="width:100%;height:700px">
+  <svg class="doodle" style="right:-160px;top:-160px;width:760px;height:620px;opacity:.13" viewBox="0 0 600 500" preserveAspectRatio="none"><path d="M60,180 C40,80 160,20 300,30 C460,40 590,70 560,220 C540,340 590,470 420,470 C280,470 120,500 70,400 C30,320 80,270 60,180 Z" fill="var(--white)"/></svg>
+  <svg class="doodle" style="left:120px;bottom:150px;width:140px;transform:rotate(-10deg)" viewBox="0 0 100 100"><use href="#spark" fill="var(--yellow)"/></svg>
+  <svg class="doodle" style="right:220px;bottom:240px;width:120px;transform:rotate(12deg)" viewBox="0 0 100 100"><path d="M50 2 L60 40 L98 50 L60 60 L50 98 L40 60 L2 50 L40 40 Z" fill="none" stroke="var(--yellow)" stroke-width="6" stroke-linejoin="round"/></svg>
+  <div class="pad" style="display:flex;flex-direction:column;justify-content:center">
+    <div class="h-d" style="font-size:190px;color:rgba(255,255,255,.18);line-height:.8">2</div>
+    <div class="kick yellowt" style="margin:10px 0 14px">раздел 2</div>
+    <h2 class="h-d h-lg">ЧЕТЫРЕ ЗАДАЧИ<br>ПРОТОКОЛОВ</h2>
+    <div class="body b-lg" style="margin-top:26px;opacity:.9;max-width:26ch">Кодирование, форматирование, размер и параметры доставки.</div>
+  </div>
+</section>
+
+<section class="slide bg-blue on-blue">
+  <div class="tophint">2.0 · задачи протоколов</div>
+  <div class="pad" style="top:70px">
+    <h2 class="h-d h-sm" style="margin-bottom:20px">ЧТО ДЕЛАЮТ <span class="yl">ПРОТОКОЛЫ</span></h2>
+    <svg viewBox="0 0 1680 640" style="width:100%;height:680px">
       <g class="rough">
         <circle cx="840" cy="320" r="150" fill="var(--yellow)" stroke="var(--ink)" stroke-width="7"/>
         <g stroke="var(--white)" stroke-width="7" fill="none" stroke-linecap="round">
-          <path d="M690 250 L360 150"/><path d="M690 390 L360 490"/>
-          <path d="M990 250 L1320 150"/><path d="M990 390 L1320 490"/>
+          <path d="M690 250 L360 150"/><path d="M690 390 L360 490"/><path d="M990 250 L1320 150"/><path d="M990 390 L1320 490"/>
         </g>
         <g fill="var(--white)" stroke="var(--white)" stroke-width="7">
-          <rect x="70" y="90" width="300" height="130" rx="24"/>
-          <rect x="70" y="430" width="300" height="130" rx="24"/>
-          <rect x="1310" y="90" width="300" height="130" rx="24"/>
-          <rect x="1310" y="430" width="300" height="130" rx="24"/>
+          <rect x="70" y="90" width="300" height="130" rx="24"/><rect x="70" y="430" width="300" height="130" rx="24"/>
+          <rect x="1310" y="90" width="300" height="130" rx="24"/><rect x="1310" y="430" width="300" height="130" rx="24"/>
         </g>
       </g>
       <text x="840" y="332" text-anchor="middle" class="h-d" style="font-size:44px" fill="var(--ink)">Прото&#8203;колы</text>
-      <text x="220" y="150" text-anchor="middle" class="lab" fill="var(--blue)">Кодирование</text>
-      <text x="220" y="182" text-anchor="middle" class="lab" fill="var(--blue)">сообщения</text>
-      <text x="220" y="490" text-anchor="middle" class="lab" fill="var(--blue)">Форматирование</text>
-      <text x="220" y="522" text-anchor="middle" class="lab" fill="var(--blue)">и инкапсуляция</text>
-      <text x="1460" y="165" text-anchor="middle" class="lab" fill="var(--blue)">Размер</text>
-      <text x="1460" y="197" text-anchor="middle" class="lab" fill="var(--blue)">сообщения</text>
-      <text x="1460" y="490" text-anchor="middle" class="lab" fill="var(--blue)">Параметры</text>
-      <text x="1460" y="522" text-anchor="middle" class="lab" fill="var(--blue)">доставки</text>
+      <text x="220" y="150" text-anchor="middle" class="lab" fill="var(--blue)">Кодирование</text><text x="220" y="182" text-anchor="middle" class="lab" fill="var(--blue)">сообщения</text>
+      <text x="220" y="490" text-anchor="middle" class="lab" fill="var(--blue)">Форматирование</text><text x="220" y="522" text-anchor="middle" class="lab" fill="var(--blue)">и инкапсуляция</text>
+      <text x="1460" y="165" text-anchor="middle" class="lab" fill="var(--blue)">Размер</text><text x="1460" y="197" text-anchor="middle" class="lab" fill="var(--blue)">сообщения</text>
+      <text x="1460" y="490" text-anchor="middle" class="lab" fill="var(--blue)">Параметры</text><text x="1460" y="522" text-anchor="middle" class="lab" fill="var(--blue)">доставки</text>
     </svg>
   </div>
 </section>
 
 <section class="slide bg-white on-white">
   <div class="tophint">2.1 · кодирование</div>
-  <div class="pad g2a" style="top:70px">
+  <div class="pad g2a" style="top:80px">
     <div class="col">
-      <h2 class="h-d h-sm blue" style="margin-bottom:26px">КОДИРОВАНИЕ:<br>ТЕКСТ → КОД → ИМПУЛЬСЫ</h2>
+      <h2 class="h-d h-sm blue" style="margin-bottom:26px">ТЕКСТ → КОД → ИМПУЛЬСЫ</h2>
       <p class="body b-md ink" style="max-width:34ch;margin-bottom:22px">Устройствам удобнее всего <b>двоичный</b> код: в основе электроники — «есть напряжение / нет», «есть свет / нет». Два состояния идеально ложатся на 0 и 1.</p>
       <p class="body b-md ink" style="max-width:34ch">Но одного двоичного мало: под каждую среду нули и единицы перекодируют заново. Кодирование — это <b>цепочка</b>:</p>
       <div class="note-hand" style="margin-top:18px">текст → двоичный код → импульсы</div>
     </div>
-    <div class="card analogy b-lg">
-      <span class="tag">Аналогия</span>
-      Переводчик-многостаночник: сначала переводит смысл в буквы, потом буквы — в азбуку Морзе, а если связь по свету — в световые вспышки. Каждый «перевод» — под свою среду.
-    </div>
+    <div class="card analogy b-lg"><span class="tag">Аналогия</span>Переводчик-многостаночник: сначала переводит смысл в буквы, потом буквы — в азбуку Морзе, а если связь по свету — в световые вспышки. Каждый «перевод» — под свою среду.</div>
   </div>
 </section>
 
 <section class="slide bg-blue on-blue">
   <div class="tophint">2.1 · модуляция</div>
   <svg class="doodle" style="right:150px;top:120px;width:120px;transform:rotate(-12deg)" viewBox="0 0 100 100"><use href="#spark" fill="var(--yellow)"/></svg>
-  <div class="pad g2a" style="top:70px">
+  <div class="pad g2a" style="top:80px">
     <div class="col">
-      <div class="callout">
-        <div class="term">Модуляция</div>
-        <div class="def">изменение одного или нескольких параметров высокочастотного <b>несущего</b> сигнала в соответствии с низкочастотным информационным сигналом.</div>
-      </div>
+      <div class="callout"><div class="term">Модуляция</div><div class="def">изменение одного или нескольких параметров высокочастотного <b>несущего</b> сигнала в соответствии с низкочастотным информационным сигналом.</div></div>
       <p class="body b-md white" style="opacity:.92;margin-top:30px;max-width:36ch">Несущая сама по себе ничего не сообщает. Модуляция «накладывает» на неё биты так, чтобы сигнал уже нёс информацию и мог пройти через среду.</p>
     </div>
-    <div class="card analogy b-lg">
-      <span class="tag">Аналогия</span>
-      Несущая — как ровно едущий по трассе грузовик: сам по себе он ничего не сообщает. Модуляция — это когда мы грузим в него ящики-биты по правилу. Теперь по одному взгляду на груз можно прочитать сообщение.
+    <div class="card analogy b-lg"><span class="tag">Аналогия</span>Несущая — как ровно едущий по трассе грузовик: сам по себе он ничего не сообщает. Модуляция — это когда мы грузим в него ящики-биты по правилу. Теперь по одному взгляду на груз можно прочитать сообщение.</div>
+  </div>
+</section>
+
+<section class="slide bg-white on-white">
+  <div class="tophint">2.1 · три ручки несущей</div>
+  <div class="pad" style="display:flex;flex-direction:column;justify-content:center">
+    <h2 class="h-d h-sm blue" style="margin-bottom:16px">У ВОЛНЫ ТРИ ПАРАМЕТРА —<br>ТРИ ВИДА МОДУЛЯЦИИ</h2>
+    <p class="body b-md ink" style="max-width:60ch;margin-bottom:40px">У любой синусоидальной несущей можно «крутить» ровно три «ручки». Отсюда и три базовых вида модуляции. Каждый разберём по принципу <b>что меняем → как читается → чем платим</b>.</p>
+    <div class="g3">
+      <div class="card" style="border-radius:26px"><div class="kick blue" style="font-size:40px;margin-bottom:8px">Амплитуда</div><p class="body b-sm ink">высота волны → амплитудная модуляция (АМ)</p></div>
+      <div class="card analogy" style="border-radius:26px"><div class="kick" style="font-size:40px;margin-bottom:8px">Частота</div><p class="body b-sm ink">как часто колеблется → частотная (ЧМ)</p></div>
+      <div class="card" style="border-radius:26px"><div class="kick blue" style="font-size:40px;margin-bottom:8px">Фаза</div><p class="body b-sm ink">сдвиг во времени → фазовая (ФМ)</p></div>
     </div>
   </div>
 </section>
 
 <section class="slide bg-white on-white">
-  <div class="tophint">2.1 · три вида модуляции</div>
-  <div class="pad" style="top:56px">
-    <h2 class="h-d h-sm blue" style="margin-bottom:6px">ТРИ РУЧКИ НЕСУЩЕЙ: <span class="yl">АМ · ЧМ · ФМ</span></h2>
-    <div class="g3" style="margin-top:16px;align-items:start">
-      <div><div class="kick blue" style="font-size:34px">АМ · амплитуда</div><p class="body b-sm ink">меняем высоту волны. Устойчивость низкая — как яркость фонарика, чужой прожектор «перекричит».</p></div>
-      <div><div class="kick blue" style="font-size:34px">ЧМ · частота</div><p class="body b-sm ink">амплитуда одна, меняем частоту. Устойчивее — как высота свистка, тон шум не собьёт.</p></div>
-      <div><div class="kick blue" style="font-size:34px">ФМ · фаза</div><p class="body b-sm ink">амплитуда и частота одни, «переворачиваем» волну. Тонко и помехоустойчиво — как момент вступления хора.</p></div>
+  <div class="tophint">2.1 · АМ · амплитуда</div>
+  <div class="pad" style="top:80px">
+    <h2 class="h-d h-sm blue" style="margin-bottom:26px">АМ: МЕНЯЕМ ВЫСОТУ ВОЛНЫ</h2>
+    <svg viewBox="0 0 1420 260" style="width:100%;height:280px"><text x="235.0" y="40" text-anchor="middle" class="h-d" style="font-size:34px" fill="var(--ink)">1</text><text x="565.0" y="40" text-anchor="middle" class="h-d" style="font-size:34px" fill="var(--ink)">0</text><text x="895.0" y="40" text-anchor="middle" class="h-d" style="font-size:34px" fill="var(--ink)">1</text><text x="1225.0" y="40" text-anchor="middle" class="h-d" style="font-size:34px" fill="var(--ink)">0</text><path class="rough" d="M70.0 150.0 L73.0 142.7 L76.0 135.5 L79.0 128.5 L82.0 121.8 L85.0 115.4 L88.0 109.5 L91.0 104.1 L94.0 99.3 L97.0 95.2 L100.0 91.8 L103.0 89.1 L106.0 87.3 L109.0 86.2 L112.0 86.0 L115.0 86.7 L118.0 88.1 L121.0 90.4 L124.0 93.4 L127.0 97.2 L130.0 101.6 L133.0 106.7 L136.0 112.4 L139.0 118.5 L142.0 125.1 L145.0 132.0 L148.0 139.1 L151.0 146.3 L154.0 153.7 L157.0 160.9 L160.0 168.0 L163.0 174.9 L166.0 181.5 L169.0 187.6 L172.0 193.3 L175.0 198.4 L178.0 202.8 L181.0 206.6 L184.0 209.6 L187.0 211.9 L190.0 213.3 L193.0 214.0 L196.0 213.8 L199.0 212.7 L202.0 210.9 L205.0 208.2 L208.0 204.8 L211.0 200.7 L214.0 195.9 L217.0 190.5 L220.0 184.6 L223.0 178.2 L226.0 171.5 L229.0 164.5 L232.0 157.3 L235.0 150.0 L238.0 142.7 L241.0 135.5 L244.0 128.5 L247.0 121.8 L250.0 115.4 L253.0 109.5 L256.0 104.1 L259.0 99.3 L262.0 95.2 L265.0 91.8 L268.0 89.1 L271.0 87.3 L274.0 86.2 L277.0 86.0 L280.0 86.7 L283.0 88.1 L286.0 90.4 L289.0 93.4 L292.0 97.2 L295.0 101.6 L298.0 106.7 L301.0 112.4 L304.0 118.5 L307.0 125.1 L310.0 132.0 L313.0 139.1 L316.0 146.3 L319.0 153.7 L322.0 160.9 L325.0 168.0 L328.0 174.9 L331.0 181.5 L334.0 187.6 L337.0 193.3 L340.0 198.4 L343.0 202.8 L346.0 206.6 L349.0 209.6 L352.0 211.9 L355.0 213.3 L358.0 214.0 L361.0 213.8 L364.0 212.7 L367.0 210.9 L370.0 208.2 L373.0 204.8 L376.0 200.7 L379.0 195.9 L382.0 190.5 L385.0 184.6 L388.0 178.2 L391.0 171.5 L394.0 164.5 L397.0 157.3 L400.0 150.0 L400.0 150.0 L403.0 147.5 L406.0 145.1 L409.0 142.7 L412.0 140.4 L415.0 138.2 L418.0 136.2 L421.0 134.4 L424.0 132.8 L427.0 131.4 L430.0 130.2 L433.0 129.3 L436.0 128.7 L439.0 128.3 L442.0 128.2 L445.0 128.5 L448.0 129.0 L451.0 129.7 L454.0 130.8 L457.0 132.0 L460.0 133.6 L463.0 135.3 L466.0 137.2 L469.0 139.3 L472.0 141.5 L475.0 143.9 L478.0 146.3 L481.0 148.8 L484.0 151.2 L487.0 153.7 L490.0 156.1 L493.0 158.5 L496.0 160.7 L499.0 162.8 L502.0 164.7 L505.0 166.4 L508.0 168.0 L511.0 169.2 L514.0 170.3 L517.0 171.0 L520.0 171.5 L523.0 171.8 L526.0 171.7 L529.0 171.3 L532.0 170.7 L535.0 169.8 L538.0 168.6 L541.0 167.2 L544.0 165.6 L547.0 163.8 L550.0 161.8 L553.0 159.6 L556.0 157.3 L559.0 154.9 L562.0 152.5 L565.0 150.0 L568.0 147.5 L571.0 145.1 L574.0 142.7 L577.0 140.4 L580.0 138.2 L583.0 136.2 L586.0 134.4 L589.0 132.8 L592.0 131.4 L595.0 130.2 L598.0 129.3 L601.0 128.7 L604.0 128.3 L607.0 128.2 L610.0 128.5 L613.0 129.0 L616.0 129.7 L619.0 130.8 L622.0 132.0 L625.0 133.6 L628.0 135.3 L631.0 137.2 L634.0 139.3 L637.0 141.5 L640.0 143.9 L643.0 146.3 L646.0 148.8 L649.0 151.2 L652.0 153.7 L655.0 156.1 L658.0 158.5 L661.0 160.7 L664.0 162.8 L667.0 164.7 L670.0 166.4 L673.0 168.0 L676.0 169.2 L679.0 170.3 L682.0 171.0 L685.0 171.5 L688.0 171.8 L691.0 171.7 L694.0 171.3 L697.0 170.7 L700.0 169.8 L703.0 168.6 L706.0 167.2 L709.0 165.6 L712.0 163.8 L715.0 161.8 L718.0 159.6 L721.0 157.3 L724.0 154.9 L727.0 152.5 L730.0 150.0 L730.0 150.0 L733.0 142.7 L736.0 135.5 L739.0 128.5 L742.0 121.8 L745.0 115.4 L748.0 109.5 L751.0 104.1 L754.0 99.3 L757.0 95.2 L760.0 91.8 L763.0 89.1 L766.0 87.3 L769.0 86.2 L772.0 86.0 L775.0 86.7 L778.0 88.1 L781.0 90.4 L784.0 93.4 L787.0 97.2 L790.0 101.6 L793.0 106.7 L796.0 112.4 L799.0 118.5 L802.0 125.1 L805.0 132.0 L808.0 139.1 L811.0 146.3 L814.0 153.7 L817.0 160.9 L820.0 168.0 L823.0 174.9 L826.0 181.5 L829.0 187.6 L832.0 193.3 L835.0 198.4 L838.0 202.8 L841.0 206.6 L844.0 209.6 L847.0 211.9 L850.0 213.3 L853.0 214.0 L856.0 213.8 L859.0 212.7 L862.0 210.9 L865.0 208.2 L868.0 204.8 L871.0 200.7 L874.0 195.9 L877.0 190.5 L880.0 184.6 L883.0 178.2 L886.0 171.5 L889.0 164.5 L892.0 157.3 L895.0 150.0 L898.0 142.7 L901.0 135.5 L904.0 128.5 L907.0 121.8 L910.0 115.4 L913.0 109.5 L916.0 104.1 L919.0 99.3 L922.0 95.2 L925.0 91.8 L928.0 89.1 L931.0 87.3 L934.0 86.2 L937.0 86.0 L940.0 86.7 L943.0 88.1 L946.0 90.4 L949.0 93.4 L952.0 97.2 L955.0 101.6 L958.0 106.7 L961.0 112.4 L964.0 118.5 L967.0 125.1 L970.0 132.0 L973.0 139.1 L976.0 146.3 L979.0 153.7 L982.0 160.9 L985.0 168.0 L988.0 174.9 L991.0 181.5 L994.0 187.6 L997.0 193.3 L1000.0 198.4 L1003.0 202.8 L1006.0 206.6 L1009.0 209.6 L1012.0 211.9 L1015.0 213.3 L1018.0 214.0 L1021.0 213.8 L1024.0 212.7 L1027.0 210.9 L1030.0 208.2 L1033.0 204.8 L1036.0 200.7 L1039.0 195.9 L1042.0 190.5 L1045.0 184.6 L1048.0 178.2 L1051.0 171.5 L1054.0 164.5 L1057.0 157.3 L1060.0 150.0 L1060.0 150.0 L1063.0 147.5 L1066.0 145.1 L1069.0 142.7 L1072.0 140.4 L1075.0 138.2 L1078.0 136.2 L1081.0 134.4 L1084.0 132.8 L1087.0 131.4 L1090.0 130.2 L1093.0 129.3 L1096.0 128.7 L1099.0 128.3 L1102.0 128.2 L1105.0 128.5 L1108.0 129.0 L1111.0 129.7 L1114.0 130.8 L1117.0 132.0 L1120.0 133.6 L1123.0 135.3 L1126.0 137.2 L1129.0 139.3 L1132.0 141.5 L1135.0 143.9 L1138.0 146.3 L1141.0 148.8 L1144.0 151.2 L1147.0 153.7 L1150.0 156.1 L1153.0 158.5 L1156.0 160.7 L1159.0 162.8 L1162.0 164.7 L1165.0 166.4 L1168.0 168.0 L1171.0 169.2 L1174.0 170.3 L1177.0 171.0 L1180.0 171.5 L1183.0 171.8 L1186.0 171.7 L1189.0 171.3 L1192.0 170.7 L1195.0 169.8 L1198.0 168.6 L1201.0 167.2 L1204.0 165.6 L1207.0 163.8 L1210.0 161.8 L1213.0 159.6 L1216.0 157.3 L1219.0 154.9 L1222.0 152.5 L1225.0 150.0 L1228.0 147.5 L1231.0 145.1 L1234.0 142.7 L1237.0 140.4 L1240.0 138.2 L1243.0 136.2 L1246.0 134.4 L1249.0 132.8 L1252.0 131.4 L1255.0 130.2 L1258.0 129.3 L1261.0 128.7 L1264.0 128.3 L1267.0 128.2 L1270.0 128.5 L1273.0 129.0 L1276.0 129.7 L1279.0 130.8 L1282.0 132.0 L1285.0 133.6 L1288.0 135.3 L1291.0 137.2 L1294.0 139.3 L1297.0 141.5 L1300.0 143.9 L1303.0 146.3 L1306.0 148.8 L1309.0 151.2 L1312.0 153.7 L1315.0 156.1 L1318.0 158.5 L1321.0 160.7 L1324.0 162.8 L1327.0 164.7 L1330.0 166.4 L1333.0 168.0 L1336.0 169.2 L1339.0 170.3 L1342.0 171.0 L1345.0 171.5 L1348.0 171.8 L1351.0 171.7 L1354.0 171.3 L1357.0 170.7 L1360.0 169.8 L1363.0 168.6 L1366.0 167.2 L1369.0 165.6 L1372.0 163.8 L1375.0 161.8 L1378.0 159.6 L1381.0 157.3 L1384.0 154.9 L1387.0 152.5 L1390.0 150.0" fill="none" stroke="var(--blue)" stroke-width="8" stroke-linecap="round"/><line x1="400" y1="66" x2="400" y2="234" stroke="var(--yellow)" stroke-width="4" stroke-dasharray="6 8"/><line x1="730" y1="66" x2="730" y2="234" stroke="var(--yellow)" stroke-width="4" stroke-dasharray="6 8"/><line x1="1060" y1="66" x2="1060" y2="234" stroke="var(--yellow)" stroke-width="4" stroke-dasharray="6 8"/></svg>
+    <div class="g2a" style="margin-top:30px;align-items:start">
+      <p class="body b-md ink" style="max-width:40ch">Единице — «громкая» волна, нулю — «тихая». Частота и фаза неизменны. Самый простой, но и самый уязвимый к шуму способ.</p>
+      <div class="card analogy b-md"><span class="tag">Аналогия</span>Как фонарик, которым сигналят яркостью: ярко/тускло. Читать просто, но чужой прожектор во дворе (помеха) может «перекричать» ваш сигнал.</div>
     </div>
-    <svg viewBox="0 0 1340 620" style="width:100%;height:560px;margin-top:6px">
-      <text x="270.0" y="40" text-anchor="middle" class="h-d" style="font-size:38px" fill="var(--ink)">1</text><text x="570.0" y="40" text-anchor="middle" class="h-d" style="font-size:38px" fill="var(--ink)">0</text><text x="870.0" y="40" text-anchor="middle" class="h-d" style="font-size:38px" fill="var(--ink)">1</text><text x="1170.0" y="40" text-anchor="middle" class="h-d" style="font-size:38px" fill="var(--ink)">0</text>
-      <text x="40" y="150" class="lab" fill="var(--blue)">АМ</text><path class="rough" d="M120.0 150.0 L123.0 142.5 L126.0 135.1 L129.0 127.9 L132.0 121.1 L135.0 114.7 L138.0 108.9 L141.0 103.8 L144.0 99.3 L147.0 95.7 L150.0 92.9 L153.0 91.1 L156.0 90.1 L159.0 90.1 L162.0 91.1 L165.0 92.9 L168.0 95.7 L171.0 99.3 L174.0 103.8 L177.0 108.9 L180.0 114.7 L183.0 121.1 L186.0 127.9 L189.0 135.1 L192.0 142.5 L195.0 150.0 L198.0 157.5 L201.0 164.9 L204.0 172.1 L207.0 178.9 L210.0 185.3 L213.0 191.1 L216.0 196.2 L219.0 200.7 L222.0 204.3 L225.0 207.1 L228.0 208.9 L231.0 209.9 L234.0 209.9 L237.0 208.9 L240.0 207.1 L243.0 204.3 L246.0 200.7 L249.0 196.2 L252.0 191.1 L255.0 185.3 L258.0 178.9 L261.0 172.1 L264.0 164.9 L267.0 157.5 L270.0 150.0 L273.0 142.5 L276.0 135.1 L279.0 127.9 L282.0 121.1 L285.0 114.7 L288.0 108.9 L291.0 103.8 L294.0 99.3 L297.0 95.7 L300.0 92.9 L303.0 91.1 L306.0 90.1 L309.0 90.1 L312.0 91.1 L315.0 92.9 L318.0 95.7 L321.0 99.3 L324.0 103.8 L327.0 108.9 L330.0 114.7 L333.0 121.1 L336.0 127.9 L339.0 135.1 L342.0 142.5 L345.0 150.0 L348.0 157.5 L351.0 164.9 L354.0 172.1 L357.0 178.9 L360.0 185.3 L363.0 191.1 L366.0 196.2 L369.0 200.7 L372.0 204.3 L375.0 207.1 L378.0 208.9 L381.0 209.9 L384.0 209.9 L387.0 208.9 L390.0 207.1 L393.0 204.3 L396.0 200.7 L399.0 196.2 L402.0 191.1 L405.0 185.3 L408.0 178.9 L411.0 172.1 L414.0 164.9 L417.0 157.5 L420.0 150.0 L420.0 150.0 L423.0 147.4 L426.0 144.9 L429.0 142.5 L432.0 140.2 L435.0 138.0 L438.0 136.0 L441.0 134.3 L444.0 132.8 L447.0 131.5 L450.0 130.6 L453.0 130.0 L456.0 129.6 L459.0 129.6 L462.0 130.0 L465.0 130.6 L468.0 131.5 L471.0 132.8 L474.0 134.3 L477.0 136.0 L480.0 138.0 L483.0 140.2 L486.0 142.5 L489.0 144.9 L492.0 147.4 L495.0 150.0 L498.0 152.6 L501.0 155.1 L504.0 157.5 L507.0 159.8 L510.0 162.0 L513.0 164.0 L516.0 165.7 L519.0 167.2 L522.0 168.5 L525.0 169.4 L528.0 170.0 L531.0 170.4 L534.0 170.4 L537.0 170.0 L540.0 169.4 L543.0 168.5 L546.0 167.2 L549.0 165.7 L552.0 164.0 L555.0 162.0 L558.0 159.8 L561.0 157.5 L564.0 155.1 L567.0 152.6 L570.0 150.0 L573.0 147.4 L576.0 144.9 L579.0 142.5 L582.0 140.2 L585.0 138.0 L588.0 136.0 L591.0 134.3 L594.0 132.8 L597.0 131.5 L600.0 130.6 L603.0 130.0 L606.0 129.6 L609.0 129.6 L612.0 130.0 L615.0 130.6 L618.0 131.5 L621.0 132.8 L624.0 134.3 L627.0 136.0 L630.0 138.0 L633.0 140.2 L636.0 142.5 L639.0 144.9 L642.0 147.4 L645.0 150.0 L648.0 152.6 L651.0 155.1 L654.0 157.5 L657.0 159.8 L660.0 162.0 L663.0 164.0 L666.0 165.7 L669.0 167.2 L672.0 168.5 L675.0 169.4 L678.0 170.0 L681.0 170.4 L684.0 170.4 L687.0 170.0 L690.0 169.4 L693.0 168.5 L696.0 167.2 L699.0 165.7 L702.0 164.0 L705.0 162.0 L708.0 159.8 L711.0 157.5 L714.0 155.1 L717.0 152.6 L720.0 150.0 L720.0 150.0 L723.0 142.5 L726.0 135.1 L729.0 127.9 L732.0 121.1 L735.0 114.7 L738.0 108.9 L741.0 103.8 L744.0 99.3 L747.0 95.7 L750.0 92.9 L753.0 91.1 L756.0 90.1 L759.0 90.1 L762.0 91.1 L765.0 92.9 L768.0 95.7 L771.0 99.3 L774.0 103.8 L777.0 108.9 L780.0 114.7 L783.0 121.1 L786.0 127.9 L789.0 135.1 L792.0 142.5 L795.0 150.0 L798.0 157.5 L801.0 164.9 L804.0 172.1 L807.0 178.9 L810.0 185.3 L813.0 191.1 L816.0 196.2 L819.0 200.7 L822.0 204.3 L825.0 207.1 L828.0 208.9 L831.0 209.9 L834.0 209.9 L837.0 208.9 L840.0 207.1 L843.0 204.3 L846.0 200.7 L849.0 196.2 L852.0 191.1 L855.0 185.3 L858.0 178.9 L861.0 172.1 L864.0 164.9 L867.0 157.5 L870.0 150.0 L873.0 142.5 L876.0 135.1 L879.0 127.9 L882.0 121.1 L885.0 114.7 L888.0 108.9 L891.0 103.8 L894.0 99.3 L897.0 95.7 L900.0 92.9 L903.0 91.1 L906.0 90.1 L909.0 90.1 L912.0 91.1 L915.0 92.9 L918.0 95.7 L921.0 99.3 L924.0 103.8 L927.0 108.9 L930.0 114.7 L933.0 121.1 L936.0 127.9 L939.0 135.1 L942.0 142.5 L945.0 150.0 L948.0 157.5 L951.0 164.9 L954.0 172.1 L957.0 178.9 L960.0 185.3 L963.0 191.1 L966.0 196.2 L969.0 200.7 L972.0 204.3 L975.0 207.1 L978.0 208.9 L981.0 209.9 L984.0 209.9 L987.0 208.9 L990.0 207.1 L993.0 204.3 L996.0 200.7 L999.0 196.2 L1002.0 191.1 L1005.0 185.3 L1008.0 178.9 L1011.0 172.1 L1014.0 164.9 L1017.0 157.5 L1020.0 150.0 L1020.0 150.0 L1023.0 147.4 L1026.0 144.9 L1029.0 142.5 L1032.0 140.2 L1035.0 138.0 L1038.0 136.0 L1041.0 134.3 L1044.0 132.8 L1047.0 131.5 L1050.0 130.6 L1053.0 130.0 L1056.0 129.6 L1059.0 129.6 L1062.0 130.0 L1065.0 130.6 L1068.0 131.5 L1071.0 132.8 L1074.0 134.3 L1077.0 136.0 L1080.0 138.0 L1083.0 140.2 L1086.0 142.5 L1089.0 144.9 L1092.0 147.4 L1095.0 150.0 L1098.0 152.6 L1101.0 155.1 L1104.0 157.5 L1107.0 159.8 L1110.0 162.0 L1113.0 164.0 L1116.0 165.7 L1119.0 167.2 L1122.0 168.5 L1125.0 169.4 L1128.0 170.0 L1131.0 170.4 L1134.0 170.4 L1137.0 170.0 L1140.0 169.4 L1143.0 168.5 L1146.0 167.2 L1149.0 165.7 L1152.0 164.0 L1155.0 162.0 L1158.0 159.8 L1161.0 157.5 L1164.0 155.1 L1167.0 152.6 L1170.0 150.0 L1173.0 147.4 L1176.0 144.9 L1179.0 142.5 L1182.0 140.2 L1185.0 138.0 L1188.0 136.0 L1191.0 134.3 L1194.0 132.8 L1197.0 131.5 L1200.0 130.6 L1203.0 130.0 L1206.0 129.6 L1209.0 129.6 L1212.0 130.0 L1215.0 130.6 L1218.0 131.5 L1221.0 132.8 L1224.0 134.3 L1227.0 136.0 L1230.0 138.0 L1233.0 140.2 L1236.0 142.5 L1239.0 144.9 L1242.0 147.4 L1245.0 150.0 L1248.0 152.6 L1251.0 155.1 L1254.0 157.5 L1257.0 159.8 L1260.0 162.0 L1263.0 164.0 L1266.0 165.7 L1269.0 167.2 L1272.0 168.5 L1275.0 169.4 L1278.0 170.0 L1281.0 170.4 L1284.0 170.4 L1287.0 170.0 L1290.0 169.4 L1293.0 168.5 L1296.0 167.2 L1299.0 165.7 L1302.0 164.0 L1305.0 162.0 L1308.0 159.8 L1311.0 157.5 L1314.0 155.1 L1317.0 152.6 L1320.0 150.0" fill="none" stroke="var(--blue)" stroke-width="7" stroke-linecap="round"/><line x1="420" y1="72" x2="420" y2="228" stroke="var(--yellow)" stroke-width="4" stroke-dasharray="6 8"/><line x1="720" y1="72" x2="720" y2="228" stroke="var(--yellow)" stroke-width="4" stroke-dasharray="6 8"/><line x1="1020" y1="72" x2="1020" y2="228" stroke="var(--yellow)" stroke-width="4" stroke-dasharray="6 8"/>
-      <text x="40" y="330" class="lab" fill="var(--blue)">ЧМ</text><path class="rough" d="M120.0 330.0 L123.0 315.1 L126.0 301.1 L129.0 288.9 L132.0 279.3 L135.0 272.9 L138.0 270.1 L141.0 271.1 L144.0 275.7 L147.0 283.8 L150.0 294.7 L153.0 307.9 L156.0 322.5 L159.0 337.5 L162.0 352.1 L165.0 365.3 L168.0 376.2 L171.0 384.3 L174.0 388.9 L177.0 389.9 L180.0 387.1 L183.0 380.7 L186.0 371.1 L189.0 358.9 L192.0 344.9 L195.0 330.0 L198.0 315.1 L201.0 301.1 L204.0 288.9 L207.0 279.3 L210.0 272.9 L213.0 270.1 L216.0 271.1 L219.0 275.7 L222.0 283.8 L225.0 294.7 L228.0 307.9 L231.0 322.5 L234.0 337.5 L237.0 352.1 L240.0 365.3 L243.0 376.2 L246.0 384.3 L249.0 388.9 L252.0 389.9 L255.0 387.1 L258.0 380.7 L261.0 371.1 L264.0 358.9 L267.0 344.9 L270.0 330.0 L273.0 315.1 L276.0 301.1 L279.0 288.9 L282.0 279.3 L285.0 272.9 L288.0 270.1 L291.0 271.1 L294.0 275.7 L297.0 283.8 L300.0 294.7 L303.0 307.9 L306.0 322.5 L309.0 337.5 L312.0 352.1 L315.0 365.3 L318.0 376.2 L321.0 384.3 L324.0 388.9 L327.0 389.9 L330.0 387.1 L333.0 380.7 L336.0 371.1 L339.0 358.9 L342.0 344.9 L345.0 330.0 L348.0 315.1 L351.0 301.1 L354.0 288.9 L357.0 279.3 L360.0 272.9 L363.0 270.1 L366.0 271.1 L369.0 275.7 L372.0 283.8 L375.0 294.7 L378.0 307.9 L381.0 322.5 L384.0 337.5 L387.0 352.1 L390.0 365.3 L393.0 376.2 L396.0 384.3 L399.0 388.9 L402.0 389.9 L405.0 387.1 L408.0 380.7 L411.0 371.1 L414.0 358.9 L417.0 344.9 L420.0 330.0 L420.0 330.0 L423.0 322.5 L426.0 315.1 L429.0 307.9 L432.0 301.1 L435.0 294.7 L438.0 288.9 L441.0 283.8 L444.0 279.3 L447.0 275.7 L450.0 272.9 L453.0 271.1 L456.0 270.1 L459.0 270.1 L462.0 271.1 L465.0 272.9 L468.0 275.7 L471.0 279.3 L474.0 283.8 L477.0 288.9 L480.0 294.7 L483.0 301.1 L486.0 307.9 L489.0 315.1 L492.0 322.5 L495.0 330.0 L498.0 337.5 L501.0 344.9 L504.0 352.1 L507.0 358.9 L510.0 365.3 L513.0 371.1 L516.0 376.2 L519.0 380.7 L522.0 384.3 L525.0 387.1 L528.0 388.9 L531.0 389.9 L534.0 389.9 L537.0 388.9 L540.0 387.1 L543.0 384.3 L546.0 380.7 L549.0 376.2 L552.0 371.1 L555.0 365.3 L558.0 358.9 L561.0 352.1 L564.0 344.9 L567.0 337.5 L570.0 330.0 L573.0 322.5 L576.0 315.1 L579.0 307.9 L582.0 301.1 L585.0 294.7 L588.0 288.9 L591.0 283.8 L594.0 279.3 L597.0 275.7 L600.0 272.9 L603.0 271.1 L606.0 270.1 L609.0 270.1 L612.0 271.1 L615.0 272.9 L618.0 275.7 L621.0 279.3 L624.0 283.8 L627.0 288.9 L630.0 294.7 L633.0 301.1 L636.0 307.9 L639.0 315.1 L642.0 322.5 L645.0 330.0 L648.0 337.5 L651.0 344.9 L654.0 352.1 L657.0 358.9 L660.0 365.3 L663.0 371.1 L666.0 376.2 L669.0 380.7 L672.0 384.3 L675.0 387.1 L678.0 388.9 L681.0 389.9 L684.0 389.9 L687.0 388.9 L690.0 387.1 L693.0 384.3 L696.0 380.7 L699.0 376.2 L702.0 371.1 L705.0 365.3 L708.0 358.9 L711.0 352.1 L714.0 344.9 L717.0 337.5 L720.0 330.0 L720.0 330.0 L723.0 315.1 L726.0 301.1 L729.0 288.9 L732.0 279.3 L735.0 272.9 L738.0 270.1 L741.0 271.1 L744.0 275.7 L747.0 283.8 L750.0 294.7 L753.0 307.9 L756.0 322.5 L759.0 337.5 L762.0 352.1 L765.0 365.3 L768.0 376.2 L771.0 384.3 L774.0 388.9 L777.0 389.9 L780.0 387.1 L783.0 380.7 L786.0 371.1 L789.0 358.9 L792.0 344.9 L795.0 330.0 L798.0 315.1 L801.0 301.1 L804.0 288.9 L807.0 279.3 L810.0 272.9 L813.0 270.1 L816.0 271.1 L819.0 275.7 L822.0 283.8 L825.0 294.7 L828.0 307.9 L831.0 322.5 L834.0 337.5 L837.0 352.1 L840.0 365.3 L843.0 376.2 L846.0 384.3 L849.0 388.9 L852.0 389.9 L855.0 387.1 L858.0 380.7 L861.0 371.1 L864.0 358.9 L867.0 344.9 L870.0 330.0 L873.0 315.1 L876.0 301.1 L879.0 288.9 L882.0 279.3 L885.0 272.9 L888.0 270.1 L891.0 271.1 L894.0 275.7 L897.0 283.8 L900.0 294.7 L903.0 307.9 L906.0 322.5 L909.0 337.5 L912.0 352.1 L915.0 365.3 L918.0 376.2 L921.0 384.3 L924.0 388.9 L927.0 389.9 L930.0 387.1 L933.0 380.7 L936.0 371.1 L939.0 358.9 L942.0 344.9 L945.0 330.0 L948.0 315.1 L951.0 301.1 L954.0 288.9 L957.0 279.3 L960.0 272.9 L963.0 270.1 L966.0 271.1 L969.0 275.7 L972.0 283.8 L975.0 294.7 L978.0 307.9 L981.0 322.5 L984.0 337.5 L987.0 352.1 L990.0 365.3 L993.0 376.2 L996.0 384.3 L999.0 388.9 L1002.0 389.9 L1005.0 387.1 L1008.0 380.7 L1011.0 371.1 L1014.0 358.9 L1017.0 344.9 L1020.0 330.0 L1020.0 330.0 L1023.0 322.5 L1026.0 315.1 L1029.0 307.9 L1032.0 301.1 L1035.0 294.7 L1038.0 288.9 L1041.0 283.8 L1044.0 279.3 L1047.0 275.7 L1050.0 272.9 L1053.0 271.1 L1056.0 270.1 L1059.0 270.1 L1062.0 271.1 L1065.0 272.9 L1068.0 275.7 L1071.0 279.3 L1074.0 283.8 L1077.0 288.9 L1080.0 294.7 L1083.0 301.1 L1086.0 307.9 L1089.0 315.1 L1092.0 322.5 L1095.0 330.0 L1098.0 337.5 L1101.0 344.9 L1104.0 352.1 L1107.0 358.9 L1110.0 365.3 L1113.0 371.1 L1116.0 376.2 L1119.0 380.7 L1122.0 384.3 L1125.0 387.1 L1128.0 388.9 L1131.0 389.9 L1134.0 389.9 L1137.0 388.9 L1140.0 387.1 L1143.0 384.3 L1146.0 380.7 L1149.0 376.2 L1152.0 371.1 L1155.0 365.3 L1158.0 358.9 L1161.0 352.1 L1164.0 344.9 L1167.0 337.5 L1170.0 330.0 L1173.0 322.5 L1176.0 315.1 L1179.0 307.9 L1182.0 301.1 L1185.0 294.7 L1188.0 288.9 L1191.0 283.8 L1194.0 279.3 L1197.0 275.7 L1200.0 272.9 L1203.0 271.1 L1206.0 270.1 L1209.0 270.1 L1212.0 271.1 L1215.0 272.9 L1218.0 275.7 L1221.0 279.3 L1224.0 283.8 L1227.0 288.9 L1230.0 294.7 L1233.0 301.1 L1236.0 307.9 L1239.0 315.1 L1242.0 322.5 L1245.0 330.0 L1248.0 337.5 L1251.0 344.9 L1254.0 352.1 L1257.0 358.9 L1260.0 365.3 L1263.0 371.1 L1266.0 376.2 L1269.0 380.7 L1272.0 384.3 L1275.0 387.1 L1278.0 388.9 L1281.0 389.9 L1284.0 389.9 L1287.0 388.9 L1290.0 387.1 L1293.0 384.3 L1296.0 380.7 L1299.0 376.2 L1302.0 371.1 L1305.0 365.3 L1308.0 358.9 L1311.0 352.1 L1314.0 344.9 L1317.0 337.5 L1320.0 330.0" fill="none" stroke="var(--blue)" stroke-width="7" stroke-linecap="round"/><line x1="420" y1="252" x2="420" y2="408" stroke="var(--yellow)" stroke-width="4" stroke-dasharray="6 8"/><line x1="720" y1="252" x2="720" y2="408" stroke="var(--yellow)" stroke-width="4" stroke-dasharray="6 8"/><line x1="1020" y1="252" x2="1020" y2="408" stroke="var(--yellow)" stroke-width="4" stroke-dasharray="6 8"/>
-      <text x="40" y="510" class="lab" fill="var(--blue)">ФМ</text><path class="rough" d="M120.0 510.0 L123.0 517.5 L126.0 524.9 L129.0 532.1 L132.0 538.9 L135.0 545.3 L138.0 551.1 L141.0 556.2 L144.0 560.7 L147.0 564.3 L150.0 567.1 L153.0 568.9 L156.0 569.9 L159.0 569.9 L162.0 568.9 L165.0 567.1 L168.0 564.3 L171.0 560.7 L174.0 556.2 L177.0 551.1 L180.0 545.3 L183.0 538.9 L186.0 532.1 L189.0 524.9 L192.0 517.5 L195.0 510.0 L198.0 502.5 L201.0 495.1 L204.0 487.9 L207.0 481.1 L210.0 474.7 L213.0 468.9 L216.0 463.8 L219.0 459.3 L222.0 455.7 L225.0 452.9 L228.0 451.1 L231.0 450.1 L234.0 450.1 L237.0 451.1 L240.0 452.9 L243.0 455.7 L246.0 459.3 L249.0 463.8 L252.0 468.9 L255.0 474.7 L258.0 481.1 L261.0 487.9 L264.0 495.1 L267.0 502.5 L270.0 510.0 L273.0 517.5 L276.0 524.9 L279.0 532.1 L282.0 538.9 L285.0 545.3 L288.0 551.1 L291.0 556.2 L294.0 560.7 L297.0 564.3 L300.0 567.1 L303.0 568.9 L306.0 569.9 L309.0 569.9 L312.0 568.9 L315.0 567.1 L318.0 564.3 L321.0 560.7 L324.0 556.2 L327.0 551.1 L330.0 545.3 L333.0 538.9 L336.0 532.1 L339.0 524.9 L342.0 517.5 L345.0 510.0 L348.0 502.5 L351.0 495.1 L354.0 487.9 L357.0 481.1 L360.0 474.7 L363.0 468.9 L366.0 463.8 L369.0 459.3 L372.0 455.7 L375.0 452.9 L378.0 451.1 L381.0 450.1 L384.0 450.1 L387.0 451.1 L390.0 452.9 L393.0 455.7 L396.0 459.3 L399.0 463.8 L402.0 468.9 L405.0 474.7 L408.0 481.1 L411.0 487.9 L414.0 495.1 L417.0 502.5 L420.0 510.0 L420.0 510.0 L423.0 502.5 L426.0 495.1 L429.0 487.9 L432.0 481.1 L435.0 474.7 L438.0 468.9 L441.0 463.8 L444.0 459.3 L447.0 455.7 L450.0 452.9 L453.0 451.1 L456.0 450.1 L459.0 450.1 L462.0 451.1 L465.0 452.9 L468.0 455.7 L471.0 459.3 L474.0 463.8 L477.0 468.9 L480.0 474.7 L483.0 481.1 L486.0 487.9 L489.0 495.1 L492.0 502.5 L495.0 510.0 L498.0 517.5 L501.0 524.9 L504.0 532.1 L507.0 538.9 L510.0 545.3 L513.0 551.1 L516.0 556.2 L519.0 560.7 L522.0 564.3 L525.0 567.1 L528.0 568.9 L531.0 569.9 L534.0 569.9 L537.0 568.9 L540.0 567.1 L543.0 564.3 L546.0 560.7 L549.0 556.2 L552.0 551.1 L555.0 545.3 L558.0 538.9 L561.0 532.1 L564.0 524.9 L567.0 517.5 L570.0 510.0 L573.0 502.5 L576.0 495.1 L579.0 487.9 L582.0 481.1 L585.0 474.7 L588.0 468.9 L591.0 463.8 L594.0 459.3 L597.0 455.7 L600.0 452.9 L603.0 451.1 L606.0 450.1 L609.0 450.1 L612.0 451.1 L615.0 452.9 L618.0 455.7 L621.0 459.3 L624.0 463.8 L627.0 468.9 L630.0 474.7 L633.0 481.1 L636.0 487.9 L639.0 495.1 L642.0 502.5 L645.0 510.0 L648.0 517.5 L651.0 524.9 L654.0 532.1 L657.0 538.9 L660.0 545.3 L663.0 551.1 L666.0 556.2 L669.0 560.7 L672.0 564.3 L675.0 567.1 L678.0 568.9 L681.0 569.9 L684.0 569.9 L687.0 568.9 L690.0 567.1 L693.0 564.3 L696.0 560.7 L699.0 556.2 L702.0 551.1 L705.0 545.3 L708.0 538.9 L711.0 532.1 L714.0 524.9 L717.0 517.5 L720.0 510.0 L720.0 510.0 L723.0 517.5 L726.0 524.9 L729.0 532.1 L732.0 538.9 L735.0 545.3 L738.0 551.1 L741.0 556.2 L744.0 560.7 L747.0 564.3 L750.0 567.1 L753.0 568.9 L756.0 569.9 L759.0 569.9 L762.0 568.9 L765.0 567.1 L768.0 564.3 L771.0 560.7 L774.0 556.2 L777.0 551.1 L780.0 545.3 L783.0 538.9 L786.0 532.1 L789.0 524.9 L792.0 517.5 L795.0 510.0 L798.0 502.5 L801.0 495.1 L804.0 487.9 L807.0 481.1 L810.0 474.7 L813.0 468.9 L816.0 463.8 L819.0 459.3 L822.0 455.7 L825.0 452.9 L828.0 451.1 L831.0 450.1 L834.0 450.1 L837.0 451.1 L840.0 452.9 L843.0 455.7 L846.0 459.3 L849.0 463.8 L852.0 468.9 L855.0 474.7 L858.0 481.1 L861.0 487.9 L864.0 495.1 L867.0 502.5 L870.0 510.0 L873.0 517.5 L876.0 524.9 L879.0 532.1 L882.0 538.9 L885.0 545.3 L888.0 551.1 L891.0 556.2 L894.0 560.7 L897.0 564.3 L900.0 567.1 L903.0 568.9 L906.0 569.9 L909.0 569.9 L912.0 568.9 L915.0 567.1 L918.0 564.3 L921.0 560.7 L924.0 556.2 L927.0 551.1 L930.0 545.3 L933.0 538.9 L936.0 532.1 L939.0 524.9 L942.0 517.5 L945.0 510.0 L948.0 502.5 L951.0 495.1 L954.0 487.9 L957.0 481.1 L960.0 474.7 L963.0 468.9 L966.0 463.8 L969.0 459.3 L972.0 455.7 L975.0 452.9 L978.0 451.1 L981.0 450.1 L984.0 450.1 L987.0 451.1 L990.0 452.9 L993.0 455.7 L996.0 459.3 L999.0 463.8 L1002.0 468.9 L1005.0 474.7 L1008.0 481.1 L1011.0 487.9 L1014.0 495.1 L1017.0 502.5 L1020.0 510.0 L1020.0 510.0 L1023.0 502.5 L1026.0 495.1 L1029.0 487.9 L1032.0 481.1 L1035.0 474.7 L1038.0 468.9 L1041.0 463.8 L1044.0 459.3 L1047.0 455.7 L1050.0 452.9 L1053.0 451.1 L1056.0 450.1 L1059.0 450.1 L1062.0 451.1 L1065.0 452.9 L1068.0 455.7 L1071.0 459.3 L1074.0 463.8 L1077.0 468.9 L1080.0 474.7 L1083.0 481.1 L1086.0 487.9 L1089.0 495.1 L1092.0 502.5 L1095.0 510.0 L1098.0 517.5 L1101.0 524.9 L1104.0 532.1 L1107.0 538.9 L1110.0 545.3 L1113.0 551.1 L1116.0 556.2 L1119.0 560.7 L1122.0 564.3 L1125.0 567.1 L1128.0 568.9 L1131.0 569.9 L1134.0 569.9 L1137.0 568.9 L1140.0 567.1 L1143.0 564.3 L1146.0 560.7 L1149.0 556.2 L1152.0 551.1 L1155.0 545.3 L1158.0 538.9 L1161.0 532.1 L1164.0 524.9 L1167.0 517.5 L1170.0 510.0 L1173.0 502.5 L1176.0 495.1 L1179.0 487.9 L1182.0 481.1 L1185.0 474.7 L1188.0 468.9 L1191.0 463.8 L1194.0 459.3 L1197.0 455.7 L1200.0 452.9 L1203.0 451.1 L1206.0 450.1 L1209.0 450.1 L1212.0 451.1 L1215.0 452.9 L1218.0 455.7 L1221.0 459.3 L1224.0 463.8 L1227.0 468.9 L1230.0 474.7 L1233.0 481.1 L1236.0 487.9 L1239.0 495.1 L1242.0 502.5 L1245.0 510.0 L1248.0 517.5 L1251.0 524.9 L1254.0 532.1 L1257.0 538.9 L1260.0 545.3 L1263.0 551.1 L1266.0 556.2 L1269.0 560.7 L1272.0 564.3 L1275.0 567.1 L1278.0 568.9 L1281.0 569.9 L1284.0 569.9 L1287.0 568.9 L1290.0 567.1 L1293.0 564.3 L1296.0 560.7 L1299.0 556.2 L1302.0 551.1 L1305.0 545.3 L1308.0 538.9 L1311.0 532.1 L1314.0 524.9 L1317.0 517.5 L1320.0 510.0" fill="none" stroke="var(--blue)" stroke-width="7" stroke-linecap="round"/><line x1="420" y1="432" x2="420" y2="588" stroke="var(--yellow)" stroke-width="4" stroke-dasharray="6 8"/><line x1="720" y1="432" x2="720" y2="588" stroke="var(--yellow)" stroke-width="4" stroke-dasharray="6 8"/><line x1="1020" y1="432" x2="1020" y2="588" stroke="var(--yellow)" stroke-width="4" stroke-dasharray="6 8"/>
+  </div>
+</section>
+
+<section class="slide bg-white on-white">
+  <div class="tophint">2.1 · ЧМ · частота</div>
+  <div class="pad" style="top:80px">
+    <h2 class="h-d h-sm blue" style="margin-bottom:26px">ЧМ: МЕНЯЕМ ЧАСТОТУ</h2>
+    <svg viewBox="0 0 1420 260" style="width:100%;height:280px"><text x="235.0" y="40" text-anchor="middle" class="h-d" style="font-size:34px" fill="var(--ink)">1</text><text x="565.0" y="40" text-anchor="middle" class="h-d" style="font-size:34px" fill="var(--ink)">0</text><text x="895.0" y="40" text-anchor="middle" class="h-d" style="font-size:34px" fill="var(--ink)">1</text><text x="1225.0" y="40" text-anchor="middle" class="h-d" style="font-size:34px" fill="var(--ink)">0</text><path class="rough" d="M70.0 150.0 L73.0 135.5 L76.0 121.8 L79.0 109.5 L82.0 99.3 L85.0 91.8 L88.0 87.3 L91.0 86.0 L94.0 88.1 L97.0 93.4 L100.0 101.6 L103.0 112.4 L106.0 125.1 L109.0 139.1 L112.0 153.7 L115.0 168.0 L118.0 181.5 L121.0 193.3 L124.0 202.8 L127.0 209.6 L130.0 213.3 L133.0 213.8 L136.0 210.9 L139.0 204.8 L142.0 195.9 L145.0 184.6 L148.0 171.5 L151.0 157.3 L154.0 142.7 L157.0 128.5 L160.0 115.4 L163.0 104.1 L166.0 95.2 L169.0 89.1 L172.0 86.2 L175.0 86.7 L178.0 90.4 L181.0 97.2 L184.0 106.7 L187.0 118.5 L190.0 132.0 L193.0 146.3 L196.0 160.9 L199.0 174.9 L202.0 187.6 L205.0 198.4 L208.0 206.6 L211.0 211.9 L214.0 214.0 L217.0 212.7 L220.0 208.2 L223.0 200.7 L226.0 190.5 L229.0 178.2 L232.0 164.5 L235.0 150.0 L238.0 135.5 L241.0 121.8 L244.0 109.5 L247.0 99.3 L250.0 91.8 L253.0 87.3 L256.0 86.0 L259.0 88.1 L262.0 93.4 L265.0 101.6 L268.0 112.4 L271.0 125.1 L274.0 139.1 L277.0 153.7 L280.0 168.0 L283.0 181.5 L286.0 193.3 L289.0 202.8 L292.0 209.6 L295.0 213.3 L298.0 213.8 L301.0 210.9 L304.0 204.8 L307.0 195.9 L310.0 184.6 L313.0 171.5 L316.0 157.3 L319.0 142.7 L322.0 128.5 L325.0 115.4 L328.0 104.1 L331.0 95.2 L334.0 89.1 L337.0 86.2 L340.0 86.7 L343.0 90.4 L346.0 97.2 L349.0 106.7 L352.0 118.5 L355.0 132.0 L358.0 146.3 L361.0 160.9 L364.0 174.9 L367.0 187.6 L370.0 198.4 L373.0 206.6 L376.0 211.9 L379.0 214.0 L382.0 212.7 L385.0 208.2 L388.0 200.7 L391.0 190.5 L394.0 178.2 L397.0 164.5 L400.0 150.0 L400.0 150.0 L403.0 142.7 L406.0 135.5 L409.0 128.5 L412.0 121.8 L415.0 115.4 L418.0 109.5 L421.0 104.1 L424.0 99.3 L427.0 95.2 L430.0 91.8 L433.0 89.1 L436.0 87.3 L439.0 86.2 L442.0 86.0 L445.0 86.7 L448.0 88.1 L451.0 90.4 L454.0 93.4 L457.0 97.2 L460.0 101.6 L463.0 106.7 L466.0 112.4 L469.0 118.5 L472.0 125.1 L475.0 132.0 L478.0 139.1 L481.0 146.3 L484.0 153.7 L487.0 160.9 L490.0 168.0 L493.0 174.9 L496.0 181.5 L499.0 187.6 L502.0 193.3 L505.0 198.4 L508.0 202.8 L511.0 206.6 L514.0 209.6 L517.0 211.9 L520.0 213.3 L523.0 214.0 L526.0 213.8 L529.0 212.7 L532.0 210.9 L535.0 208.2 L538.0 204.8 L541.0 200.7 L544.0 195.9 L547.0 190.5 L550.0 184.6 L553.0 178.2 L556.0 171.5 L559.0 164.5 L562.0 157.3 L565.0 150.0 L568.0 142.7 L571.0 135.5 L574.0 128.5 L577.0 121.8 L580.0 115.4 L583.0 109.5 L586.0 104.1 L589.0 99.3 L592.0 95.2 L595.0 91.8 L598.0 89.1 L601.0 87.3 L604.0 86.2 L607.0 86.0 L610.0 86.7 L613.0 88.1 L616.0 90.4 L619.0 93.4 L622.0 97.2 L625.0 101.6 L628.0 106.7 L631.0 112.4 L634.0 118.5 L637.0 125.1 L640.0 132.0 L643.0 139.1 L646.0 146.3 L649.0 153.7 L652.0 160.9 L655.0 168.0 L658.0 174.9 L661.0 181.5 L664.0 187.6 L667.0 193.3 L670.0 198.4 L673.0 202.8 L676.0 206.6 L679.0 209.6 L682.0 211.9 L685.0 213.3 L688.0 214.0 L691.0 213.8 L694.0 212.7 L697.0 210.9 L700.0 208.2 L703.0 204.8 L706.0 200.7 L709.0 195.9 L712.0 190.5 L715.0 184.6 L718.0 178.2 L721.0 171.5 L724.0 164.5 L727.0 157.3 L730.0 150.0 L730.0 150.0 L733.0 135.5 L736.0 121.8 L739.0 109.5 L742.0 99.3 L745.0 91.8 L748.0 87.3 L751.0 86.0 L754.0 88.1 L757.0 93.4 L760.0 101.6 L763.0 112.4 L766.0 125.1 L769.0 139.1 L772.0 153.7 L775.0 168.0 L778.0 181.5 L781.0 193.3 L784.0 202.8 L787.0 209.6 L790.0 213.3 L793.0 213.8 L796.0 210.9 L799.0 204.8 L802.0 195.9 L805.0 184.6 L808.0 171.5 L811.0 157.3 L814.0 142.7 L817.0 128.5 L820.0 115.4 L823.0 104.1 L826.0 95.2 L829.0 89.1 L832.0 86.2 L835.0 86.7 L838.0 90.4 L841.0 97.2 L844.0 106.7 L847.0 118.5 L850.0 132.0 L853.0 146.3 L856.0 160.9 L859.0 174.9 L862.0 187.6 L865.0 198.4 L868.0 206.6 L871.0 211.9 L874.0 214.0 L877.0 212.7 L880.0 208.2 L883.0 200.7 L886.0 190.5 L889.0 178.2 L892.0 164.5 L895.0 150.0 L898.0 135.5 L901.0 121.8 L904.0 109.5 L907.0 99.3 L910.0 91.8 L913.0 87.3 L916.0 86.0 L919.0 88.1 L922.0 93.4 L925.0 101.6 L928.0 112.4 L931.0 125.1 L934.0 139.1 L937.0 153.7 L940.0 168.0 L943.0 181.5 L946.0 193.3 L949.0 202.8 L952.0 209.6 L955.0 213.3 L958.0 213.8 L961.0 210.9 L964.0 204.8 L967.0 195.9 L970.0 184.6 L973.0 171.5 L976.0 157.3 L979.0 142.7 L982.0 128.5 L985.0 115.4 L988.0 104.1 L991.0 95.2 L994.0 89.1 L997.0 86.2 L1000.0 86.7 L1003.0 90.4 L1006.0 97.2 L1009.0 106.7 L1012.0 118.5 L1015.0 132.0 L1018.0 146.3 L1021.0 160.9 L1024.0 174.9 L1027.0 187.6 L1030.0 198.4 L1033.0 206.6 L1036.0 211.9 L1039.0 214.0 L1042.0 212.7 L1045.0 208.2 L1048.0 200.7 L1051.0 190.5 L1054.0 178.2 L1057.0 164.5 L1060.0 150.0 L1060.0 150.0 L1063.0 142.7 L1066.0 135.5 L1069.0 128.5 L1072.0 121.8 L1075.0 115.4 L1078.0 109.5 L1081.0 104.1 L1084.0 99.3 L1087.0 95.2 L1090.0 91.8 L1093.0 89.1 L1096.0 87.3 L1099.0 86.2 L1102.0 86.0 L1105.0 86.7 L1108.0 88.1 L1111.0 90.4 L1114.0 93.4 L1117.0 97.2 L1120.0 101.6 L1123.0 106.7 L1126.0 112.4 L1129.0 118.5 L1132.0 125.1 L1135.0 132.0 L1138.0 139.1 L1141.0 146.3 L1144.0 153.7 L1147.0 160.9 L1150.0 168.0 L1153.0 174.9 L1156.0 181.5 L1159.0 187.6 L1162.0 193.3 L1165.0 198.4 L1168.0 202.8 L1171.0 206.6 L1174.0 209.6 L1177.0 211.9 L1180.0 213.3 L1183.0 214.0 L1186.0 213.8 L1189.0 212.7 L1192.0 210.9 L1195.0 208.2 L1198.0 204.8 L1201.0 200.7 L1204.0 195.9 L1207.0 190.5 L1210.0 184.6 L1213.0 178.2 L1216.0 171.5 L1219.0 164.5 L1222.0 157.3 L1225.0 150.0 L1228.0 142.7 L1231.0 135.5 L1234.0 128.5 L1237.0 121.8 L1240.0 115.4 L1243.0 109.5 L1246.0 104.1 L1249.0 99.3 L1252.0 95.2 L1255.0 91.8 L1258.0 89.1 L1261.0 87.3 L1264.0 86.2 L1267.0 86.0 L1270.0 86.7 L1273.0 88.1 L1276.0 90.4 L1279.0 93.4 L1282.0 97.2 L1285.0 101.6 L1288.0 106.7 L1291.0 112.4 L1294.0 118.5 L1297.0 125.1 L1300.0 132.0 L1303.0 139.1 L1306.0 146.3 L1309.0 153.7 L1312.0 160.9 L1315.0 168.0 L1318.0 174.9 L1321.0 181.5 L1324.0 187.6 L1327.0 193.3 L1330.0 198.4 L1333.0 202.8 L1336.0 206.6 L1339.0 209.6 L1342.0 211.9 L1345.0 213.3 L1348.0 214.0 L1351.0 213.8 L1354.0 212.7 L1357.0 210.9 L1360.0 208.2 L1363.0 204.8 L1366.0 200.7 L1369.0 195.9 L1372.0 190.5 L1375.0 184.6 L1378.0 178.2 L1381.0 171.5 L1384.0 164.5 L1387.0 157.3 L1390.0 150.0" fill="none" stroke="var(--blue)" stroke-width="8" stroke-linecap="round"/><line x1="400" y1="66" x2="400" y2="234" stroke="var(--yellow)" stroke-width="4" stroke-dasharray="6 8"/><line x1="730" y1="66" x2="730" y2="234" stroke="var(--yellow)" stroke-width="4" stroke-dasharray="6 8"/><line x1="1060" y1="66" x2="1060" y2="234" stroke="var(--yellow)" stroke-width="4" stroke-dasharray="6 8"/></svg>
+    <div class="g2a" style="margin-top:30px;align-items:start">
+      <p class="body b-md ink" style="max-width:40ch">Амплитуда постоянна, меняется частота: единице — сигнал повыше (частые колебания), нулю — пониже. Приёмник смотрит на «высоту тона», а не на громкость.</p>
+      <div class="card analogy b-md"><span class="tag">Аналогия</span>Как высота свистка — тонкий против низкого. Даже если свистеть то громче, то тише, тон никуда не денется. За это FM-радио звучит чище, чем AM.</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide bg-white on-white">
+  <div class="tophint">2.1 · ФМ · фаза</div>
+  <div class="pad" style="top:80px">
+    <h2 class="h-d h-sm blue" style="margin-bottom:26px">ФМ: СДВИГАЕМ ФАЗУ</h2>
+    <svg viewBox="0 0 1420 260" style="width:100%;height:280px"><text x="235.0" y="40" text-anchor="middle" class="h-d" style="font-size:34px" fill="var(--ink)">1</text><text x="565.0" y="40" text-anchor="middle" class="h-d" style="font-size:34px" fill="var(--ink)">0</text><text x="895.0" y="40" text-anchor="middle" class="h-d" style="font-size:34px" fill="var(--ink)">1</text><text x="1225.0" y="40" text-anchor="middle" class="h-d" style="font-size:34px" fill="var(--ink)">0</text><path class="rough" d="M70.0 150.0 L73.0 157.3 L76.0 164.5 L79.0 171.5 L82.0 178.2 L85.0 184.6 L88.0 190.5 L91.0 195.9 L94.0 200.7 L97.0 204.8 L100.0 208.2 L103.0 210.9 L106.0 212.7 L109.0 213.8 L112.0 214.0 L115.0 213.3 L118.0 211.9 L121.0 209.6 L124.0 206.6 L127.0 202.8 L130.0 198.4 L133.0 193.3 L136.0 187.6 L139.0 181.5 L142.0 174.9 L145.0 168.0 L148.0 160.9 L151.0 153.7 L154.0 146.3 L157.0 139.1 L160.0 132.0 L163.0 125.1 L166.0 118.5 L169.0 112.4 L172.0 106.7 L175.0 101.6 L178.0 97.2 L181.0 93.4 L184.0 90.4 L187.0 88.1 L190.0 86.7 L193.0 86.0 L196.0 86.2 L199.0 87.3 L202.0 89.1 L205.0 91.8 L208.0 95.2 L211.0 99.3 L214.0 104.1 L217.0 109.5 L220.0 115.4 L223.0 121.8 L226.0 128.5 L229.0 135.5 L232.0 142.7 L235.0 150.0 L238.0 157.3 L241.0 164.5 L244.0 171.5 L247.0 178.2 L250.0 184.6 L253.0 190.5 L256.0 195.9 L259.0 200.7 L262.0 204.8 L265.0 208.2 L268.0 210.9 L271.0 212.7 L274.0 213.8 L277.0 214.0 L280.0 213.3 L283.0 211.9 L286.0 209.6 L289.0 206.6 L292.0 202.8 L295.0 198.4 L298.0 193.3 L301.0 187.6 L304.0 181.5 L307.0 174.9 L310.0 168.0 L313.0 160.9 L316.0 153.7 L319.0 146.3 L322.0 139.1 L325.0 132.0 L328.0 125.1 L331.0 118.5 L334.0 112.4 L337.0 106.7 L340.0 101.6 L343.0 97.2 L346.0 93.4 L349.0 90.4 L352.0 88.1 L355.0 86.7 L358.0 86.0 L361.0 86.2 L364.0 87.3 L367.0 89.1 L370.0 91.8 L373.0 95.2 L376.0 99.3 L379.0 104.1 L382.0 109.5 L385.0 115.4 L388.0 121.8 L391.0 128.5 L394.0 135.5 L397.0 142.7 L400.0 150.0 L400.0 150.0 L403.0 142.7 L406.0 135.5 L409.0 128.5 L412.0 121.8 L415.0 115.4 L418.0 109.5 L421.0 104.1 L424.0 99.3 L427.0 95.2 L430.0 91.8 L433.0 89.1 L436.0 87.3 L439.0 86.2 L442.0 86.0 L445.0 86.7 L448.0 88.1 L451.0 90.4 L454.0 93.4 L457.0 97.2 L460.0 101.6 L463.0 106.7 L466.0 112.4 L469.0 118.5 L472.0 125.1 L475.0 132.0 L478.0 139.1 L481.0 146.3 L484.0 153.7 L487.0 160.9 L490.0 168.0 L493.0 174.9 L496.0 181.5 L499.0 187.6 L502.0 193.3 L505.0 198.4 L508.0 202.8 L511.0 206.6 L514.0 209.6 L517.0 211.9 L520.0 213.3 L523.0 214.0 L526.0 213.8 L529.0 212.7 L532.0 210.9 L535.0 208.2 L538.0 204.8 L541.0 200.7 L544.0 195.9 L547.0 190.5 L550.0 184.6 L553.0 178.2 L556.0 171.5 L559.0 164.5 L562.0 157.3 L565.0 150.0 L568.0 142.7 L571.0 135.5 L574.0 128.5 L577.0 121.8 L580.0 115.4 L583.0 109.5 L586.0 104.1 L589.0 99.3 L592.0 95.2 L595.0 91.8 L598.0 89.1 L601.0 87.3 L604.0 86.2 L607.0 86.0 L610.0 86.7 L613.0 88.1 L616.0 90.4 L619.0 93.4 L622.0 97.2 L625.0 101.6 L628.0 106.7 L631.0 112.4 L634.0 118.5 L637.0 125.1 L640.0 132.0 L643.0 139.1 L646.0 146.3 L649.0 153.7 L652.0 160.9 L655.0 168.0 L658.0 174.9 L661.0 181.5 L664.0 187.6 L667.0 193.3 L670.0 198.4 L673.0 202.8 L676.0 206.6 L679.0 209.6 L682.0 211.9 L685.0 213.3 L688.0 214.0 L691.0 213.8 L694.0 212.7 L697.0 210.9 L700.0 208.2 L703.0 204.8 L706.0 200.7 L709.0 195.9 L712.0 190.5 L715.0 184.6 L718.0 178.2 L721.0 171.5 L724.0 164.5 L727.0 157.3 L730.0 150.0 L730.0 150.0 L733.0 157.3 L736.0 164.5 L739.0 171.5 L742.0 178.2 L745.0 184.6 L748.0 190.5 L751.0 195.9 L754.0 200.7 L757.0 204.8 L760.0 208.2 L763.0 210.9 L766.0 212.7 L769.0 213.8 L772.0 214.0 L775.0 213.3 L778.0 211.9 L781.0 209.6 L784.0 206.6 L787.0 202.8 L790.0 198.4 L793.0 193.3 L796.0 187.6 L799.0 181.5 L802.0 174.9 L805.0 168.0 L808.0 160.9 L811.0 153.7 L814.0 146.3 L817.0 139.1 L820.0 132.0 L823.0 125.1 L826.0 118.5 L829.0 112.4 L832.0 106.7 L835.0 101.6 L838.0 97.2 L841.0 93.4 L844.0 90.4 L847.0 88.1 L850.0 86.7 L853.0 86.0 L856.0 86.2 L859.0 87.3 L862.0 89.1 L865.0 91.8 L868.0 95.2 L871.0 99.3 L874.0 104.1 L877.0 109.5 L880.0 115.4 L883.0 121.8 L886.0 128.5 L889.0 135.5 L892.0 142.7 L895.0 150.0 L898.0 157.3 L901.0 164.5 L904.0 171.5 L907.0 178.2 L910.0 184.6 L913.0 190.5 L916.0 195.9 L919.0 200.7 L922.0 204.8 L925.0 208.2 L928.0 210.9 L931.0 212.7 L934.0 213.8 L937.0 214.0 L940.0 213.3 L943.0 211.9 L946.0 209.6 L949.0 206.6 L952.0 202.8 L955.0 198.4 L958.0 193.3 L961.0 187.6 L964.0 181.5 L967.0 174.9 L970.0 168.0 L973.0 160.9 L976.0 153.7 L979.0 146.3 L982.0 139.1 L985.0 132.0 L988.0 125.1 L991.0 118.5 L994.0 112.4 L997.0 106.7 L1000.0 101.6 L1003.0 97.2 L1006.0 93.4 L1009.0 90.4 L1012.0 88.1 L1015.0 86.7 L1018.0 86.0 L1021.0 86.2 L1024.0 87.3 L1027.0 89.1 L1030.0 91.8 L1033.0 95.2 L1036.0 99.3 L1039.0 104.1 L1042.0 109.5 L1045.0 115.4 L1048.0 121.8 L1051.0 128.5 L1054.0 135.5 L1057.0 142.7 L1060.0 150.0 L1060.0 150.0 L1063.0 142.7 L1066.0 135.5 L1069.0 128.5 L1072.0 121.8 L1075.0 115.4 L1078.0 109.5 L1081.0 104.1 L1084.0 99.3 L1087.0 95.2 L1090.0 91.8 L1093.0 89.1 L1096.0 87.3 L1099.0 86.2 L1102.0 86.0 L1105.0 86.7 L1108.0 88.1 L1111.0 90.4 L1114.0 93.4 L1117.0 97.2 L1120.0 101.6 L1123.0 106.7 L1126.0 112.4 L1129.0 118.5 L1132.0 125.1 L1135.0 132.0 L1138.0 139.1 L1141.0 146.3 L1144.0 153.7 L1147.0 160.9 L1150.0 168.0 L1153.0 174.9 L1156.0 181.5 L1159.0 187.6 L1162.0 193.3 L1165.0 198.4 L1168.0 202.8 L1171.0 206.6 L1174.0 209.6 L1177.0 211.9 L1180.0 213.3 L1183.0 214.0 L1186.0 213.8 L1189.0 212.7 L1192.0 210.9 L1195.0 208.2 L1198.0 204.8 L1201.0 200.7 L1204.0 195.9 L1207.0 190.5 L1210.0 184.6 L1213.0 178.2 L1216.0 171.5 L1219.0 164.5 L1222.0 157.3 L1225.0 150.0 L1228.0 142.7 L1231.0 135.5 L1234.0 128.5 L1237.0 121.8 L1240.0 115.4 L1243.0 109.5 L1246.0 104.1 L1249.0 99.3 L1252.0 95.2 L1255.0 91.8 L1258.0 89.1 L1261.0 87.3 L1264.0 86.2 L1267.0 86.0 L1270.0 86.7 L1273.0 88.1 L1276.0 90.4 L1279.0 93.4 L1282.0 97.2 L1285.0 101.6 L1288.0 106.7 L1291.0 112.4 L1294.0 118.5 L1297.0 125.1 L1300.0 132.0 L1303.0 139.1 L1306.0 146.3 L1309.0 153.7 L1312.0 160.9 L1315.0 168.0 L1318.0 174.9 L1321.0 181.5 L1324.0 187.6 L1327.0 193.3 L1330.0 198.4 L1333.0 202.8 L1336.0 206.6 L1339.0 209.6 L1342.0 211.9 L1345.0 213.3 L1348.0 214.0 L1351.0 213.8 L1354.0 212.7 L1357.0 210.9 L1360.0 208.2 L1363.0 204.8 L1366.0 200.7 L1369.0 195.9 L1372.0 190.5 L1375.0 184.6 L1378.0 178.2 L1381.0 171.5 L1384.0 164.5 L1387.0 157.3 L1390.0 150.0" fill="none" stroke="var(--blue)" stroke-width="8" stroke-linecap="round"/><line x1="400" y1="66" x2="400" y2="234" stroke="var(--yellow)" stroke-width="4" stroke-dasharray="6 8"/><line x1="730" y1="66" x2="730" y2="234" stroke="var(--yellow)" stroke-width="4" stroke-dasharray="6 8"/><line x1="1060" y1="66" x2="1060" y2="234" stroke="var(--yellow)" stroke-width="4" stroke-dasharray="6 8"/></svg>
+    <div class="g2a" style="margin-top:30px;align-items:start">
+      <p class="body b-md ink" style="max-width:40ch">Амплитуда и частота постоянны — мы «переворачиваем» волну. «Фаза как была» — 0, «фаза перевёрнута» — 1. На глаз незаметно, зато техника ловит очень точно.</p>
+      <div class="card analogy b-md"><span class="tag">Аналогия</span>Хор поёт одну ноту одинаково громко. Договорились: «в такт» с дирижёром — 0, «в противофазе» — 1. Информация — в моменте вступления. Тонко и помехоустойчиво.</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide bg-white on-white">
+  <div class="tophint">2.1 · сравнение · Рис. 3.1.2a</div>
+  <div class="pad" style="top:70px">
+    <h2 class="h-d h-sm blue" style="margin-bottom:8px">ОДНИ БИТЫ — <span class="yl">ТРИ СПОСОБА</span></h2>
+    <p class="body b-sm ink" style="opacity:.72;margin-bottom:10px">Жёлтым отмечены точки смены бита. Последовательность одна и та же: 1 0 1 0.</p>
+    <svg viewBox="0 0 1400 640" style="width:100%;height:640px">
+      <text x="300.0" y="42" text-anchor="middle" class="h-d" style="font-size:36px" fill="var(--ink)">1</text><text x="600.0" y="42" text-anchor="middle" class="h-d" style="font-size:36px" fill="var(--ink)">0</text><text x="900.0" y="42" text-anchor="middle" class="h-d" style="font-size:36px" fill="var(--ink)">1</text><text x="1200.0" y="42" text-anchor="middle" class="h-d" style="font-size:36px" fill="var(--ink)">0</text>
+      <text x="40" y="160" class="lab" fill="var(--blue)">АМ</text><path class="rough" d="M150.0 160.0 L153.0 152.7 L156.0 145.6 L159.0 138.6 L162.0 132.1 L165.0 125.9 L168.0 120.3 L171.0 115.3 L174.0 111.0 L177.0 107.5 L180.0 104.8 L183.0 103.0 L186.0 102.1 L189.0 102.1 L192.0 103.0 L195.0 104.8 L198.0 107.5 L201.0 111.0 L204.0 115.3 L207.0 120.3 L210.0 125.9 L213.0 132.1 L216.0 138.6 L219.0 145.6 L222.0 152.7 L225.0 160.0 L228.0 167.3 L231.0 174.4 L234.0 181.4 L237.0 187.9 L240.0 194.1 L243.0 199.7 L246.0 204.7 L249.0 209.0 L252.0 212.5 L255.0 215.2 L258.0 217.0 L261.0 217.9 L264.0 217.9 L267.0 217.0 L270.0 215.2 L273.0 212.5 L276.0 209.0 L279.0 204.7 L282.0 199.7 L285.0 194.1 L288.0 187.9 L291.0 181.4 L294.0 174.4 L297.0 167.3 L300.0 160.0 L303.0 152.7 L306.0 145.6 L309.0 138.6 L312.0 132.1 L315.0 125.9 L318.0 120.3 L321.0 115.3 L324.0 111.0 L327.0 107.5 L330.0 104.8 L333.0 103.0 L336.0 102.1 L339.0 102.1 L342.0 103.0 L345.0 104.8 L348.0 107.5 L351.0 111.0 L354.0 115.3 L357.0 120.3 L360.0 125.9 L363.0 132.1 L366.0 138.6 L369.0 145.6 L372.0 152.7 L375.0 160.0 L378.0 167.3 L381.0 174.4 L384.0 181.4 L387.0 187.9 L390.0 194.1 L393.0 199.7 L396.0 204.7 L399.0 209.0 L402.0 212.5 L405.0 215.2 L408.0 217.0 L411.0 217.9 L414.0 217.9 L417.0 217.0 L420.0 215.2 L423.0 212.5 L426.0 209.0 L429.0 204.7 L432.0 199.7 L435.0 194.1 L438.0 187.9 L441.0 181.4 L444.0 174.4 L447.0 167.3 L450.0 160.0 L450.0 160.0 L453.0 157.5 L456.0 155.1 L459.0 152.7 L462.0 150.5 L465.0 148.4 L468.0 146.5 L471.0 144.8 L474.0 143.3 L477.0 142.2 L480.0 141.2 L483.0 140.6 L486.0 140.3 L489.0 140.3 L492.0 140.6 L495.0 141.2 L498.0 142.2 L501.0 143.3 L504.0 144.8 L507.0 146.5 L510.0 148.4 L513.0 150.5 L516.0 152.7 L519.0 155.1 L522.0 157.5 L525.0 160.0 L528.0 162.5 L531.0 164.9 L534.0 167.3 L537.0 169.5 L540.0 171.6 L543.0 173.5 L546.0 175.2 L549.0 176.7 L552.0 177.8 L555.0 178.8 L558.0 179.4 L561.0 179.7 L564.0 179.7 L567.0 179.4 L570.0 178.8 L573.0 177.8 L576.0 176.7 L579.0 175.2 L582.0 173.5 L585.0 171.6 L588.0 169.5 L591.0 167.3 L594.0 164.9 L597.0 162.5 L600.0 160.0 L603.0 157.5 L606.0 155.1 L609.0 152.7 L612.0 150.5 L615.0 148.4 L618.0 146.5 L621.0 144.8 L624.0 143.3 L627.0 142.2 L630.0 141.2 L633.0 140.6 L636.0 140.3 L639.0 140.3 L642.0 140.6 L645.0 141.2 L648.0 142.2 L651.0 143.3 L654.0 144.8 L657.0 146.5 L660.0 148.4 L663.0 150.5 L666.0 152.7 L669.0 155.1 L672.0 157.5 L675.0 160.0 L678.0 162.5 L681.0 164.9 L684.0 167.3 L687.0 169.5 L690.0 171.6 L693.0 173.5 L696.0 175.2 L699.0 176.7 L702.0 177.8 L705.0 178.8 L708.0 179.4 L711.0 179.7 L714.0 179.7 L717.0 179.4 L720.0 178.8 L723.0 177.8 L726.0 176.7 L729.0 175.2 L732.0 173.5 L735.0 171.6 L738.0 169.5 L741.0 167.3 L744.0 164.9 L747.0 162.5 L750.0 160.0 L750.0 160.0 L753.0 152.7 L756.0 145.6 L759.0 138.6 L762.0 132.1 L765.0 125.9 L768.0 120.3 L771.0 115.3 L774.0 111.0 L777.0 107.5 L780.0 104.8 L783.0 103.0 L786.0 102.1 L789.0 102.1 L792.0 103.0 L795.0 104.8 L798.0 107.5 L801.0 111.0 L804.0 115.3 L807.0 120.3 L810.0 125.9 L813.0 132.1 L816.0 138.6 L819.0 145.6 L822.0 152.7 L825.0 160.0 L828.0 167.3 L831.0 174.4 L834.0 181.4 L837.0 187.9 L840.0 194.1 L843.0 199.7 L846.0 204.7 L849.0 209.0 L852.0 212.5 L855.0 215.2 L858.0 217.0 L861.0 217.9 L864.0 217.9 L867.0 217.0 L870.0 215.2 L873.0 212.5 L876.0 209.0 L879.0 204.7 L882.0 199.7 L885.0 194.1 L888.0 187.9 L891.0 181.4 L894.0 174.4 L897.0 167.3 L900.0 160.0 L903.0 152.7 L906.0 145.6 L909.0 138.6 L912.0 132.1 L915.0 125.9 L918.0 120.3 L921.0 115.3 L924.0 111.0 L927.0 107.5 L930.0 104.8 L933.0 103.0 L936.0 102.1 L939.0 102.1 L942.0 103.0 L945.0 104.8 L948.0 107.5 L951.0 111.0 L954.0 115.3 L957.0 120.3 L960.0 125.9 L963.0 132.1 L966.0 138.6 L969.0 145.6 L972.0 152.7 L975.0 160.0 L978.0 167.3 L981.0 174.4 L984.0 181.4 L987.0 187.9 L990.0 194.1 L993.0 199.7 L996.0 204.7 L999.0 209.0 L1002.0 212.5 L1005.0 215.2 L1008.0 217.0 L1011.0 217.9 L1014.0 217.9 L1017.0 217.0 L1020.0 215.2 L1023.0 212.5 L1026.0 209.0 L1029.0 204.7 L1032.0 199.7 L1035.0 194.1 L1038.0 187.9 L1041.0 181.4 L1044.0 174.4 L1047.0 167.3 L1050.0 160.0 L1050.0 160.0 L1053.0 157.5 L1056.0 155.1 L1059.0 152.7 L1062.0 150.5 L1065.0 148.4 L1068.0 146.5 L1071.0 144.8 L1074.0 143.3 L1077.0 142.2 L1080.0 141.2 L1083.0 140.6 L1086.0 140.3 L1089.0 140.3 L1092.0 140.6 L1095.0 141.2 L1098.0 142.2 L1101.0 143.3 L1104.0 144.8 L1107.0 146.5 L1110.0 148.4 L1113.0 150.5 L1116.0 152.7 L1119.0 155.1 L1122.0 157.5 L1125.0 160.0 L1128.0 162.5 L1131.0 164.9 L1134.0 167.3 L1137.0 169.5 L1140.0 171.6 L1143.0 173.5 L1146.0 175.2 L1149.0 176.7 L1152.0 177.8 L1155.0 178.8 L1158.0 179.4 L1161.0 179.7 L1164.0 179.7 L1167.0 179.4 L1170.0 178.8 L1173.0 177.8 L1176.0 176.7 L1179.0 175.2 L1182.0 173.5 L1185.0 171.6 L1188.0 169.5 L1191.0 167.3 L1194.0 164.9 L1197.0 162.5 L1200.0 160.0 L1203.0 157.5 L1206.0 155.1 L1209.0 152.7 L1212.0 150.5 L1215.0 148.4 L1218.0 146.5 L1221.0 144.8 L1224.0 143.3 L1227.0 142.2 L1230.0 141.2 L1233.0 140.6 L1236.0 140.3 L1239.0 140.3 L1242.0 140.6 L1245.0 141.2 L1248.0 142.2 L1251.0 143.3 L1254.0 144.8 L1257.0 146.5 L1260.0 148.4 L1263.0 150.5 L1266.0 152.7 L1269.0 155.1 L1272.0 157.5 L1275.0 160.0 L1278.0 162.5 L1281.0 164.9 L1284.0 167.3 L1287.0 169.5 L1290.0 171.6 L1293.0 173.5 L1296.0 175.2 L1299.0 176.7 L1302.0 177.8 L1305.0 178.8 L1308.0 179.4 L1311.0 179.7 L1314.0 179.7 L1317.0 179.4 L1320.0 178.8 L1323.0 177.8 L1326.0 176.7 L1329.0 175.2 L1332.0 173.5 L1335.0 171.6 L1338.0 169.5 L1341.0 167.3 L1344.0 164.9 L1347.0 162.5 L1350.0 160.0" fill="none" stroke="var(--blue)" stroke-width="7" stroke-linecap="round"/><line x1="450" y1="88" x2="450" y2="232" stroke="var(--yellow)" stroke-width="4" stroke-dasharray="6 8"/><line x1="750" y1="88" x2="750" y2="232" stroke="var(--yellow)" stroke-width="4" stroke-dasharray="6 8"/><line x1="1050" y1="88" x2="1050" y2="232" stroke="var(--yellow)" stroke-width="4" stroke-dasharray="6 8"/>
+      <text x="40" y="340" class="lab" fill="var(--blue)">ЧМ</text><path class="rough" d="M150.0 340.0 L153.0 325.6 L156.0 312.1 L159.0 300.3 L162.0 291.0 L165.0 284.8 L168.0 282.1 L171.0 283.0 L174.0 287.5 L177.0 295.3 L180.0 305.9 L183.0 318.6 L186.0 332.7 L189.0 347.3 L192.0 361.4 L195.0 374.1 L198.0 384.7 L201.0 392.5 L204.0 397.0 L207.0 397.9 L210.0 395.2 L213.0 389.0 L216.0 379.7 L219.0 367.9 L222.0 354.4 L225.0 340.0 L228.0 325.6 L231.0 312.1 L234.0 300.3 L237.0 291.0 L240.0 284.8 L243.0 282.1 L246.0 283.0 L249.0 287.5 L252.0 295.3 L255.0 305.9 L258.0 318.6 L261.0 332.7 L264.0 347.3 L267.0 361.4 L270.0 374.1 L273.0 384.7 L276.0 392.5 L279.0 397.0 L282.0 397.9 L285.0 395.2 L288.0 389.0 L291.0 379.7 L294.0 367.9 L297.0 354.4 L300.0 340.0 L303.0 325.6 L306.0 312.1 L309.0 300.3 L312.0 291.0 L315.0 284.8 L318.0 282.1 L321.0 283.0 L324.0 287.5 L327.0 295.3 L330.0 305.9 L333.0 318.6 L336.0 332.7 L339.0 347.3 L342.0 361.4 L345.0 374.1 L348.0 384.7 L351.0 392.5 L354.0 397.0 L357.0 397.9 L360.0 395.2 L363.0 389.0 L366.0 379.7 L369.0 367.9 L372.0 354.4 L375.0 340.0 L378.0 325.6 L381.0 312.1 L384.0 300.3 L387.0 291.0 L390.0 284.8 L393.0 282.1 L396.0 283.0 L399.0 287.5 L402.0 295.3 L405.0 305.9 L408.0 318.6 L411.0 332.7 L414.0 347.3 L417.0 361.4 L420.0 374.1 L423.0 384.7 L426.0 392.5 L429.0 397.0 L432.0 397.9 L435.0 395.2 L438.0 389.0 L441.0 379.7 L444.0 367.9 L447.0 354.4 L450.0 340.0 L450.0 340.0 L453.0 332.7 L456.0 325.6 L459.0 318.6 L462.0 312.1 L465.0 305.9 L468.0 300.3 L471.0 295.3 L474.0 291.0 L477.0 287.5 L480.0 284.8 L483.0 283.0 L486.0 282.1 L489.0 282.1 L492.0 283.0 L495.0 284.8 L498.0 287.5 L501.0 291.0 L504.0 295.3 L507.0 300.3 L510.0 305.9 L513.0 312.1 L516.0 318.6 L519.0 325.6 L522.0 332.7 L525.0 340.0 L528.0 347.3 L531.0 354.4 L534.0 361.4 L537.0 367.9 L540.0 374.1 L543.0 379.7 L546.0 384.7 L549.0 389.0 L552.0 392.5 L555.0 395.2 L558.0 397.0 L561.0 397.9 L564.0 397.9 L567.0 397.0 L570.0 395.2 L573.0 392.5 L576.0 389.0 L579.0 384.7 L582.0 379.7 L585.0 374.1 L588.0 367.9 L591.0 361.4 L594.0 354.4 L597.0 347.3 L600.0 340.0 L603.0 332.7 L606.0 325.6 L609.0 318.6 L612.0 312.1 L615.0 305.9 L618.0 300.3 L621.0 295.3 L624.0 291.0 L627.0 287.5 L630.0 284.8 L633.0 283.0 L636.0 282.1 L639.0 282.1 L642.0 283.0 L645.0 284.8 L648.0 287.5 L651.0 291.0 L654.0 295.3 L657.0 300.3 L660.0 305.9 L663.0 312.1 L666.0 318.6 L669.0 325.6 L672.0 332.7 L675.0 340.0 L678.0 347.3 L681.0 354.4 L684.0 361.4 L687.0 367.9 L690.0 374.1 L693.0 379.7 L696.0 384.7 L699.0 389.0 L702.0 392.5 L705.0 395.2 L708.0 397.0 L711.0 397.9 L714.0 397.9 L717.0 397.0 L720.0 395.2 L723.0 392.5 L726.0 389.0 L729.0 384.7 L732.0 379.7 L735.0 374.1 L738.0 367.9 L741.0 361.4 L744.0 354.4 L747.0 347.3 L750.0 340.0 L750.0 340.0 L753.0 325.6 L756.0 312.1 L759.0 300.3 L762.0 291.0 L765.0 284.8 L768.0 282.1 L771.0 283.0 L774.0 287.5 L777.0 295.3 L780.0 305.9 L783.0 318.6 L786.0 332.7 L789.0 347.3 L792.0 361.4 L795.0 374.1 L798.0 384.7 L801.0 392.5 L804.0 397.0 L807.0 397.9 L810.0 395.2 L813.0 389.0 L816.0 379.7 L819.0 367.9 L822.0 354.4 L825.0 340.0 L828.0 325.6 L831.0 312.1 L834.0 300.3 L837.0 291.0 L840.0 284.8 L843.0 282.1 L846.0 283.0 L849.0 287.5 L852.0 295.3 L855.0 305.9 L858.0 318.6 L861.0 332.7 L864.0 347.3 L867.0 361.4 L870.0 374.1 L873.0 384.7 L876.0 392.5 L879.0 397.0 L882.0 397.9 L885.0 395.2 L888.0 389.0 L891.0 379.7 L894.0 367.9 L897.0 354.4 L900.0 340.0 L903.0 325.6 L906.0 312.1 L909.0 300.3 L912.0 291.0 L915.0 284.8 L918.0 282.1 L921.0 283.0 L924.0 287.5 L927.0 295.3 L930.0 305.9 L933.0 318.6 L936.0 332.7 L939.0 347.3 L942.0 361.4 L945.0 374.1 L948.0 384.7 L951.0 392.5 L954.0 397.0 L957.0 397.9 L960.0 395.2 L963.0 389.0 L966.0 379.7 L969.0 367.9 L972.0 354.4 L975.0 340.0 L978.0 325.6 L981.0 312.1 L984.0 300.3 L987.0 291.0 L990.0 284.8 L993.0 282.1 L996.0 283.0 L999.0 287.5 L1002.0 295.3 L1005.0 305.9 L1008.0 318.6 L1011.0 332.7 L1014.0 347.3 L1017.0 361.4 L1020.0 374.1 L1023.0 384.7 L1026.0 392.5 L1029.0 397.0 L1032.0 397.9 L1035.0 395.2 L1038.0 389.0 L1041.0 379.7 L1044.0 367.9 L1047.0 354.4 L1050.0 340.0 L1050.0 340.0 L1053.0 332.7 L1056.0 325.6 L1059.0 318.6 L1062.0 312.1 L1065.0 305.9 L1068.0 300.3 L1071.0 295.3 L1074.0 291.0 L1077.0 287.5 L1080.0 284.8 L1083.0 283.0 L1086.0 282.1 L1089.0 282.1 L1092.0 283.0 L1095.0 284.8 L1098.0 287.5 L1101.0 291.0 L1104.0 295.3 L1107.0 300.3 L1110.0 305.9 L1113.0 312.1 L1116.0 318.6 L1119.0 325.6 L1122.0 332.7 L1125.0 340.0 L1128.0 347.3 L1131.0 354.4 L1134.0 361.4 L1137.0 367.9 L1140.0 374.1 L1143.0 379.7 L1146.0 384.7 L1149.0 389.0 L1152.0 392.5 L1155.0 395.2 L1158.0 397.0 L1161.0 397.9 L1164.0 397.9 L1167.0 397.0 L1170.0 395.2 L1173.0 392.5 L1176.0 389.0 L1179.0 384.7 L1182.0 379.7 L1185.0 374.1 L1188.0 367.9 L1191.0 361.4 L1194.0 354.4 L1197.0 347.3 L1200.0 340.0 L1203.0 332.7 L1206.0 325.6 L1209.0 318.6 L1212.0 312.1 L1215.0 305.9 L1218.0 300.3 L1221.0 295.3 L1224.0 291.0 L1227.0 287.5 L1230.0 284.8 L1233.0 283.0 L1236.0 282.1 L1239.0 282.1 L1242.0 283.0 L1245.0 284.8 L1248.0 287.5 L1251.0 291.0 L1254.0 295.3 L1257.0 300.3 L1260.0 305.9 L1263.0 312.1 L1266.0 318.6 L1269.0 325.6 L1272.0 332.7 L1275.0 340.0 L1278.0 347.3 L1281.0 354.4 L1284.0 361.4 L1287.0 367.9 L1290.0 374.1 L1293.0 379.7 L1296.0 384.7 L1299.0 389.0 L1302.0 392.5 L1305.0 395.2 L1308.0 397.0 L1311.0 397.9 L1314.0 397.9 L1317.0 397.0 L1320.0 395.2 L1323.0 392.5 L1326.0 389.0 L1329.0 384.7 L1332.0 379.7 L1335.0 374.1 L1338.0 367.9 L1341.0 361.4 L1344.0 354.4 L1347.0 347.3 L1350.0 340.0" fill="none" stroke="var(--blue)" stroke-width="7" stroke-linecap="round"/><line x1="450" y1="268" x2="450" y2="412" stroke="var(--yellow)" stroke-width="4" stroke-dasharray="6 8"/><line x1="750" y1="268" x2="750" y2="412" stroke="var(--yellow)" stroke-width="4" stroke-dasharray="6 8"/><line x1="1050" y1="268" x2="1050" y2="412" stroke="var(--yellow)" stroke-width="4" stroke-dasharray="6 8"/>
+      <text x="40" y="520" class="lab" fill="var(--blue)">ФМ</text><path class="rough" d="M150.0 520.0 L153.0 527.3 L156.0 534.4 L159.0 541.4 L162.0 547.9 L165.0 554.1 L168.0 559.7 L171.0 564.7 L174.0 569.0 L177.0 572.5 L180.0 575.2 L183.0 577.0 L186.0 577.9 L189.0 577.9 L192.0 577.0 L195.0 575.2 L198.0 572.5 L201.0 569.0 L204.0 564.7 L207.0 559.7 L210.0 554.1 L213.0 547.9 L216.0 541.4 L219.0 534.4 L222.0 527.3 L225.0 520.0 L228.0 512.7 L231.0 505.6 L234.0 498.6 L237.0 492.1 L240.0 485.9 L243.0 480.3 L246.0 475.3 L249.0 471.0 L252.0 467.5 L255.0 464.8 L258.0 463.0 L261.0 462.1 L264.0 462.1 L267.0 463.0 L270.0 464.8 L273.0 467.5 L276.0 471.0 L279.0 475.3 L282.0 480.3 L285.0 485.9 L288.0 492.1 L291.0 498.6 L294.0 505.6 L297.0 512.7 L300.0 520.0 L303.0 527.3 L306.0 534.4 L309.0 541.4 L312.0 547.9 L315.0 554.1 L318.0 559.7 L321.0 564.7 L324.0 569.0 L327.0 572.5 L330.0 575.2 L333.0 577.0 L336.0 577.9 L339.0 577.9 L342.0 577.0 L345.0 575.2 L348.0 572.5 L351.0 569.0 L354.0 564.7 L357.0 559.7 L360.0 554.1 L363.0 547.9 L366.0 541.4 L369.0 534.4 L372.0 527.3 L375.0 520.0 L378.0 512.7 L381.0 505.6 L384.0 498.6 L387.0 492.1 L390.0 485.9 L393.0 480.3 L396.0 475.3 L399.0 471.0 L402.0 467.5 L405.0 464.8 L408.0 463.0 L411.0 462.1 L414.0 462.1 L417.0 463.0 L420.0 464.8 L423.0 467.5 L426.0 471.0 L429.0 475.3 L432.0 480.3 L435.0 485.9 L438.0 492.1 L441.0 498.6 L444.0 505.6 L447.0 512.7 L450.0 520.0 L450.0 520.0 L453.0 512.7 L456.0 505.6 L459.0 498.6 L462.0 492.1 L465.0 485.9 L468.0 480.3 L471.0 475.3 L474.0 471.0 L477.0 467.5 L480.0 464.8 L483.0 463.0 L486.0 462.1 L489.0 462.1 L492.0 463.0 L495.0 464.8 L498.0 467.5 L501.0 471.0 L504.0 475.3 L507.0 480.3 L510.0 485.9 L513.0 492.1 L516.0 498.6 L519.0 505.6 L522.0 512.7 L525.0 520.0 L528.0 527.3 L531.0 534.4 L534.0 541.4 L537.0 547.9 L540.0 554.1 L543.0 559.7 L546.0 564.7 L549.0 569.0 L552.0 572.5 L555.0 575.2 L558.0 577.0 L561.0 577.9 L564.0 577.9 L567.0 577.0 L570.0 575.2 L573.0 572.5 L576.0 569.0 L579.0 564.7 L582.0 559.7 L585.0 554.1 L588.0 547.9 L591.0 541.4 L594.0 534.4 L597.0 527.3 L600.0 520.0 L603.0 512.7 L606.0 505.6 L609.0 498.6 L612.0 492.1 L615.0 485.9 L618.0 480.3 L621.0 475.3 L624.0 471.0 L627.0 467.5 L630.0 464.8 L633.0 463.0 L636.0 462.1 L639.0 462.1 L642.0 463.0 L645.0 464.8 L648.0 467.5 L651.0 471.0 L654.0 475.3 L657.0 480.3 L660.0 485.9 L663.0 492.1 L666.0 498.6 L669.0 505.6 L672.0 512.7 L675.0 520.0 L678.0 527.3 L681.0 534.4 L684.0 541.4 L687.0 547.9 L690.0 554.1 L693.0 559.7 L696.0 564.7 L699.0 569.0 L702.0 572.5 L705.0 575.2 L708.0 577.0 L711.0 577.9 L714.0 577.9 L717.0 577.0 L720.0 575.2 L723.0 572.5 L726.0 569.0 L729.0 564.7 L732.0 559.7 L735.0 554.1 L738.0 547.9 L741.0 541.4 L744.0 534.4 L747.0 527.3 L750.0 520.0 L750.0 520.0 L753.0 527.3 L756.0 534.4 L759.0 541.4 L762.0 547.9 L765.0 554.1 L768.0 559.7 L771.0 564.7 L774.0 569.0 L777.0 572.5 L780.0 575.2 L783.0 577.0 L786.0 577.9 L789.0 577.9 L792.0 577.0 L795.0 575.2 L798.0 572.5 L801.0 569.0 L804.0 564.7 L807.0 559.7 L810.0 554.1 L813.0 547.9 L816.0 541.4 L819.0 534.4 L822.0 527.3 L825.0 520.0 L828.0 512.7 L831.0 505.6 L834.0 498.6 L837.0 492.1 L840.0 485.9 L843.0 480.3 L846.0 475.3 L849.0 471.0 L852.0 467.5 L855.0 464.8 L858.0 463.0 L861.0 462.1 L864.0 462.1 L867.0 463.0 L870.0 464.8 L873.0 467.5 L876.0 471.0 L879.0 475.3 L882.0 480.3 L885.0 485.9 L888.0 492.1 L891.0 498.6 L894.0 505.6 L897.0 512.7 L900.0 520.0 L903.0 527.3 L906.0 534.4 L909.0 541.4 L912.0 547.9 L915.0 554.1 L918.0 559.7 L921.0 564.7 L924.0 569.0 L927.0 572.5 L930.0 575.2 L933.0 577.0 L936.0 577.9 L939.0 577.9 L942.0 577.0 L945.0 575.2 L948.0 572.5 L951.0 569.0 L954.0 564.7 L957.0 559.7 L960.0 554.1 L963.0 547.9 L966.0 541.4 L969.0 534.4 L972.0 527.3 L975.0 520.0 L978.0 512.7 L981.0 505.6 L984.0 498.6 L987.0 492.1 L990.0 485.9 L993.0 480.3 L996.0 475.3 L999.0 471.0 L1002.0 467.5 L1005.0 464.8 L1008.0 463.0 L1011.0 462.1 L1014.0 462.1 L1017.0 463.0 L1020.0 464.8 L1023.0 467.5 L1026.0 471.0 L1029.0 475.3 L1032.0 480.3 L1035.0 485.9 L1038.0 492.1 L1041.0 498.6 L1044.0 505.6 L1047.0 512.7 L1050.0 520.0 L1050.0 520.0 L1053.0 512.7 L1056.0 505.6 L1059.0 498.6 L1062.0 492.1 L1065.0 485.9 L1068.0 480.3 L1071.0 475.3 L1074.0 471.0 L1077.0 467.5 L1080.0 464.8 L1083.0 463.0 L1086.0 462.1 L1089.0 462.1 L1092.0 463.0 L1095.0 464.8 L1098.0 467.5 L1101.0 471.0 L1104.0 475.3 L1107.0 480.3 L1110.0 485.9 L1113.0 492.1 L1116.0 498.6 L1119.0 505.6 L1122.0 512.7 L1125.0 520.0 L1128.0 527.3 L1131.0 534.4 L1134.0 541.4 L1137.0 547.9 L1140.0 554.1 L1143.0 559.7 L1146.0 564.7 L1149.0 569.0 L1152.0 572.5 L1155.0 575.2 L1158.0 577.0 L1161.0 577.9 L1164.0 577.9 L1167.0 577.0 L1170.0 575.2 L1173.0 572.5 L1176.0 569.0 L1179.0 564.7 L1182.0 559.7 L1185.0 554.1 L1188.0 547.9 L1191.0 541.4 L1194.0 534.4 L1197.0 527.3 L1200.0 520.0 L1203.0 512.7 L1206.0 505.6 L1209.0 498.6 L1212.0 492.1 L1215.0 485.9 L1218.0 480.3 L1221.0 475.3 L1224.0 471.0 L1227.0 467.5 L1230.0 464.8 L1233.0 463.0 L1236.0 462.1 L1239.0 462.1 L1242.0 463.0 L1245.0 464.8 L1248.0 467.5 L1251.0 471.0 L1254.0 475.3 L1257.0 480.3 L1260.0 485.9 L1263.0 492.1 L1266.0 498.6 L1269.0 505.6 L1272.0 512.7 L1275.0 520.0 L1278.0 527.3 L1281.0 534.4 L1284.0 541.4 L1287.0 547.9 L1290.0 554.1 L1293.0 559.7 L1296.0 564.7 L1299.0 569.0 L1302.0 572.5 L1305.0 575.2 L1308.0 577.0 L1311.0 577.9 L1314.0 577.9 L1317.0 577.0 L1320.0 575.2 L1323.0 572.5 L1326.0 569.0 L1329.0 564.7 L1332.0 559.7 L1335.0 554.1 L1338.0 547.9 L1341.0 541.4 L1344.0 534.4 L1347.0 527.3 L1350.0 520.0" fill="none" stroke="var(--blue)" stroke-width="7" stroke-linecap="round"/><line x1="450" y1="448" x2="450" y2="592" stroke="var(--yellow)" stroke-width="4" stroke-dasharray="6 8"/><line x1="750" y1="448" x2="750" y2="592" stroke="var(--yellow)" stroke-width="4" stroke-dasharray="6 8"/><line x1="1050" y1="448" x2="1050" y2="592" stroke="var(--yellow)" stroke-width="4" stroke-dasharray="6 8"/>
     </svg>
   </div>
 </section>
@@ -347,73 +392,67 @@ svg .rough{filter:url(#rough)}
 <section class="slide bg-white on-white">
   <div class="tophint">2.1 · компромисс</div>
   <svg class="doodle" style="right:120px;top:120px;width:100px;transform:rotate(12deg)" viewBox="0 0 100 100"><path d="M50 2 L60 40 L98 50 L60 60 L50 98 L40 60 L2 50 L40 40 Z" fill="none" stroke="var(--yellow)" stroke-width="6" stroke-linejoin="round"/></svg>
-  <div class="pad g2a" style="top:80px">
+  <div class="pad g2a" style="top:90px">
     <div class="col">
       <h2 class="h-d h-sm blue" style="margin-bottom:26px">ПРОСТОТА<br>ПРОТИВ ЁМКОСТИ</h2>
       <ul class="bullets b-md ink" style="max-width:34ch">
         <li>АМ — проще всех, но уязвима к шуму</li>
         <li>ЧМ и ФМ сложнее, зато держат помеху и вмещают больше бит в один «такт»</li>
-        <li>Реальные системы комбинируют параметры: амплитуда + фаза = <b>QAM</b> (Wi-Fi, сотовая, кабель)</li>
+        <li>Системы комбинируют: амплитуда + фаза = <b>QAM</b> (Wi-Fi, сотовая, кабель)</li>
       </ul>
     </div>
-    <div class="card b-lg">
-      <span class="tag">Идея уплотнения</span>
-      Если один «такт» несущей различает не 2 состояния (0/1), а <b>16</b>, то за один такт передаём <b>4 бита</b> вместо одного. Отсюда — рост скорости без роста частоты.
-    </div>
+    <div class="card b-lg"><span class="tag">Идея уплотнения</span>Если один «такт» различает не 2 состояния (0/1), а <b>16</b>, то за такт передаём <b>4 бита</b> вместо одного. Отсюда — рост скорости без роста частоты.</div>
   </div>
 </section>
 
 <section class="slide bg-blue on-blue">
   <div class="tophint">2.1 · рабочий пример</div>
-  <div class="pad" style="top:56px">
-    <h2 class="h-d h-sm" style="margin-bottom:16px">РАБОЧИЙ ПРИМЕР: ПЕРЕДАЁМ ЧИСЛО <span class="yl">149</span></h2>
-    <ul class="steps b-md white" style="grid-auto-flow:column;grid-template-columns:repeat(4,1fr);gap:24px;margin-bottom:10px">
-      <li>Кодируем: 149 → <b>10010101</b><br><span style="opacity:.8;font-size:.8em">128+16+4+1</span></li>
-      <li>Модулируем: 1 — сигнал есть, 0 — нет <span style="opacity:.8;font-size:.8em">(on-off keying)</span></li>
+  <div class="pad" style="top:60px">
+    <h2 class="h-d h-sm" style="margin-bottom:16px">ПЕРЕДАЁМ ЧИСЛО <span class="yl">149</span></h2>
+    <ul class="steps b-md white" style="grid-template-columns:repeat(4,1fr);display:grid;gap:22px;margin-bottom:14px">
+      <li>Кодируем: 149 → <b>10010101</b> <span style="opacity:.8">(128+16+4+1)</span></li>
+      <li>Модулируем: 1 — сигнал есть, 0 — нет <span style="opacity:.8">(on-off keying)</span></li>
       <li>Передаём вспышки-импульсы сквозь среду</li>
       <li>Читаем обратно и получаем <b>149</b></li>
     </ul>
-    <svg viewBox="0 0 1560 500" style="width:100%;height:520px;background:rgba(255,255,255,.06);border-radius:24px">
+    <svg viewBox="0 0 1560 500" style="width:100%;height:500px;background:rgba(255,255,255,.06);border-radius:24px">
       <text x="40" y="90" class="lab" fill="var(--yellow)">несущая</text>
       <path class="rough" d="M120.0 150.0 L123.0 129.5 L126.0 111.7 L129.0 98.8 L132.0 92.5 L135.0 93.5 L138.0 101.8 L141.0 116.3 L144.0 135.2 L147.0 155.9 L150.0 175.9 L153.0 192.5 L156.0 203.7 L159.0 208.0 L162.0 204.8 L165.0 194.6 L168.0 178.7 L171.0 159.1 L174.0 138.3 L177.0 119.0 L180.0 103.7 L183.0 94.4 L186.0 92.2 L189.0 97.4 L192.0 109.4 L195.0 126.6 L198.0 146.8 L201.0 167.4 L204.0 185.8 L207.0 199.6 L210.0 207.0 L213.0 207.1 L216.0 199.9 L219.0 186.2 L222.0 167.9 L225.0 147.3 L228.0 127.1 L231.0 109.8 L234.0 97.6 L237.0 92.2 L240.0 94.2 L243.0 103.4 L246.0 118.6 L249.0 137.8 L252.0 158.5 L255.0 178.2 L258.0 194.3 L261.0 204.6 L264.0 208.0 L267.0 203.9 L270.0 192.9 L273.0 176.3 L276.0 156.4 L279.0 135.7 L282.0 116.8 L285.0 102.2 L288.0 93.7 L291.0 92.4 L294.0 98.6 L297.0 111.3 L300.0 129.0 L303.0 149.5 L306.0 169.9 L309.0 187.9 L312.0 200.9 L315.0 207.4 L318.0 206.6 L321.0 198.4 L324.0 184.1 L327.0 165.4 L330.0 144.6 L333.0 124.6 L336.0 107.9 L339.0 96.5 L342.0 92.0 L345.0 95.0 L348.0 105.0 L351.0 120.8 L354.0 140.4 L357.0 161.2 L360.0 180.5 L363.0 196.0 L366.0 205.5 L369.0 207.9 L372.0 202.8 L375.0 191.0 L378.0 173.9 L381.0 153.7 L384.0 133.1 L387.0 114.6 L390.0 100.7 L393.0 93.1 L396.0 92.8 L399.0 99.9 L402.0 113.4 L405.0 131.6 L408.0 152.1 L411.0 172.4 L414.0 189.9 L417.0 202.2 L420.0 207.8 L423.0 205.9 L426.0 196.9 L429.0 181.9 L432.0 162.8 L435.0 142.0 L438.0 122.2 L441.0 106.1 L444.0 95.5 L447.0 92.0 L450.0 95.9 L453.0 106.8 L456.0 123.2 L459.0 143.0 L462.0 163.8 L465.0 182.8 L468.0 197.5 L471.0 206.2 L474.0 207.6 L477.0 201.7 L480.0 189.1 L483.0 171.5 L486.0 151.1 L489.0 130.6 L492.0 112.5 L495.0 99.3 L498.0 92.6 L501.0 93.3 L504.0 101.3 L507.0 115.5 L510.0 134.1 L513.0 154.8 L516.0 174.9 L519.0 191.8 L522.0 203.3 L525.0 207.9 L528.0 205.2 L531.0 195.3 L534.0 179.6 L537.0 160.1 L540.0 139.3 L543.0 119.9 L546.0 104.4 L549.0 94.7 L552.0 92.1 L555.0 96.9 L558.0 108.6 L561.0 125.6 L564.0 145.7 L567.0 166.4 L570.0 185.0 L573.0 199.0 L576.0 206.8 L579.0 207.3 L582.0 200.4 L585.0 187.1 L588.0 168.9 L591.0 148.4 L594.0 128.1 L597.0 110.5 L600.0 98.1 L603.0 92.3 L606.0 93.9 L609.0 102.8 L612.0 117.7 L615.0 136.7 L618.0 157.5 L621.0 177.3 L624.0 193.6 L627.0 204.3 L630.0 208.0 L633.0 204.3 L636.0 193.6 L639.0 177.3 L642.0 157.5 L645.0 136.7 L648.0 117.7 L651.0 102.8 L654.0 93.9 L657.0 92.3 L660.0 98.1 L663.0 110.5 L666.0 128.1 L669.0 148.4 L672.0 168.9 L675.0 187.1 L678.0 200.4 L681.0 207.3 L684.0 206.8 L687.0 199.0 L690.0 185.0 L693.0 166.4 L696.0 145.7 L699.0 125.6 L702.0 108.6 L705.0 96.9 L708.0 92.1 L711.0 94.7 L714.0 104.4 L717.0 119.9 L720.0 139.3 L723.0 160.1 L726.0 179.6 L729.0 195.3 L732.0 205.2 L735.0 207.9 L738.0 203.3 L741.0 191.8 L744.0 174.9 L747.0 154.8 L750.0 134.1 L753.0 115.5 L756.0 101.3 L759.0 93.3 L762.0 92.6 L765.0 99.3 L768.0 112.5 L771.0 130.6 L774.0 151.1 L777.0 171.5 L780.0 189.1 L783.0 201.7 L786.0 207.6 L789.0 206.2 L792.0 197.5 L795.0 182.8 L798.0 163.8 L801.0 143.0 L804.0 123.2 L807.0 106.8 L810.0 95.9 L813.0 92.0 L816.0 95.5 L819.0 106.1 L822.0 122.2 L825.0 142.0 L828.0 162.8 L831.0 181.9 L834.0 196.9 L837.0 205.9 L840.0 207.8 L843.0 202.2 L846.0 189.9 L849.0 172.4 L852.0 152.1 L855.0 131.6 L858.0 113.4 L861.0 99.9 L864.0 92.8 L867.0 93.1 L870.0 100.7 L873.0 114.6 L876.0 133.1 L879.0 153.7 L882.0 173.9 L885.0 191.0 L888.0 202.8 L891.0 207.9 L894.0 205.5 L897.0 196.0 L900.0 180.5 L903.0 161.2 L906.0 140.4 L909.0 120.8 L912.0 105.0 L915.0 95.0 L918.0 92.0 L921.0 96.5 L924.0 107.9 L927.0 124.6 L930.0 144.6 L933.0 165.4 L936.0 184.1 L939.0 198.4 L942.0 206.6 L945.0 207.4 L948.0 200.9 L951.0 187.9 L954.0 169.9 L957.0 149.5 L960.0 129.0 L963.0 111.3 L966.0 98.6 L969.0 92.4 L972.0 93.7 L975.0 102.2 L978.0 116.8 L981.0 135.7 L984.0 156.4 L987.0 176.3 L990.0 192.9 L993.0 203.9 L996.0 208.0 L999.0 204.6 L1002.0 194.3 L1005.0 178.2 L1008.0 158.5 L1011.0 137.8 L1014.0 118.6 L1017.0 103.4 L1020.0 94.2 L1023.0 92.2 L1026.0 97.6 L1029.0 109.8 L1032.0 127.1 L1035.0 147.3 L1038.0 167.9 L1041.0 186.2 L1044.0 199.9 L1047.0 207.1 L1050.0 207.0 L1053.0 199.6 L1056.0 185.8 L1059.0 167.4 L1062.0 146.8 L1065.0 126.6 L1068.0 109.4 L1071.0 97.4 L1074.0 92.2 L1077.0 94.4 L1080.0 103.7 L1083.0 119.0 L1086.0 138.3 L1089.0 159.1 L1092.0 178.7 L1095.0 194.6 L1098.0 204.8 L1101.0 208.0 L1104.0 203.7 L1107.0 192.5 L1110.0 175.9 L1113.0 155.9 L1116.0 135.2 L1119.0 116.3 L1122.0 101.8 L1125.0 93.5 L1128.0 92.5 L1131.0 98.8 L1134.0 111.7 L1137.0 129.5 L1140.0 150.0 L1143.0 170.5 L1146.0 188.3 L1149.0 201.2 L1152.0 207.5 L1155.0 206.5 L1158.0 198.2 L1161.0 183.7 L1164.0 164.8 L1167.0 144.1 L1170.0 124.1 L1173.0 107.5 L1176.0 96.3 L1179.0 92.0 L1182.0 95.2 L1185.0 105.4 L1188.0 121.3 L1191.0 140.9 L1194.0 161.7 L1197.0 181.0 L1200.0 196.3 L1203.0 205.6 L1206.0 207.8 L1209.0 202.6 L1212.0 190.6 L1215.0 173.4 L1218.0 153.2 L1221.0 132.6 L1224.0 114.2 L1227.0 100.4 L1230.0 93.0 L1233.0 92.9 L1236.0 100.1 L1239.0 113.8 L1242.0 132.1 L1245.0 152.7 L1248.0 172.9 L1251.0 190.2 L1254.0 202.4 L1257.0 207.8 L1260.0 205.8 L1263.0 196.6 L1266.0 181.4 L1269.0 162.2 L1272.0 141.5 L1275.0 121.8 L1278.0 105.7 L1281.0 95.4 L1284.0 92.0 L1287.0 96.1 L1290.0 107.1 L1293.0 123.7 L1296.0 143.6 L1299.0 164.3 L1302.0 183.2 L1305.0 197.8 L1308.0 206.3 L1311.0 207.6 L1314.0 201.4 L1317.0 188.7 L1320.0 171.0 L1323.0 150.5 L1326.0 130.1 L1329.0 112.1 L1332.0 99.1 L1335.0 92.6 L1338.0 93.4 L1341.0 101.6 L1344.0 115.9 L1347.0 134.6 L1350.0 155.4 L1353.0 175.4 L1356.0 192.1 L1359.0 203.5 L1362.0 208.0 L1365.0 205.0 L1368.0 195.0 L1371.0 179.2 L1374.0 159.6 L1377.0 138.8 L1380.0 119.5 L1383.0 104.0 L1386.0 94.5 L1389.0 92.1 L1392.0 97.2 L1395.0 109.0 L1398.0 126.1 L1401.0 146.3 L1404.0 166.9 L1407.0 185.4 L1410.0 199.3 L1413.0 206.9 L1416.0 207.2 L1419.0 200.1 L1422.0 186.6 L1425.0 168.4 L1428.0 147.9 L1431.0 127.6 L1434.0 110.1 L1437.0 97.8 L1440.0 92.2 L1443.0 94.1 L1446.0 103.1 L1449.0 118.1 L1452.0 137.2 L1455.0 158.0 L1458.0 177.8 L1461.0 193.9 L1464.0 204.5 L1467.0 208.0 L1470.0 204.1 L1473.0 193.2 L1476.0 176.8 L1479.0 157.0" fill="none" stroke="var(--white)" stroke-width="6" stroke-linecap="round"/>
       <text x="40" y="300" class="lab" fill="var(--yellow)">биты</text>
       <path class="rough" d="M120.0 380.0 L123.0 367.2 L126.0 355.1 L129.0 344.2 L132.0 335.0 L135.0 328.1 L138.0 323.7 L141.0 322.0 L144.0 323.2 L147.0 327.2 L150.0 333.7 L153.0 342.5 L156.0 353.2 L159.0 365.2 L162.0 377.9 L165.0 390.7 L168.0 402.9 L171.0 414.1 L174.0 423.6 L177.0 430.9 L180.0 435.8 L183.0 437.9 L186.0 437.2 L189.0 433.7 L192.0 427.5 L195.0 419.1 L198.0 408.7 L201.0 396.9 L204.0 384.3 L207.0 371.5 L210.0 359.0 L213.0 347.7 L216.0 337.9 L219.0 330.1 L222.0 324.8 L225.0 322.2 L228.0 322.5 L231.0 325.5 L234.0 331.3 L237.0 339.4 L240.0 349.5 L243.0 361.1 L246.0 373.6 L249.0 386.4 L252.0 398.9 L255.0 410.5 L258.0 420.6 L261.0 428.7 L264.0 434.5 L267.0 437.5 L270.0 437.8 L273.0 435.2 L276.0 429.9 L279.0 422.1 L282.0 412.3 L285.0 401.0 L288.0 388.5 L290.0 380.0 L293.0 380.0 L296.0 380.0 L299.0 380.0 L302.0 380.0 L305.0 380.0 L308.0 380.0 L311.0 380.0 L314.0 380.0 L317.0 380.0 L320.0 380.0 L323.0 380.0 L326.0 380.0 L329.0 380.0 L332.0 380.0 L335.0 380.0 L338.0 380.0 L341.0 380.0 L344.0 380.0 L347.0 380.0 L350.0 380.0 L353.0 380.0 L356.0 380.0 L359.0 380.0 L362.0 380.0 L365.0 380.0 L368.0 380.0 L371.0 380.0 L374.0 380.0 L377.0 380.0 L380.0 380.0 L383.0 380.0 L386.0 380.0 L389.0 380.0 L392.0 380.0 L395.0 380.0 L398.0 380.0 L401.0 380.0 L404.0 380.0 L407.0 380.0 L410.0 380.0 L413.0 380.0 L416.0 380.0 L419.0 380.0 L422.0 380.0 L425.0 380.0 L428.0 380.0 L431.0 380.0 L434.0 380.0 L437.0 380.0 L440.0 380.0 L443.0 380.0 L446.0 380.0 L449.0 380.0 L452.0 380.0 L455.0 380.0 L458.0 380.0 L460.0 380.0 L463.0 380.0 L466.0 380.0 L469.0 380.0 L472.0 380.0 L475.0 380.0 L478.0 380.0 L481.0 380.0 L484.0 380.0 L487.0 380.0 L490.0 380.0 L493.0 380.0 L496.0 380.0 L499.0 380.0 L502.0 380.0 L505.0 380.0 L508.0 380.0 L511.0 380.0 L514.0 380.0 L517.0 380.0 L520.0 380.0 L523.0 380.0 L526.0 380.0 L529.0 380.0 L532.0 380.0 L535.0 380.0 L538.0 380.0 L541.0 380.0 L544.0 380.0 L547.0 380.0 L550.0 380.0 L553.0 380.0 L556.0 380.0 L559.0 380.0 L562.0 380.0 L565.0 380.0 L568.0 380.0 L571.0 380.0 L574.0 380.0 L577.0 380.0 L580.0 380.0 L583.0 380.0 L586.0 380.0 L589.0 380.0 L592.0 380.0 L595.0 380.0 L598.0 380.0 L601.0 380.0 L604.0 380.0 L607.0 380.0 L610.0 380.0 L613.0 380.0 L616.0 380.0 L619.0 380.0 L622.0 380.0 L625.0 380.0 L628.0 380.0 L630.0 380.0 L633.0 367.2 L636.0 355.1 L639.0 344.2 L642.0 335.0 L645.0 328.1 L648.0 323.7 L651.0 322.0 L654.0 323.2 L657.0 327.2 L660.0 333.7 L663.0 342.5 L666.0 353.2 L669.0 365.2 L672.0 377.9 L675.0 390.7 L678.0 402.9 L681.0 414.1 L684.0 423.6 L687.0 430.9 L690.0 435.8 L693.0 437.9 L696.0 437.2 L699.0 433.7 L702.0 427.5 L705.0 419.1 L708.0 408.7 L711.0 396.9 L714.0 384.3 L717.0 371.5 L720.0 359.0 L723.0 347.7 L726.0 337.9 L729.0 330.1 L732.0 324.8 L735.0 322.2 L738.0 322.5 L741.0 325.5 L744.0 331.3 L747.0 339.4 L750.0 349.5 L753.0 361.1 L756.0 373.6 L759.0 386.4 L762.0 398.9 L765.0 410.5 L768.0 420.6 L771.0 428.7 L774.0 434.5 L777.0 437.5 L780.0 437.8 L783.0 435.2 L786.0 429.9 L789.0 422.1 L792.0 412.3 L795.0 401.0 L798.0 388.5 L800.0 380.0 L803.0 380.0 L806.0 380.0 L809.0 380.0 L812.0 380.0 L815.0 380.0 L818.0 380.0 L821.0 380.0 L824.0 380.0 L827.0 380.0 L830.0 380.0 L833.0 380.0 L836.0 380.0 L839.0 380.0 L842.0 380.0 L845.0 380.0 L848.0 380.0 L851.0 380.0 L854.0 380.0 L857.0 380.0 L860.0 380.0 L863.0 380.0 L866.0 380.0 L869.0 380.0 L872.0 380.0 L875.0 380.0 L878.0 380.0 L881.0 380.0 L884.0 380.0 L887.0 380.0 L890.0 380.0 L893.0 380.0 L896.0 380.0 L899.0 380.0 L902.0 380.0 L905.0 380.0 L908.0 380.0 L911.0 380.0 L914.0 380.0 L917.0 380.0 L920.0 380.0 L923.0 380.0 L926.0 380.0 L929.0 380.0 L932.0 380.0 L935.0 380.0 L938.0 380.0 L941.0 380.0 L944.0 380.0 L947.0 380.0 L950.0 380.0 L953.0 380.0 L956.0 380.0 L959.0 380.0 L962.0 380.0 L965.0 380.0 L968.0 380.0 L970.0 380.0 L973.0 367.2 L976.0 355.1 L979.0 344.2 L982.0 335.0 L985.0 328.1 L988.0 323.7 L991.0 322.0 L994.0 323.2 L997.0 327.2 L1000.0 333.7 L1003.0 342.5 L1006.0 353.2 L1009.0 365.2 L1012.0 377.9 L1015.0 390.7 L1018.0 402.9 L1021.0 414.1 L1024.0 423.6 L1027.0 430.9 L1030.0 435.8 L1033.0 437.9 L1036.0 437.2 L1039.0 433.7 L1042.0 427.5 L1045.0 419.1 L1048.0 408.7 L1051.0 396.9 L1054.0 384.3 L1057.0 371.5 L1060.0 359.0 L1063.0 347.7 L1066.0 337.9 L1069.0 330.1 L1072.0 324.8 L1075.0 322.2 L1078.0 322.5 L1081.0 325.5 L1084.0 331.3 L1087.0 339.4 L1090.0 349.5 L1093.0 361.1 L1096.0 373.6 L1099.0 386.4 L1102.0 398.9 L1105.0 410.5 L1108.0 420.6 L1111.0 428.7 L1114.0 434.5 L1117.0 437.5 L1120.0 437.8 L1123.0 435.2 L1126.0 429.9 L1129.0 422.1 L1132.0 412.3 L1135.0 401.0 L1138.0 388.5 L1140.0 380.0 L1143.0 380.0 L1146.0 380.0 L1149.0 380.0 L1152.0 380.0 L1155.0 380.0 L1158.0 380.0 L1161.0 380.0 L1164.0 380.0 L1167.0 380.0 L1170.0 380.0 L1173.0 380.0 L1176.0 380.0 L1179.0 380.0 L1182.0 380.0 L1185.0 380.0 L1188.0 380.0 L1191.0 380.0 L1194.0 380.0 L1197.0 380.0 L1200.0 380.0 L1203.0 380.0 L1206.0 380.0 L1209.0 380.0 L1212.0 380.0 L1215.0 380.0 L1218.0 380.0 L1221.0 380.0 L1224.0 380.0 L1227.0 380.0 L1230.0 380.0 L1233.0 380.0 L1236.0 380.0 L1239.0 380.0 L1242.0 380.0 L1245.0 380.0 L1248.0 380.0 L1251.0 380.0 L1254.0 380.0 L1257.0 380.0 L1260.0 380.0 L1263.0 380.0 L1266.0 380.0 L1269.0 380.0 L1272.0 380.0 L1275.0 380.0 L1278.0 380.0 L1281.0 380.0 L1284.0 380.0 L1287.0 380.0 L1290.0 380.0 L1293.0 380.0 L1296.0 380.0 L1299.0 380.0 L1302.0 380.0 L1305.0 380.0 L1308.0 380.0 L1310.0 380.0 L1313.0 367.2 L1316.0 355.1 L1319.0 344.2 L1322.0 335.0 L1325.0 328.1 L1328.0 323.7 L1331.0 322.0 L1334.0 323.2 L1337.0 327.2 L1340.0 333.7 L1343.0 342.5 L1346.0 353.2 L1349.0 365.2 L1352.0 377.9 L1355.0 390.7 L1358.0 402.9 L1361.0 414.1 L1364.0 423.6 L1367.0 430.9 L1370.0 435.8 L1373.0 437.9 L1376.0 437.2 L1379.0 433.7 L1382.0 427.5 L1385.0 419.1 L1388.0 408.7 L1391.0 396.9 L1394.0 384.3 L1397.0 371.5 L1400.0 359.0 L1403.0 347.7 L1406.0 337.9 L1409.0 330.1 L1412.0 324.8 L1415.0 322.2 L1418.0 322.5 L1421.0 325.5 L1424.0 331.3 L1427.0 339.4 L1430.0 349.5 L1433.0 361.1 L1436.0 373.6 L1439.0 386.4 L1442.0 398.9 L1445.0 410.5 L1448.0 420.6 L1451.0 428.7 L1454.0 434.5 L1457.0 437.5 L1460.0 437.8 L1463.0 435.2 L1466.0 429.9 L1469.0 422.1 L1472.0 412.3 L1475.0 401.0 L1478.0 388.5" fill="none" stroke="var(--yellow)" stroke-width="7" stroke-linecap="round"/>
-      <text x="205" y="470" text-anchor="middle" class="h-d" style="font-size:34px" fill="var(--ink)">1</text><text x="375" y="470" text-anchor="middle" class="h-d" style="font-size:34px" fill="var(--ink)">0</text><text x="545" y="470" text-anchor="middle" class="h-d" style="font-size:34px" fill="var(--ink)">0</text><text x="715" y="470" text-anchor="middle" class="h-d" style="font-size:34px" fill="var(--ink)">1</text><text x="885" y="470" text-anchor="middle" class="h-d" style="font-size:34px" fill="var(--ink)">0</text><text x="1055" y="470" text-anchor="middle" class="h-d" style="font-size:34px" fill="var(--ink)">1</text><text x="1225" y="470" text-anchor="middle" class="h-d" style="font-size:34px" fill="var(--ink)">0</text><text x="1395" y="470" text-anchor="middle" class="h-d" style="font-size:34px" fill="var(--ink)">1</text>
+      <text x="205" y="470" text-anchor="middle" class="h-d" style="font-size:34px" fill="var(--white)">1</text><text x="375" y="470" text-anchor="middle" class="h-d" style="font-size:34px" fill="var(--white)">0</text><text x="545" y="470" text-anchor="middle" class="h-d" style="font-size:34px" fill="var(--white)">0</text><text x="715" y="470" text-anchor="middle" class="h-d" style="font-size:34px" fill="var(--white)">1</text><text x="885" y="470" text-anchor="middle" class="h-d" style="font-size:34px" fill="var(--white)">0</text><text x="1055" y="470" text-anchor="middle" class="h-d" style="font-size:34px" fill="var(--white)">1</text><text x="1225" y="470" text-anchor="middle" class="h-d" style="font-size:34px" fill="var(--white)">0</text><text x="1395" y="470" text-anchor="middle" class="h-d" style="font-size:34px" fill="var(--white)">1</text>
     </svg>
   </div>
 </section>
 
 <section class="slide bg-white on-white">
   <div class="tophint">2.2 · форматирование</div>
-  <div class="pad g2a" style="top:80px">
+  <div class="pad g2a" style="top:90px">
     <div class="col">
       <h2 class="h-d h-sm blue" style="margin-bottom:26px">СООБЩЕНИЕ О ТОМ,<br>КАК УСТРОЕНО СООБЩЕНИЕ</h2>
       <p class="body b-md ink" style="max-width:36ch">Кодирование — не «улица с односторонним движением». Если получатель не знает правил, он получит бессмысленный набор сигналов. Значит, рядом с данными едут <b>служебные пометки</b>: какая кодировка, какой протокол, где начало и конец. Технически это <b>заголовки</b>.</p>
     </div>
-    <div class="card analogy b-lg">
-      <span class="tag">Аналогия</span>
-      Мы делаем то же, когда пишем письмо: указываем язык, ставим знаки препинания, отделяем адрес от текста. На заголовках построена вся идея уровней.
-    </div>
+    <div class="card analogy b-lg"><span class="tag">Аналогия</span>Мы делаем то же, когда пишем письмо: указываем язык, ставим знаки препинания, отделяем адрес от текста. На заголовках построена вся идея уровней.</div>
   </div>
 </section>
 
 <section class="slide bg-white on-white">
   <div class="tophint">2.3 · размер сообщения</div>
   <svg class="doodle" style="right:130px;top:120px;width:110px;transform:rotate(-10deg)" viewBox="0 0 100 100"><use href="#spark" fill="var(--yellow)"/></svg>
-  <div class="pad" style="top:90px">
+  <div class="pad" style="top:100px">
     <h2 class="h-d h-sm blue" style="margin-bottom:16px">ЗАЧЕМ ВВОДИТЬ ПРЕДЕЛ РАЗМЕРА</h2>
-    <p class="body b-md ink" style="max-width:52ch;margin-bottom:40px">Люди дробят длинную мысль на короткие фразы. Так же и устройства ограничивают объём за один раз — из этого вырастет <b>сегментация</b>.</p>
+    <p class="body b-md ink" style="max-width:56ch;margin-bottom:44px">Люди дробят длинную мысль на короткие фразы. Так же и устройства ограничивают объём за один раз — из этого вырастет <b>сегментация</b>.</p>
     <div class="g3">
-      <div class="card" style="border-radius:26px"><div class="kick blue" style="font-size:36px;margin-bottom:8px">Экономия сети</div><p class="body b-sm ink">один гигантский «кусок» надолго занял бы канал и мешал остальным</p></div>
-      <div class="card analogy" style="border-radius:26px"><div class="kick" style="font-size:36px;margin-bottom:8px">Оптимизация узлов</div><p class="body b-sm ink">маленькие порции проще обрабатывать и буферизировать</p></div>
-      <div class="card" style="border-radius:26px"><div class="kick blue" style="font-size:36px;margin-bottom:8px">Совместимость</div><p class="body b-sm ink">старое оборудование рассчитано на определённые размеры</p></div>
+      <div class="card" style="border-radius:26px"><div class="kick blue" style="font-size:38px;margin-bottom:8px">Экономия сети</div><p class="body b-sm ink">один гигантский «кусок» надолго занял бы канал и мешал остальным</p></div>
+      <div class="card analogy" style="border-radius:26px"><div class="kick" style="font-size:38px;margin-bottom:8px">Оптимизация узлов</div><p class="body b-sm ink">маленькие порции проще обрабатывать и буферизировать</p></div>
+      <div class="card" style="border-radius:26px"><div class="kick blue" style="font-size:38px;margin-bottom:8px">Совместимость</div><p class="body b-sm ink">старое оборудование рассчитано на определённые размеры</p></div>
     </div>
   </div>
 </section>
 
 <section class="slide bg-white on-white">
   <div class="tophint">2.4 · временные параметры</div>
-  <div class="pad g2a" style="top:80px">
+  <div class="pad g2a" style="top:90px">
     <div class="col">
       <h2 class="h-d h-sm blue" style="margin-bottom:26px">КОГДА ГОВОРИТЬ<br>И СКОЛЬКО ЖДАТЬ</h2>
       <ul class="bullets b-md ink" style="max-width:34ch">
@@ -422,10 +461,7 @@ svg .rough{filter:url(#rough)}
         <li><b>Время ответа</b> — чтобы понять, что ответа нет, и повторить</li>
       </ul>
     </div>
-    <div class="card analogy b-lg">
-      <span class="tag">Аналогия</span>
-      Телефонный разговор: мы не говорим одновременно (ждём, пока линия свободна), подстраиваем темп, а если в ответ молчание — переспрашиваем: «Алло, ты меня слышишь?»
-    </div>
+    <div class="card analogy b-lg"><span class="tag">Аналогия</span>Телефонный разговор: мы не говорим одновременно (ждём, пока линия свободна), подстраиваем темп, а если в ответ молчание — переспрашиваем: «Алло, ты меня слышишь?»</div>
   </div>
 </section>
 
@@ -442,27 +478,47 @@ svg .rough{filter:url(#rough)}
 </section>
 
 <section class="slide bg-white on-white">
-  <div class="tophint">3.1 · способы рассылки</div>
-  <div class="pad" style="top:70px">
-    <h2 class="h-d h-sm blue" style="margin-bottom:8px">ОДНОМУ · ГРУППЕ · ВСЕМ</h2>
-    <p class="body b-sm ink" style="opacity:.72;margin-bottom:26px"><span class="yellowt" style="background:var(--yellow);padding:0 .2em;border-radius:.2em;color:var(--ink)">жёлтый</span> — отправитель · синие — активные · серые — «не в теме»</p>
-    <div class="g3" style="align-items:start">
-      <div><div class="kick blue" style="font-size:36px;margin-bottom:6px">Unicast · одному</div>
-        <svg viewBox="0 0 480 300" style="width:100%;height:300px"><g class="rough"><path d="M116 150 L404 150" stroke="var(--blue)" stroke-width="7" fill="none"/><circle cx="430" cy="150" r="26" fill="var(--blue)" stroke="var(--blue)" stroke-width="6"/><circle cx="430" cy="60" r="26" fill="#c3c7e0" stroke="#c3c7e0" stroke-width="6"/><circle cx="430" cy="240" r="26" fill="#c3c7e0" stroke="#c3c7e0" stroke-width="6"/><circle cx="90" cy="150" r="26" fill="var(--yellow)" stroke="var(--ink)" stroke-width="6"/></g></svg>
-        <p class="body b-sm ink">как личное письмо с точным адресом на конверте</p></div>
-      <div><div class="kick blue" style="font-size:36px;margin-bottom:6px">Multicast · группе</div>
-        <svg viewBox="0 0 480 300" style="width:100%;height:300px"><g class="rough"><path d="M116 150 L250 150" stroke="var(--blue)" stroke-width="7" fill="none"/><rect x="250" y="126" width="52" height="48" rx="12" fill="var(--yellow)" stroke="var(--ink)" stroke-width="5"/><path d="M302 150 L404 60" stroke="var(--blue)" stroke-width="7" fill="none"/><path d="M302 150 L404 240" stroke="var(--blue)" stroke-width="7" fill="none"/><circle cx="430" cy="60" r="26" fill="var(--blue)" stroke="var(--blue)" stroke-width="6"/><circle cx="430" cy="240" r="26" fill="var(--blue)" stroke="var(--blue)" stroke-width="6"/><circle cx="430" cy="150" r="26" fill="#c3c7e0" stroke="#c3c7e0" stroke-width="6"/><circle cx="90" cy="150" r="26" fill="var(--yellow)" stroke="var(--ink)" stroke-width="6"/></g></svg>
-        <p class="body b-sm ink">как объявление в чате: видят участники канала, но не весь мир</p></div>
-      <div><div class="kick blue" style="font-size:36px;margin-bottom:6px">Broadcast · всем</div>
-        <svg viewBox="0 0 480 300" style="width:100%;height:300px"><g class="rough"><path d="M116 150 L404 60" stroke="var(--blue)" stroke-width="7" fill="none"/><path d="M116 150 L404 150" stroke="var(--blue)" stroke-width="7" fill="none"/><path d="M116 150 L404 240" stroke="var(--blue)" stroke-width="7" fill="none"/><circle cx="430" cy="60" r="26" fill="var(--blue)" stroke="var(--blue)" stroke-width="6"/><circle cx="430" cy="150" r="26" fill="var(--blue)" stroke="var(--blue)" stroke-width="6"/><circle cx="430" cy="240" r="26" fill="var(--blue)" stroke="var(--blue)" stroke-width="6"/><circle cx="90" cy="150" r="26" fill="var(--yellow)" stroke="var(--ink)" stroke-width="6"/></g></svg>
-        <p class="body b-sm ink">как крик в мегафон посреди зала: услышат все</p></div>
+  <div class="tophint">3.1 · способы рассылки · unicast</div>
+  <div class="pad g2a" style="top:80px">
+    <div class="col">
+      <h2 class="h-d h-sm blue" style="margin-bottom:22px">ОДНОМУ · UNICAST</h2>
+      <p class="body b-md ink" style="max-width:34ch;margin-bottom:22px">Отправитель шлёт сообщение на адрес <b>одного</b> получателя. Другие устройства его не получают. Точность обеспечивает адресация.</p>
+      <div class="card analogy b-md"><span class="tag">Аналогия</span>Как личное письмо с точным адресом на конверте — доходит именно тому, кому написано.</div>
+      
     </div>
+    <svg viewBox="0 0 860 500" style="width:100%;height:520px"><g class="rough"><path d="M190 250 L720 250" stroke="var(--blue)" stroke-width="8" fill="none"/><circle cx="760" cy="250" r="34" fill="var(--blue)" stroke="var(--blue)" stroke-width="7"/><circle cx="760" cy="110" r="34" fill="#c3c7e0" stroke="#c3c7e0" stroke-width="7"/><circle cx="760" cy="390" r="34" fill="#c3c7e0" stroke="#c3c7e0" stroke-width="7"/><circle cx="150" cy="250" r="34" fill="var(--yellow)" stroke="var(--ink)" stroke-width="7"/></g></svg>
+  </div>
+</section>
+
+<section class="slide bg-white on-white">
+  <div class="tophint">3.1 · способы рассылки · multicast</div>
+  <div class="pad g2a" style="top:80px">
+    <div class="col">
+      <h2 class="h-d h-sm blue" style="margin-bottom:22px">ГРУППЕ · MULTICAST</h2>
+      <p class="body b-md ink" style="max-width:34ch;margin-bottom:22px">Отправитель шлёт на <b>групповой</b> адрес, который «прослушивают» подписчики группы. Технически сообщение проходит мимо многих, но обрабатывают его только подписчики.</p>
+      <div class="card analogy b-md"><span class="tag">Аналогия</span>Как объявление в чате: его видят участники канала, но не весь мир.</div>
+      
+    </div>
+    <svg viewBox="0 0 860 500" style="width:100%;height:520px"><g class="rough"><path d="M190 250 L430 250" stroke="var(--blue)" stroke-width="8" fill="none"/><rect x="430" y="210" width="80" height="80" rx="16" fill="var(--yellow)" stroke="var(--ink)" stroke-width="6"/><path d="M510 250 L720 110" stroke="var(--blue)" stroke-width="8" fill="none"/><path d="M510 250 L720 390" stroke="var(--blue)" stroke-width="8" fill="none"/><circle cx="760" cy="110" r="34" fill="var(--blue)" stroke="var(--blue)" stroke-width="7"/><circle cx="760" cy="390" r="34" fill="var(--blue)" stroke="var(--blue)" stroke-width="7"/><circle cx="760" cy="250" r="34" fill="#c3c7e0" stroke="#c3c7e0" stroke-width="7"/><circle cx="150" cy="250" r="34" fill="var(--yellow)" stroke="var(--ink)" stroke-width="7"/></g></svg>
+  </div>
+</section>
+
+<section class="slide bg-white on-white">
+  <div class="tophint">3.1 · способы рассылки · broadcast</div>
+  <div class="pad g2a" style="top:80px">
+    <div class="col">
+      <h2 class="h-d h-sm blue" style="margin-bottom:22px">ВСЕМ · BROADCAST</h2>
+      <p class="body b-md ink" style="max-width:34ch;margin-bottom:22px">Сообщение уходит на <b>широковещательный</b> адрес и обрабатывается всеми устройствами сети без исключения.</p>
+      <div class="card analogy b-md"><span class="tag">Аналогия</span>Как крикнуть в мегафон посреди зала: услышат все, хотят они того или нет.</div>
+      <p class="body b-sm ink" style="opacity:.72;margin-top:14px">Осторожно: «крики на весь зал» снижают работоспособность сети. Но запретить нельзя — на принципе «спросить у всех» держатся <b>ARP</b> и <b>DHCP</b>.</p>
+    </div>
+    <svg viewBox="0 0 860 500" style="width:100%;height:520px"><g class="rough"><path d="M190 250 L726 110" stroke="var(--blue)" stroke-width="8" fill="none"/><path d="M190 250 L726 250" stroke="var(--blue)" stroke-width="8" fill="none"/><path d="M190 250 L726 390" stroke="var(--blue)" stroke-width="8" fill="none"/><circle cx="760" cy="110" r="34" fill="var(--blue)" stroke="var(--blue)" stroke-width="7"/><circle cx="760" cy="250" r="34" fill="var(--blue)" stroke="var(--blue)" stroke-width="7"/><circle cx="760" cy="390" r="34" fill="var(--blue)" stroke="var(--blue)" stroke-width="7"/><circle cx="150" cy="250" r="34" fill="var(--yellow)" stroke="var(--ink)" stroke-width="7"/></g></svg>
   </div>
 </section>
 
 <section class="slide bg-white on-white">
   <div class="tophint">3.1 · типы рассылки</div>
-  <div class="pad g2a" style="top:90px;grid-template-columns:1.15fr .85fr">
+  <div class="pad g2a" style="top:100px;grid-template-columns:1.15fr .85fr">
     <div class="col">
       <h2 class="h-d h-sm blue" style="margin-bottom:24px">КТО ПОЛУЧАЕТ,<br>КТО ОБРАБАТЫВАЕТ</h2>
       <table class="mtable">
@@ -471,12 +527,8 @@ svg .rough{filter:url(#rough)}
         <tr class="hot"><td>Multicast</td><td>Все узлы (слышат)</td><td>Группа подписчиков</td></tr>
         <tr><td>Broadcast</td><td>Все узлы</td><td>Все узлы</td></tr>
       </table>
-      <p class="body b-sm ink" style="opacity:.7;margin-top:16px">Multicast: сообщение проходит мимо многих, но обрабатывают его только подписчики группы.</p>
     </div>
-    <div class="card analogy b-md" style="align-self:center">
-      <span class="tag">Осторожно с broadcast</span>
-      «Крики на весь зал» снижают работоспособность сети: каждый обязан отвлечься. Но запретить нельзя — на принципе «спросить у всех» держатся <b>ARP</b> и <b>DHCP</b>. Компромисс: удобство против нагрузки.
-    </div>
+    <div class="card analogy b-md" style="align-self:center"><span class="tag">Компромисс</span>Broadcast — мощный, но «шумный» инструмент. Его нельзя запретить, но и злоупотреблять им нельзя. Удобство против нагрузки — этот компромисс встретится ещё не раз.</div>
   </div>
 </section>
 
@@ -484,44 +536,47 @@ svg .rough{filter:url(#rough)}
   <div class="tophint">3.2 · сегментация · мультиплексирование</div>
   <div class="pad" style="top:60px">
     <h2 class="h-d h-sm" style="margin-bottom:14px">ПОЧЕМУ TELEGRAM И WHATSAPP <span class="yl">НЕ ПУТАЮТСЯ</span></h2>
-    <p class="body b-sm white" style="opacity:.9;max-width:70ch;margin-bottom:14px">Сообщение делится на <b>сегменты</b>, каждый помечен портами: из какого приложения пришёл и какому предназначен. Метки едут вместе с данными до получателя.</p>
-    <svg viewBox="0 0 1620 470" style="width:100%;height:470px;background:rgba(255,255,255,.06);border-radius:24px">
+    <p class="body b-sm white" style="opacity:.9;max-width:74ch;margin-bottom:14px">Сообщение делится на <b>сегменты</b>, каждый помечен портами: из какого приложения пришёл и какому предназначен. Метки едут вместе с данными до получателя.</p>
+    <svg viewBox="0 0 1620 440" style="width:100%;height:440px;background:rgba(255,255,255,.06);border-radius:24px">
       <g class="rough" fill="none" stroke="var(--white)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="60" y="120" width="220" height="220" rx="24"/>
-        <rect x="1340" y="60" width="220" height="150" rx="24"/>
-        <rect x="1340" y="270" width="220" height="150" rx="24"/>
-        <rect x="720" y="180" width="180" height="110" rx="22" fill="var(--yellow)" stroke="var(--ink)"/>
-        <path d="M280 200 L720 220"/><path d="M280 270 L720 250"/>
-        <path d="M900 210 L1340 135"/><path d="M900 260 L1340 345"/>
+        <rect x="60" y="120" width="220" height="200" rx="24"/><rect x="1340" y="50" width="220" height="140" rx="24"/><rect x="1340" y="250" width="220" height="140" rx="24"/>
+        <rect x="720" y="170" width="180" height="100" rx="22" fill="var(--yellow)" stroke="var(--ink)"/>
+        <path d="M280 190 L720 205"/><path d="M280 260 L720 240"/><path d="M900 200 L1340 120"/><path d="M900 245 L1340 320"/>
       </g>
-      <text x="170" y="240" text-anchor="middle" class="lab" fill="var(--blue)">ноутбук</text>
-      <text x="170" y="272" text-anchor="middle" class="lab-s" fill="var(--blue)">браузер + чат</text>
-      <text x="810" y="245" text-anchor="middle" class="lab-s" fill="var(--ink)">маршрутизатор</text>
-      <text x="1450" y="145" text-anchor="middle" class="lab" fill="var(--blue)">сервер A</text>
-      <text x="1450" y="355" text-anchor="middle" class="lab" fill="var(--blue)">сервер B</text>
-      <text x="500" y="180" text-anchor="middle" class="lab-s" fill="var(--yellow)">сегменты + порты →</text>
+      <text x="170" y="225" text-anchor="middle" class="lab" fill="var(--blue)">ноутбук</text>
+      <text x="810" y="228" text-anchor="middle" class="lab-s" fill="var(--ink)">маршрутизатор</text>
+      <text x="1450" y="128" text-anchor="middle" class="lab" fill="var(--blue)">сервер A</text>
+      <text x="1450" y="328" text-anchor="middle" class="lab" fill="var(--blue)">сервер B</text>
     </svg>
     <p class="note-hand" style="color:var(--yellow);margin-top:12px">дом = IP-адрес, квартира = порт · одна дорога, у каждой машины номер квартиры</p>
   </div>
 </section>
 
 <section class="slide bg-blue on-blue">
-  <div class="tophint">раздел 4 · стеки протоколов</div>
-  <svg class="doodle" style="right:150px;top:130px;width:110px;transform:rotate(10deg)" viewBox="0 0 100 100"><path d="M50 2 L60 40 L98 50 L60 60 L50 98 L40 60 L2 50 L40 40 Z" fill="none" stroke="var(--yellow)" stroke-width="6" stroke-linejoin="round"/></svg>
-  <div class="pad g2a" style="top:80px">
+  <svg class="doodle" style="right:-160px;top:-160px;width:760px;height:620px;opacity:.13" viewBox="0 0 600 500" preserveAspectRatio="none"><path d="M60,180 C40,80 160,20 300,30 C460,40 590,70 560,220 C540,340 590,470 420,470 C280,470 120,500 70,400 C30,320 80,270 60,180 Z" fill="var(--white)"/></svg>
+  <svg class="doodle" style="left:120px;bottom:150px;width:140px;transform:rotate(-10deg)" viewBox="0 0 100 100"><use href="#spark" fill="var(--yellow)"/></svg>
+  <svg class="doodle" style="right:220px;bottom:240px;width:120px;transform:rotate(12deg)" viewBox="0 0 100 100"><path d="M50 2 L60 40 L98 50 L60 60 L50 98 L40 60 L2 50 L40 40 Z" fill="none" stroke="var(--yellow)" stroke-width="6" stroke-linejoin="round"/></svg>
+  <div class="pad" style="display:flex;flex-direction:column;justify-content:center">
+    <div class="h-d" style="font-size:190px;color:rgba(255,255,255,.18);line-height:.8">4</div>
+    <div class="kick yellowt" style="margin:10px 0 14px">раздел 4</div>
+    <h2 class="h-d h-lg">СЕТЕВЫЕ<br>МОДЕЛИ</h2>
+    <div class="body b-lg" style="margin-top:26px;opacity:.9;max-width:26ch">Почему одного протокола мало — и как из множества выросли стеки OSI и TCP/IP.</div>
+  </div>
+</section>
+
+<section class="slide bg-white on-white">
+  <div class="tophint">3.2.1 · стеки протоколов</div>
+  <div class="pad g2a" style="top:90px">
     <div class="col">
-      <div class="h-d" style="font-size:150px;color:rgba(255,255,255,.18);line-height:.8">4</div>
-      <h2 class="h-d h-md" style="margin-top:8px">ПОЧЕМУ ОДНОГО<br>ПРОТОКОЛА <span class="yl">МАЛО</span></h2>
-    </div>
-    <div class="col">
-      <p class="body b-md white" style="opacity:.92;margin-bottom:22px">«Протокол на всё» потребовал бы трёх жёстких условий:</p>
-      <ul class="steps b-md white" style="margin-bottom:24px">
+      <h2 class="h-d h-sm blue" style="margin-bottom:24px">ПОЧЕМУ ОДНОГО<br>ПРОТОКОЛА МАЛО</h2>
+      <p class="body b-md ink" style="max-width:32ch;margin-bottom:18px">«Протокол на всё» потребовал бы трёх жёстких условий:</p>
+      <ul class="steps b-md ink">
         <li>одно и то же приложение у обоих</li>
         <li>устройства от одного производителя</li>
-        <li>всего один канал связи, без промежуточных устройств</li>
+        <li>один канал связи, без промежуточных устройств</li>
       </ul>
-      <p class="body b-sm white" style="opacity:.9;max-width:40ch">Так уже пробовали — это будущий <b>TCP</b>. От идеи отказались: удобнее много узких протоколов, упорядоченных по уровням — это <b>стеки</b> OSI и TCP/IP.</p>
     </div>
+    <div class="card b-md"><span class="tag">Проблема → решение</span>Так уже пробовали — это будущий <b>TCP</b>. От идеи отказались: удобнее много узких протоколов, упорядоченных по уровням. Наборы протоколов называют <b>стеками</b> — OSI и TCP/IP.</div>
   </div>
 </section>
 
@@ -531,9 +586,7 @@ svg .rough{filter:url(#rough)}
     <div class="col">
       <h2 class="h-d h-sm blue" style="margin-bottom:22px">МОДЕЛЬ OSI:<br>СЕМЬ УРОВНЕЙ</h2>
       <p class="body b-md ink" style="max-width:32ch;margin-bottom:26px">OSI (Open Systems Interconnection) — концептуальная модель, разделённая на <b>семь уровней</b>, пронумерованных снизу вверх.</p>
-      <div class="callout" style="box-shadow:0 0 0 4px var(--blue) inset">
-        <div class="def" style="font-size:30px">Чем <b>выше</b> уровень — тем ближе к человеку. Чем <b>ниже</b> — тем ближе к среде (кабелю, эфиру).</div>
-      </div>
+      <div class="callout"><div class="def" style="font-size:30px">Чем <b>выше</b> уровень — тем ближе к человеку. Чем <b>ниже</b> — тем ближе к среде (кабелю, эфиру).</div></div>
       <p class="note-hand" style="margin-top:20px">сквозная аналогия: пересылаем книгу по почте</p>
     </div>
     <svg viewBox="0 0 860 900" style="width:100%;height:900px">
@@ -545,36 +598,104 @@ svg .rough{filter:url(#rough)}
 </section>
 
 <section class="slide bg-white on-white">
-  <div class="tophint">3.2.2 · путь сообщения L7 → L1</div>
-  <div class="pad" style="top:56px">
-    <h2 class="h-d h-sm blue" style="margin-bottom:6px">СВЕРХУ ВНИЗ: НА КАЖДОМ ШАГЕ — <span class="yl">НОВЫЙ ЗАГОЛОВОК</span></h2>
-    <div class="g2a" style="grid-template-columns:1fr 1fr;margin-top:14px">
-      <ul class="steps b-sm ink" style="gap:12px">
-        <li>L7 данные — текст книги</li>
-        <li>L6 представление — шрифт, формат, шифрование</li>
-        <li>L5 сеанс — собрать страницы по порядку</li>
-        <li>L4 сегмент — конверт с портами</li>
-        <li>L3 пакет — адрес дома получателя</li>
-        <li>L2 кадр — индексы почты и выбор среды</li>
-        <li>L1 биты — уходят в среду</li>
-      </ul>
-      <svg viewBox="0 0 1580 700" style="width:100%;height:640px"><rect class="rough" x=70 y=70 width=1500 height=560 rx="26" fill="var(--yellow)" stroke="var(--blue)" stroke-width="6"/><text x="92" y="110" class="lab" fill="var(--blue)">Данные</text><rect class="rough" x=114 y=114 width=1412 height=472 rx="26" fill="none" stroke="var(--blue)" stroke-width="6"/><text x="136" y="154" class="lab" fill="var(--blue)">HTTP</text><rect class="rough" x=158 y=158 width=1324 height=384 rx="26" fill="none" stroke="var(--blue)" stroke-width="6"/><text x="180" y="198" class="lab" fill="var(--blue)">TCP</text><rect class="rough" x=202 y=202 width=1236 height=296 rx="26" fill="none" stroke="var(--blue)" stroke-width="6"/><text x="224" y="242" class="lab" fill="var(--blue)">IP</text><rect class="rough" x=246 y=246 width=1148 height=208 rx="26" fill="none" stroke="var(--blue)" stroke-width="6"/><text x="268" y="286" class="lab" fill="var(--blue)">Ethernet</text>
-        <text x="770" y="360" text-anchor="middle" class="lab" fill="var(--ink)">конверт в конверте</text>
-      </svg>
+  <div class="tophint">3.2.2 · путь книги · L7 · Уровень приложений</div>
+  <div class="pad g2a" style="top:70px">
+    <div class="col">
+      <div class="kick blue" style="font-size:44px;margin-bottom:10px">L7 · Уровень приложений</div>
+      <h2 class="h-d h-sm blue" style="margin-bottom:22px">ЗДЕСЬ РОЖДАЕТСЯ СООБЩЕНИЕ</h2>
+      <p class="body b-md ink" style="max-width:34ch">Пользователь взаимодействует с устройством — именно тут рождается сообщение. Набрали в браузере слово «сеть» — сформировали запрос к поисковому серверу (Google, Yandex).</p>
+    </div>
+    <div class="col">
+      
+      <div class="card analogy b-lg"><span class="tag">Книга по почте</span>Это сам текст книги — то, что мы хотим передать.</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide bg-white on-white">
+  <div class="tophint">3.2.2 · путь книги · L6 · Уровень представления</div>
+  <div class="pad g2a" style="top:70px">
+    <div class="col">
+      <div class="kick blue" style="font-size:44px;margin-bottom:10px">L6 · Уровень представления</div>
+      <h2 class="h-d h-sm blue" style="margin-bottom:22px">ОТКРЫТО ИЛИ ЗАШИФРОВАТЬ</h2>
+      <p class="body b-md ink" style="max-width:34ch">Приложение решает: передавать данные открыто или зашифровать. <b>HTTP</b> отдаёт страницы без шифрования, <b>HTTPS</b> — с шифрованием. Форматирование и кодирование живут здесь.</p>
+    </div>
+    <div class="col">
+      
+      <div class="card analogy b-lg"><span class="tag">Книга по почте</span>Это шрифт, размер и формат страницы — то, как текст оформлен и «упакован» для чтения.</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide bg-white on-white">
+  <div class="tophint">3.2.2 · путь книги · L5 · Сеансовый уровень</div>
+  <div class="pad g2a" style="top:70px">
+    <div class="col">
+      <div class="kick blue" style="font-size:44px;margin-bottom:10px">L5 · Сеансовый уровень</div>
+      <h2 class="h-d h-sm blue" style="margin-bottom:22px">НУЖЕН ЛИ СЕАНС СВЯЗИ</h2>
+      <p class="body b-md ink" style="max-width:34ch">Сеанс — передача большого сообщения по частям с подтверждением каждой. Даёт две гарантии: доставку <b>полностью</b> и <b>в нужном порядке</b>. Для голоса и видео сеанс не устанавливают — там важнее минимум задержки.</p><p class="note-hand" style="margin-top:14px">компромисс: надёжность против скорости</p>
+    </div>
+    <div class="col">
+      
+      <div class="card analogy b-lg"><span class="tag">Книга по почте</span>Сеанс нужен, потому что страницы книги должны собраться в правильном порядке.</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide bg-white on-white">
+  <div class="tophint">3.2.2 · путь книги · L4 · Транспортный</div>
+  <div class="pad g2a" style="top:66px">
+    <div class="col">
+      <div class="kick blue" style="font-size:44px;margin-bottom:10px">L4 · Транспортный</div>
+      <p class="body b-md ink" style="max-width:34ch;margin-bottom:18px">Сообщение делится на равные отрезки (обычно по <b>1500 байт</b> — связано с размером кадра Ethernet, MTU). К каждому добавляется заголовок с портами источника и назначения.</p>
+      <div class="callout"><div class="term" style="font-size:38px">Сегмент</div><div class="def" style="font-size:28px">отрезок данных с заголовком транспортного уровня L4.</div></div>
+    </div>
+    <div class="col">
+      <svg viewBox="0 0 540 360" style="width:100%;height:340px;margin-bottom:20px"><rect class="rough" x="40" y="20" width="460" height="300" rx="18" fill="none" stroke="var(--blue)" stroke-width="5"/><text x="58" y="54" class="lab" fill="var(--blue)">TCP</text><rect class="rough" x="70" y="50" width="400" height="240" rx="18" fill="none" stroke="var(--blue)" stroke-width="5"/><text x="88" y="84" class="lab" fill="var(--blue)">HTTP</text><rect class="rough" x="100" y="80" width="340" height="180" rx="18" fill="var(--yellow)" stroke="var(--blue)" stroke-width="5"/><text x="118" y="114" class="lab" fill="var(--blue)">Данные</text></svg>
+      <div class="card analogy b-md"><span class="tag">Книга по почте</span>Каждую страницу копируем на лист А4, вкладываем в конверт и подписываем: название книги, номер страницы и общее число страниц.</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide bg-white on-white">
+  <div class="tophint">3.2.2 · путь книги · L3 · Сетевой</div>
+  <div class="pad g2a" style="top:66px">
+    <div class="col">
+      <div class="kick blue" style="font-size:44px;margin-bottom:10px">L3 · Сетевой</div>
+      <p class="body b-md ink" style="max-width:34ch;margin-bottom:18px">Сегмент готов, но куда его слать? Нужен <b>IP-адрес</b> получателя (по названию протокола IP, Internet Protocol). Каждый сегмент получает заголовок L3 с IP-адресами отправителя и получателя.</p>
+      <div class="callout"><div class="term" style="font-size:38px">Пакет</div><div class="def" style="font-size:28px">единица данных L3: сегмент плюс заголовок сетевого уровня.</div></div>
+    </div>
+    <div class="col">
+      <svg viewBox="0 0 540 360" style="width:100%;height:340px;margin-bottom:20px"><rect class="rough" x="40" y="20" width="460" height="300" rx="18" fill="none" stroke="var(--blue)" stroke-width="5"/><text x="58" y="54" class="lab" fill="var(--blue)">IP</text><rect class="rough" x="70" y="50" width="400" height="240" rx="18" fill="none" stroke="var(--blue)" stroke-width="5"/><text x="88" y="84" class="lab" fill="var(--blue)">TCP</text><rect class="rough" x="100" y="80" width="340" height="180" rx="18" fill="none" stroke="var(--blue)" stroke-width="5"/><text x="118" y="114" class="lab" fill="var(--blue)">HTTP</text><rect class="rough" x="130" y="110" width="280" height="120" rx="18" fill="var(--yellow)" stroke="var(--blue)" stroke-width="5"/><text x="148" y="144" class="lab" fill="var(--blue)">Данные</text></svg>
+      <div class="card analogy b-md"><span class="tag">Книга по почте</span>Конверт-сегмент вкладывают в конверт побольше, на котором пишут город, улицу и номер дома получателя — и такие же данные отправителя.</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide bg-white on-white">
+  <div class="tophint">3.2.2 · путь книги · L2 · Канальный</div>
+  <div class="pad g2a" style="top:66px">
+    <div class="col">
+      <div class="kick blue" style="font-size:44px;margin-bottom:10px">L2 · Канальный</div>
+      <p class="body b-md ink" style="max-width:34ch;margin-bottom:18px">Под каждую среду — своя сетевая карта со своим аппаратным <b>MAC-адресом</b>. MAC источника и назначения пишут в заголовок L2. Он зависит от среды: <b>Ethernet</b> по кабелю или <b>Wi-Fi</b> «по воздуху».</p>
+      <div class="callout"><div class="term" style="font-size:38px">Кадр</div><div class="def" style="font-size:28px">единица данных L2: пакет плюс заголовок канального уровня. MAC = Media Access Control.</div></div>
+    </div>
+    <div class="col">
+      <svg viewBox="0 0 540 360" style="width:100%;height:340px;margin-bottom:20px"><rect class="rough" x="40" y="20" width="460" height="300" rx="18" fill="none" stroke="var(--blue)" stroke-width="5"/><text x="58" y="54" class="lab" fill="var(--blue)">Ethernet</text><rect class="rough" x="70" y="50" width="400" height="240" rx="18" fill="none" stroke="var(--blue)" stroke-width="5"/><text x="88" y="84" class="lab" fill="var(--blue)">IP</text><rect class="rough" x="100" y="80" width="340" height="180" rx="18" fill="none" stroke="var(--blue)" stroke-width="5"/><text x="118" y="114" class="lab" fill="var(--blue)">TCP</text><rect class="rough" x="130" y="110" width="280" height="120" rx="18" fill="none" stroke="var(--blue)" stroke-width="5"/><text x="148" y="144" class="lab" fill="var(--blue)">HTTP</text><rect class="rough" x="160" y="140" width="220" height="60" rx="18" fill="var(--yellow)" stroke="var(--blue)" stroke-width="5"/><text x="178" y="174" class="lab" fill="var(--blue)">Данные</text></svg>
+      <div class="card analogy b-md"><span class="tag">Книга по почте</span>Пакет кладут в самый большой конверт и относят на почту, где ставят индексы отправляющего и принимающего отделений.</div>
     </div>
   </div>
 </section>
 
 <section class="slide bg-blue on-blue">
-  <div class="tophint">3.2.2 · единицы данных</div>
-  <div class="pad" style="top:70px">
-    <h2 class="h-d h-sm" style="margin-bottom:30px">СЕГМЕНТ · ПАКЕТ · КАДР · <span class="yl">PDU</span></h2>
-    <div class="g2" style="gap:34px;grid-template-columns:1fr 1fr">
-      <div class="callout"><div class="term" style="font-size:38px">Сегмент</div><div class="def" style="font-size:28px">отрезок данных с заголовком транспортного уровня <b>L4</b> (порты источника и назначения).</div></div>
-      <div class="callout"><div class="term" style="font-size:38px">Пакет</div><div class="def" style="font-size:28px">единица данных <b>L3</b>: сегмент плюс заголовок сетевого уровня (IP-адреса).</div></div>
-      <div class="callout"><div class="term" style="font-size:38px">Кадр</div><div class="def" style="font-size:28px">единица данных <b>L2</b>: пакет плюс заголовок канального уровня (MAC-адреса, среда).</div></div>
-      <div class="callout"><div class="term" style="font-size:38px">PDU</div><div class="def" style="font-size:28px">Protocol Data Unit — общее имя: одно сообщение, «одетое» в разное число заголовков.</div></div>
+  <div class="tophint">3.2.2 · путь книги · L1 · Физический</div>
+  <div class="pad g2a" style="top:80px">
+    <div class="col">
+      <div class="kick yellowt" style="font-size:44px;margin-bottom:10px">L1 · Физический</div>
+      <p class="body b-md white" style="opacity:.92;max-width:34ch;margin-bottom:22px">Всё содержимое кадра переводится в <b>биты</b> и уходит в среду: электрические колебания, радиоволны или свет. На L1 кадры превращаются в биты для отправки.</p>
+      <div class="callout"><div class="term" style="font-size:38px">PDU</div><div class="def" style="font-size:28px">данные, сегменты, пакеты, кадры — это одно сообщение на разных уровнях, «одетое» в разное число заголовков. Общее имя — Protocol Data Unit.</div></div>
     </div>
+    <div class="card analogy b-lg"><span class="tag">Книга по почте</span>Как именно доставлять — самолётом, грузовиком или поездом (то есть в какой физической среде) — решает уже почтовая служба.</div>
   </div>
 </section>
 
@@ -587,8 +708,8 @@ svg .rough{filter:url(#rough)}
       <p class="note-hand" style="margin-top:20px">образ — матрёшка: данные внутри HTTP, внутри TCP, внутри IP, внутри Ethernet</p>
     </div>
     <svg viewBox="0 0 520 460" style="width:100%;height:520px">
-      <text x="260" y="40" text-anchor="middle" class="lab" fill="var(--blue)">инкапсуляция ↓ · декапсуляция ↑</text>
-      <rect class="rough" x="110.0" y="70.0" width="300" height="360" rx="20" fill="none" stroke="var(--blue)" stroke-width="5"/><rect class="rough" x="136.0" y="100.0" width="248" height="300" rx="20" fill="none" stroke="var(--blue)" stroke-width="5"/><rect class="rough" x="162.0" y="130.0" width="196" height="240" rx="20" fill="none" stroke="var(--blue)" stroke-width="5"/><rect class="rough" x="188.0" y="160.0" width="144" height="180" rx="20" fill="none" stroke="var(--blue)" stroke-width="5"/><rect class="rough" x="214.0" y="190.0" width="92" height="120" rx="20" fill="var(--yellow)" stroke="var(--blue)" stroke-width="5"/><text x="260" y="258" text-anchor="middle" class="lab-s" fill="var(--ink)">Данные</text>
+      <text x="260" y="34" text-anchor="middle" class="lab" fill="var(--blue)">инкапсуляция ↓ · декапсуляция ↑</text>
+      <rect class="rough" x="100.0" y="60.0" width="320" height="380" rx="20" fill="none" stroke="var(--blue)" stroke-width="5"/><text x="260" y="94.0" text-anchor="middle" class="lab-s" fill="var(--blue)">Данные</text><rect class="rough" x="127.0" y="91.0" width="266" height="318" rx="20" fill="none" stroke="var(--blue)" stroke-width="5"/><text x="260" y="125.0" text-anchor="middle" class="lab-s" fill="var(--blue)">HTTP</text><rect class="rough" x="154.0" y="122.0" width="212" height="256" rx="20" fill="none" stroke="var(--blue)" stroke-width="5"/><text x="260" y="156.0" text-anchor="middle" class="lab-s" fill="var(--blue)">TCP</text><rect class="rough" x="181.0" y="153.0" width="158" height="194" rx="20" fill="none" stroke="var(--blue)" stroke-width="5"/><text x="260" y="187.0" text-anchor="middle" class="lab-s" fill="var(--blue)">IP</text><rect class="rough" x="208.0" y="184.0" width="104" height="132" rx="20" fill="var(--yellow)" stroke="var(--blue)" stroke-width="5"/><text x="260" y="218.0" text-anchor="middle" class="lab-s" fill="var(--blue)">Eth</text>
     </svg>
   </div>
 </section>
@@ -598,13 +719,40 @@ svg .rough{filter:url(#rough)}
   <div class="pad g2a" style="top:56px;grid-template-columns:.85fr 1.15fr">
     <div class="col">
       <h2 class="h-d h-sm blue" style="margin-bottom:22px">СТЕК TCP/IP:<br>ЧЕТЫРЕ УРОВНЯ</h2>
-      <p class="body b-md ink" style="max-width:30ch;margin-bottom:24px">Более практичный, чем OSI: заточен под реальные сети. Название — от двух главных протоколов, <b>TCP</b> и <b>IP</b>.</p>
-      <div class="card analogy b-md">
-        <span class="tag">Надёжность против скорости</span>
-        TCP гарантирует доставку и порядок (с накладными расходами). UDP жертвует гарантиями ради минимальной задержки. Выбор диктует приложение.
-      </div>
+      <p class="body b-md ink" style="max-width:30ch;margin-bottom:24px">Более практичный, чем OSI: заточен под реальные сети. Название — от двух главных протоколов, <b>TCP</b> и <b>IP</b>. Из «одного на всё» выросло целое семейство.</p>
+      <div class="card analogy b-md"><span class="tag">Надёжность против скорости</span>TCP гарантирует доставку и порядок. UDP жертвует гарантиями ради минимальной задержки. Выбор диктует приложение.</div>
     </div>
     <svg viewBox="0 0 560 780" style="width:100%;height:820px"><rect class="rough" x="60" y="60" width="470" height="150" rx="24" fill="var(--yellow)" stroke="var(--blue)" stroke-width="6"/><text x="95" y="130" class="h-d" style="font-size:36px" fill="var(--blue)">Приложений</text><text x="95" y="172" class="lab-s" fill="var(--ink)">DNS · DHCP · HTTP/HTTPS · SMTP · POP · IMAP</text><rect class="rough" x="60" y="240" width="470" height="150" rx="24" fill="var(--white)" stroke="var(--blue)" stroke-width="6"/><text x="95" y="310" class="h-d" style="font-size:36px" fill="var(--blue)">Транспортный</text><text x="95" y="352" class="lab-s" fill="var(--ink)">TCP — надёжно · UDP — быстро</text><rect class="rough" x="60" y="420" width="470" height="150" rx="24" fill="var(--white)" stroke="var(--blue)" stroke-width="6"/><text x="95" y="490" class="h-d" style="font-size:36px" fill="var(--blue)">Интернет</text><text x="95" y="532" class="lab-s" fill="var(--ink)">IPv4 · IPv6 · ICMP · OSPF</text><rect class="rough" x="60" y="600" width="470" height="150" rx="24" fill="var(--white)" stroke="var(--blue)" stroke-width="6"/><text x="95" y="670" class="h-d" style="font-size:36px" fill="var(--blue)">Сетевого доступа</text><text x="95" y="712" class="lab-s" fill="var(--ink)">ARP · Ethernet · PPP</text></svg>
+  </div>
+</section>
+
+<section class="slide bg-white on-white">
+  <div class="tophint">3.2.3 · протоколы · уровень приложений</div>
+  <div class="pad" style="top:80px">
+    <h2 class="h-d h-sm blue" style="margin-bottom:34px">ПРОТОКОЛЫ УРОВНЯ ПРИЛОЖЕНИЙ</h2>
+    <table class="mtable">
+      <tr><th>Протокол</th><th>Что делает</th></tr>
+      <tr><td>DNS</td><td>сообщает IP-адрес сайта по его имени</td></tr>
+      <tr class="hot"><td>DHCP</td><td>автоматически выдаёт устройству IP-адрес и параметры</td></tr>
+      <tr><td>HTTP / HTTPS</td><td>передача гипертекста — без шифрования и с шифрованием</td></tr>
+      <tr><td>SMTP</td><td>отправка исходящего письма и подтверждение доставки</td></tr>
+      <tr><td>POP / IMAP</td><td>получение почты: POP очищает ящик, IMAP хранит копии на сервере</td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="slide bg-white on-white">
+  <div class="tophint">3.2.3 · протоколы · нижние уровни</div>
+  <div class="pad" style="top:70px">
+    <h2 class="h-d h-sm blue" style="margin-bottom:30px">ТРАНСПОРТ · ИНТЕРНЕТ · ДОСТУП</h2>
+    <div class="g3" style="align-items:start">
+      <div class="card" style="border-radius:26px"><div class="kick blue" style="font-size:34px;margin-bottom:10px">Транспортный</div>
+        <ul class="bullets b-sm ink" style="gap:12px"><li><b>TCP</b> — надёжно: текст, фото, видео, музыка</li><li><b>UDP</b> — быстро без контроля: стриминг, голос</li></ul></div>
+      <div class="card analogy" style="border-radius:26px"><div class="kick" style="font-size:34px;margin-bottom:10px">Интернет</div>
+        <ul class="bullets dark b-sm ink" style="gap:12px"><li><b>IPv4 / IPv6</b> — негарантированная доставка</li><li><b>ICMP</b> — проверка связности (ping, traceroute)</li><li><b>OSPF</b> — динамическая маршрутизация</li></ul></div>
+      <div class="card" style="border-radius:26px"><div class="kick blue" style="font-size:34px;margin-bottom:10px">Сетевого доступа</div>
+        <ul class="bullets b-sm ink" style="gap:12px"><li><b>ARP</b> — MAC по IP («спросить у всех»)</li><li><b>Ethernet</b> — по медному кабелю</li><li><b>PPP</b> — по телефонному кабелю</li></ul></div>
+    </div>
   </div>
 </section>
 
@@ -613,7 +761,7 @@ svg .rough{filter:url(#rough)}
   <div class="pad g2a" style="top:56px;grid-template-columns:1.05fr .95fr">
     <div class="col">
       <h2 class="h-d h-sm blue" style="margin-bottom:20px">ОДНА РАБОТА —<br>РАЗНАЯ ДЕТАЛИЗАЦИЯ</h2>
-      <ul class="bullets b-sm ink" style="max-width:34ch;gap:16px">
+      <ul class="bullets b-md ink" style="max-width:34ch;gap:16px">
         <li>L1+L2 OSI → <b>сетевой доступ</b> TCP/IP</li>
         <li>L3 OSI → <b>интернет</b>-уровень</li>
         <li>L4 → <b>транспортный</b>, роль та же</li>
@@ -645,21 +793,12 @@ svg .rough{filter:url(#rough)}
 <script>
 (function(){
   var deck=document.getElementById('deck');
-  var stage=document.getElementById('stage');
   var slides=[].slice.call(document.querySelectorAll('.slide'));
   var n=slides.length, i=0;
-  slides.forEach(function(s,k){
-    var c=document.createElement('div'); c.className='counter';
-    c.textContent=(k+1)+' / '+n; s.appendChild(c);
-  });
-  function fit(){
-    var s=Math.min(window.innerWidth/1920, window.innerHeight/1080);
-    if(!(s>0)||!isFinite(s))s=1;
-    deck.style.transform='scale('+s+')';
-  }
+  slides.forEach(function(s,k){ var c=document.createElement('div'); c.className='counter'; c.textContent=(k+1)+' / '+n; s.appendChild(c); });
+  function fit(){ var s=Math.min(window.innerWidth/1920, window.innerHeight/1080); if(!(s>0)||!isFinite(s))s=1; deck.style.transform='scale('+s+')'; }
   function show(k){ i=(k+n)%n; slides.forEach(function(s,j){s.classList.toggle('on',j===i)}); }
-  window.addEventListener('resize',fit);
-  window.addEventListener('load',fit);
+  window.addEventListener('resize',fit); window.addEventListener('load',fit);
   if(window.ResizeObserver){new ResizeObserver(fit).observe(document.documentElement);}
   addEventListener('keydown',function(e){
     if(['ArrowRight',' ','PageDown'].indexOf(e.key)>=0){e.preventDefault();show(i+1);}
