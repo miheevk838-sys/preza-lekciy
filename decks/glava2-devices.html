@@ -1,6 +1,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Глава 2 · Устройства сети</title>
+<title>Глава 2 · Устройства, ПО и среда</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -266,22 +266,26 @@ button.btn.pri:hover{background:var(--vio);border-color:var(--vio);color:#fff}
 #qzNav .btn:disabled{opacity:.4;cursor:default}
 
 :root{--ok:#39e6a0;--bad:#ff4d6d;--mono2:"Space Mono",monospace}
-.urec{position:relative;border:1.5px solid var(--mag);padding:clamp(16px,2.2vw,26px);color:#f2e9f4;
-  font-size:clamp(18px,2.1vw,30px);line-height:1.4;max-width:34ch;margin-top:20px}
+.bento.c5{grid-template-columns:repeat(5,1fr)}
+@media(max-width:900px){.bento.c5{grid-template-columns:repeat(2,1fr)}}
+.urec{position:relative;border:1.5px solid var(--mag);padding:clamp(14px,2vw,24px);color:#f2e9f4;
+  font-size:clamp(17px,2vw,28px);line-height:1.4;max-width:36ch;margin-top:18px}
 .urec::before{content:"ПОД ЗАПИСЬ";position:absolute;top:-10px;left:14px;background:var(--mag);color:var(--ink);
   font:700 9px/1 var(--mono2);letter-spacing:.14em;padding:4px 8px}
 .urec b{color:var(--mag);font-weight:700}
-.dmeta{font-family:var(--mono2);font-size:clamp(13px,1.5vw,19px);color:var(--vio2);line-height:1.7}
+.urec.sm{font-size:clamp(13px,1.4vw,18px);max-width:none;margin-top:0}
+.dmeta{font-family:var(--mono2);font-size:clamp(12px,1.4vw,17px);color:var(--vio2);line-height:1.7}
 .dmeta b{color:var(--white)}
-.dsvg{width:100%;border:1px solid var(--line2);background:var(--panel);display:block;border-radius:6px}
+.dsvg{width:100%;border:1px solid var(--line2);background:var(--panel);display:block;border-radius:8px}
 .dl{font-family:var(--mono2);font-size:15px;fill:var(--white)}
-.dl.m{fill:var(--mag)}.dl.v{fill:var(--vio2)}.dl.d{fill:var(--dim)}
-/* ===== демо ОБРЫВ (scoped) ===== */
+.dl.m{fill:var(--mag)}.dl.v{fill:var(--vio2)}.dl.d{fill:var(--dim)}.dl.g{fill:var(--ok)}
+.dl.b{font-weight:700}
+.mini{width:100%;height:auto;display:block;margin-bottom:8px}
+/* демо обрыв (scoped) */
 .obryv{display:grid;gap:clamp(10px,1.6vh,18px)}
 .obryv .head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .obryv h2{font-family:Unbounded;font-weight:800;text-transform:uppercase;line-height:.95;letter-spacing:-.02em;font-size:clamp(24px,3.6vw,52px)}
 .obryv h2 .blk{background:var(--mag);color:var(--ink);padding:0 .12em}
-.obryv .urec{margin-top:0;font-size:clamp(13px,1.35vw,18px);max-width:54ch}
 .obryv .stages{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.8vw,24px)}
 @media(max-width:900px){.obryv .stages{grid-template-columns:1fr}}
 .obryv .stage{background:var(--panel);border:1px solid var(--line2);display:flex;flex-direction:column}
@@ -315,273 +319,482 @@ button.btn.pri:hover{background:var(--vio);border-color:var(--vio);color:#fff}
 <div class="deck" id="deck">
 <section class="slide">
   <span class="bignum"></span>
-  <div class="top"><span class="k"><i></i>Компьютерные сети · Лекция</span><span>ЭЛТЕКС</span></div>
+  <div class="top"><span class="k"><i></i>Глава 02 · Лекция</span><span>ЭЛТЕКС</span></div>
   <div class="mid two">
-    <div style="display:flex;flex-direction:column;gap:24px">
-      <div class="kick" style="margin-bottom:6px"><i style="width:12px;height:12px;background:var(--mag);clip-path:polygon(50% 0,58% 42%,100% 50%,58% 58%,50% 100%,42% 58%,0 50%,42% 42%);display:inline-block"></i>Глава 02</div>
-      <h1>ПРОМЕЖУ<span class="blk">ТОЧНЫЕ</span><br>УСТРОЙСТВА</h1>
-      <p class="def">Пять «дорожных служб» сети: кто пересылает кадры, кто пакеты, кто фильтрует и кто раздаёт Wi-Fi.</p>
+    <div style="display:flex;flex-direction:column;gap:22px">
+      <div class="kick" style="margin-bottom:4px"><i style="width:12px;height:12px;background:var(--mag);clip-path:polygon(50% 0,58% 42%,100% 50%,58% 58%,50% 100%,42% 58%,0 50%,42% 42%);display:inline-block"></i>Глава 02</div>
+      <h1>УСТРОЙСТВА, ПО И<br><span class="blk">СРЕДА ПЕРЕДАЧИ</span></h1>
+      <div class="tags"><span class="tag m">организации</span><span class="tag o">устройства</span><span class="tag v">топологии</span><span class="tag o">подключение</span></div>
     </div>
-    <div class="rlist"><div class="cap">В этом блоке</div><ul>
-      <li><s>01</s>Коммутатор</li><li><s>02</s>Маршрутизатор</li><li><s>03</s>Многоуровневый</li>
-      <li><s>04</s>Межсетевой экран</li><li><s>05</s>Точка доступа</li>
-    </ul></div>
+    <div class="glitch">
+      <i class="m"></i><i></i><i class="w"></i><i class="v"></i><i></i><i class="m"></i>
+      <i></i><i class="v"></i><i></i><i class="w"></i><i class="m"></i><i></i>
+      <i class="w"></i><i></i><i class="m"></i><i></i><i class="v"></i><i></i>
+      <i class="v"></i><i class="m"></i><i></i><i class="w"></i><i></i><i></i>
+      <i></i><i></i><i class="m"></i><i class="m"></i><i></i><i class="v"></i>
+      <i class="m"></i><i class="w"></i><i></i><i class="v"></i><i class="m"></i><i></i>
+    </div>
   </div>
-  <div class="bot"><span>Глава 02 · Устройства</span><span>Ананко · Качур</span></div>
+  <div class="bot"><span>Ананко · Качур</span><span>VK · TG</span></div>
 </section>
 
 <section class="slide">
   <span class="bignum"></span>
-  <div class="top"><span class="k"><i></i>2.2 · Промежуточные</span><span>Что делают все</span></div>
+  <div class="top"><span class="k"><i></i>Зачем это всё</span><span>Цели главы</span></div>
+  <div class="mid two">
+    <h2>ЦЕЛИ <span class="hl">ГЛАВЫ</span></h2>
+    <ul class="bul">
+      <li><span class="gn">01</span><span class="gt"><b>Организации</b>, что стандартизуют работу сетей и Интернета</span></li>
+      <li><span class="gn">02</span><span class="gt">Какие <b>устройства</b> бывают в сети</span></li>
+      <li><span class="gn">03</span><span class="gt"><b>Среды</b> передачи данных</span></li>
+      <li><span class="gn">04</span><span class="gt">Виды <b>топологий</b> для построения сетей</span></li>
+      <li><span class="gn">05</span><span class="gt">Способы <b>подключения</b> к Интернету</span></li>
+    </ul>
+  </div>
+  <div class="bot"><span>Глава 02 · Введение</span><span>Ананко · Качур</span></div>
+</section>
+
+<section class="slide scroll">
+  <span class="bignum"></span>
+  <div class="top"><span class="k"><i></i>Навигация</span><span>Содержание</span></div>
+  <div class="mid">
+    <h2>СОДЕР<span class="hl">ЖАНИЕ</span></h2>
+    <div class="toc">
+      <a onclick="showId('org')"><span class="num">01</span><span class="ti">Кто управляет Интернетом<span class="ds">2.1 · организации</span></span></a>
+      <a onclick="showId('dev')"><span class="num">02</span><span class="ti">Устройства сети<span class="ds">2.2 · оконечные и промежуточные</span></span></a>
+      <a onclick="showId('media')"><span class="num">03</span><span class="ti">Среда передачи<span class="ds">2.3 · медь · оптика · радио</span></span></a>
+      <a onclick="showId('topo')"><span class="num">04</span><span class="ti">Топологии<span class="ds">2.4 · LAN и WAN</span></span></a>
+      <a onclick="showId('conn')"><span class="num">05</span><span class="ti">Подключение к Интернету<span class="ds">2.5 · FTTx · сотовая …</span></span></a>
+      <a onclick="showId('quiz')"><span class="num">06</span><span class="ti">Викторина<span class="ds">проверь себя</span></span></a>
+      <a onclick="showId('itog')"><span class="num">07</span><span class="ti">Итог и словарь<span class="ds">термины главы</span></span></a>
+    </div>
+  </div>
+  <div class="bot"><span>Глава 02</span><span>Ананко · Качур</span></div>
+</section>
+
+<section class="slide" id="org">
+  <span class="bignum"></span>
+  <div class="top"><span class="k"><i></i>Глава 02 · Раздел</span><span>КТО УПРАВЛЯЕТ<br>ИНТЕРНЕТОМ</span></div>
+  <div class="mid two">
+    <div style="display:flex;flex-direction:column;gap:clamp(12px,2vh,22px)">
+      <div class="chev"><b class="on">1</b></div>
+      <h1>КТО УПРАВЛЯЕТ<br>ИНТЕРНЕТОМ</h1>
+      <p class="def" style="max-width:26ch">Ни у кого нет хозяина — но все договорились о правилах. Кто их пишет.</p>
+    </div>
+    <div class="netphoto"><span class="sc">раздел 1</span><div class="ph" style="font-size:clamp(60px,10vw,140px);color:var(--line2);display:grid;place-items:center;font-family:Unbounded;font-weight:800">1</div></div>
+  </div>
+  <div class="bot"><span>Глава 02</span><span>Ананко · Качур</span></div>
+</section>
+
+<section class="slide">
+  <span class="bignum"></span>
+  <div class="top"><span class="k"><i></i>2.1 · Управление</span><span>Нет хозяина</span></div>
+  <div class="mid two">
+    <div style="display:flex;flex-direction:column;gap:clamp(12px,2vh,20px)">
+      <h2>У ИНТЕРНЕТА <span class="hl">НЕТ ХОЗЯИНА</span></h2>
+      <div class="urec">У Интернета нет единого владельца. Миллионы независимых сетей должны работать вместе — но приказать всем никто не может.</div>
+      <div class="more open" onclick="this.classList.toggle('open')">
+        <div class="mh"><span class="pl">+</span>На пальцах</div>
+        <div class="ma"><div>Как язык. Русским никто не владеет, но все договорились о словах и правилах — иначе никто никого не поймёт. С Интернетом так же: договорились о правилах — это и есть <b>стандарты</b>.</div></div>
+      </div>
+    </div>
+    <div class="rlist"><div class="cap">Держится на договорённостях</div><ul>
+      <li><s>01</s>Общие правила<small>стандарты вместо приказов</small></li>
+      <li><s>02</s>Совместимость<small>техника разных стран понимает друг друга</small></li>
+      <li><s>03</s>Добровольно<small>кто не соблюдает — выпадает из сети</small></li>
+    </ul></div>
+  </div>
+  <div class="bot"><span class="rec">Стандарты вместо хозяина</span><span>Ананко · Качур · VK · TG</span></div>
+</section>
+
+<section class="slide">
+  <span class="bignum"></span>
+  <div class="top"><span class="k"><i></i>2.1.1 · Управление</span><span>Почему их много</span></div>
   <div class="mid two">
     <div style="display:flex;flex-direction:column;gap:clamp(14px,2.4vh,24px)">
-      <h2>ОБЩИЕ ФУНКЦИИ <span class="hl">ПРОМЕЖУТОЧНЫХ</span></h2>
+      <h2>ПОЧЕМУ ОРГАНИЗАЦИЙ <span class="hl">МНОГО</span></h2>
+      <p class="def" style="max-width:30ch">Разные задачи — разные конторы. <b>Одна задача — одна организация</b>, почти без пересечений.</p>
+    </div>
+    <div class="rlist"><div class="cap">Кто за что</div><ul>
+      <li><s>01</s>Протоколы<small>придумать правила обмена</small></li>
+      <li><s>02</s>Физика<small>как гнать сигнал по проводу</small></li>
+      <li><s>03</s>Частоты<small>поделить радиоэфир между странами</small></li>
+      <li><s>04</s>Адреса<small>вести учёт и раздачу</small></li>
+    </ul></div>
+  </div>
+  <div class="bot"><span class="rec">Одна задача — одна контора</span><span>Ананко · Качур · VK · TG</span></div>
+</section>
+
+<section class="slide scroll">
+  <span class="bignum"></span>
+  <div class="top"><span class="k"><i></i>2.1.2 · Управление</span><span>Ядро управления</span></div>
+  <div class="mid two">
+    <div style="display:flex;flex-direction:column;gap:clamp(10px,1.8vh,16px)">
+      <h2>ЯДРО: ISOC → IAB → <span class="hl">IETF / IRTF</span></h2>
+      <div class="urec sm"><b>ISOC</b> — развитие и распространение Интернета (вершина). <b>IAB</b> — надзор за архитектурой. <b>IETF</b> — пишет стандарты протоколов (без постоянного состава). <b>IRTF</b> — долгосрочные исследования.</div>
+      <div class="more" onclick="this.classList.toggle('open')">
+        <div class="mh"><span class="pl">+</span>На пальцах</div>
+        <div class="ma"><div>ISOC — правительство (задаёт курс). IAB — главные архитекторы (единый план). IETF — строительные бригады (строят, что нужно сейчас). IRTF — лаборатория (думает о завтра).</div></div>
+      </div>
+    </div>
+    <svg class="dsvg" viewBox="0 0 560 320">
+  <g fill="none" stroke="var(--line2)" stroke-width="2.5">
+    <line x1="280" y1="72" x2="280" y2="118"/><line x1="280" y1="170" x2="150" y2="228"/><line x1="280" y1="170" x2="410" y2="228"/></g>
+  <rect x="210" y="22" width="140" height="50" rx="8" fill="#1c1230" stroke="var(--mag)" stroke-width="2.5"/><text x="280" y="52" text-anchor="middle" class="dl m b" style="font-family:Unbounded">ISOC</text>
+  <rect x="215" y="120" width="130" height="50" rx="8" fill="var(--panel)" stroke="var(--vio2)" stroke-width="2.5"/><text x="280" y="150" text-anchor="middle" class="dl v b">IAB</text>
+  <rect x="70" y="230" width="160" height="66" rx="8" fill="var(--panel)" stroke="var(--vio2)" stroke-width="2"/><text x="150" y="258" text-anchor="middle" class="dl v b">IETF</text><text x="150" y="280" text-anchor="middle" class="dl d">стандарты</text>
+  <rect x="330" y="230" width="160" height="66" rx="8" fill="var(--panel)" stroke="var(--vio2)" stroke-width="2"/><text x="410" y="258" text-anchor="middle" class="dl v b">IRTF</text><text x="410" y="280" text-anchor="middle" class="dl d">исследования</text>
+</svg>
+  </div>
+  <div class="bot"><span class="rec">ISOC · IAB · IETF · IRTF</span><span>Ананко · Качур · VK · TG</span></div>
+</section>
+
+<section class="slide scroll">
+  <span class="bignum"></span>
+  <div class="top"><span class="k"><i></i>2.1.3 · Управление</span><span>Другие организации</span></div>
+  <div class="mid">
+    <h2>ДРУГИЕ <span class="hl">ОРГАНИЗАЦИИ</span></h2>
+    <div class="bento c5">
+      <div class="cell hot"><span class="n">IEEE</span><b>Железо</b><p>комитет 802 → Ethernet (802.3) и Wi-Fi (802.11)</p></div>
+      <div class="cell vio"><span class="n">ISO</span><b>Стандарты</b><p>стандартизует остальное → модель OSI</p></div>
+      <div class="cell vio"><span class="n">ITU</span><b>Частоты</b><p>при ООН, делит радиочастоты между странами</p></div>
+      <div class="cell vio"><span class="n">TIA/EIA</span><b>Кабели</b><p>кабели и совместимость оборудования</p></div>
+      <div class="cell hot"><span class="n">IANA</span><b>Адреса</b><p>главный распорядитель адресов</p></div>
+    </div>
+    <p class="note" style="max-width:none">Каждая закрывает свой кусок: одни — «железо» и кабели, другие — модели и частоты, третьи — учёт адресов.</p>
+  </div>
+  <div class="bot"><span class="rec">IEEE · ISO · ITU · TIA/EIA · IANA</span><span>Ананко · Качур · VK · TG</span></div>
+</section>
+
+<section class="slide">
+  <span class="bignum"></span>
+  <div class="top"><span class="k"><i></i>2.1.4 · Адреса</span><span>Как раздают адреса</span></div>
+  <div class="mid">
+    <h2>КАК РАЗДАЮТ АДРЕСА: <span class="hl">IANA → RIR → LIR → ВЫ</span></h2>
+    <svg class="dsvg" viewBox="0 0 620 200">
+  <g fill="none" stroke="var(--mag)" stroke-width="3">
+    <line x1="140" y1="80" x2="180" y2="80"/><line x1="300" y1="80" x2="340" y2="80"/><line x1="460" y1="80" x2="500" y2="80"/></g>
+  <g>
+   <rect x="20" y="52" width="120" height="56" rx="8" fill="#1c1230" stroke="var(--mag)" stroke-width="2.5"/><text x="80" y="86" text-anchor="middle" class="dl m b" style="font-family:Unbounded">IANA</text>
+   <rect x="180" y="52" width="120" height="56" rx="8" fill="var(--panel)" stroke="var(--vio2)" stroke-width="2.5"/><text x="240" y="86" text-anchor="middle" class="dl v b">RIR</text>
+   <rect x="340" y="52" width="120" height="56" rx="8" fill="var(--panel)" stroke="var(--vio2)" stroke-width="2.5"/><text x="400" y="86" text-anchor="middle" class="dl v b">LIR</text>
+   <rect x="500" y="52" width="110" height="56" rx="8" fill="var(--panel)" stroke="var(--vio2)" stroke-width="2"/><text x="555" y="86" text-anchor="middle" class="dl v b">Мы</text>
+  </g>
+  <text x="80" y="140" text-anchor="middle" class="dl d">завод</text>
+  <text x="240" y="140" text-anchor="middle" class="dl d">дистрибьютор</text>
+  <text x="400" y="140" text-anchor="middle" class="dl d">дилер</text>
+  <text x="555" y="140" text-anchor="middle" class="dl d">покупатель</text>
+</svg>
+    <div class="more open" onclick="this.classList.toggle('open')">
+      <div class="mh"><span class="pl">+</span>На пальцах</div>
+      <div class="ma"><div>Оптовая торговля. Завод (<b>IANA</b>) отгружает крупные партии региональным дистрибьюторам (<b>RIR</b>), те — местным дилерам (<b>LIR</b>), дилеры — покупателям (нам). Адреса — ограниченный ресурс, раздаются строго сверху вниз.</div></div>
+    </div>
+  </div>
+  <div class="bot"><span class="rec">Адреса раздают сверху вниз</span><span>Ананко · Качур · VK · TG</span></div>
+</section>
+
+<section class="slide">
+  <span class="bignum"></span>
+  <div class="top"><span class="k"><i></i>2.1.4 · Адреса</span><span>Пять RIR</span></div>
+  <div class="mid">
+    <h2>ПЯТЬ <span class="hl">RIR</span> · РЕГИОНАЛЬНЫХ РЕГИСТРАТОРОВ</h2>
+    <svg class="dsvg" viewBox="0 0 620 300">
+  <rect x="40" y="60" width="150" height="90" rx="30" fill="var(--panel)" stroke="var(--vio2)" stroke-width="2"/><text x="115" y="100" text-anchor="middle" class="dl v b">ARIN</text><text x="115" y="122" text-anchor="middle" class="dl d">США · Канада</text>
+  <rect x="70" y="180" width="150" height="80" rx="28" fill="var(--panel)" stroke="var(--vio2)" stroke-width="2"/><text x="145" y="215" text-anchor="middle" class="dl v b">LACNIC</text><text x="145" y="237" text-anchor="middle" class="dl d">Латам</text>
+  <rect x="250" y="180" width="150" height="80" rx="28" fill="var(--panel)" stroke="var(--vio2)" stroke-width="2"/><text x="325" y="215" text-anchor="middle" class="dl v b">AFRINIC</text><text x="325" y="237" text-anchor="middle" class="dl d">Африка</text>
+  <rect x="250" y="60" width="180" height="90" rx="30" fill="#1c1230" stroke="var(--mag)" stroke-width="3"/><text x="340" y="96" text-anchor="middle" class="dl m b">RIPE NCC</text><text x="340" y="118" text-anchor="middle" class="dl m">Европа · РФ — мы здесь</text>
+  <rect x="450" y="90" width="150" height="120" rx="30" fill="var(--panel)" stroke="var(--vio2)" stroke-width="2"/><text x="525" y="140" text-anchor="middle" class="dl v b">APNIC</text><text x="525" y="162" text-anchor="middle" class="dl d">АТР · Индия</text>
+</svg>
+    <div class="urec sm" style="margin-top:14px"><b>RIR</b> — региональный интернет-регистратор. Мир поделён на пять зон; Россия — в зоне <b>RIPE NCC</b>.</div>
+  </div>
+  <div class="bot"><span class="rec">RIR — регистратор региона</span><span>Ананко · Качур · VK · TG</span></div>
+</section>
+
+<section class="slide">
+  <span class="bignum"></span>
+  <div class="top"><span class="k"><i></i>2.1.4 · Адреса</span><span>LIR и правда про IPv4</span></div>
+  <div class="mid two">
+    <div style="display:flex;flex-direction:column;gap:clamp(12px,2vh,18px)">
+      <h2>LIR И ПРАВДА ПРО <span class="hl">IPv4</span></h2>
+      <div class="urec sm"><b>LIR</b> — локальный регистратор, раздаёт адреса на местах (член RIPE NCC).</div>
+      <div class="more open" onclick="this.classList.toggle('open')">
+        <div class="mh"><span class="pl">+</span>На пальцах</div>
+        <div class="ma"><div>IPv4 почти закончились — получить трудно и долго. А <b>IPv6 выдают без ограничений</b>, их хватит надолго.</div></div>
+      </div>
+    </div>
+    <div class="rlist"><div class="cap">Факт</div><ul>
+      <li><s>№1</s>Крупнейший LIR в РФ<small>Ростелеком — ~11 млн IP</small></li>
+      <li><s>vs</s>У других<small>обычно 3–4 млн IP</small></li>
+      <li><s>?</s>Почему<small>брал блоки ещё до «истощения запаса»</small></li>
+    </ul></div>
+  </div>
+  <div class="bot"><span class="rec">IPv4 кончились · IPv6 — свободно</span><span>Ананко · Качур · VK · TG</span></div>
+</section>
+
+<section class="slide">
+  <span class="bignum"></span>
+  <div class="top"><span class="k"><i></i>2.1.5 · Провайдеры</span><span>ISP</span></div>
+  <div class="mid two">
+    <div style="display:flex;flex-direction:column;gap:clamp(12px,2vh,20px)">
+      <h2>ISP · <span class="hl">ПРОВАЙДЕР</span></h2>
+      <div class="urec">ISP — организация, дающая доступ в Интернет. Абонент = человек, компания, госучреждение и даже <b>другой провайдер</b>.</div>
+    </div>
+    <div class="rlist"><div class="cap">Что ещё продают</div><ul>
+      <li><s>01</s>Размещение<small>оборудование у провайдера</small></li>
+      <li><s>02</s>Веб-хостинг<small>место для сайтов</small></li>
+      <li><s>03</s>VoIP<small>телефония поверх сети</small></li>
+      <li><s>04</s>Поддержка<small>техническая помощь</small></li>
+    </ul></div>
+  </div>
+  <div class="bot"><span class="rec">ISP — доступ в Интернет</span><span>Ананко · Качур · VK · TG</span></div>
+</section>
+
+<section class="slide">
+  <span class="bignum"></span>
+  <div class="top"><span class="k"><i></i>2.1.5 · Провайдеры</span><span>Иерархия Tier</span></div>
+  <div class="mid two">
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <h2>ИЕРАРХИЯ: <span class="hl">TIER 1 / 2 / 3</span></h2>
+      <p class="def" style="max-width:30ch;font-size:clamp(16px,1.9vw,24px)"><b>Tier 1</b> — вершина, свои подводные кабели: надёжно, быстро, дорого. <b>Tier 2</b> — крупные, платят Tier 1 за межконтинент. <b>Tier 3</b> — города, розница.</p>
+      <div class="more" onclick="this.classList.toggle('open')">
+        <div class="mh"><span class="pl">+</span>На пальцах</div>
+        <div class="ma"><div>Дороги: Tier 1 — межконтинентальные магистрали, Tier 2 — региональные трассы, Tier 3 — городские улицы. Чтобы уехать далеко, трафик поднимается с улиц на трассы и магистрали.</div></div>
+      </div>
+    </div>
+    <svg class="dsvg" viewBox="0 0 560 300">
+  <rect x="30" y="30" width="500" height="70" rx="10" fill="#1c1230" stroke="var(--mag)" stroke-width="2.5"/><text x="55" y="60" class="dl m b" style="font-family:Unbounded">TIER 1</text><text x="55" y="82" class="dl d">магистраль · межконтинентальные кабели</text>
+  <rect x="70" y="115" width="420" height="70" rx="10" fill="var(--panel)" stroke="var(--vio2)" stroke-width="2.5"/><text x="95" y="145" class="dl v b" style="font-family:Unbounded">TIER 2</text><text x="95" y="167" class="dl d">трасса · крупные, работают с бизнесом</text>
+  <rect x="120" y="200" width="320" height="70" rx="10" fill="var(--panel)" stroke="var(--vio2)" stroke-width="2"/><text x="145" y="230" class="dl v b" style="font-family:Unbounded">TIER 3</text><text x="145" y="252" class="dl d">улица · город, розница</text>
+  <g stroke="var(--line2)" stroke-width="2"><line x1="280" y1="100" x2="280" y2="115"/><line x1="280" y1="185" x2="280" y2="200"/></g>
+</svg>
+  </div>
+  <div class="bot"><span class="rec">Магистраль → трасса → улица</span><span>Ананко · Качур · VK · TG</span></div>
+</section>
+
+<section class="slide" id="dev">
+  <span class="bignum"></span>
+  <div class="top"><span class="k"><i></i>Глава 02 · Раздел</span><span>УСТРОЙСТВА<br>СЕТИ</span></div>
+  <div class="mid two">
+    <div style="display:flex;flex-direction:column;gap:clamp(12px,2vh,22px)">
+      <div class="chev"><b class="on">2</b></div>
+      <h1>УСТРОЙСТВА<br>СЕТИ</h1>
+      <p class="def" style="max-width:26ch">Оконечные создают данные, промежуточные ведут их дальше.</p>
+    </div>
+    <div class="netphoto"><span class="sc">раздел 2</span><div class="ph" style="font-size:clamp(60px,10vw,140px);color:var(--line2);display:grid;place-items:center;font-family:Unbounded;font-weight:800">2</div></div>
+  </div>
+  <div class="bot"><span>Глава 02</span><span>Ананко · Качур</span></div>
+</section>
+
+<section class="slide">
+  <span class="bignum"></span>
+  <div class="top"><span class="k"><i></i>2.2 · Устройства</span><span>Из чего состоит сеть</span></div>
+  <div class="mid two">
+    <div style="display:flex;flex-direction:column;gap:clamp(14px,2.4vh,24px)">
+      <h2>ИЗ ЧЕГО <span class="hl">СОСТОИТ</span> СЕТЬ</h2>
+      <p class="def" style="max-width:30ch">Первые два — <b>железо</b>, третье — то, что <b>оживляет</b> сеть.</p>
+    </div>
+    <div class="rlist"><div class="cap">Три составляющие</div><ul>
+      <li><s>01</s>Устройства<small>оконечные и промежуточные</small></li>
+      <li><s>02</s>Среда<small>средства подключения: кабель, радио</small></li>
+      <li><s>03</s>Сервисы<small>приложения: почта, веб-хостинг</small></li>
+    </ul></div>
+  </div>
+  <div class="bot"><span class="rec">Железо + сервисы</span><span>Ананко · Качур · VK · TG</span></div>
+</section>
+
+<section class="slide">
+  <span class="bignum"></span>
+  <div class="top"><span class="k"><i></i>2.2.1 · Устройства</span><span>Оконечные</span></div>
+  <div class="mid two">
+    <div style="display:flex;flex-direction:column;gap:clamp(12px,2vh,18px)">
+      <h1>ОКОНЕЧНЫЕ</h1>
+      <div class="urec">Оконечное устройство — принимает или отправляет данные и превращает их в сигналы. Ноутбук, ПК, смартфон, сервер. Всегда — точка входа человека в сеть.</div>
+    </div>
+    <div class="rlist"><div class="cap">Примеры</div><ul>
+      <li><s>01</s>ПК и ноутбук</li><li><s>02</s>Смартфон</li><li><s>03</s>Сервер</li><li><s>04</s>IP-камера, принтер</li>
+    </ul></div>
+  </div>
+  <div class="bot"><span class="rec">Точка входа человека в сеть</span><span>Ананко · Качур · VK · TG</span></div>
+</section>
+
+<section class="slide scroll">
+  <span class="bignum"></span>
+  <div class="top"><span class="k"><i></i>2.2.2 · Устройства</span><span>Промежуточные</span></div>
+  <div class="mid">
+    <h2>ПРОМЕЖУТОЧНЫЕ <span class="hl">УСТРОЙСТВА</span></h2>
+    <div class="bento c5">
+      <div class="cell"><svg class="mini" viewBox="0 0 90 60"><rect x="18" y="20" width="54" height="26" rx="4" fill="#1c1230" stroke="var(--mag)" stroke-width="2"/><path d="M30 33 h30 M52 27 l8 6 -8 6" fill="none" stroke="var(--mag)" stroke-width="2"/></svg><b>Коммутатор</b><p>кадры адресно внутри одной сети · MAC · L2</p></div>
+      <div class="cell vio"><svg class="mini" viewBox="0 0 90 60"><ellipse cx="45" cy="34" rx="28" ry="16" fill="#1c1230" stroke="var(--mag)" stroke-width="2"/><path d="M33 34 h24 M40 27 l-7 7 7 7 M50 27 l7 7 -7 7" fill="none" stroke="var(--mag)" stroke-width="2"/></svg><b>Маршрутизатор</b><p>пакеты между сетями по таблице · IP · L3</p></div>
+      <div class="cell"><svg class="mini" viewBox="0 0 90 60"><rect x="18" y="24" width="54" height="24" rx="4" fill="#1c1230" stroke="var(--mag)" stroke-width="2"/><path d="M33 24 l12 -12 12 12 z" fill="#241638" stroke="var(--vio2)" stroke-width="2"/></svg><b>Многоуровневый</b><p>коммутатор + маршрутизатор, «2 в 1»</p></div>
+      <div class="cell vio"><svg class="mini" viewBox="0 0 90 60"><rect x="30" y="12" width="14" height="40" fill="#170f26" stroke="var(--mag)" stroke-width="2"/><line x1="14" y1="24" x2="60" y2="24" stroke="var(--ok)" stroke-width="3"/><line x1="14" y1="40" x2="30" y2="40" stroke="var(--bad)" stroke-width="3"/><path d="M52 34 l8 8 M60 34 l-8 8" stroke="var(--bad)" stroke-width="3"/></svg><b>Firewall</b><p>не пускает вредный и нежелательный трафик</p></div>
+      <div class="cell hot"><svg class="mini" viewBox="0 0 90 60"><rect x="34" y="30" width="22" height="14" rx="3" fill="#1c1230" stroke="var(--mag)" stroke-width="2"/><path d="M45 28 q0 -10 -12 -13 M45 28 q0 -10 12 -13" fill="none" stroke="var(--mag)" stroke-width="2"/></svg><b>Точка доступа</b><p>базовая станция Wi-Fi, доступ без проводов</p></div>
+    </div>
+    <p class="note" style="max-width:none">Аналогия: коммутатор — сортировка писем <b>внутри города</b>; маршрутизатор — развязка <b>между городами</b>; firewall — <b>таможня</b> на границе.</p>
+  </div>
+  <div class="bot"><span class="rec">Каждое — ответ на свою задачу</span><span>Ананко · Качур · VK · TG</span></div>
+</section>
+
+<section class="slide">
+  <span class="bignum"></span>
+  <div class="top"><span class="k"><i></i>2.2.2 · Устройства</span><span>Что умеют все</span></div>
+  <div class="mid two">
+    <div style="display:flex;flex-direction:column;gap:clamp(14px,2.4vh,24px)">
+      <h2>ЧТО УМЕЮТ <span class="hl">ВСЕ</span> ПРОМЕЖУТОЧНЫЕ</h2>
       <p class="def" style="max-width:30ch">Они не создают данные, а <b>ведут их дальше</b> — и все умеют примерно одно.</p>
     </div>
-    <div class="rlist"><div class="cap">Умеют все промежуточные</div><ul>
+    <div class="rlist"><div class="cap">Общие функции</div><ul>
       <li><s>01</s>Маршруты<small>собирать и обновлять данные о путях</small></li>
       <li><s>02</s>Обход<small>искать обходной путь при сбое</small></li>
-      <li><s>03</s>Безопасность<small>разрешать или запрещать трафик</small></li>
+      <li><s>03</s>Безопасность<small>разрешать/запрещать по настройкам</small></li>
       <li><s>04</s>Ретрансляция<small>усиливать и передавать сигнал дальше</small></li>
     </ul></div>
   </div>
   <div class="bot"><span class="rec">Ведут данные, не создают</span><span>Ананко · Качур · VK · TG</span></div>
 </section>
 
-<section class="slide">
+<section class="slide" id="media">
   <span class="bignum"></span>
-  <div class="top"><span class="k"><i></i>2.2.1 · Устройство</span><span>Коммутатор</span></div>
-  <div class="mid two">
-    <div style="display:flex;flex-direction:column;gap:clamp(10px,1.8vh,18px)">
-      <h1>КОММУ<span class="blk">ТАТОР</span></h1>
-      <div class="urec">Коммутатор пересылает <b>кадры</b> внутри <b>одной</b> сети — адресно, только нужному получателю.</div>
-      <div class="more" onclick="this.classList.toggle('open')">
-        <div class="mh"><span class="pl">+</span>На пальцах</div>
-        <div class="ma"><div>Сортировочный узел почты <b>внутри города</b>: разносит письма по местным адресам, а не суёт каждому в ящик подряд.</div></div>
-      </div>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:14px">
-      <svg class="dsvg" viewBox="0 0 560 300">
-  <g stroke="var(--vio2)" stroke-width="2.5" fill="none" opacity=".4">
-    <line x1="280" y1="150" x2="90" y2="60"/><line x1="280" y1="150" x2="470" y2="60"/>
-    <line x1="280" y1="150" x2="90" y2="240"/><line x1="280" y1="150" x2="470" y2="240"/></g>
-  <line x1="280" y1="150" x2="470" y2="60" stroke="var(--mag)" stroke-width="4"/>
-  <circle cx="392" cy="97" r="7" fill="var(--mag)" style="filter:drop-shadow(0 0 6px var(--mag))"/>
-  <rect x="228" y="120" width="104" height="60" rx="8" fill="#1c1230" stroke="var(--mag)" stroke-width="2.5"/>
-  <text x="280" y="155" text-anchor="middle" class="dl m" style="font-family:Unbounded;font-weight:700">SWITCH</text>
-  <rect x="60" y="40" width="60" height="40" rx="6" fill="var(--panel)" stroke="var(--vio2)" stroke-width="2"/><text x="90" y="65" text-anchor="middle" class="dl v">A</text>
-  <rect x="440" y="40" width="60" height="40" rx="6" fill="var(--panel)" stroke="var(--mag)" stroke-width="2.5"/><text x="470" y="65" text-anchor="middle" class="dl m">B</text>
-  <rect x="60" y="220" width="60" height="40" rx="6" fill="var(--panel)" stroke="var(--vio2)" stroke-width="2"/><text x="90" y="245" text-anchor="middle" class="dl v">C</text>
-  <rect x="440" y="220" width="60" height="40" rx="6" fill="var(--panel)" stroke="var(--vio2)" stroke-width="2"/><text x="470" y="245" text-anchor="middle" class="dl v">D</text>
-  <text x="280" y="285" text-anchor="middle" class="dl d">кадр идёт только адресату B (по MAC), не всем</text>
+  <div class="top"><span class="k"><i></i>2.3 · Среда</span><span>Среда передачи</span></div>
+  <div class="mid">
+    <h2>СРЕДА <span class="hl">ПЕРЕДАЧИ</span> ДАННЫХ</h2>
+    <div class="urec sm">Среда передачи — канал от отправителя к получателю. Три типа — по тому, во что кодируют данные.</div>
+    <svg class="dsvg" viewBox="0 0 560 130" style="margin-top:6px">
+  <path d="M20 65 h150" stroke="var(--mag)" stroke-width="4" fill="none"/><text x="95" y="45" text-anchor="middle" class="dl m b">медь</text>
+  <path d="M205 65 q40 -25 80 0 q40 25 80 0" stroke="var(--ok)" stroke-width="4" fill="none"/><text x="285" y="45" text-anchor="middle" class="dl g b">оптика</text>
+  <g stroke="var(--vio2)" stroke-width="3" fill="none"><path d="M400 65 q10 -18 20 0"/><path d="M400 65 q18 -30 36 0"/><path d="M400 65 q26 -42 52 0"/></g><text x="470" y="45" text-anchor="middle" class="dl v b">радио</text>
 </svg>
-      <div class="dmeta">Работает с: <b>кадрами</b> · Уровень: <b>L2</b> (канальный) · Адрес: <b>MAC</b></div>
+    <div class="bento c3" style="margin-top:8px">
+      <div class="cell hot"><span class="n">Cu</span><b>Медь</b><p>электрические импульсы · дёшево и просто</p></div>
+      <div class="cell vio"><span class="n">◉</span><b>Оптика</b><p>световые импульсы · быстро и далеко</p></div>
+      <div class="cell vio"><span class="n">))</span><b>Радио</b><p>электромагнитные волны · мобильно, но чувствительно к помехам</p></div>
     </div>
   </div>
-  <div class="bot"><span class="rec">Коммутатор</span><span>Ананко · Качур · VK · TG</span></div>
+  <div class="bot"><span class="rec">Медь · оптика · радио</span><span>Ананко · Качур · VK · TG</span></div>
+</section>
+
+<section class="slide" id="topo">
+  <span class="bignum"></span>
+  <div class="top"><span class="k"><i></i>Глава 02 · Раздел</span><span>ТОПОЛОГИИ</span></div>
+  <div class="mid two">
+    <div style="display:flex;flex-direction:column;gap:clamp(12px,2vh,22px)">
+      <div class="chev"><b class="on">3</b></div>
+      <h1>ТОПОЛОГИИ</h1>
+      <p class="def" style="max-width:26ch">Графическая карта того, как соединены устройства.</p>
+    </div>
+    <div class="netphoto"><span class="sc">раздел 3</span><div class="ph" style="font-size:clamp(60px,10vw,140px);color:var(--line2);display:grid;place-items:center;font-family:Unbounded;font-weight:800">3</div></div>
+  </div>
+  <div class="bot"><span>Глава 02</span><span>Ананко · Качур</span></div>
 </section>
 
 <section class="slide">
   <span class="bignum"></span>
-  <div class="top"><span class="k"><i></i>2.2.2 · Устройство</span><span>Маршрутизатор</span></div>
+  <div class="top"><span class="k"><i></i>2.4.1 · Топологии</span><span>Что такое</span></div>
   <div class="mid two">
-    <div style="display:flex;flex-direction:column;gap:clamp(10px,1.8vh,18px)">
-      <h1>МАРШРУТИ<span class="blk">ЗАТОР</span></h1>
-      <div class="urec">Маршрутизатор пересылает <b>пакеты</b> из одной сети в <b>другую</b> — по таблице маршрутизации.</div>
-      <div class="more" onclick="this.classList.toggle('open')">
-        <div class="mh"><span class="pl">+</span>На пальцах</div>
-        <div class="ma"><div>Транспортная развязка <b>между городами</b>: решает, по какой трассе гнать груз дальше, чтобы он доехал в нужный город.</div></div>
-      </div>
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <h2>ЧТО ТАКОЕ <span class="hl">ТОПОЛОГИЯ</span></h2>
+      <div class="urec">Топология — графическая карта того, как устройства соединены. Без неё сеть не спроектировать и не обслужить.</div>
     </div>
-    <div style="display:flex;flex-direction:column;gap:14px">
-      <svg class="dsvg" viewBox="0 0 560 300">
-  <ellipse cx="120" cy="150" rx="90" ry="60" fill="none" stroke="var(--vio2)" stroke-width="2" stroke-dasharray="6 6"/>
-  <ellipse cx="440" cy="150" rx="90" ry="60" fill="none" stroke="var(--vio2)" stroke-width="2" stroke-dasharray="6 6"/>
-  <text x="120" y="235" text-anchor="middle" class="dl v">Сеть 1</text>
-  <text x="440" y="235" text-anchor="middle" class="dl v">Сеть 2</text>
-  <line x1="120" y1="150" x2="250" y2="150" stroke="var(--vio2)" stroke-width="3"/>
-  <line x1="310" y1="150" x2="440" y2="150" stroke="var(--vio2)" stroke-width="3"/>
-  <rect x="248" y="122" width="64" height="56" rx="8" fill="#1c1230" stroke="var(--mag)" stroke-width="2.5"/>
-  <text x="280" y="154" text-anchor="middle" class="dl m" style="font-family:Unbounded;font-weight:700;font-size:13px">ROUTER</text>
-  <circle cx="200" cy="150" r="7" fill="var(--mag)" style="filter:drop-shadow(0 0 6px var(--mag))"/>
-  <circle cx="370" cy="150" r="7" fill="var(--mag)" opacity=".55"/>
-  <text x="280" y="285" text-anchor="middle" class="dl d">пакет прыгает из сети 1 в сеть 2 по таблице маршрутов</text>
-</svg>
-      <div class="dmeta">Работает с: <b>пакетами</b> · Уровень: <b>L3</b> (сетевой) · Адрес: <b>IP</b></div>
-    </div>
+    <div class="netphoto"><span class="sc">карта сети</span><svg viewBox="0 0 400 260" style="position:absolute;inset:0;width:100%;height:100%">
+      <g fill="none" stroke="var(--vio2)" stroke-width="2.5"><line x1="200" y1="130" x2="80" y2="60"/><line x1="200" y1="130" x2="320" y2="60"/><line x1="200" y1="130" x2="80" y2="200"/><line x1="200" y1="130" x2="320" y2="200"/></g>
+      <g fill="var(--mag)"><circle cx="200" cy="130" r="10"/><circle cx="80" cy="60" r="8"/><circle cx="320" cy="60" r="8"/><circle cx="80" cy="200" r="8"/><circle cx="320" cy="200" r="8"/></g>
+    </svg></div>
   </div>
-  <div class="bot"><span class="rec">Маршрутизатор</span><span>Ананко · Качур · VK · TG</span></div>
+  <div class="bot"><span class="rec">Карта соединений сети</span><span>Ананко · Качур · VK · TG</span></div>
 </section>
 
 <section class="slide">
   <span class="bignum"></span>
-  <div class="top"><span class="k"><i></i>2.2.3 · Устройство</span><span>Многоуровневый</span></div>
-  <div class="mid two">
-    <div style="display:flex;flex-direction:column;gap:clamp(10px,1.8vh,18px)">
-      <h1>МНОГО<span class="blk">УРОВНЕВЫЙ</span></h1>
-      <div class="urec">Многоуровневый коммутатор — это коммутатор <b>плюс</b> базовые функции маршрутизатора, «2 в 1».</div>
-      <div class="more" onclick="this.classList.toggle('open')">
-        <div class="mh"><span class="pl">+</span>На пальцах</div>
-        <div class="ma"><div>Сотрудник, который и сортирует письма <b>внутри города</b>, и знает, куда отправить <b>в другой</b> — не нужно держать двоих.</div></div>
-      </div>
+  <div class="top"><span class="k"><i></i>2.4.2 · Топологии</span><span>Физическая vs логическая</span></div>
+  <div class="mid">
+    <h2>ФИЗИЧЕСКАЯ <span class="hl">vs</span> ЛОГИЧЕСКАЯ</h2>
+    <div class="versus">
+      <div class="vcol a"><h3>Физическая</h3><ul>
+        <li>Где что <b>реально стоит</b> и как соединено</li><li>«План этажа» — розетки, кабели, устройства</li></ul></div>
+      <div class="vs">vs</div>
+      <div class="vcol b"><h3>Логическая</h3><ul>
+        <li>Как <b>движутся данные</b></li><li>Не важно, где физически лежит железо</li></ul></div>
     </div>
-    <div style="display:flex;flex-direction:column;gap:14px">
-      <svg class="dsvg" viewBox="0 0 560 300">
-  <rect x="200" y="150" width="160" height="90" rx="10" fill="#1c1230" stroke="var(--mag)" stroke-width="2.5"/>
-  <text x="280" y="200" text-anchor="middle" class="dl m" style="font-family:Unbounded;font-weight:700">L2 · SWITCH</text>
-  <path d="M235 150 L280 108 L325 150 Z" fill="#241638" stroke="var(--vio2)" stroke-width="2.5"/>
-  <text x="280" y="140" text-anchor="middle" class="dl v" style="font-size:13px">L3</text>
-  <text x="280" y="120" text-anchor="middle" class="dl v" style="font-size:22px">♛</text>
-  <text x="90" y="205" text-anchor="middle" class="dl v">кадры L2</text>
-  <text x="470" y="205" text-anchor="middle" class="dl m">пакеты L3</text>
-  <line x1="150" y1="195" x2="200" y2="195" stroke="var(--vio2)" stroke-width="3"/>
-  <line x1="360" y1="195" x2="410" y2="195" stroke="var(--mag)" stroke-width="3"/>
-  <text x="280" y="278" text-anchor="middle" class="dl d">коммутатор с «короной» маршрутизатора — 2 в 1</text>
-</svg>
-      <div class="dmeta">Работает с: <b>кадрами и пакетами</b> · Уровень: <b>L2 + L3</b></div>
-    </div>
+    <p class="note" style="max-width:none"><b>Они могут не совпадать.</b> Провода расходятся звездой, а данные ходят как по шине — и это нормально.</p>
   </div>
-  <div class="bot"><span class="rec">Многоуровневый</span><span>Ананко · Качур · VK · TG</span></div>
-</section>
-
-<section class="slide">
-  <span class="bignum"></span>
-  <div class="top"><span class="k"><i></i>2.2.4 · Устройство</span><span>Межсетевой экран</span></div>
-  <div class="mid two">
-    <div style="display:flex;flex-direction:column;gap:clamp(10px,1.8vh,18px)">
-      <h1>МЕЖСЕТЕВОЙ<br><span class="blk">ЭКРАН</span></h1>
-      <div class="urec">Межсетевой экран отклоняет нежелательный и вредоносный трафик, <b>защищает сеть</b>.</div>
-      <div class="more" onclick="this.classList.toggle('open')">
-        <div class="mh"><span class="pl">+</span>На пальцах</div>
-        <div class="ma"><div>Таможенно-пропускной пункт на границе: проверяет всё въезжающее и пропускает только то, что разрешено правилами.</div></div>
-      </div>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:14px">
-      <svg class="dsvg" viewBox="0 0 560 300">
-  <text x="70" y="40" text-anchor="middle" class="dl v">Интернет</text>
-  <text x="490" y="40" text-anchor="middle" class="dl m">Наша сеть</text>
-  <g stroke="var(--mag)" stroke-width="2.5" fill="#170f26">
-    <rect x="255" y="40" width="50" height="220" rx="4"/></g>
-  <rect x="255" y="120" width="50" height="60" fill="#0b0710" stroke="var(--vio2)" stroke-width="2"/>
-  <!-- зелёные проходят -->
-  <line x1="60" y1="90" x2="500" y2="90" stroke="var(--ok)" stroke-width="4" marker-end=""/>
-  <circle cx="360" cy="90" r="7" fill="var(--ok)"/>
-  <!-- красные блок -->
-  <line x1="60" y1="150" x2="252" y2="150" stroke="var(--bad)" stroke-width="4"/>
-  <line x1="244" y1="140" x2="264" y2="160" stroke="var(--bad)" stroke-width="4"/><line x1="264" y1="140" x2="244" y2="160" stroke="var(--bad)" stroke-width="4"/>
-  <line x1="60" y1="210" x2="252" y2="210" stroke="var(--bad)" stroke-width="4"/>
-  <line x1="244" y1="200" x2="264" y2="220" stroke="var(--bad)" stroke-width="4"/><line x1="264" y1="200" x2="244" y2="220" stroke="var(--bad)" stroke-width="4"/>
-  <text x="280" y="285" text-anchor="middle" class="dl d">пропускает разрешённое (зелёное), режет опасное (красное)</text>
-</svg>
-      <div class="dmeta">Работает с: <b>трафиком по правилам</b> · Уровень: обычно <b>L3–L7</b> (по настройкам)</div>
-    </div>
-  </div>
-  <div class="bot"><span class="rec">Межсетевой экран</span><span>Ананко · Качур · VK · TG</span></div>
-</section>
-
-<section class="slide">
-  <span class="bignum"></span>
-  <div class="top"><span class="k"><i></i>2.2.5 · Устройство</span><span>Точка доступа</span></div>
-  <div class="mid two">
-    <div style="display:flex;flex-direction:column;gap:clamp(10px,1.8vh,18px)">
-      <h1>ТОЧКА<br><span class="blk">ДОСТУПА</span></h1>
-      <div class="urec">Точка доступа — базовая станция Wi-Fi: даёт доступ по <b>радио</b>, поверх проводной сети или параллельно ей.</div>
-      <div class="more" onclick="this.classList.toggle('open')">
-        <div class="mh"><span class="pl">+</span>На пальцах</div>
-        <div class="ma"><div>Радиовышка во дворе: кто в зоне покрытия — тот подключается по воздуху, без всяких проводов.</div></div>
-      </div>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:14px">
-      <svg class="dsvg" viewBox="0 0 560 300">
-  <rect x="235" y="60" width="90" height="46" rx="8" fill="#1c1230" stroke="var(--mag)" stroke-width="2.5"/>
-  <text x="280" y="88" text-anchor="middle" class="dl m" style="font-family:Unbounded;font-weight:700;font-size:12px">AP</text>
-  <g stroke="var(--mag)" stroke-width="2.5" fill="none" opacity=".8">
-    <path d="M280 55 q0 -22 -30 -30"/><path d="M280 55 q0 -22 30 -30"/></g>
-  <g stroke="var(--vio2)" stroke-width="2.5" fill="none" stroke-dasharray="5 6">
-    <line x1="280" y1="106" x2="120" y2="210"/><line x1="280" y1="106" x2="280" y2="220"/><line x1="280" y1="106" x2="440" y2="210"/></g>
-  <rect x="90" y="210" width="60" height="44" rx="6" fill="var(--panel)" stroke="var(--vio2)" stroke-width="2"/><text x="120" y="236" text-anchor="middle" class="dl v">📱</text>
-  <rect x="250" y="220" width="60" height="44" rx="6" fill="var(--panel)" stroke="var(--vio2)" stroke-width="2"/><text x="280" y="246" text-anchor="middle" class="dl v">💻</text>
-  <rect x="410" y="210" width="60" height="44" rx="6" fill="var(--panel)" stroke="var(--vio2)" stroke-width="2"/><text x="440" y="236" text-anchor="middle" class="dl v">📱</text>
-  <text x="280" y="288" text-anchor="middle" class="dl d">физически звезда · логически шина (общий радиоканал)</text>
-</svg>
-      <div class="dmeta">Работает с: <b>радио + кадрами</b> · Уровень: <b>L1/L2</b> · Адрес: <b>MAC</b></div>
-    </div>
-  </div>
-  <div class="bot"><span class="rec">Точка доступа</span><span>Ананко · Качур · VK · TG</span></div>
+  <div class="bot"><span class="rec">Физ ≠ лог</span><span>Ананко · Качур · VK · TG</span></div>
 </section>
 
 <section class="slide scroll">
   <span class="bignum"></span>
-  <div class="top"><span class="k"><i></i>2.2 · Итог</span><span>Кто что пересылает</span></div>
-  <div class="mid">
-    <h2>КТО ЧТО <span class="hl">ПЕРЕСЫЛАЕТ</span></h2>
-    <div class="tblwrap">
-      <table>
-        <tr><th>Устройство</th><th>Что пересылает</th><th>Где работает</th><th>Адрес</th></tr>
-        <tr class="hot"><td class="t">Коммутатор</td><td>кадры</td><td>внутри одной сети</td><td>MAC</td></tr>
-        <tr><td class="t">Маршрутизатор</td><td>пакеты</td><td>между сетями</td><td>IP</td></tr>
-        <tr><td class="t">Многоуровневый</td><td>кадры + пакеты</td><td>и там, и там</td><td>MAC + IP</td></tr>
-        <tr><td class="t">Межсетевой экран</td><td>пропускает / режет</td><td>на границе</td><td>по правилам</td></tr>
-        <tr><td class="t">Точка доступа</td><td>кадры по радио</td><td>беспроводной сегмент</td><td>MAC</td></tr>
-      </table>
+  <div class="top"><span class="k"><i></i>2.4.2 · Топологии</span><span>Hub: звезда или шина</span></div>
+  <div class="mid two">
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <h2>HUB — ЗВЕЗДА <span class="hl">ИЛИ</span> ШИНА?</h2>
+      <div class="urec sm">Провода сходятся в центр (концентратор) — <b>физически звезда</b>. Но hub повторяет сигнал на все порты — слышат все — <b>логически шина</b>.</div>
+      <div class="more" onclick="this.classList.toggle('open')">
+        <div class="mh"><span class="pl">+</span>На пальцах</div>
+        <div class="ma"><div>К каждому тянется провод к громкоговорителю в центре (по проводам — звезда). Но он орёт на всю комнату — слышат все (по сути — шина).</div></div>
+      </div>
     </div>
-    <p class="note" style="max-width:none">Правило на память: <b>кадры</b> и <b>MAC</b> — это «внутри сети» (коммутатор); <b>пакеты</b> и <b>IP</b> — это «между сетями» (маршрутизатор). Остальные — комбинации и надстройки.</p>
+    <svg class="dsvg" viewBox="0 0 560 240">
+  <text x="140" y="28" text-anchor="middle" class="dl v b">физически — звезда</text>
+  <g fill="none" stroke="var(--vio2)" stroke-width="2.5"><line x1="140" y1="130" x2="60" y2="70"/><line x1="140" y1="130" x2="220" y2="70"/><line x1="140" y1="130" x2="60" y2="195"/><line x1="140" y1="130" x2="220" y2="195"/></g>
+  <rect x="118" y="110" width="44" height="40" rx="6" fill="#1c1230" stroke="var(--mag)" stroke-width="2.5"/><text x="140" y="134" text-anchor="middle" class="dl m" style="font-size:11px">HUB</text>
+  <g fill="var(--vio2)"><circle cx="60" cy="70" r="7"/><circle cx="220" cy="70" r="7"/><circle cx="60" cy="195" r="7"/><circle cx="220" cy="195" r="7"/></g>
+  <line x1="290" y1="30" x2="290" y2="210" stroke="var(--line2)" stroke-width="2" stroke-dasharray="5 6"/>
+  <text x="430" y="28" text-anchor="middle" class="dl m b">логически — шина</text>
+  <rect x="408" y="110" width="44" height="40" rx="6" fill="#1c1230" stroke="var(--mag)" stroke-width="2.5"/><text x="430" y="134" text-anchor="middle" class="dl m" style="font-size:11px">HUB</text>
+  <g stroke="var(--mag)" stroke-width="3" fill="none"><path d="M430 108 q-8 -14 0 -28"/><path d="M430 152 q-8 14 0 28"/><path d="M406 130 q-14 0 -28 0"/><path d="M454 130 q14 0 28 0"/></g>
+  <text x="430" y="220" text-anchor="middle" class="dl d">повторяет сигнал на все порты — слышат все</text>
+</svg>
   </div>
-  <div class="bot"><span class="rec">Кадры/MAC — внутри · пакеты/IP — между</span><span>Ананко · Качур · VK · TG</span></div>
+  <div class="bot"><span class="rec">Физ звезда · лог шина</span><span>Ананко · Качур · VK · TG</span></div>
+</section>
+
+<section class="slide scroll" id="lan">
+  <span class="bignum"></span>
+  <div class="top"><span class="k"><i></i>2.4.3 · Топологии</span><span>Локальные сети</span></div>
+  <div class="mid">
+    <h2>ТОПОЛОГИИ <span class="hl">ЛОКАЛЬНЫХ</span> СЕТЕЙ</h2>
+    <div class="bento c5">
+      <div class="cell"><svg class="mini" viewBox="0 0 120 80"><line x1="12" y1="55" x2="108" y2="55" stroke="var(--mag)" stroke-width="3"/><g stroke="var(--vio2)" stroke-width="2"><line x1="35" y1="55" x2="35" y2="30"/><line x1="60" y1="55" x2="60" y2="30"/><line x1="85" y1="55" x2="85" y2="30"/></g><g fill="var(--vio2)"><circle cx="35" cy="26" r="5"/><circle cx="60" cy="26" r="5"/><circle cx="85" cy="26" r="5"/></g></svg><b>Шина</b><p>все на одном кабеле; обрыв рушит всю сеть — дёшево, ненадёжно</p></div>
+      <div class="cell hot"><svg class="mini" viewBox="0 0 120 80"><g stroke="var(--vio2)" stroke-width="2"><line x1="60" y1="42" x2="24" y2="20"/><line x1="60" y1="42" x2="96" y2="20"/><line x1="60" y1="42" x2="24" y2="64"/><line x1="60" y1="42" x2="96" y2="64"/></g><rect x="50" y="34" width="20" height="16" rx="3" fill="#1c1230" stroke="var(--mag)" stroke-width="2"/><g fill="var(--vio2)"><circle cx="24" cy="20" r="5"/><circle cx="96" cy="20" r="5"/><circle cx="24" cy="64" r="5"/><circle cx="96" cy="64" r="5"/></g></svg><b>Звезда</b><p>все в центр; падает центр — падает всё</p></div>
+      <div class="cell vio"><svg class="mini" viewBox="0 0 120 80"><g stroke="var(--vio2)" stroke-width="2"><line x1="60" y1="20" x2="30" y2="45"/><line x1="60" y1="20" x2="90" y2="45"/><line x1="30" y1="45" x2="14" y2="66"/><line x1="30" y1="45" x2="46" y2="66"/><line x1="90" y1="45" x2="74" y2="66"/><line x1="90" y1="45" x2="106" y2="66"/></g><rect x="52" y="12" width="16" height="14" rx="3" fill="#1c1230" stroke="var(--mag)" stroke-width="2"/><g fill="#1c1230" stroke="var(--mag)" stroke-width="1.5"><rect x="23" y="39" width="14" height="12" rx="2"/><rect x="83" y="39" width="14" height="12" rx="2"/></g><g fill="var(--vio2)"><circle cx="14" cy="66" r="4"/><circle cx="46" cy="66" r="4"/><circle cx="74" cy="66" r="4"/><circle cx="106" cy="66" r="4"/></g></svg><b>Расширенная</b><p>ещё один центр; отказ локализуется в сегменте</p></div>
+      <div class="cell vio"><svg class="mini" viewBox="0 0 120 80"><circle cx="60" cy="42" r="26" fill="none" stroke="var(--mag)" stroke-width="3"/><g fill="var(--vio2)"><circle cx="60" cy="16" r="5"/><circle cx="86" cy="42" r="5"/><circle cx="60" cy="68" r="5"/><circle cx="34" cy="42" r="5"/></g></svg><b>Кольцо</b><p>каждый связан с соседом; для отказа нужен разрыв в двух местах</p></div>
+      <div class="cell"><svg class="mini" viewBox="0 0 120 80"><rect x="50" y="16" width="20" height="14" rx="3" fill="#1c1230" stroke="var(--mag)" stroke-width="2"/><g stroke="var(--mag)" stroke-width="2" fill="none" stroke-dasharray="3 4"><line x1="60" y1="30" x2="28" y2="64"/><line x1="60" y1="30" x2="60" y2="66"/><line x1="60" y1="30" x2="92" y2="64"/></g><g fill="var(--vio2)"><circle cx="28" cy="66" r="5"/><circle cx="60" cy="68" r="5"/><circle cx="92" cy="66" r="5"/></g></svg><b>Беспроводная</b><p>физически звезда, логически шина (общий радиоканал)</p></div>
+    </div>
+    <p class="note" style="max-width:none">Через <b>switch</b> звезда — это и физически, и логически звезда; через <b>hub</b> — физ звезда, лог шина.</p>
+  </div>
+  <div class="bot"><span class="rec">Шина · звезда · кольцо · Wi-Fi</span><span>Ананко · Качур · VK · TG</span></div>
 </section>
 
 <section class="slide" data-init="obryv">
   <span class="bignum"></span>
-  <div class="top"><span class="k"><i></i>2.4 · Топологии · Демо</span><span>Обрыв</span></div>
+  <div class="top"><span class="k"><i></i>2.4.3 · Топологии · Демо</span><span>Обрыв</span></div>
   <div class="mid">
    <div class="obryv">
     <div class="head">
       <h2>ОБРЫВ: <span class="blk">ШИНА</span> ПРОТИВ ЗВЕЗДЫ</h2>
-      <div class="urec">Шарики&nbsp;— это <b>пакеты</b>. В <b>шине</b> один обрыв кладёт всю сеть. В <b>звезде</b> обрыв луча роняет один узел, а сеть живёт&nbsp;— но обрыв центра кладёт всё.</div>
+      <div class="urec sm">Шарики&nbsp;— это <b>пакеты</b>. В <b>шине</b> один обрыв кладёт всю сеть. В <b>звезде</b> обрыв луча роняет один узел, а сеть живёт&nbsp;— но обрыв центра кладёт всё.</div>
     </div>
     <div class="stages">
       <div class="stage">
         <div class="cap"><h3>Шина</h3><span class="badge ok" id="busBadge">Сеть работает</span></div>
         <svg viewBox="0 0 560 300" id="busSvg">
           <line class="cable" id="busBone" x1="60" y1="210" x2="500" y2="210"></line>
-          <line class="term" x1="60" y1="196" x2="60" y2="224"></line>
-          <line class="term" x1="500" y1="196" x2="500" y2="224"></line>
-          <g id="busBreak" style="display:none">
-            <line class="xmark" x1="270" y1="198" x2="290" y2="222"></line>
-            <line class="xmark" x1="290" y1="198" x2="270" y2="222"></line></g>
+          <line class="term" x1="60" y1="196" x2="60" y2="224"></line><line class="term" x1="500" y1="196" x2="500" y2="224"></line>
+          <g id="busBreak" style="display:none"><line class="xmark" x1="270" y1="198" x2="290" y2="222"></line><line class="xmark" x1="290" y1="198" x2="270" y2="222"></line></g>
           <g id="busPk"></g><g id="busFx"></g><g id="busNodes"></g>
         </svg>
-        <div class="ctr">
-          <button onclick="bus.send()">Пустить пакет</button>
-          <button class="hot" id="busBtn" onclick="bus.toggleBreak()">Обрыв кабеля</button>
-          <button onclick="bus.reset()">Сброс</button>
-        </div>
+        <div class="ctr"><button onclick="bus.send()">Пустить пакет</button><button class="hot" id="busBtn" onclick="bus.toggleBreak()">Обрыв кабеля</button><button onclick="bus.reset()">Сброс</button></div>
       </div>
       <div class="stage">
         <div class="cap"><h3>Звезда</h3><span class="badge ok" id="starBadge">Сеть работает</span></div>
         <svg viewBox="0 0 560 300" id="starSvg">
           <g id="starSpokes"></g>
-          <rect class="hub" id="starHub" x="238" y="152" width="84" height="56" rx="6"></rect>
-          <text class="hubT" x="280" y="180">SWITCH</text>
-          <g id="starHubX" style="display:none">
-            <line class="xmark" x1="262" y1="164" x2="298" y2="196"></line>
-            <line class="xmark" x1="298" y1="164" x2="262" y2="196"></line></g>
+          <rect class="hub" id="starHub" x="238" y="152" width="84" height="56" rx="6"></rect><text class="hubT" x="280" y="180">SWITCH</text>
+          <g id="starHubX" style="display:none"><line class="xmark" x1="262" y1="164" x2="298" y2="196"></line><line class="xmark" x1="298" y1="164" x2="262" y2="196"></line></g>
           <g id="starPk"></g><g id="starFx"></g><g id="starNodes"></g>
         </svg>
-        <div class="ctr">
-          <button onclick="star.send()">Пустить пакет</button>
-          <button class="hot" id="spokeBtn" onclick="star.toggleSpoke()">Обрыв луча</button>
-          <button class="hot" id="hubBtn" onclick="star.toggleHub()">Обрыв центра</button>
-          <button onclick="star.reset()">Сброс</button>
-        </div>
+        <div class="ctr"><button onclick="star.send()">Пустить пакет</button><button class="hot" id="spokeBtn" onclick="star.toggleSpoke()">Обрыв луча</button><button class="hot" id="hubBtn" onclick="star.toggleHub()">Обрыв центра</button><button onclick="star.reset()">Сброс</button></div>
       </div>
     </div>
-    <div class="legend">
-      <span><i style="background:var(--mag)"></i>пакет</span>
-      <span><i style="background:var(--ok)"></i>доставлен</span>
-      <span><i style="background:var(--bad)"></i>обрыв / потерян</span>
-      <span style="color:var(--vio2)"><i style="background:var(--vio2)"></i>кабель</span>
-    </div>
+    <div class="legend"><span><i style="background:var(--mag)"></i>пакет</span><span><i style="background:var(--ok)"></i>доставлен</span><span><i style="background:var(--bad)"></i>обрыв / потерян</span><span style="color:var(--vio2)"><i style="background:var(--vio2)"></i>кабель</span></div>
    </div>
   </div>
   <div class="bot"><span>Глава 02 · Топологии</span><span>Ананко · Качур</span></div>
@@ -589,24 +802,154 @@ button.btn.pri:hover{background:var(--vio);border-color:var(--vio);color:#fff}
 
 <section class="slide">
   <span class="bignum"></span>
-  <div class="top"><span class="k"><i></i>2.4 · Вывод</span><span>Почему расширенная звезда</span></div>
+  <div class="top"><span class="k"><i></i>2.4.4 · Топологии</span><span>Глобальные сети</span></div>
+  <div class="mid">
+    <h2>ТОПОЛОГИИ <span class="hl">ГЛОБАЛЬНЫХ</span> СЕТЕЙ</h2>
+    <div class="bento c3">
+      <div class="cell"><svg class="mini" viewBox="0 0 120 80"><line x1="30" y1="40" x2="90" y2="40" stroke="var(--mag)" stroke-width="3"/><g fill="var(--vio2)"><circle cx="30" cy="40" r="7"/><circle cx="90" cy="40" r="7"/></g></svg><b>Точка-точка</b><p>одно соединение между двумя узлами — и физически, и логически</p></div>
+      <div class="cell hot"><svg class="mini" viewBox="0 0 120 80"><g stroke="var(--mag)" stroke-width="2" opacity=".8"><line x1="30" y1="20" x2="90" y2="20"/><line x1="30" y1="20" x2="30" y2="60"/><line x1="30" y1="20" x2="90" y2="60"/><line x1="90" y1="20" x2="30" y2="60"/><line x1="90" y1="20" x2="90" y2="60"/><line x1="30" y1="60" x2="90" y2="60"/></g><g fill="var(--vio2)"><circle cx="30" cy="20" r="6"/><circle cx="90" cy="20" r="6"/><circle cx="30" cy="60" r="6"/><circle cx="90" cy="60" r="6"/></g></svg><b>Полносвязная (mesh)</b><p>все с каждым; очень надёжно, но дорого и сложно</p></div>
+      <div class="cell vio"><svg class="mini" viewBox="0 0 120 80"><circle cx="60" cy="40" r="26" fill="none" stroke="var(--mag)" stroke-width="2.5"/><circle cx="60" cy="40" r="20" fill="none" stroke="var(--vio2)" stroke-width="2" stroke-dasharray="4 5"/><g fill="var(--vio2)"><circle cx="60" cy="14" r="5"/><circle cx="86" cy="40" r="5"/><circle cx="60" cy="66" r="5"/><circle cx="34" cy="40" r="5"/></g></svg><b>Кольцо в WAN</b><p>дублирующие оптические каналы; чтобы изолировать узел, нужно порвать сразу 4 канала</p></div>
+    </div>
+  </div>
+  <div class="bot"><span class="rec">Точка-точка · mesh · кольцо</span><span>Ананко · Качур · VK · TG</span></div>
+</section>
+
+<section class="slide" id="conn">
+  <span class="bignum"></span>
+  <div class="top"><span class="k"><i></i>Глава 02 · Раздел</span><span>ПОДКЛЮЧЕНИЕ<br>К ИНТЕРНЕТУ</span></div>
+  <div class="mid two">
+    <div style="display:flex;flex-direction:column;gap:clamp(12px,2vh,22px)">
+      <div class="chev"><b class="on">4</b></div>
+      <h1>ПОДКЛЮЧЕНИЕ<br>К ИНТЕРНЕТУ</h1>
+      <p class="def" style="max-width:26ch">Чем выше требования к стабильности, тем тщательнее выбор.</p>
+    </div>
+    <div class="netphoto"><span class="sc">раздел 4</span><div class="ph" style="font-size:clamp(60px,10vw,140px);color:var(--line2);display:grid;place-items:center;font-family:Unbounded;font-weight:800">4</div></div>
+  </div>
+  <div class="bot"><span>Глава 02</span><span>Ананко · Качур</span></div>
+</section>
+
+<section class="slide">
+  <span class="bignum"></span>
+  <div class="top"><span class="k"><i></i>2.5.1 · Подключение</span><span>От чего зависит</span></div>
   <div class="mid two">
     <div style="display:flex;flex-direction:column;gap:clamp(14px,2.4vh,24px)">
-      <h2>ЦЕНТР ЗВЕЗДЫ — ЭТО <span class="hl">КОММУТАТОР</span></h2>
-      <p class="def" style="max-width:34ch">Обрыв луча роняет один узел, обрыв центра — <b>всю</b> сеть. Значит, надёжность звезды упирается в центральное устройство.</p>
-      <div class="more open" onclick="this.classList.toggle('open')">
-        <div class="mh"><span class="pl">+</span>Решение</div>
-        <div class="ma"><div><b>Расширенная звезда</b>: добавляем второй коммутатор-центр для сегмента. Тогда отказ локализуется — падает только свой сегмент, а не вся сеть.</div></div>
-      </div>
+      <h2>ОТ ЧЕГО ЗАВИСИТ <span class="hl">ВЫБОР</span></h2>
+      <p class="def" style="max-width:32ch">Чем выше требования к стабильности (облако, веб-конференции, IP-телефония) — тем тщательнее выбор.</p>
     </div>
-    <div class="rlist"><div class="cap">Что запомнить</div><ul>
-      <li><s>+</s>Звезда<small>обрыв луча — минус один узел</small></li>
-      <li><s>−</s>Звезда<small>обрыв центра — минус вся сеть</small></li>
-      <li><s>!</s>Шина<small>обрыв магистрали — минус вся сеть</small></li>
-      <li><s>→</s>Выход<small>расширенная звезда: второй центр на сегмент</small></li>
+    <div class="rlist"><div class="cap">Три фактора</div><ul>
+      <li><s>01</s>Местоположение<small>город, область, глушь</small></li>
+      <li><s>02</s>Запросы<small>что нужно потребителю</small></li>
+      <li><s>03</s>Возможности<small>что может провайдер</small></li>
     </ul></div>
   </div>
-  <div class="bot"><span class="rec">Слабость звезды — центр</span><span>Ананко · Качур · VK · TG</span></div>
+  <div class="bot"><span class="rec">Место · запросы · возможности</span><span>Ананко · Качур · VK · TG</span></div>
+</section>
+
+<section class="slide scroll">
+  <span class="bignum"></span>
+  <div class="top"><span class="k"><i></i>2.5.2 · Подключение</span><span>Современные способы</span></div>
+  <div class="mid">
+    <h2>СОВРЕМЕННЫЕ <span class="hl">СПОСОБЫ</span></h2>
+    <div class="bento">
+      <div class="cell hot"><span class="n">FTTx</span><b>Оптика</b><p>X = докуда довели: FTTN/FTTC/FTTB/FTTH. Скорость + Интернет/ТВ/телефон сразу</p></div>
+      <div class="cell vio"><span class="n">TV</span><b>Кабельное</b><p>коаксиальный ТВ-кабель — где нельзя тянуть новое, а ТВ-кабель уже есть</p></div>
+      <div class="cell vio"><span class="n">4G</span><b>Сотовая</b><p>соты + базовые станции; роутер с SIM или смартфон-точка. Гибко, зависит от сигнала</p></div>
+      <div class="cell"><span class="n">◇</span><b>Спутниковая</b><p>через спутники-ретрансляторы; нужна прямая видимость; крайний вариант, дорого</p></div>
+    </div>
+    <svg class="dsvg" viewBox="0 0 620 120" style="margin-top:8px">
+  <line x1="30" y1="60" x2="590" y2="60" stroke="var(--vio2)" stroke-width="3"/>
+  <g fill="var(--mag)"><circle cx="150" cy="60" r="7"/><circle cx="300" cy="60" r="7"/><circle cx="440" cy="60" r="7"/><circle cx="560" cy="60" r="7"/></g>
+  <text x="35" y="50" class="dl d">АТС/узел</text>
+  <text x="150" y="42" text-anchor="middle" class="dl v b">FTTN</text><text x="150" y="88" text-anchor="middle" class="dl d">узел</text>
+  <text x="300" y="42" text-anchor="middle" class="dl v b">FTTC</text><text x="300" y="88" text-anchor="middle" class="dl d">подстанция</text>
+  <text x="440" y="42" text-anchor="middle" class="dl v b">FTTB</text><text x="440" y="88" text-anchor="middle" class="dl d">здание</text>
+  <text x="560" y="42" text-anchor="middle" class="dl m b">FTTH</text><text x="560" y="88" text-anchor="middle" class="dl d">квартира</text>
+</svg>
+  </div>
+  <div class="bot"><span class="rec">FTTx · кабель · сотовая · спутник</span><span>Ананко · Качур · VK · TG</span></div>
+</section>
+
+<section class="slide">
+  <span class="bignum"></span>
+  <div class="top"><span class="k"><i></i>2.5.3 · Подключение</span><span>Устаревшие способы</span></div>
+  <div class="mid">
+    <h2>УСТАРЕВШИЕ <span class="hl">СПОСОБЫ</span></h2>
+    <div class="versus">
+      <div class="vcol a"><h3>xDSL</h3><ul>
+        <li>По <b>медным телефонным</b> линиям</li>
+        <li><b>ADSL</b> популярнее (к тебе быстрее, чем от тебя)</li>
+        <li>В городах почти нет, в областях бывает</li></ul></div>
+      <div class="vs">vs</div>
+      <div class="vcol b"><h3>Dial-up</h3><ul>
+        <li>Телефонная линия + модем</li>
+        <li>До <b>56 кбит/с</b></li>
+        <li>Сейчас редко — резервный канал в госорганах</li></ul></div>
+    </div>
+  </div>
+  <div class="bot"><span class="rec">xDSL и dial-up — прошлое</span><span>Ананко · Качур · VK · TG</span></div>
+</section>
+
+<section class="slide" id="quiz" data-init="quiz">
+  <span class="bignum"></span>
+  <div class="top"><span class="k"><i></i>Интерактив · Викторина</span><span>Проверь себя</span></div>
+  <div class="mid">
+    <div class="game">
+      <div class="gtop">
+        <div><div class="cap">Вопрос</div><div class="gtarget" id="qzQ" style="font-size:clamp(24px,3.6vw,48px);max-width:26ch;line-height:1.12">Нажми «Старт»</div></div>
+        <div class="gstat"><div>Верно<b id="qzOk">0</b></div><div>Всего<b id="qzAll">0</b></div></div>
+      </div>
+      <div class="row" id="qzBtns"></div>
+      <div class="gmsg" id="qzMsg">Двенадцать вопросов по всей главе. Ошибся — покажу, почему правильный ответ другой.</div>
+      <div class="row" id="qzNav" style="justify-content:space-between;align-items:center;margin-top:6px"></div>
+      <div class="row"><button class="btn pri" id="qzStart">Старт</button></div>
+    </div>
+  </div>
+  <div class="bot"><span>Кликай вариант ответа</span><span>Ананко · Качур</span></div>
+</section>
+
+<section class="slide scroll">
+  <span class="bignum"></span>
+  <div class="top"><span class="k"><i></i>Задачник</span><span>Ситуации</span></div>
+  <div class="mid">
+    <h2>ЗАДАЧНИК · <span class="hl">СИТУАЦИИ</span></h2>
+    <div class="qawrap">
+      <div class="qa task" onclick="this.classList.toggle('open')"><div class="q">Нужно связать две разные сети</div><div class="a">Берём <b>маршрутизатор</b>: он ведёт пакеты между сетями по таблице маршрутизации.</div></div>
+      <div class="qa task" onclick="this.classList.toggle('open')"><div class="q">Соединить 20 ПК в одном офисе</div><div class="a"><b>Коммутатор</b>: адресует кадры по MAC внутри одной сети. Топология — звезда.</div></div>
+      <div class="qa task" onclick="this.classList.toggle('open')"><div class="q">Отсечь вредный трафик из интернета</div><div class="a"><b>Межсетевой экран (firewall)</b> на границе сети.</div></div>
+      <div class="qa task" onclick="this.classList.toggle('open')"><div class="q">Дать доступ без проводов</div><div class="a"><b>Точка доступа</b>: физически звезда, логически шина (общий радиоканал).</div></div>
+      <div class="qa task" onclick="this.classList.toggle('open')"><div class="q">Дом в глуши без проводов и сот</div><div class="a"><b>Спутниковая</b> связь: дорого и нужна прямая видимость, но работает где угодно.</div></div>
+      <div class="qa task" onclick="this.classList.toggle('open')"><div class="q">Нужна максимальная надёжность между узлами</div><div class="a"><b>Полносвязная (mesh)</b> топология: все с каждым, но дорого и сложно.</div></div>
+    </div>
+  </div>
+  <div class="bot"><span>Клик по карточке — ответ</span><span>Ананко · Качур</span></div>
+</section>
+
+<section class="slide scroll" id="itog">
+  <span class="bignum"></span>
+  <div class="top"><span class="k"><i></i>Итог</span><span>Словарь главы</span></div>
+  <div class="mid">
+    <h2>СЛОВАРЬ <span class="hl">ГЛАВЫ</span></h2>
+    <div class="tblwrap">
+      <table>
+        <tr><th>Термин</th><th>Что это</th></tr>
+        <tr><td>ISOC / IAB</td><td class="t">Вершина управления Интернетом и надзор за архитектурой.</td></tr>
+        <tr><td>IETF / IRTF</td><td class="t">Пишут стандарты протоколов / ведут долгосрочные исследования.</td></tr>
+        <tr><td>IEEE · ISO · ITU · TIA/EIA</td><td class="t">Железо и 802 · модель OSI · радиочастоты · кабели.</td></tr>
+        <tr><td>IANA · RIR · LIR</td><td class="t">Верхний распорядитель адресов → региональный → локальный.</td></tr>
+        <tr><td>ISP · Tier 1/2/3</td><td class="t">Провайдер доступа; иерархия магистраль → трасса → улица.</td></tr>
+        <tr><td>Оконечное устройство</td><td class="t">Создаёт или принимает данные: ПК, смартфон, сервер.</td></tr>
+        <tr><td>Коммутатор / маршрутизатор</td><td class="t">Кадры внутри сети (MAC) / пакеты между сетями (IP).</td></tr>
+        <tr><td>Многоуровневый / firewall / точка доступа</td><td class="t">«2 в 1» / фильтр трафика / Wi-Fi без проводов.</td></tr>
+        <tr><td>Среда передачи</td><td class="t">Медь (электричество), оптика (свет), радио (волны).</td></tr>
+        <tr><td>Топология физ / лог</td><td class="t">Где стоит железо / как ходят данные; могут не совпадать.</td></tr>
+        <tr><td>Шина · звезда · расш. звезда · кольцо</td><td class="t">Топологии LAN с разной надёжностью.</td></tr>
+        <tr><td>Точка-точка · mesh</td><td class="t">Топологии WAN: простая пара и «все с каждым».</td></tr>
+        <tr><td>FTTx · xDSL · dial-up</td><td class="t">Оптика до точки X · медь телефонная · модем 56 кбит/с.</td></tr>
+        <tr><td>Кабельная · сотовая · спутниковая</td><td class="t">ТВ-кабель · соты 4G · спутник (крайний вариант).</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="bot"><span class="rec">Словарь главы 02</span><span>Ананко · Качур · VK · TG</span></div>
 </section>
 </div>
 <div class="cnt" id="cnt"></div>
@@ -625,13 +968,52 @@ function show(k){i=(k+n)%n;stopAnim();slides.forEach((s,j)=>s.classList.toggle('
 function showId(id){const el=document.getElementById(id);if(el)show(slides.indexOf(el))}
 document.getElementById('next').onclick=()=>show(i+1);
 document.getElementById('prev').onclick=()=>show(i-1);
-addEventListener('keydown',e=>{const t=e.target.tagName;if(t==='INPUT'||t==='TEXTAREA')return;
+addEventListener('keydown',e=>{const t=e.target.tagName;if(t==='INPUT'||t==='TEXTAREA'||t==='BUTTON'){if(e.key===' ')return;}
   if(['ArrowRight',' ','PageDown'].includes(e.key)){e.preventDefault();show(i+1)}
   if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();show(i-1)}
   if(e.key==='Home')show(0);if(e.key==='End')show(n-1);});
 let x0=null;addEventListener('touchstart',e=>{x0=e.touches[0].clientX},{passive:true});
 addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>60)show(i+(dx<0?1:-1));x0=null});
-window.showId=showId;window.__inits=inits;
+window.showId=showId;window.__timers=()=>timers;
+/* ---- ВИКТОРИНА ---- */
+const QZ=[
+{q:'У кого «главный склад» всех адресов?',a:['IANA','RIR','ISP'],ok:0,why:'IANA — верхний распорядитель адресов, раздаёт блоки регистраторам RIR.'},
+{q:'Кто пишет стандарты протоколов?',a:['IETF','ISO','ITU'],ok:0,why:'IETF пишет стандарты протоколов Интернета, без постоянного состава.'},
+{q:'В чьей зоне Россия?',a:['RIPE NCC','ARIN','APNIC'],ok:0,why:'RIPE NCC — регистратор Европы, России и Ближнего Востока.'},
+{q:'Что раздают без ограничений сегодня?',a:['IPv6','IPv4'],ok:0,why:'IPv4 почти исчерпаны; IPv6 выдают свободно — запас огромный.'},
+{q:'Коммутатор шлёт…',a:['кадры внутри одной сети','пакеты между сетями'],ok:0,why:'Коммутатор адресует кадры по MAC внутри одной сети.'},
+{q:'Маршрутизатор шлёт…',a:['пакеты между сетями','кадры внутри сети'],ok:0,why:'Маршрутизатор ведёт пакеты между сетями по таблице маршрутизации.'},
+{q:'Кто не пускает вредный трафик?',a:['Firewall','Точка доступа','Коммутатор'],ok:0,why:'Межсетевой экран фильтрует нежелательный и вредоносный трафик.'},
+{q:'Оптика кодирует данные в…',a:['световые импульсы','электрические импульсы','радиоволны'],ok:0,why:'Оптоволокно передаёт данные светом.'},
+{q:'Hub: физически звезда, а логически…',a:['шина','звезда','кольцо'],ok:0,why:'Hub повторяет сигнал на все порты — логически это шина.'},
+{q:'Самый дорогой «крайний» способ подключения?',a:['Спутниковая','FTTH','Кабельное'],ok:0,why:'Спутник — крайний вариант: дорого, нужна прямая видимость.'},
+{q:'Tier 1 владеет…',a:['подводными межконтинентальными кабелями','городскими улицами'],ok:0,why:'Tier 1 — вершина: им принадлежат межконтинентальные магистрали.'},
+{q:'Полносвязная топология — это…',a:['все соединены с каждым','все на одном кабеле'],ok:0,why:'Mesh — каждый узел связан с каждым: надёжно, но дорого.'}
+];
+let qzI=0,qzOk=0,qzAll=0,qzRun=false,qzAns=[];
+function qzStart(){qzI=0;qzOk=0;qzAll=0;qzRun=true;qzAns=QZ.map(()=>-1);
+  document.getElementById('qzOk').textContent='0';document.getElementById('qzAll').textContent='0';
+  document.getElementById('qzStart').textContent='Заново';qzShow();}
+function qzShow(){const box=document.getElementById('qzBtns');const it=QZ[qzI],chosen=qzAns[qzI];
+  document.getElementById('qzQ').textContent=(qzI+1)+'. '+it.q;box.innerHTML='';
+  it.a.forEach((txt,k)=>{const b=document.createElement('button');b.className='btn qzopt';
+    if(chosen>-1){if(k===it.ok)b.classList.add('ok');if(k===chosen&&chosen!==it.ok)b.classList.add('bad');}
+    b.textContent=txt;b.onclick=()=>qzAnswer(k);box.appendChild(b);});
+  const m=document.getElementById('qzMsg');
+  if(chosen>-1){m.className='gmsg '+(chosen===it.ok?'ok':'bad');m.textContent=(chosen===it.ok?'Верно. ':'Нет. Правильный: «'+it.a[it.ok]+'». ')+it.why;}
+  else{m.className='gmsg';m.textContent='Выбери ответ. Кнопками «Назад / Вперёд» листай вопросы.';}
+  qzNavRender();}
+function qzNavRender(){const nav=document.getElementById('qzNav');if(!nav)return;nav.innerHTML='';
+  const p=document.createElement('button');p.className='btn';p.textContent='‹ Назад';p.disabled=qzI===0;p.onclick=()=>{if(qzI>0){qzI--;qzShow();}};
+  const info=document.createElement('span');info.className='qzcount';info.textContent=(qzI+1)+' / '+QZ.length;
+  const nx=document.createElement('button');nx.className='btn';nx.textContent='Вперёд ›';nx.disabled=qzI===QZ.length-1;nx.onclick=()=>{if(qzI<QZ.length-1){qzI++;qzShow();}};
+  nav.appendChild(p);nav.appendChild(info);nav.appendChild(nx);}
+function qzAnswer(k){if(!qzRun)return;
+  if(qzAns[qzI]===-1){qzAns[qzI]=k;qzAll++;if(k===QZ[qzI].ok)qzOk++;document.getElementById('qzOk').textContent=qzOk;document.getElementById('qzAll').textContent=qzAll;}
+  else{qzAns[qzI]=k;}qzShow();}
+inits.quiz=function(){const b=document.getElementById('qzStart');if(!b)return;b.onclick=qzStart;
+  if(!qzRun){document.getElementById('qzQ').textContent='Нажми «Старт»';document.getElementById('qzBtns').innerHTML='';const nv=document.getElementById('qzNav');if(nv)nv.innerHTML='';}};
+window.qzStart=qzStart;
 show(0);
 </script>
 <!-- ============================================================
@@ -744,67 +1126,45 @@ const lerp=(a,b,t)=>({x:a.x+(b.x-a.x)*t,y:a.y+(b.y-a.y)*t});
 const dist=(a,b)=>Math.hypot(b.x-a.x,b.y-a.y);
 const el=(t,at={})=>{const e=document.createElementNS(SVG,t);for(const k in at)e.setAttribute(k,at[k]);return e;};
 const vis=id=>{const s=document.getElementById(id);return s&&s.closest('.slide')&&s.closest('.slide').classList.contains('on');};
-class Engine{
-  constructor(pkG,fxG){this.pkG=pkG;this.fxG=fxG;this.packets=[];this.fx=[];}
+class Engine{constructor(pkG,fxG){this.pkG=pkG;this.fxG=fxG;this.packets=[];this.fx=[];}
   add(segs,color){this.packets.push({segs,s:0,t:0,speed:150,color:color||"var(--mag)",hist:[]});}
   burst(p,color){this.fx.push({x:p.x,y:p.y,r:6,life:1,color});}
-  step(dt,brokenFn){
-    for(let i=this.packets.length-1;i>=0;i--){const p=this.packets[i];let seg=p.segs[p.s];
-      const br=brokenFn(seg);const target=br?br:seg.b;const len=Math.max(1,dist(seg.a,target));
-      p.t+=p.speed*dt/len;const pos=lerp(seg.a,target,Math.min(1,p.t));
-      p.hist.unshift({x:pos.x,y:pos.y});if(p.hist.length>6)p.hist.pop();
-      if(p.t>=1){if(br){this.burst(pos,"var(--bad)");this.packets.splice(i,1);continue;}
-        p.s++;p.t=0;if(p.s>=p.segs.length){this.burst(pos,"var(--ok)");this.packets.splice(i,1);}}}
+  step(dt,brokenFn){for(let i=this.packets.length-1;i>=0;i--){const p=this.packets[i];let seg=p.segs[p.s];
+    const br=brokenFn(seg);const target=br?br:seg.b;const len=Math.max(1,dist(seg.a,target));p.t+=p.speed*dt/len;
+    const pos=lerp(seg.a,target,Math.min(1,p.t));p.hist.unshift({x:pos.x,y:pos.y});if(p.hist.length>6)p.hist.pop();
+    if(p.t>=1){if(br){this.burst(pos,"var(--bad)");this.packets.splice(i,1);continue;}p.s++;p.t=0;if(p.s>=p.segs.length){this.burst(pos,"var(--ok)");this.packets.splice(i,1);}}}
     for(let i=this.fx.length-1;i>=0;i--){const f=this.fx[i];f.r+=90*dt;f.life-=dt*2.2;if(f.life<=0)this.fx.splice(i,1);}}
-  draw(){this.pkG.innerHTML="";this.fxG.innerHTML="";
-    for(const p of this.packets){p.hist.forEach((h,idx)=>{const k=1-idx/6;
-      this.pkG.appendChild(el("circle",{cx:h.x,cy:h.y,r:3+3*k,fill:p.color,opacity:(0.12+0.18*k).toFixed(2)}));});
-      const head=p.hist[0];if(head){const c=el("circle",{cx:head.x,cy:head.y,r:7,fill:p.color});
-        c.setAttribute("style","filter:drop-shadow(0 0 7px "+p.color+")");this.pkG.appendChild(c);
-        this.pkG.appendChild(el("circle",{cx:head.x-2,cy:head.y-2,r:2,fill:"#fff",opacity:.85}));}}
-    for(const f of this.fx){this.fxG.appendChild(el("circle",{cx:f.x,cy:f.y,r:f.r,fill:"none",stroke:f.color,"stroke-width":2,opacity:Math.max(0,f.life).toFixed(2)}));}}
-}
-const bus={broken:false,nodes:[{id:"A",x:110},{id:"B",x:225},{id:"C",x:340},{id:"D",x:455}],breakX:280,boneY:210,stubTop:150,
+  draw(){this.pkG.innerHTML="";this.fxG.innerHTML="";for(const p of this.packets){p.hist.forEach((h,idx)=>{const k=1-idx/6;
+    this.pkG.appendChild(el("circle",{cx:h.x,cy:h.y,r:3+3*k,fill:p.color,opacity:(0.12+0.18*k).toFixed(2)}));});
+    const head=p.hist[0];if(head){const c=el("circle",{cx:head.x,cy:head.y,r:7,fill:p.color});c.setAttribute("style","filter:drop-shadow(0 0 7px "+p.color+")");this.pkG.appendChild(c);this.pkG.appendChild(el("circle",{cx:head.x-2,cy:head.y-2,r:2,fill:"#fff",opacity:.85}));}}
+    for(const f of this.fx){this.fxG.appendChild(el("circle",{cx:f.x,cy:f.y,r:f.r,fill:"none",stroke:f.color,"stroke-width":2,opacity:Math.max(0,f.life).toFixed(2)}));}}}
+const bus={broken:false,nodes:[{id:"A",x:110},{id:"B",x:225},{id:"C",x:340},{id:"D",x:455}],boneY:210,stubTop:150,
   eng:new Engine(document.getElementById("busPk"),document.getElementById("busFx")),
-  init(){const g=document.getElementById("busNodes");for(const nn of this.nodes){
-      g.appendChild(el("line",{class:"cable",x1:nn.x,y1:this.stubTop,x2:nn.x,y2:this.boneY,"stroke-width":3}));
-      g.appendChild(el("rect",{class:"node",x:nn.x-26,y:this.stubTop-40,width:52,height:40,rx:5}));
-      const t=el("text",{class:"nodeT",x:nn.x,y:this.stubTop-20});t.textContent=nn.id;g.appendChild(t);}
-    timers.push(setInterval(()=>{if(vis("busSvg"))this.send()},1500));},
-  send(){if(this.eng.packets.length>4)return;let i=Math.floor(Math.random()*4),j;do{j=Math.floor(Math.random()*4)}while(j===i);
-    const a=this.nodes[i],b=this.nodes[j];this.eng.add([{a:{x:a.x,y:this.stubTop},b:{x:a.x,y:this.boneY},id:"stub"},
-      {a:{x:a.x,y:this.boneY},b:{x:b.x,y:this.boneY},id:"bone"},{a:{x:b.x,y:this.boneY},b:{x:b.x,y:this.stubTop},id:"stub"}]);},
+  init(){const g=document.getElementById("busNodes");for(const nn of this.nodes){g.appendChild(el("line",{class:"cable",x1:nn.x,y1:this.stubTop,x2:nn.x,y2:this.boneY,"stroke-width":3}));g.appendChild(el("rect",{class:"node",x:nn.x-26,y:this.stubTop-40,width:52,height:40,rx:5}));const t=el("text",{class:"nodeT",x:nn.x,y:this.stubTop-20});t.textContent=nn.id;g.appendChild(t);}
+    setInterval(()=>{if(vis("busSvg"))this.send()},1500);},
+  send(){if(this.eng.packets.length>4)return;let i=Math.floor(Math.random()*4),j;do{j=Math.floor(Math.random()*4)}while(j===i);const a=this.nodes[i],b=this.nodes[j];this.eng.add([{a:{x:a.x,y:this.stubTop},b:{x:a.x,y:this.boneY},id:"stub"},{a:{x:a.x,y:this.boneY},b:{x:b.x,y:this.boneY},id:"bone"},{a:{x:b.x,y:this.boneY},b:{x:b.x,y:this.stubTop},id:"stub"}]);},
   brokenFn(seg){if(!bus.broken||seg.id!=="bone")return null;return {x:seg.a.x,y:bus.boneY};},
-  toggleBreak(){this.broken=!this.broken;document.getElementById("busBreak").style.display=this.broken?"":"none";
-    document.getElementById("busBone").classList.toggle("dead",this.broken);document.getElementById("busBtn").classList.toggle("act",this.broken);
-    const b=document.getElementById("busBadge");b.textContent=this.broken?"Обрыв • вся сеть лежит":"Сеть работает";b.className="badge "+(this.broken?"bad":"ok");},
+  toggleBreak(){this.broken=!this.broken;document.getElementById("busBreak").style.display=this.broken?"":"none";document.getElementById("busBone").classList.toggle("dead",this.broken);document.getElementById("busBtn").classList.toggle("act",this.broken);const b=document.getElementById("busBadge");b.textContent=this.broken?"Обрыв • вся сеть лежит":"Сеть работает";b.className="badge "+(this.broken?"bad":"ok");},
   reset(){if(this.broken)this.toggleBreak();this.eng.packets=[];this.eng.fx=[];}};
-const star={spokeBroken:false,hubBroken:false,C:{x:280,y:180},
-  nodes:{top:{x:280,y:56},right:{x:472,y:180},bottom:{x:280,y:278},left:{x:88,y:180}},brokenSpoke:"left",
+const star={spokeBroken:false,hubBroken:false,C:{x:280,y:180},nodes:{top:{x:280,y:56},right:{x:472,y:180},bottom:{x:280,y:278},left:{x:88,y:180}},brokenSpoke:"left",
   eng:new Engine(document.getElementById("starPk"),document.getElementById("starFx")),
   init(){const sp=document.getElementById("starSpokes"),gn=document.getElementById("starNodes");this.lineEls={};
     for(const k in this.nodes){const nn=this.nodes[k];const ln=el("line",{class:"cable",x1:this.C.x,y1:this.C.y,x2:nn.x,y2:nn.y});sp.appendChild(ln);this.lineEls[k]=ln;}
-    for(const k in this.nodes){const nn=this.nodes[k];gn.appendChild(el("rect",{class:"node",x:nn.x-26,y:nn.y-19,width:52,height:38,rx:5,"data-k":k}));
-      const t=el("text",{class:"nodeT",x:nn.x,y:nn.y});t.textContent=k[0].toUpperCase();gn.appendChild(t);}
-    timers.push(setInterval(()=>{if(vis("starSvg"))this.send()},1600));},
+    for(const k in this.nodes){const nn=this.nodes[k];gn.appendChild(el("rect",{class:"node",x:nn.x-26,y:nn.y-19,width:52,height:38,rx:5,"data-k":k}));const t=el("text",{class:"nodeT",x:nn.x,y:nn.y});t.textContent=k[0].toUpperCase();gn.appendChild(t);}
+    setInterval(()=>{if(vis("starSvg"))this.send()},1600);},
   keys(){return Object.keys(this.nodes);},
-  send(){if(this.eng.packets.length>4)return;const ks=this.keys();let i=ks[Math.floor(Math.random()*ks.length)],j;do{j=ks[Math.floor(Math.random()*ks.length)]}while(j===i);
-    const a=this.nodes[i],b=this.nodes[j];this.eng.add([{a:{x:a.x,y:a.y},b:{x:this.C.x,y:this.C.y},id:"sp-"+i},{a:{x:this.C.x,y:this.C.y},b:{x:b.x,y:b.y},id:"sp-"+j}]);},
-  brokenFn(seg){if(!seg.id.startsWith("sp-"))return null;const k=seg.id.slice(3);
-    if(star.spokeBroken&&k===star.brokenSpoke)return lerp(seg.a,seg.b,0.5);
-    if(star.hubBroken)return {x:star.C.x,y:star.C.y};return null;},
+  send(){if(this.eng.packets.length>4)return;const ks=this.keys();let i=ks[Math.floor(Math.random()*ks.length)],j;do{j=ks[Math.floor(Math.random()*ks.length)]}while(j===i);const a=this.nodes[i],b=this.nodes[j];this.eng.add([{a:{x:a.x,y:a.y},b:{x:this.C.x,y:this.C.y},id:"sp-"+i},{a:{x:this.C.x,y:this.C.y},b:{x:b.x,y:b.y},id:"sp-"+j}]);},
+  brokenFn(seg){if(!seg.id.startsWith("sp-"))return null;const k=seg.id.slice(3);if(star.spokeBroken&&k===star.brokenSpoke)return lerp(seg.a,seg.b,0.5);if(star.hubBroken)return {x:star.C.x,y:star.C.y};return null;},
   refresh(){for(const k in this.lineEls)this.lineEls[k].classList.toggle("dead",this.spokeBroken&&k===this.brokenSpoke);
     document.querySelectorAll('#starNodes rect').forEach(r=>{r.classList.toggle("off",(this.spokeBroken&&r.dataset.k===this.brokenSpoke)||this.hubBroken);});
     document.getElementById("starHub").classList.toggle("off",this.hubBroken);document.getElementById("starHubX").style.display=this.hubBroken?"":"none";
     document.getElementById("spokeBtn").classList.toggle("act",this.spokeBroken);document.getElementById("hubBtn").classList.toggle("act",this.hubBroken);
-    const b=document.getElementById("starBadge");if(this.hubBroken){b.textContent="Центр упал • лежит всё";b.className="badge bad";}
-    else if(this.spokeBroken){b.textContent="Луч оборван • 1 узел отвалился";b.className="badge bad";}else{b.textContent="Сеть работает";b.className="badge ok";}},
+    const b=document.getElementById("starBadge");if(this.hubBroken){b.textContent="Центр упал • лежит всё";b.className="badge bad";}else if(this.spokeBroken){b.textContent="Луч оборван • 1 узел отвалился";b.className="badge bad";}else{b.textContent="Сеть работает";b.className="badge ok";}},
   toggleSpoke(){this.spokeBroken=!this.spokeBroken;this.refresh();},toggleHub(){this.hubBroken=!this.hubBroken;this.refresh();},
   reset(){this.spokeBroken=false;this.hubBroken=false;this.refresh();this.eng.packets=[];this.eng.fx=[];}};
 bus.init();star.init();window.bus=bus;window.star=star;
 let last=performance.now();
-function loop(now){const dt=Math.min(.05,(now-last)/1000);last=now;
-  bus.eng.step(dt,bus.brokenFn);bus.eng.draw();star.eng.step(dt,star.brokenFn);star.eng.draw();requestAnimationFrame(loop);}
+function loop(now){const dt=Math.min(.05,(now-last)/1000);last=now;bus.eng.step(dt,bus.brokenFn);bus.eng.draw();star.eng.step(dt,star.brokenFn);star.eng.draw();requestAnimationFrame(loop);}
 requestAnimationFrame(loop);
 })();
 </script>
