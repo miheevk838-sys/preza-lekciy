@@ -155,6 +155,50 @@ p+p{margin-top:16px}
 .bit.pulse{box-shadow:0 0 0 5px rgba(47,107,255,.35);animation:pul 1s infinite;border-color:var(--blue-500)!important;position:relative}
 .bit.pulse::after{content:"измени 0 → 1";position:absolute;top:-34px;left:50%;transform:translateX(-50%);white-space:nowrap;font-family:var(--fb);font-weight:700;font-size:15px;color:var(--blue-500)}
 @keyframes pul{0%{box-shadow:0 0 0 4px rgba(47,107,255,.4)}50%{box-shadow:0 0 0 9px rgba(47,107,255,.12)}100%{box-shadow:0 0 0 4px rgba(47,107,255,.4)}}
+/* ===== MAC / IP bit grid (group-MAC builder) ===== */
+.macgrid{display:grid;gap:12px}
+.macbyte{border:2px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+.macbyte .bh{background:var(--blue-900);color:#fff;font-family:var(--fd);font-weight:700;font-size:15px;text-align:center;padding:7px 4px;letter-spacing:.02em}
+.macbyte .bh b{color:#9fd0ff}
+.macbyte .brow{display:grid;grid-template-columns:repeat(8,1fr)}
+.macbyte .bc{border-left:1px solid var(--line);text-align:center;font-family:var(--fm);font-weight:700;font-size:26px;padding:6px 0 10px;color:var(--ink);line-height:1;transition:.15s}
+.macbyte .bc:first-child{border-left:0}
+.macbyte .bc .bn{font-family:var(--fb);font-weight:600;font-size:12px;color:#9aa8bf;margin-bottom:6px}
+.macbyte .bc.fix{background:var(--blue-500);color:#fff}.macbyte .bc.fix .bn{color:#cfe0ff}
+.macbyte .bc.bit25{background:var(--blue-900);color:#fff}.macbyte .bc.bit25 .bn{color:#9fd0ff}
+.macbyte .bc.ip{background:#F6A96B;color:#fff}.macbyte .bc.ip .bn{color:#fff}
+.macbyte .bc.drop{color:#c3cde0}.macbyte .bc.drop .bn{color:#d5dced}
+.macbyte .bc.empty{color:#c3cde0}
+.gm-btns{display:flex;gap:12px;margin-top:22px;align-items:center;flex-wrap:wrap}
+.gm-leg{display:inline-flex;align-items:center;gap:8px;font-family:var(--fb);font-size:18px;color:var(--slate)}
+.gm-leg i{width:20px;height:20px;border-radius:5px;display:inline-block}
+/* ===== Wireshark chrome ===== */
+.ws{border:1px solid #aab6ca;border-radius:8px;overflow:hidden;font-family:var(--fm);background:#fff;box-shadow:0 12px 34px rgba(15,42,102,.12)}
+.ws-list{width:100%;border-collapse:collapse;font-size:19px}
+.ws-list th{background:#e9edf3;color:#3a465c;font-family:var(--fb);font-weight:600;font-size:15px;text-align:left;padding:8px 12px;border-right:1px solid #cfd7e4;border-bottom:1px solid #b7c1d2}
+.ws-list td{padding:8px 12px;border-right:1px solid #eef1f5;color:#1f2733;white-space:nowrap}
+.ws-list tr.arp td{background:#f5e6ff}
+.ws-list tr.sel td{background:#2f6bff;color:#fff}
+.ws-list tr.sel td .wsnum{background:#fff;color:#2f6bff}
+.ws-tree{background:#fbfcfe;border-top:1px solid #b7c1d2;padding:12px 16px;font-size:18px;line-height:1.62;color:#1f2733}
+.ws-tree .r{white-space:nowrap}
+.ws-tree .tw{color:#6b7d99;font-family:var(--fb);display:inline-block;width:18px}
+.ws-tree .i1{padding-left:22px}.ws-tree .i2{padding-left:52px}
+.ws-tree .g{color:#6b7d99}
+.ws-tree .hl{background:#fff2a8;border-radius:4px;padding:0 5px}
+.wsnum{display:inline-flex;width:26px;height:26px;border-radius:50%;background:#E5484D;color:#fff;font-family:var(--fd);font-weight:800;font-size:15px;align-items:center;justify-content:center;margin-right:9px;vertical-align:middle;flex:none}
+/* ===== flow (encapsulation walkthrough) ===== */
+.hdrstack{display:inline-flex;align-items:stretch;border-radius:12px;overflow:hidden;box-shadow:0 10px 30px rgba(15,42,102,.18)}
+.hdrstack .hl-seg{display:flex;flex-direction:column;justify-content:center;padding:12px 16px;font-family:var(--fm);min-width:0}
+.hdrstack .hl-seg .t{font-family:var(--fd);font-weight:800;font-size:16px;letter-spacing:.02em}
+.hdrstack .hl-seg .d{font-size:15px;margin-top:3px;opacity:.92;white-space:nowrap}
+.seg-eth{background:#14357F;color:#fff}
+.seg-ip{background:#E5677A;color:#fff}
+.seg-tcp{background:#F4B26A;color:#3a2a10}
+.seg-arp{background:#7C5CFF;color:#fff}
+.seg-data{background:#E7EDF7;color:#14357F}
+.flow-cap{background:#fff;border:2px solid var(--line);border-radius:14px;padding:16px 20px;font-family:var(--fb);font-size:23px;color:var(--ink);min-height:3.4em;line-height:1.4}
+.flow-cap b{color:var(--blue-900)}
 </style>
 <section class="slide">
   <div class="wave"><svg viewBox="0 0 1000 1080" preserveAspectRatio="xMidYMid slice">
@@ -184,6 +228,9 @@ p+p{margin-top:16px}
     <div style="display:flex;gap:40px;align-items:center;margin-top:40px">
       <div class="mono" style="color:var(--slate);font-size:22px">Курс · Ананко · Качур</div></div>
     <div style="margin-top:34px"><span class="chip">START ▸</span></div>
+  </div>
+  <div style="position:absolute;right:104px;top:50%;transform:translateY(-50%);z-index:3;width:660px;height:660px;background:#fff;border-radius:34px;box-shadow:0 34px 90px rgba(15,42,102,.32);display:grid;place-items:center;padding:46px">
+    <img src="glava4-hero.svg" alt="Схема компьютерной сети" style="width:100%;height:100%;object-fit:contain">
   </div>
 </section>
 
@@ -504,26 +551,24 @@ p+p{margin-top:16px}
   <div class="pagefoot">2.2 · Групповой MAC</div>
 </section>
 
-<section class="slide">
-  <div class="tophint">2.2 · Групповой MAC</div>
+<section class="slide" data-init="gmip">
+  <div class="tophint">2.2 · Групповой MAC · <b>Сборка</b></div>
   <div class="pad">
-    <div class="title-row"><span class="diamond"></span><div class="h-d h3">СБОРКА · ЭТАП 1 · IP В <span class='hl'>ДВОИЧНОМ</span> ВИДЕ</div></div>
-    <div style="margin-top:26px"><p class="body sm">Источник вещает с IP <b>239.193.1.15</b>. В IP 32 бита, а нам нужны только младшие 23 — старшие 9 бит в дело не пойдут.</p></div>
-    <div style="margin-top:26px"><div class="octs" style="grid-template-columns:1fr auto 1fr auto 1fr auto 1fr"><div class="oct"><div class="b">11101111</div><div class="d">239</div></div><div class="oct sep" style="font-size:40px">·</div><div class="oct"><div class="b">11000001</div><div class="d">193</div></div><div class="oct sep" style="font-size:40px">·</div><div class="oct"><div class="b">00000001</div><div class="d">1</div></div><div class="oct sep" style="font-size:40px">·</div><div class="oct"><div class="b">00001111</div><div class="d">15</div></div></div><p class="body sm slate" style="text-align:center;margin-top:18px">старшие <b>9 бит</b> (серым) отбрасываются · берём младшие <b>23 бита</b></p></div>
+    <div class="title-row"><span class="diamond"></span><div class="h-d h3">ЭТАП 1 · IP → <span class='hl'>23 МЛАДШИХ БИТА</span></div></div>
+    <div style="margin-top:18px"><p class="body sm">Источник вещает с группового IP <b>239.193.1.15</b>. В IP 32 бита, но в MAC уместятся только <b>младшие 23</b> — старшие <b>9 бит</b> отбрасываются. Разложим IP по битам и нажмём кнопку: серые уходят, оранжевые остаются.</p></div>
+    <div data-gmip style="margin-top:24px"></div>
   </div>
-  <div class="pagefoot">2.2 · Групповой MAC</div>
+  <div class="pagefoot">2.2 · Групповой MAC · этап 1/3</div>
 </section>
 
-<section class="slide">
-  <div class="tophint">2.2 · Групповой MAC</div>
-  <div class="pad">
-    <div class="title-row"><span class="diamond"></span><div class="h-d h3">СБОРКА · ЭТАП 2–3 · <span class='hl'>СОВМЕЩАЕМ</span></div></div>
-    <div style="margin-top:26px"><p class="body sm">Фиксированная половина <b>01-00-5E</b> = 00000001·00000000·01011110, обязательный <b>25-й бит = 0</b>. Дописываем младшие 23 бита IP: старший бит второго октета (1) срезается, перед семью битами 1000001 встаёт фиксированный 0.</p></div>
-    <div class="grid" style="grid-template-columns:repeat(6,1fr);margin-top:24px;gap:14px"><div class="card line" style="text-align:center;padding:16px;"><div class="h-d" style="font-size:38px;color:var(--blue-500)">01</div></div><div class="card line" style="text-align:center;padding:16px;"><div class="h-d" style="font-size:38px;color:var(--blue-500)">00</div></div><div class="card line" style="text-align:center;padding:16px;"><div class="h-d" style="font-size:38px;color:var(--blue-500)">5E</div></div><div class="card " style="text-align:center;padding:16px;background:var(--blue-500)"><div class="h-d" style="font-size:38px;color:#fff">41</div></div><div class="card " style="text-align:center;padding:16px;background:var(--blue-500)"><div class="h-d" style="font-size:38px;color:#fff">01</div></div><div class="card " style="text-align:center;padding:16px;background:var(--blue-500)"><div class="h-d" style="font-size:38px;color:#fff">0F</div></div></div>
-  <div style="text-align:center;margin-top:26px"><span class="mbig">Итог: 01-00-5E-41-01-0F</span></div>
-  <p class="body sm slate" style="text-align:center;margin-top:12px">239.193.1.15 → 01-00-5E-41-01-0F · младшие 23 бита IP = 1000001 00000001 00001111</p>
+<section class="slide" data-init="gmb">
+  <div class="tophint">2.2 · Групповой MAC · <b>Сборка</b></div>
+  <div class="pad" style="padding:60px 90px">
+    <div class="title-row"><span class="diamond"></span><div class="h-d h3">ЭТАП 2–3 · СОБИРАЕМ <span class='hl'>48-БИТНЫЙ MAC</span></div></div>
+    <div style="margin-top:12px"><p class="body sm">Фиксированная половина <b>01-00-5E</b> занимает первые 24 бита, <b>25-й бит = 0</b> обязателен, а в оставшиеся <b>23 бита</b> ложатся младшие биты IP из этапа 1. Прокликай шаги — таблица заполняется по частям.</p></div>
+    <div data-gmb style="margin-top:20px"></div>
   </div>
-  <div class="pagefoot">2.2 · Групповой MAC</div>
+  <div class="pagefoot">2.2 · Групповой MAC · этап 2–3</div>
 </section>
 
 <section class="slide">
@@ -598,33 +643,60 @@ p+p{margin-top:16px}
   <div class="tophint">2.3 · Протокол ARP</div>
   <div class="pad">
     <div class="title-row"><span class="diamond"></span><div class="h-d h3">ARP-ЗАПРОС В <span class='hl'>WIRESHARK</span></div></div>
-    <div style="margin-top:26px"><p class="body sm">Ключевые поля перехваченного запроса закрепляют всё про адреса:</p></div>
-    <div class="card line" style="margin-top:22px"><div class="wsf">
-    <span class="k">Source</span><span class="v">MAC отправителя (первые 24 бита Wireshark заменяет именем вендора по OUI)</span>
-    <span class="k">Destination</span><span class="v">Broadcast — «спрашивает у всех»</span>
-    <span class="k">Protocol / Length</span><span class="v">ARP · 42 байта</span>
-    <span class="k">Info</span><span class="v">Who has 192.168.1.1? Tell 192.168.1.233</span>
-    <span class="k">Opcode</span><span class="v"><b>1</b> = запрос, 2 = ответ</span>
-    <span class="k">Target MAC</span><span class="v">00:00:00:00:00:00 — пустая ячейка, которую заполняем</span>
-  </div></div>
+    <div style="margin-top:14px"><p class="body sm">Так выглядит перехваченный запрос. Красные номера — те же поля, что мы разбирали: адреса, протокол, opcode и четыре ARP-поля.</p></div>
+    <div class="ws" style="margin-top:18px">
+      <table class="ws-list">
+        <tr><th>No.</th><th>Time</th><th>Source</th><th>Destination</th><th>Protocol</th><th>Length</th><th>Info</th></tr>
+        <tr class="sel"><td>2</td><td>0.057276</td><td><span class="wsnum">1</span>IntelCor_55:24:86</td><td><span class="wsnum">2</span>Broadcast</td><td><span class="wsnum">3</span>ARP</td><td><span class="wsnum">4</span>42</td><td><span class="wsnum">5</span>Who has 192.168.1.1? Tell 192.168.1.233</td></tr>
+        <tr><td>7</td><td>0.099701</td><td>ASUSTekC_30:e2:9c</td><td>IntelCor_55:24:86</td><td>ARP</td><td>42</td><td>192.168.1.1 is at ac:9e:17:30:e2:9c</td></tr>
+      </table>
+      <div class="ws-tree">
+        <div class="r"><span class="tw">▸</span>Frame 2: 42 bytes on wire (336 bits), 42 bytes captured</div>
+        <div class="r"><span class="tw">▾</span>Ethernet II, <span class="hl"><span class="wsnum">6</span>Src: IntelCor_55:24:86 (f4:46:37:55:24:86)</span>, <span class="hl"><span class="wsnum">7</span>Dst: Broadcast (ff:ff:ff:ff:ff:ff)</span></div>
+        <div class="r i1"><span class="g">Type: ARP (0x0806)</span></div>
+        <div class="r"><span class="tw">▾</span>Address Resolution Protocol (request)</div>
+        <div class="r i1">Hardware type: Ethernet (1)</div>
+        <div class="r i1"><span class="hl"><span class="wsnum">8</span>Protocol type: IPv4 (0x0800)</span></div>
+        <div class="r i1">Hardware size: 6 &nbsp; Protocol size: 4</div>
+        <div class="r i1"><span class="hl"><span class="wsnum">9</span>Opcode: request (1)</span></div>
+        <div class="r i1" style="margin-top:4px"><span class="wsnum">10</span><b>Sender MAC:</b> IntelCor_55:24:86 (f4:46:37:55:24:86)</div>
+        <div class="r i2"><b>Sender IP:</b> 192.168.1.233</div>
+        <div class="r i2"><b>Target MAC:</b> <span class="g">00:00:00:00:00:00</span> — пустая ячейка</div>
+        <div class="r i2"><b>Target IP:</b> 192.168.1.1</div>
+      </div>
+    </div>
   </div>
-  <div class="pagefoot">2.3 · Протокол ARP</div>
+  <div class="pagefoot">2.3 · Протокол ARP · Wireshark</div>
 </section>
 
 <section class="slide">
   <div class="tophint">2.3 · Протокол ARP</div>
   <div class="pad">
     <div class="title-row"><span class="diamond"></span><div class="h-d h3">ARP-ОТВЕТ · КАРТИНА <span class='hl'>ЗЕРКАЛЬНО</span> МЕНЯЕТСЯ</div></div>
-    <div style="margin-top:26px"><p class="body sm">Когда приходит ответ, поля переворачиваются:</p></div>
-    <div class="card line" style="margin-top:22px"><div class="wsf">
-    <span class="k">Source</span><span class="v">искомый MAC (ради него всё затевалось)</span>
-    <span class="k">Destination</span><span class="v">адрес источника — ответ лично ему, одноадресно</span>
-    <span class="k">Info</span><span class="v">192.168.1.1 is at ac:9e:17:30:e2:9c</span>
-    <span class="k">Opcode</span><span class="v"><b>2</b> — это ответ</span>
-    <span class="k">Служебные биты</span><span class="v">U/L = 0 (заводской), I/G = unicast — «кричать» больше незачем</span>
-  </div></div>
+    <div style="margin-top:14px"><p class="body sm">Пакет №7 — ответ. Source и Destination поменялись местами, Destination теперь <b>не</b> Broadcast, а конкретный MAC, а Opcode стал <b>reply (2)</b>.</p></div>
+    <div class="ws" style="margin-top:18px">
+      <table class="ws-list">
+        <tr><td>No.</td><td>Time</td><td>Source</td><td>Destination</td><td>Protocol</td><td>Length</td><td>Info</td></tr>
+        <tr><td>2</td><td>0.057276</td><td>IntelCor_55:24:86</td><td>Broadcast</td><td>ARP</td><td>42</td><td>Who has 192.168.1.1? Tell 192.168.1.233</td></tr>
+        <tr class="sel"><td>7</td><td>0.099701</td><td><span class="wsnum">1</span>ASUSTekC_30:e2:9c</td><td><span class="wsnum">2</span>IntelCor_55:24:86</td><td><span class="wsnum">3</span>ARP</td><td>42</td><td><span class="wsnum">5</span>192.168.1.1 is at ac:9e:17:30:e2:9c</td></tr>
+      </table>
+      <div class="ws-tree">
+        <div class="r"><span class="tw">▾</span>Ethernet II, <span class="hl"><span class="wsnum">6</span>Src: ASUSTekC_30:e2:9c (ac:9e:17:30:e2:9c)</span>, <span class="hl"><span class="wsnum">7</span>Dst: IntelCor_55:24:86 (f4:46:37:55:24:86)</span></div>
+        <div class="r i1"><span class="g">Type: ARP (0x0806)</span></div>
+        <div class="r"><span class="tw">▾</span>Address Resolution Protocol (reply)</div>
+        <div class="r i1">Hardware type: Ethernet (1)</div>
+        <div class="r i1"><span class="hl"><span class="wsnum">8</span>Protocol type: IPv4 (0x0800)</span></div>
+        <div class="r i1">Hardware size: 6 &nbsp; Protocol size: 4</div>
+        <div class="r i1"><span class="hl"><span class="wsnum">9</span>Opcode: reply (2)</span></div>
+        <div class="r i1" style="margin-top:4px"><span class="wsnum">10</span><b>Sender MAC:</b> ASUSTekC_30:e2:9c (ac:9e:17:30:e2:9c)</div>
+        <div class="r i2"><b>Sender IP:</b> 192.168.1.1</div>
+        <div class="r i2"><b>Target MAC:</b> IntelCor_55:24:86 (f4:46:37:55:24:86)</div>
+        <div class="r i2"><b>Target IP:</b> 192.168.1.233</div>
+      </div>
+    </div>
+    <p class="body sm slate" style="margin-top:12px">Служебные биты искомого MAC: <b>U/L = 0</b> (заводской), <b>I/G = 0</b> (unicast) — «кричать» больше незачем.</p>
   </div>
-  <div class="pagefoot">2.3 · Протокол ARP</div>
+  <div class="pagefoot">2.3 · Протокол ARP · Wireshark</div>
 </section>
 
 <section class="slide">
@@ -668,24 +740,29 @@ p+p{margin-top:16px}
       <div class="pagefoot">Глава 04 · Раздел 04</div>
     </section>
 
-<section class="slide">
-  <div class="tophint">2.4 · Сквозной пример</div>
-  <div class="pad">
+<section class="slide" data-init="flow">
+  <div class="tophint">2.4 · <b>Обмен данными внутри одной сети</b></div>
+  <div class="pad" style="padding:56px 80px">
     <div class="title-row"><span class="diamond"></span><div class="h-d h3">ОБМЕН ДАННЫМИ ВНУТРИ <span class='hl'>ОДНОЙ СЕТИ</span></div></div>
-    <div style="margin-top:26px"><p class="body sm">PC-A отправляет файл PC-B по FTP; узлы соединены коммутатором L2 SW, рядом непричастный PC-C. Упрощение: считаем, что файл целиком помещается в один сегмент. Пройдём путь, наблюдая <b>инкапсуляцию</b> (обрастание заголовками вниз) и <b>декапсуляцию</b> (снятие вверх).</p></div>
-    <div style="margin-top:16px"><svg viewBox="0 0 1100 340" style="width:100%;max-width:1100px">
-      <rect x="490" y="130" width="120" height="80" rx="12" fill="#14357F"/><text x="550" y="176" text-anchor="middle" fill="#fff" font-family="Montserrat" font-weight="700" font-size="22">SWITCH</text>
-      <g font-family="JetBrains Mono" font-size="18">
-      <rect x="60" y="120" width="180" height="100" rx="12" fill="#EEF3FF" stroke="#2F6BFF" stroke-width="2"/><text x="150" y="152" text-anchor="middle" fill="#14357F" font-weight="700">PC-A</text><text x="150" y="180" text-anchor="middle" fill="#5B6B82">.233</text><text x="150" y="204" text-anchor="middle" fill="#5B6B82">спрашивает</text>
-      <rect x="860" y="30" width="180" height="90" rx="12" fill="#EEF3FF" stroke="#16A34A" stroke-width="2"/><text x="950" y="62" text-anchor="middle" fill="#14357F" font-weight="700">PC-B .1</text><text x="950" y="92" text-anchor="middle" fill="#16A34A">✓ это я</text>
-      <rect x="860" y="220" width="180" height="90" rx="12" fill="#F4F6FB" stroke="#DCE5F7" stroke-width="2"/><text x="950" y="252" text-anchor="middle" fill="#5B6B82" font-weight="700">PC-C</text><text x="950" y="282" text-anchor="middle" fill="#E5484D">✗ не мне</text>
-      </g>
-      <g stroke="#2F6BFF" stroke-width="3" fill="none"><path d="M240 170 L490 170" marker-end="url(#ar)"/><path d="M610 155 L860 80" marker-end="url(#ar)"/><path d="M610 185 L860 260" marker-end="url(#ar)"/></g>
-      <path d="M860 90 Q700 130 610 150" stroke="#16A34A" stroke-width="3" fill="none" stroke-dasharray="7 6"/>
-      <defs><marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0 L8 3 L0 6" fill="#2F6BFF"/></marker></defs>
-    </svg></div>
+    <div class="grid" style="grid-template-columns:1.12fr 1fr;gap:40px;margin-top:12px;align-items:start">
+      <div>
+        <svg id="flowSvg" viewBox="0 0 900 470" style="width:100%;background:var(--blue-050);border-radius:18px"></svg>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;align-items:center">
+          <button class="a-btn pri" id="flowNext">Дальше ▸</button>
+          <button class="a-btn" id="flowAuto">Авто</button>
+          <button class="a-btn" id="flowReset">Сброс</button>
+          <span id="flowStepLbl" style="align-self:center;font-family:var(--fb);color:var(--slate);margin-left:6px"></span>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:var(--fd);font-weight:700;color:var(--slate);font-size:15px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px">Что «на проводе» сейчас · с заголовками</div>
+        <div id="flowStack" style="min-height:88px;display:flex;align-items:center;flex-wrap:wrap"></div>
+        <div id="flowCap" class="flow-cap" style="margin-top:14px"></div>
+        <div class="a-tbl-wrap" style="margin-top:14px"><div class="a-tbl-h">ARP-таблица PC-A · IP ↔ MAC</div><table class="a-tbl" id="flowArp"></table></div>
+      </div>
+    </div>
   </div>
-  <div class="pagefoot">2.4 · Сквозной пример</div>
+  <div class="pagefoot">2.4 · Обмен данными внутри одной сети</div>
 </section>
 
 <section class="slide">
@@ -985,6 +1062,101 @@ var WIRE={s:0,w:0,revealed:false,igChanged:false,enc:0,
 };
 inits.wire=function(){WIRE.s=0;WIRE.w=0;WIRE.revealed=false;WIRE.igChanged=false;WIRE.enc=0;WIRE.render();
  [].forEach.call(document.querySelectorAll('#wRail .w-st'),function(e){e.onclick=function(){WIRE.s=+e.dataset.s;WIRE.render();};});};
+
+/* ===== Group-MAC bit builder (slides «Сборка») ===== */
+function macByteBox(label,hex,cells){var h='<div class="macbyte"><div class="bh">'+label+(hex?' · <b>'+hex+'</b>':'')+'</div><div class="brow">';
+ for(var k=0;k<8;k++){var bn=7-k;var c=cells[k];h+='<div class="bc '+(c.c||'')+'"><div class="bn">'+bn+'</div>'+c.v+'</div>';}
+ return h+'</div></div>';}
+var GMIP={rev:false,ip:['11101111','11000001','00000001','00001111'],dec:['239','193','1','15'],
+ render:function(sl){var c=sl.querySelector('[data-gmip]');if(!c)return;var self=this;var boxes='';
+   for(var b=0;b<4;b++){var cells=[];for(var k=0;k<8;k++){var gi=b*8+k;var cl='';if(self.rev)cl=gi<9?'drop':'ip';cells.push({v:self.ip[b][k],c:cl});}
+     boxes+=macByteBox((b+1)+' байт · '+self.dec[b],'',cells);}
+   var res=self.rev?'<div class="mbig" style="margin-top:20px;font-size:30px;text-align:center">Младшие 23 бита → <span style="color:#F6A96B">1000001&nbsp;00000001&nbsp;00001111</span></div>':'';
+   c.innerHTML='<div class="macgrid" style="grid-template-columns:repeat(4,1fr)">'+boxes+'</div>'+res
+     +'<div class="gm-btns"><button class="a-btn pri" id="gmipBtn">'+(self.rev?'↻ Показать снова':'Отбросить старшие 9 бит ▸')+'</button>'
+     +'<span class="gm-leg"><i style="background:#c3cde0"></i>отброшено · 9 бит</span><span class="gm-leg"><i style="background:#F6A96B"></i>уходит в MAC · 23 бита</span></div>';
+   var btn=document.getElementById('gmipBtn');if(btn)btn.onclick=function(){self.rev=!self.rev;self.render(sl);};}};
+inits.gmip=function(sl){GMIP.rev=false;GMIP.render(sl);};
+var GMB={step:0,mac:['00000001','00000000','01011110','01000001','00000001','00001111'],hex:['01','00','5E','41','01','0F'],
+ render:function(sl){var c=sl.querySelector('[data-gmb]');if(!c)return;var self=this;var st=this.step;var boxes='';
+   for(var b=0;b<6;b++){var cells=[];var showHex=(b<3&&st>=1)||(b>=3&&st>=3);
+     for(var k=0;k<8;k++){var gi=b*8+k;var vis=false,cl='empty';
+       if(gi<24){if(st>=1){vis=true;cl='fix';}}else if(gi===24){if(st>=2){vis=true;cl='bit25';}}else{if(st>=3){vis=true;cl='ip';}}
+       cells.push({v:vis?self.mac[b][k]:'·',c:cl});}
+     boxes+=macByteBox((b+1)+' байт',showHex?self.hex[b]:'',cells);}
+   var caps=['Пусто. Нажми «Дальше» — впишем фиксированную половину.',
+     '<b>Шаг 2а.</b> Первые 24 бита — фиксированный префикс <b>01-00-5E</b> = 00000001·00000000·01011110.',
+     '<b>Шаг 2б.</b> 25-й бит (первый бит 4-го байта) обязателен и равен <b>0</b>.',
+     '<b>Шаг 3.</b> В оставшиеся 23 бита легли младшие биты IP (оранжевые) из этапа 1. Готово!'];
+   var res=st>=3?'<div class="mbig" style="margin-top:16px;font-size:42px;text-align:center">01-00-5E-41-01-0F</div>':'';
+   c.innerHTML='<div class="macgrid" style="grid-template-columns:repeat(6,1fr)">'+boxes+'</div>'
+     +'<div class="flow-cap" style="margin-top:16px;min-height:2.4em">'+caps[st]+'</div>'+res
+     +'<div class="gm-btns"><button class="a-btn" id="gmbBack">‹ Назад</button><button class="a-btn pri" id="gmbNext">'+(st>=3?'↻ Сначала':'Дальше ▸')+'</button>'
+     +'<span class="gm-leg"><i style="background:#2F6BFF"></i>01-00-5E</span><span class="gm-leg"><i style="background:#14357F"></i>25-й бит = 0</span><span class="gm-leg"><i style="background:#F6A96B"></i>23 бита IP</span></div>';
+   var nb=document.getElementById('gmbNext'),bb=document.getElementById('gmbBack');
+   if(nb)nb.onclick=function(){self.step=st>=3?0:st+1;self.render(sl);};
+   if(bb)bb.onclick=function(){self.step=Math.max(0,st-1);self.render(sl);};}};
+inits.gmb=function(sl){GMB.step=0;GMB.render(sl);};
+
+/* ===== FLOW · обмен данными внутри одной сети ===== */
+var FLOW={built:false,step:0,auto:null,packets:[],
+ N:{A:{x:120,y:360},C:{x:450,y:96},B:{x:780,y:360}},SW:{x:450,y:288},
+ caps:['<b>PC-A</b> отправляет файл <b>PC-B</b> по FTP. Он знает свой IP/MAC и IP получателя, но <b>MAC PC-B неизвестен</b>. Жми «Дальше».',
+   '<b>Уровень приложений (FTP).</b> Файл форматируется и передаётся вниз — транспортному уровню.',
+   '<b>Транспортный (TCP).</b> Файл делится на сегменты, ставятся порты: источник <b>54236</b>, назначение <b>21</b> (FTP). Это <b>сегмент</b>.',
+   '<b>Сетевой (IP).</b> Добавлены <b>SrcIP 192.168.1.1</b> и <b>DstIP 192.168.1.2</b> — оба известны. Сегмент стал <b>пакетом</b>.',
+   '<b>Канальный: нет MAC получателя.</b> Пакет ждёт в памяти. PC-A шлёт <b>ARP-запрос</b> широковещательно (Dst = FF-FF-FF-FF-FF-FF): «У кого 192.168.1.2?»',
+   '<b>Фильтрация.</b> Свитч разослал всем. PC-C: Target IP не мой → <b>отбросил</b>. PC-B: <b>это я</b> → готовит ответ.',
+   '<b>ARP-ответ (unicast).</b> PC-B отвечает лично PC-A, вложив свой MAC <b>AA-BB-CC-22-33-44</b>. PC-A пишет пару IP↔MAC в ARP-таблицу.',
+   '<b>Достройка кадра.</b> MAC известен. Ethernet-заголовок: Src <b>AA-BB-CC-11-22-33</b>, Dst <b>AA-BB-CC-22-33-44</b>. Пакет стал <b>кадром</b>.',
+   '<b>Отправка (unicast).</b> Свитч по своей таблице шлёт кадр только в порт PC-B — остальные узлы его не видят.',
+   '<b>Декапсуляция вверх.</b> PC-B снимает Ethernet → IP → TCP. По <b>DPrt 21</b> данные уходят FTP, тот пишет <b>файл на диск</b>. Готово ✓'],
+ build:function(){var svg=document.getElementById('flowSvg');if(!svg)return;var self=this;var s='';
+   ['A','C','B'].forEach(function(k){var n=self.N[k];s+='<line x1="'+n.x+'" y1="'+n.y+'" x2="'+self.SW.x+'" y2="'+self.SW.y+'" stroke="#7FA6FF" stroke-width="3"/>';});
+   s+='<rect x="'+(this.SW.x-60)+'" y="'+(this.SW.y-30)+'" width="120" height="60" rx="12" fill="#14357F"/><text x="'+this.SW.x+'" y="'+(this.SW.y+6)+'" text-anchor="middle" fill="#fff" font-family="Montserrat" font-weight="700" font-size="20">L2 SW</text>';
+   var meta={A:{t:'PC-A',ip:'192.168.1.1',mac:'AA-BB-CC-11-22-33',col:'#2F6BFF'},C:{t:'PC-C',ip:'192.168.1.9',mac:'не участвует',col:'#7FA6FF'},B:{t:'PC-B',ip:'192.168.1.2',mac:'MAC ?',col:'#16A34A'}};
+   ['A','C','B'].forEach(function(k){var n=self.N[k],m=meta[k];
+     s+='<g><rect x="'+(n.x-98)+'" y="'+(n.y-46)+'" width="196" height="92" rx="12" fill="#fff" stroke="'+m.col+'" stroke-width="2.5"/>'
+      +'<text x="'+n.x+'" y="'+(n.y-20)+'" text-anchor="middle" font-family="Montserrat" font-weight="700" font-size="20" fill="#14357F">'+m.t+'</text>'
+      +'<text x="'+n.x+'" y="'+(n.y+3)+'" text-anchor="middle" font-family="JetBrains Mono" font-size="15" fill="#5B6B82">'+m.ip+'</text>'
+      +'<text id="fmac'+k+'" x="'+n.x+'" y="'+(n.y+26)+'" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#8aa0c8">'+m.mac+'</text>'
+      +'<text id="fmk'+k+'" x="'+n.x+'" y="'+(n.y-56)+'" text-anchor="middle" font-size="28"></text></g>';});
+   s+='<g id="flowPk"></g>';svg.innerHTML=s;this.built=true;},
+ seg:function(cls,t,d){return '<div class="hl-seg '+cls+'"><div class="t">'+t+'</div><div class="d">'+d+'</div></div>';},
+ stackHtml:function(st){var S=this.seg;
+   var data=['seg-data','Данные','файл · FTP'],tcp=['seg-tcp','TCP','SPrt 54236 · DPrt 21'],ip=['seg-ip','IP','Src .1 · Dst .2'],
+     eth=['seg-eth','Ethernet','Src AA-BB-CC-11-22-33 · Dst ..22-33-44'],
+     ethB=['seg-eth','Ethernet','Dst FF-FF-FF-FF-FF-FF · broadcast'],
+     ethR=['seg-eth','Ethernet','Src ..22-33-44 · Dst ..11-22-33'],
+     arp=['seg-arp','ARP','Who has 192.168.1.2? Tell 192.168.1.1'],
+     arpR=['seg-arp','ARP','192.168.1.2 is at AA-BB-CC-22-33-44'];
+   var arr;
+   if(st<=0)return '<span style="font-family:var(--fm);color:#8aa0c8;font-size:20px">— ещё ничего не отправлено —</span>';
+   if(st===1)arr=[data];else if(st===2)arr=[tcp,data];else if(st===3)arr=[ip,tcp,data];
+   else if(st===4||st===5)arr=[ethB,arp];else if(st===6)arr=[ethR,arpR];
+   else if(st===7||st===8)arr=[eth,ip,tcp,data];else arr=[data];
+   return '<div class="hdrstack">'+arr.map(function(a){return S(a[0],a[1],a[2]);}).join('')+'</div>';},
+ render:function(){var st=this.step;var macKnown=st>=6;
+   var e=document.getElementById('flowStack');if(e)e.innerHTML=this.stackHtml(st);
+   var cp=document.getElementById('flowCap');if(cp)cp.innerHTML=this.caps[st];
+   var lb=document.getElementById('flowStepLbl');if(lb)lb.textContent='шаг '+st+' / 9';
+   var at=document.getElementById('flowArp');if(at)at.innerHTML='<tr><th>IP</th><th>MAC</th></tr>'+(macKnown?'<tr class="new"><td>192.168.1.2</td><td>AA-BB-CC-22-33-44</td></tr>':'<tr><td colspan=2 style="color:#8aa0c8">пусто — нужен ARP</td></tr>');
+   var bm=document.getElementById('fmacB');if(bm){bm.textContent=macKnown?'AA-BB-CC-22-33-44':'MAC ?';bm.setAttribute('fill',macKnown?'#16A34A':'#8aa0c8');}
+   ['A','B','C'].forEach(function(k){var m=document.getElementById('fmk'+k);if(m)m.textContent='';});
+   if(st===5){var mb=document.getElementById('fmkB');if(mb)mb.textContent='✅';var mc=document.getElementById('fmkC');if(mc)mc.textContent='❌';}
+   if(st>=9){var mb2=document.getElementById('fmkB');if(mb2)mb2.textContent='📄';}},
+ pkt:function(from,to,color,cb){var A=from==='SW'?this.SW:this.N[from];var B=to==='SW'?this.SW:this.N[to];this.packets.push({x:A.x,y:A.y,tx:B.x,ty:B.y,t:0,color:color,cb:cb});},
+ animateFor:function(st){var self=this;
+   if(st===4){this.pkt('A','SW','#7C5CFF',function(){self.pkt('SW','B','#7C5CFF');self.pkt('SW','C','#7C5CFF');});}
+   else if(st===6){this.pkt('B','SW','#7C5CFF',function(){self.pkt('SW','A','#7C5CFF');});}
+   else if(st===8){this.pkt('A','SW','#14357F',function(){self.pkt('SW','B','#14357F');});}},
+ anim:function(){var g=document.getElementById('flowPk');if(!g)return;var s='';for(var i=this.packets.length-1;i>=0;i--){var p=this.packets[i];p.t+=0.028;var x=p.x+(p.tx-p.x)*Math.min(1,p.t),y=p.y+(p.ty-p.y)*Math.min(1,p.t);s+='<circle cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="10" fill="'+p.color+'"/>';if(p.t>=1){if(p.cb)p.cb();this.packets.splice(i,1);}}g.innerHTML=s;raf=requestAnimationFrame(FLOW.anim.bind(FLOW));},
+ reset:function(){this.step=0;this.packets=[];if(this.built){var g=document.getElementById('flowPk');if(g)g.innerHTML='';}this.render();}};
+inits.flow=function(){if(!FLOW.built)FLOW.build();FLOW.reset();
+ document.getElementById('flowNext').onclick=function(){if(FLOW.step<9){FLOW.step++;FLOW.render();FLOW.animateFor(FLOW.step);}};
+ document.getElementById('flowReset').onclick=function(){if(FLOW.auto){clearInterval(FLOW.auto);FLOW.auto=null;}FLOW.reset();};
+ document.getElementById('flowAuto').onclick=function(){if(FLOW.auto){clearInterval(FLOW.auto);FLOW.auto=null;return;}FLOW.reset();FLOW.auto=setInterval(function(){if(FLOW.step>=9){clearInterval(FLOW.auto);FLOW.auto=null;return;}FLOW.step++;FLOW.render();FLOW.animateFor(FLOW.step);},2000);};
+ stopAnim();raf=requestAnimationFrame(FLOW.anim.bind(FLOW));};
 
 fit();show(0);
 })();
