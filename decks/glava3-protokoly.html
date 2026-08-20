@@ -8,24 +8,41 @@
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Caveat:wght@500;600;700&family=Nunito+Sans:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
 <style>
 :root{
-  --blue:#2A45E0; --blue-d:#2036B8; --yellow:#FFE94A; --white:#FFFFFF;
-  --ink:#1D2A78; --paper:#FBFBFF;
+  /* Ghibli-скрапбук · тёплая палитра (имена токенов сохранены — низкий риск) */
+  --blue:#D2632B; --blue-d:#B24E1E; --yellow:#F5B63C; --white:#FDF8EE;
+  --ink:#3E2D21; --paper:#F7EFDE;
+  --sage:#6E7355; --sage-d:#565B41;
+  --peach:#F5D9B4; --blush:#ECBAC2; --sky:#B9C4DE; --kraft:#DCC9A4;
+  --card:#FFFDF7;
   --fd:"Fredoka",sans-serif; --fs:"Caveat",cursive; --fb:"Nunito Sans",sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{height:100%;background:#11184a;overflow:hidden;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;background:#3f4335;overflow:hidden;-webkit-tap-highlight-color:transparent}
 #stage{position:fixed;inset:0;display:grid;place-items:center;overflow:hidden}
 .deck{width:1920px;height:1080px;position:relative;transform-origin:center;flex:none}
 .slide{position:absolute;inset:0;display:none;overflow:hidden}
 .slide.on{display:block}
-.slide.bg-blue{background:var(--blue)}
+.slide.bg-blue{background:var(--sage)}
 .slide.bg-white{background:var(--paper)}
+/* бумага-в-клетку на светлых слайдах */
+.slide.bg-white::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(62,45,33,.055) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(62,45,33,.055) 1px,transparent 1px);
+  background-size:48px 48px}
+/* крафт-зерно на всех слайдах */
+.slide::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.5;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23g)' opacity='0.32'/></svg>")}
+.slide.bg-blue::after{opacity:.35}
 .pad{position:absolute;inset:0;padding:96px 120px;z-index:2}
 
 /* типографика */
 .kick{font-family:var(--fs);font-weight:600;font-size:42px;line-height:1;letter-spacing:.01em}
 .h-d{font-family:var(--fd);font-weight:700;text-transform:uppercase;line-height:.95;letter-spacing:-.01em}
 .h-xl{font-size:150px}.h-lg{font-size:104px}.h-md{font-size:76px}.h-sm{font-size:54px}
+.cover-title{color:var(--blue);-webkit-text-stroke:7px var(--white);paint-order:stroke fill;
+  text-shadow:6px 7px 0 rgba(62,45,33,.22)}
+.cover-title .yl{color:var(--yellow);-webkit-text-stroke:7px var(--ink)}
 .body{font-family:var(--fb);font-weight:400;line-height:1.4}
 .b-xl{font-size:40px}.b-lg{font-size:34px}.b-md{font-size:29px}.b-sm{font-size:24px}
 .on-blue{color:var(--white)} .on-blue .yl{color:var(--yellow)}
@@ -50,16 +67,21 @@ b,strong{font-weight:900}
 .on-white .steps li::before{background:var(--blue);color:#fff}
 .on-blue .steps li::before{background:var(--yellow);color:var(--ink)}
 
-/* карточка-аналогия */
-.card{background:var(--white);border:5px solid var(--blue);border-radius:34px;padding:44px 48px;
-  font-family:var(--fb);color:var(--ink);position:relative}
+/* карточка-аналогия — бумажная вырезка со скотчем */
+.card{background:var(--card);border:5px solid var(--blue);border-radius:34px;padding:44px 48px;
+  font-family:var(--fb);color:var(--ink);position:relative;
+  box-shadow:7px 9px 0 rgba(62,45,33,.13);transform:rotate(-.7deg)}
 .card .tag{font-family:var(--fs);font-weight:700;font-size:40px;color:var(--blue);display:block;margin-bottom:10px}
-.card.analogy{background:var(--yellow);border-color:var(--ink)}
+.card.analogy{background:var(--yellow);border-color:var(--ink);transform:rotate(.8deg)}
 .card.analogy .tag{color:var(--ink)}
+/* washi-скотч в углу карточки */
+.card::after{content:"";position:absolute;top:-15px;left:44px;width:118px;height:34px;
+  background:rgba(245,182,60,.6);transform:rotate(-5deg);box-shadow:0 2px 7px rgba(62,45,33,.14)}
+.card.analogy::after{background:rgba(236,186,194,.72)}
 
 /* определение (callout) */
-.callout{background:var(--white);border-radius:28px;padding:40px 48px 40px 60px;position:relative;overflow:hidden;
-  font-family:var(--fb);color:var(--ink);box-shadow:0 0 0 4px var(--blue) inset}
+.callout{background:var(--card);border-radius:28px;padding:40px 48px 40px 60px;position:relative;overflow:hidden;
+  font-family:var(--fb);color:var(--ink);box-shadow:0 0 0 4px var(--blue) inset,6px 8px 0 rgba(62,45,33,.12)}
 .callout::before{content:"";position:absolute;left:0;top:0;bottom:0;width:22px;background:var(--yellow)}
 .callout .term{font-family:var(--fd);font-weight:700;text-transform:uppercase;color:var(--blue);font-size:46px;margin-bottom:12px;line-height:1}
 .callout .def{font-size:32px;line-height:1.36}
@@ -77,7 +99,8 @@ b,strong{font-weight:900}
 .slide.bg-blue .tophint{color:var(--yellow)} .slide.bg-white .tophint{color:var(--blue)}
 
 /* таблица «маркерная» */
-.mtable{border-collapse:separate;border-spacing:0;width:100%;font-family:var(--fb)}
+.mtable{border-collapse:separate;border-spacing:0;width:100%;font-family:var(--fb);
+  border-radius:20px;overflow:hidden;box-shadow:6px 8px 0 rgba(62,45,33,.13);background:var(--card)}
 .mtable th,.mtable td{text-align:left;padding:22px 28px;font-size:28px;border-bottom:4px solid var(--blue)}
 .mtable th{font-family:var(--fd);font-weight:600;text-transform:uppercase;font-size:26px;color:var(--white);background:var(--blue)}
 .mtable td{color:var(--ink)}
@@ -95,7 +118,7 @@ svg .rough{filter:url(#rough)}
 .doodle{position:absolute;z-index:1;pointer-events:none}
 
 /* навигация подсказка */
-.hintnav{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:20;color:#8a93c8;
+.hintnav{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:20;color:#b0a892;
   font-family:var(--fb);font-size:15px;letter-spacing:.12em;text-transform:uppercase;opacity:.6}
 
 @media print{
@@ -118,10 +141,10 @@ svg .rough{filter:url(#rough)}
 .minibtn:hover{background:var(--yellow);border-color:var(--ink);color:var(--ink)}
 .modctrl{display:flex;align-items:center;gap:26px;flex-wrap:wrap;margin-bottom:12px}
 .knob{display:flex;align-items:center;gap:14px;font-family:var(--fb);font-weight:700;font-size:24px;color:var(--blue);text-transform:lowercase}
-.knob input[type=range]{-webkit-appearance:none;appearance:none;width:240px;height:8px;border-radius:6px;background:#d7dcff;outline:none}
+.knob input[type=range]{-webkit-appearance:none;appearance:none;width:240px;height:8px;border-radius:6px;background:#e8dcc2;outline:none}
 .knob input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:30px;height:30px;border-radius:50%;background:var(--yellow);border:4px solid var(--blue);cursor:pointer}
 .knob input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;background:var(--yellow);border:4px solid var(--blue);cursor:pointer}
-.modsvg,.cmp-am,.cmp-fm,.cmp-pm{background:#fff;border:4px solid #e3e7ff;border-radius:20px}
+.modsvg,.cmp-am,.cmp-fm,.cmp-pm{background:var(--card);border:4px solid #e6d9bf;border-radius:20px}
 .cmprow{display:flex;align-items:center;gap:18px;margin-top:6px}
 .cmplab{font-family:var(--fd);font-weight:700;font-size:32px;color:var(--blue);width:64px;flex:none}
 .hintlive{font-family:var(--fs);font-weight:600;font-size:30px;color:var(--blue)}
@@ -154,7 +177,7 @@ svg .rough{filter:url(#rough)}
   <svg class="doodle" style="right:360px;bottom:150px;width:90px;transform:rotate(18deg)" viewBox="0 0 100 100"><use href="#spark" fill="var(--yellow)"/></svg>
   <div class="pad" style="display:flex;flex-direction:column;justify-content:center">
     <div class="kick yellowt" style="margin-bottom:26px">учебная лекция · компьютерные сети</div>
-    <h1 class="h-d h-xl">ПРОТО<br>КОЛЫ <span class="yl">И</span><br>МОДЕЛИ</h1>
+    <h1 class="h-d h-xl cover-title">ПРОТО<br>КОЛЫ <span class="yl">И</span><br>МОДЕЛИ</h1>
     <div class="body b-lg" style="margin-top:40px;opacity:.9">Глава 3 · как устройства договариваются, чтобы понять друг друга</div>
     <div class="kick" style="margin-top:64px;color:var(--white)">Ананко · Качур &nbsp;—&nbsp; VK · TG</div>
   </div>
@@ -228,13 +251,13 @@ svg .rough{filter:url(#rough)}
       <text x="855" y="245" text-anchor="middle" class="lab">Вендор B</text>
       <text x="520" y="243" text-anchor="middle" class="lab-s">стандартный протокол</text>
       <text x="520" y="120" text-anchor="middle" class="lab" fill="var(--blue)">СВЯЗЬ УСТАНОВЛЕНА</text>
-      <g class="rough" fill="none" stroke="#9aa0c8" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
+      <g class="rough" fill="none" stroke="#a89a86" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
         <rect x="1120" y="150" width="200" height="150" rx="24"/><rect x="1470" y="150" width="200" height="150" rx="24"/>
-        <path d="M1330 300 L1460 175" stroke="#d24" stroke-width="8"/><path d="M1460 300 L1330 175" stroke="#d24" stroke-width="8"/>
+        <path d="M1330 300 L1460 175" stroke="#B24747" stroke-width="8"/><path d="M1460 300 L1330 175" stroke="#B24747" stroke-width="8"/>
       </g>
-      <text x="1220" y="240" text-anchor="middle" class="lab-s" fill="#6b6f97">свой язык</text>
-      <text x="1570" y="240" text-anchor="middle" class="lab-s" fill="#6b6f97">свой язык</text>
-      <text x="1395" y="120" text-anchor="middle" class="lab" fill="#c0392b">СВЯЗИ НЕТ</text>
+      <text x="1220" y="240" text-anchor="middle" class="lab-s" fill="#a89a86">свой язык</text>
+      <text x="1570" y="240" text-anchor="middle" class="lab-s" fill="#a89a86">свой язык</text>
+      <text x="1395" y="120" text-anchor="middle" class="lab" fill="#B24747">СВЯЗИ НЕТ</text>
     </svg>
   </div>
 </section>
@@ -532,7 +555,7 @@ svg .rough{filter:url(#rough)}
       <div class="card analogy b-md"><span class="tag">Аналогия</span>Как личное письмо с точным адресом на конверте — доходит именно тому, кому написано.</div>
       
     </div>
-    <svg class="castsvg" data-kind="uni" viewBox="0 0 860 500" style="width:100%;height:520px"><g class="rough"><path d="M190 250 L724 250" stroke="var(--blue)" stroke-width="8" fill="none"/><circle cx="760" cy="110" r="34" fill="#c3c7e0" stroke="#c3c7e0" stroke-width="7"/><circle cx="760" cy="250" r="34" fill="var(--blue)" stroke="var(--blue)" stroke-width="7"/><circle cx="760" cy="390" r="34" fill="#c3c7e0" stroke="#c3c7e0" stroke-width="7"/><circle cx="150" cy="250" r="34" fill="var(--yellow)" stroke="var(--ink)" stroke-width="7"/></g><text x="150" y="314" text-anchor="middle" class="lab-s" fill="var(--ink)">192.168.1.10</text><text x="150" y="204" text-anchor="middle" class="lab-s" fill="var(--blue)">отправитель</text><text x="760" y="172" text-anchor="middle" class="lab-s" fill="#8a90b5">192.168.1.20</text><text x="760" y="312" text-anchor="middle" class="lab-s" fill="var(--blue)">192.168.1.21</text><text x="760" y="452" text-anchor="middle" class="lab-s" fill="#8a90b5">192.168.1.22</text><circle class="pkt" r="14" fill="var(--yellow)" stroke="var(--ink)" stroke-width="4" cx="150" cy="250"/></svg>
+    <svg class="castsvg" data-kind="uni" viewBox="0 0 860 500" style="width:100%;height:520px"><g class="rough"><path d="M190 250 L724 250" stroke="var(--blue)" stroke-width="8" fill="none"/><circle cx="760" cy="110" r="34" fill="#cabfa9" stroke="#cabfa9" stroke-width="7"/><circle cx="760" cy="250" r="34" fill="var(--blue)" stroke="var(--blue)" stroke-width="7"/><circle cx="760" cy="390" r="34" fill="#cabfa9" stroke="#cabfa9" stroke-width="7"/><circle cx="150" cy="250" r="34" fill="var(--yellow)" stroke="var(--ink)" stroke-width="7"/></g><text x="150" y="314" text-anchor="middle" class="lab-s" fill="var(--ink)">192.168.1.10</text><text x="150" y="204" text-anchor="middle" class="lab-s" fill="var(--blue)">отправитель</text><text x="760" y="172" text-anchor="middle" class="lab-s" fill="#a89a86">192.168.1.20</text><text x="760" y="312" text-anchor="middle" class="lab-s" fill="var(--blue)">192.168.1.21</text><text x="760" y="452" text-anchor="middle" class="lab-s" fill="#a89a86">192.168.1.22</text><circle class="pkt" r="14" fill="var(--yellow)" stroke="var(--ink)" stroke-width="4" cx="150" cy="250"/></svg>
   </div>
 </section>
 
@@ -545,7 +568,7 @@ svg .rough{filter:url(#rough)}
       <div class="card analogy b-md"><span class="tag">Аналогия</span>Как объявление в чате: его видят участники канала, но не весь мир.</div>
       
     </div>
-    <svg class="castsvg" data-kind="multi" viewBox="0 0 860 500" style="width:100%;height:520px"><g class="rough"><path d="M190 250 L426 250" stroke="var(--blue)" stroke-width="8" fill="none"/><path d="M514 250 L722 116" stroke="var(--blue)" stroke-width="8" fill="none"/><path d="M514 250 L722 384" stroke="var(--blue)" stroke-width="8" fill="none"/><rect x="430" y="210" width="80" height="80" rx="16" fill="var(--yellow)" stroke="var(--ink)" stroke-width="6"/><circle cx="760" cy="110" r="34" fill="var(--blue)" stroke="var(--blue)" stroke-width="7"/><circle cx="760" cy="250" r="34" fill="#c3c7e0" stroke="#c3c7e0" stroke-width="7"/><circle cx="760" cy="390" r="34" fill="var(--blue)" stroke="var(--blue)" stroke-width="7"/><circle cx="150" cy="250" r="34" fill="var(--yellow)" stroke="var(--ink)" stroke-width="7"/></g><text x="150" y="314" text-anchor="middle" class="lab-s" fill="var(--ink)">192.168.1.10</text><text x="150" y="204" text-anchor="middle" class="lab-s" fill="var(--blue)">отправитель</text><text x="760" y="172" text-anchor="middle" class="lab-s" fill="var(--blue)">192.168.1.20</text><text x="760" y="312" text-anchor="middle" class="lab-s" fill="#8a90b5">192.168.1.21</text><text x="760" y="452" text-anchor="middle" class="lab-s" fill="var(--blue)">192.168.1.22</text><text x="470" y="326" text-anchor="middle" class="lab-s" fill="var(--ink)">группа 224.0.0.5</text><circle class="pkt" r="14" fill="var(--yellow)" stroke="var(--ink)" stroke-width="4" cx="150" cy="250"/><circle class="pkt" r="14" fill="var(--yellow)" stroke="var(--ink)" stroke-width="4" cx="150" cy="250"/></svg>
+    <svg class="castsvg" data-kind="multi" viewBox="0 0 860 500" style="width:100%;height:520px"><g class="rough"><path d="M190 250 L426 250" stroke="var(--blue)" stroke-width="8" fill="none"/><path d="M514 250 L722 116" stroke="var(--blue)" stroke-width="8" fill="none"/><path d="M514 250 L722 384" stroke="var(--blue)" stroke-width="8" fill="none"/><rect x="430" y="210" width="80" height="80" rx="16" fill="var(--yellow)" stroke="var(--ink)" stroke-width="6"/><circle cx="760" cy="110" r="34" fill="var(--blue)" stroke="var(--blue)" stroke-width="7"/><circle cx="760" cy="250" r="34" fill="#cabfa9" stroke="#cabfa9" stroke-width="7"/><circle cx="760" cy="390" r="34" fill="var(--blue)" stroke="var(--blue)" stroke-width="7"/><circle cx="150" cy="250" r="34" fill="var(--yellow)" stroke="var(--ink)" stroke-width="7"/></g><text x="150" y="314" text-anchor="middle" class="lab-s" fill="var(--ink)">192.168.1.10</text><text x="150" y="204" text-anchor="middle" class="lab-s" fill="var(--blue)">отправитель</text><text x="760" y="172" text-anchor="middle" class="lab-s" fill="var(--blue)">192.168.1.20</text><text x="760" y="312" text-anchor="middle" class="lab-s" fill="#a89a86">192.168.1.21</text><text x="760" y="452" text-anchor="middle" class="lab-s" fill="var(--blue)">192.168.1.22</text><text x="470" y="326" text-anchor="middle" class="lab-s" fill="var(--ink)">группа 224.0.0.5</text><circle class="pkt" r="14" fill="var(--yellow)" stroke="var(--ink)" stroke-width="4" cx="150" cy="250"/><circle class="pkt" r="14" fill="var(--yellow)" stroke="var(--ink)" stroke-width="4" cx="150" cy="250"/></svg>
   </div>
 </section>
 
@@ -876,9 +899,9 @@ svg .rough{filter:url(#rough)}
     var pad=70, segw=(W-pad*2)/bits.length, amp=H*0.30, mid=H*0.56;
     var d=waveBits(pad,mid,segw,amp,bits,mode,2,opt), marks='', labels='';
     for(var k=0;k<bits.length;k++){ var cx=pad+segw*k+segw/2;
-      labels+='<text x="'+cx+'" y="'+(mid-amp-14)+'" text-anchor="middle" style="font-family:Fredoka;font-weight:700;font-size:30px;fill:#1D2A78">'+bits[k]+'</text>';
-      if(k>0){ var mx=pad+segw*k; marks+='<line x1="'+mx+'" y1="'+(mid-amp-6)+'" x2="'+mx+'" y2="'+(mid+amp+6)+'" stroke="#FFE94A" stroke-width="4" stroke-dasharray="6 8"/>'; } }
-    svg.innerHTML=labels+marks+'<path class="rough" d="'+d+'" fill="none" stroke="#2A45E0" stroke-width="8" stroke-linecap="round"/>';
+      labels+='<text x="'+cx+'" y="'+(mid-amp-14)+'" text-anchor="middle" style="font-family:Fredoka;font-weight:700;font-size:30px;fill:#3E2D21">'+bits[k]+'</text>';
+      if(k>0){ var mx=pad+segw*k; marks+='<line x1="'+mx+'" y1="'+(mid-amp-6)+'" x2="'+mx+'" y2="'+(mid+amp+6)+'" stroke="#F5B63C" stroke-width="4" stroke-dasharray="6 8"/>'; } }
+    svg.innerHTML=labels+marks+'<path class="rough" d="'+d+'" fill="none" stroke="#D2632B" stroke-width="8" stroke-linecap="round"/>';
   }
   function buildChips(row,bits,onflip){
     row.innerHTML='';
