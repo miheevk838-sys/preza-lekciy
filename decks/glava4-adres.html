@@ -149,6 +149,12 @@ p+p{margin-top:16px}
 .w-st:last-child::after{display:none}
 .tog{font-family:var(--fd);font-weight:700;font-size:20px;padding:12px 20px;border-radius:10px;border:2px solid var(--blue-500);background:#fff;color:var(--blue-500);cursor:pointer}
 .tog.on{background:var(--blue-500);color:#fff}
+.w-subs{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.w-sub{font-family:var(--fd);font-weight:700;font-size:16px;color:var(--slate);background:var(--blue-050);border-radius:999px;padding:8px 16px}
+.w-sub.act{background:var(--blue-500);color:#fff}
+.bit.pulse{box-shadow:0 0 0 5px rgba(47,107,255,.35);animation:pul 1s infinite;border-color:var(--blue-500)!important;position:relative}
+.bit.pulse::after{content:"измени 0 → 1";position:absolute;top:-34px;left:50%;transform:translateX(-50%);white-space:nowrap;font-family:var(--fb);font-weight:700;font-size:15px;color:var(--blue-500)}
+@keyframes pul{0%{box-shadow:0 0 0 4px rgba(47,107,255,.4)}50%{box-shadow:0 0 0 9px rgba(47,107,255,.12)}100%{box-shadow:0 0 0 4px rgba(47,107,255,.4)}}
 </style>
 <section class="slide">
   <div class="wave"><svg viewBox="0 0 1000 1080" preserveAspectRatio="xMidYMid slice">
@@ -919,22 +925,38 @@ inits.arp=function(){if(!ARP.built)ARP.build();ARP.reset();
  stopAnim();raf=requestAnimationFrame(ARP.anim.bind(ARP));};
 
 /* ===== WIRE capstone ===== */
-var WIRE={s:0,ig:0,ul:0,enc:0,
+function octStrip(oct,hl,pulse){hl=hl||[];pulse=pulse||[];var s='<div class="bits" style="max-width:820px;margin:0 auto">';for(var k=0;k<8;k++){var bnum=7-k;var bit=oct[k];var lab=bnum===0?'I/G':(bnum===1?'U/L':'');var cls='bit '+(bit==='1'?'on':'')+(hl.indexOf(bnum)>=0?' hl':'')+(pulse.indexOf(bnum)>=0?' pulse':'');s+='<div class="'+cls+'"><div class="w">Bit'+bnum+'</div><div class="v">'+bit+'</div><div class="w" style="color:#2F6BFF;font-weight:700">'+lab+'</div></div>';}s+='</div>';return s;}
+var WIRE={s:0,w:0,revealed:false,igChanged:false,enc:0,
  render:function(){var b=document.getElementById('wBody'),h=document.getElementById('wHint');
   [].forEach.call(document.querySelectorAll('#wRail .w-st'),function(e){e.classList.toggle('act',+e.dataset.s===WIRE.s);});
-  if(this.s===0){b.innerHTML=this.stage1();h.innerHTML='Клик по паре hex раскрывает её биты · тумблеры I/G и U/L меняют тип адреса вживую.';this.bind1();}
+  if(this.s===0){b.innerHTML=this.stage1();h.innerHTML='Посчитаем MAC → определим тип → изменим служебный бит → получим групповой и широковещательный.';this.bind1();}
   else if(this.s===1){b.innerHTML=this.stage2();h.innerHTML='Групповой MAC собирается из IP; широковещательный — 48 единиц.';}
   else if(this.s===2){b.innerHTML=this.stage3();h.innerHTML='ARP по broadcast-запросу добывает MAC; ответ — unicast.';}
   else{b.innerHTML=this.stage4();h.innerHTML='«Собрать кадр» — инкапсуляция вниз; «Распаковать» — декапсуляция вверх.';this.bind4();}},
- stage1:function(){var pairs=['F4','46','37','55','24','86'];var cards=pairs.map(function(p,i){
-   return '<div class="card line" data-p="'+p+'" style="text-align:center;cursor:pointer;padding:16px"><div class="h-d" style="font-size:40px;color:#2F6BFF">'+p+'</div><div class="mono" id="wb'+i+'" style="font-size:16px;color:#7FA6FF;margin-top:8px">····</div></div>';}).join('');
-   var type=(this.ig?'групповой':'одноадресный')+' · '+(this.ul?'изменён':'заводской');
-   return '<div class="title-row"><span class="diamond"></span><div class="h-d h3">1 · Читаем MAC · <span class="hl">F4-46-37-55-24-86</span></div></div>'
-     +'<div class="grid" style="grid-template-columns:repeat(6,1fr);gap:14px;margin-top:20px">'+cards+'</div>'
-     +'<div style="display:flex;margin-top:26px;border-radius:14px;overflow:hidden;border:2px solid #7FA6FF"><div style="flex:1;background:#2F6BFF;color:#fff;padding:20px;text-align:center"><b>OUI · 24 бита</b><br>F4-46-37</div><div style="flex:1;background:#EEF3FF;padding:20px;text-align:center"><b>Interface ID · 24 бита</b><br>55-24-86</div></div>'
-     +'<div style="display:flex;gap:16px;align-items:center;margin-top:24px"><button class="tog'+(this.ig?' on':'')+'" id="tIG">I/G = '+this.ig+'</button><button class="tog'+(this.ul?' on':'')+'" id="tUL">U/L = '+this.ul+'</button><div class="def" style="flex:1;padding:16px 24px"><p style="font-size:24px">Тип адреса: <b style="color:#fff">'+type+'</b></p></div></div>';},
- bind1:function(){var self=this;[].forEach.call(document.querySelectorAll('#wBody .card[data-p]'),function(c,i){c.onclick=function(){document.getElementById('wb'+i).textContent=parseInt(c.dataset.p,16).toString(2).padStart(8,'0');};});
-   var ig=document.getElementById('tIG'),ul=document.getElementById('tUL');if(ig)ig.onclick=function(){self.ig^=1;self.render();};if(ul)ul.onclick=function(){self.ul^=1;self.render();};},
+ subs:function(){var self=this;var t=['Посчитать','Тип: одноадресный','→ Групповой','→ Broadcast'];return '<div class="w-subs">'+t.map(function(x,i){return '<div class="w-sub'+(i===self.w?' act':'')+'">'+(i+1)+' · '+x+'</div>';}).join('')+'</div>';},
+ stage1:function(){var self=this;
+   var head='<div class="title-row"><span class="diamond"></span><div class="h-d h3">1 · Читаем MAC · <span class="hl">F4-46-37-55-24-86</span></div></div>'+this.subs();
+   if(this.w===0){var pairs=['F4','46','37','55','24','86'];
+     var cards=pairs.map(function(p,i){return '<div class="card line wpair" data-p="'+p+'" style="text-align:center;cursor:pointer;padding:14px"><div class="h-d" style="font-size:36px;color:#2F6BFF">'+p+'</div><div class="mono" id="wb'+i+'" style="font-size:16px;color:#7FA6FF;margin-top:6px">'+(self.revealed?parseInt(p,16).toString(2).padStart(8,'0'):'····')+'</div></div>';}).join('');
+     return head+'<div class="grid" style="grid-template-columns:repeat(6,1fr);gap:12px;margin-top:20px">'+cards+'</div>'
+       +(self.revealed?'<div class="mblock mono" style="margin-top:22px;font-size:19px;letter-spacing:.04em">111101000100011000110111010101010010010010000110</div>':'<p class="body sm slate" style="margin-top:16px">Клик по паре раскрывает её тетраду · или сразу «Посчитать всё».</p>')
+       +'<div style="display:flex;gap:12px;margin-top:22px"><button class="a-btn pri" id="wReveal">Посчитать всё ▾</button>'+(self.revealed?'<button class="a-btn pri" id="wGo1">Дальше · тип адреса ▸</button>':'')+'</div>';}
+   if(this.w===1){return head+'<div style="margin-top:26px">'+octStrip('11110100',[0,1])+'</div>'
+     +'<div class="grid g2" style="margin-top:26px"><div class="def" style="background:#16A34A"><p style="font-size:24px"><b style="color:#fff">Bit0 (I/G) = 0</b> → адрес <b style="color:#fff">одноадресный</b> (unicast)</p></div><div class="def"><p style="font-size:24px"><b style="color:#fff">Bit1 (U/L) = 0</b> → <b style="color:#fff">заводской</b>, не менялся</p></div></div>'
+     +'<div style="display:flex;gap:12px;margin-top:22px"><button class="a-btn" id="wBack1">‹ Назад</button><button class="a-btn pri" id="wGo2">Сделать групповым ▸</button></div>';}
+   if(this.w===2){var oct=this.igChanged?'11110101':'11110100';var hx=this.igChanged?'F5':'F4';
+     return head+'<div style="margin-top:22px">'+octStrip(oct,[0],this.igChanged?[]:[0])+'</div>'
+       +'<div class="def" style="margin-top:22px;background:'+(this.igChanged?'#2F6BFF':'#14357F')+'"><p style="font-size:24px">'+(this.igChanged?'Готово: <b style="color:#fff">I/G = 1</b> → тип <b style="color:#fff">групповой</b>. Первый октет F4 → <b style="color:#fff">'+hx+'</b>, MAC = '+hx+'-46-37-55-24-86.':'Чтобы сделать <b style="color:#fff">групповым</b>, надо изменить <b style="color:#fff">Bit0 (I/G): 0 → 1</b> (мигает).')+'</p></div>'
+       +'<div style="display:flex;gap:12px;margin-top:20px">'+(this.igChanged?'<button class="a-btn pri" id="wGo3">Сделать широковещательным ▸</button>':'<button class="a-btn pri" id="wChg">Изменить I/G (0 → 1)</button>')+'<button class="a-btn" id="wBack2">‹ Назад</button></div>';}
+   return head+'<div style="margin-top:22px">'+octStrip('11111111',[0,1])+'</div>'
+     +'<div style="text-align:center;margin-top:18px"><span class="mbig" style="font-size:46px">FF-FF-FF-FF-FF-FF</span></div>'
+     +'<div class="def" style="margin-top:16px;background:#E5484D"><p style="font-size:24px">Все <b style="color:#fff">48 бит = 1</b>. Оба служебных бита первого октета = 1 (I/G = 1, U/L = 1) → <b style="color:#fff">широковещательный</b> (broadcast). Примут все узлы.</p></div>'
+     +'<div style="display:flex;gap:12px;margin-top:18px"><button class="a-btn" id="wBack3">‹ Назад</button><button class="a-btn" id="wRe1">↻ Сначала</button></div>';},
+ bind1:function(){var self=this;
+   var rv=document.getElementById('wReveal');if(rv)rv.onclick=function(){self.revealed=true;self.render();};
+   [].forEach.call(document.querySelectorAll('#wBody .wpair'),function(c,i){c.onclick=function(){document.getElementById('wb'+i).textContent=parseInt(c.dataset.p,16).toString(2).padStart(8,'0');};});
+   var m={wGo1:function(){self.w=1;},wBack1:function(){self.w=0;},wGo2:function(){self.w=2;self.igChanged=false;},wBack2:function(){self.w=1;},wChg:function(){self.igChanged=true;},wGo3:function(){self.w=3;},wBack3:function(){self.w=2;},wRe1:function(){self.w=0;self.revealed=false;self.igChanged=false;}};
+   for(var id in m){(function(id){var e=document.getElementById(id);if(e)e.onclick=function(){m[id]();self.render();};})(id);}},
  stage2:function(){return '<div class="title-row"><span class="diamond"></span><div class="h-d h3">2 · Специальные MAC-адреса</div></div>'
    +'<div class="grid g2" style="margin-top:24px"><div class="card"><h4 style="font-size:28px">Групповой (multicast)</h4>'
    +'<p style="font-size:22px;margin-top:10px">01-00-5E + 25-й бит = 0 + младшие 23 бита группового IP.</p>'
@@ -961,7 +983,7 @@ var WIRE={s:0,ig:0,ul:0,enc:0,
  bind4:function(){var self=this;var e=document.getElementById('wEnc'),d=document.getElementById('wDec'),r=document.getElementById('wRes');
    if(e)e.onclick=function(){self.enc=Math.min(5,self.enc+1);self.render();};if(d)d.onclick=function(){self.enc=Math.max(0,self.enc-1);self.render();};if(r)r.onclick=function(){self.enc=0;self.render();};}
 };
-inits.wire=function(){WIRE.s=0;WIRE.enc=0;WIRE.render();
+inits.wire=function(){WIRE.s=0;WIRE.w=0;WIRE.revealed=false;WIRE.igChanged=false;WIRE.enc=0;WIRE.render();
  [].forEach.call(document.querySelectorAll('#wRail .w-st'),function(e){e.onclick=function(){WIRE.s=+e.dataset.s;WIRE.render();};});};
 
 fit();show(0);
