@@ -133,12 +133,26 @@ input[type=range]::-moz-range-thumb{width:34px;height:34px;border-radius:50%;bac
    <div class="card"><div class="h4 h-d" style="margin-bottom:10px">Только адрес (IP)</div><p class="body sm">Даже зная адрес дома, посылка может не найти адресата: человек мог переехать. Имя остаётся при нём независимо от квартиры.</p></div>
   </div><div class="def" style="margin-top:24px"><div class="badge">под запись</div><p><b>Адрес</b> нужен, чтобы довести пакет до нужной <b>сети</b>. <b>Имя</b> нужно, чтобы на месте вручить пакет именно тому <b>устройству</b>. Поэтому используются оба вида адресации одновременно.</p></div>
   </div><div class="foot">5.0 · Два адреса</div></section>
+<section class="slide" data-init="posylka"><div class="top"><div class="brand"><span class="lg"></span>Global Net</div><div class="mono">时不再来</div></div>
+  <div class="pad">
+    <div class="eyebrow" style="margin-bottom:10px">5.0 · Интерактив</div>
+    <div class="h-d h3" style="margin-bottom:6px">ПОСЫЛКА → <span class="o">ПАКЕТ</span></div>
+    <p class="body sm g2c" style="margin-bottom:12px">Убери одну подпись — и доставка ломается. Нужны оба.</p>
+    <div style="display:flex;gap:14px;margin-bottom:16px">
+      <button class="abtn acc on" data-mode="both">Оба адреса</button>
+      <button class="abtn" data-mode="name">Только имя (MAC)</button>
+      <button class="abtn" data-mode="addr">Только адрес (IP)</button>
+    </div>
+    <svg id="posSvg" viewBox="0 0 1200 420" style="width:100%;max-width:1400px;display:block;margin:0 auto"></svg>
+    <p class="mono" id="posHint" style="text-align:center;margin-top:12px;font-size:22px"></p>
+  </div><div class="foot">5.0 · Посылка</div></section>
 <section class="slide "><div class="top"><div class="brand"><span class="lg"></span>Global Net</div><div class="mono">时不再来</div></div>
   <div class="pad">
     <div class="eyebrow" style="margin-bottom:12px">5.0 · Определения</div>
     <div class="h-d h3" style="margin-bottom:22px">MAC-АДРЕС</div>
     <div class="def"><div class="badge">под запись</div><div class="term"><span class="o">MAC</span> · Media Access Control</div>
-   <p>уникальный числовой идентификатор размером <b>48 бит</b>, который однозначно идентифицирует устройство в локальной сети. Работает на <b>канальном уровне (L2)</b>. Записывается в hex: <span class="mono">F4-46-37-55-24-86</span>. Встроен в сетевую плату и в норме <b>неизменен</b>.</p></div>
+   <p>уникальный числовой идентификатор размером <b>48 бит</b>, который однозначно идентифицирует устройство в локальной сети и позволяет устройствам взаимодействовать напрямую. Работает на <b>канальном уровне (L2)</b> модели OSI.</p></div>
+   <p class="body sm" style="margin-top:16px">Записывается в hex: <span class="mono">F4-46-37-55-24-86</span> — человеку читать удобнее, чем <span class="mono">11110100 01000110 …</span> Главное свойство: MAC <b>встроен в сетевую плату</b> и в норме неизменен. Небольшое исключение — намеренная подмена MAC в целях безопасности или анонимизации.</p>
   </div><div class="foot">5.0 · Определения</div></section>
 <section class="slide "><div class="top"><div class="brand"><span class="lg"></span>Global Net</div><div class="mono">时不再来</div></div>
   <div class="pad">
@@ -184,6 +198,26 @@ input[type=range]::-moz-range-thumb{width:34px;height:34px;border-radius:50%;bac
     <p class="body sm g2c" style="margin-bottom:22px">Собери каждый октет битами — внизу вживую складывается IP-адрес.</p>
     <div class="ipbuild" style="display:grid;gap:14px;max-width:1200px;margin:0 auto"><div><div class="bits live"><div class="bit " data-w="128"><div class="v">0</div></div><div class="bit " data-w="64"><div class="v">0</div></div><div class="bit " data-w="32"><div class="v">0</div></div><div class="bit " data-w="16"><div class="v">0</div></div><div class="bit " data-w="8"><div class="v">0</div></div><div class="bit " data-w="4"><div class="v">0</div></div><div class="bit " data-w="2"><div class="v">0</div></div><div class="bit " data-w="1"><div class="v">0</div></div></div></div><div><div class="bits live"><div class="bit " data-w="128"><div class="v">0</div></div><div class="bit " data-w="64"><div class="v">0</div></div><div class="bit " data-w="32"><div class="v">0</div></div><div class="bit " data-w="16"><div class="v">0</div></div><div class="bit " data-w="8"><div class="v">0</div></div><div class="bit " data-w="4"><div class="v">0</div></div><div class="bit " data-w="2"><div class="v">0</div></div><div class="bit " data-w="1"><div class="v">0</div></div></div></div><div><div class="bits live"><div class="bit " data-w="128"><div class="v">0</div></div><div class="bit " data-w="64"><div class="v">0</div></div><div class="bit " data-w="32"><div class="v">0</div></div><div class="bit " data-w="16"><div class="v">0</div></div><div class="bit " data-w="8"><div class="v">0</div></div><div class="bit " data-w="4"><div class="v">0</div></div><div class="bit " data-w="2"><div class="v">0</div></div><div class="bit " data-w="1"><div class="v">0</div></div></div></div><div><div class="bits live"><div class="bit " data-w="128"><div class="v">0</div></div><div class="bit " data-w="64"><div class="v">0</div></div><div class="bit " data-w="32"><div class="v">0</div></div><div class="bit " data-w="16"><div class="v">0</div></div><div class="bit " data-w="8"><div class="v">0</div></div><div class="bit " data-w="4"><div class="v">0</div></div><div class="bit " data-w="2"><div class="v">0</div></div><div class="bit " data-w="1"><div class="v">0</div></div></div></div><p style="text-align:center;margin-top:10px"><span class="ipout" style="font-family:var(--fm);font-weight:700;font-size:60px;color:var(--ink)">0.0.0.0</span></p></div>
   </div><div class="foot">5.1.1 · Адрес</div></section>
+<section class="slide" data-init="rev"><div class="top"><div class="brand"><span class="lg"></span>Global Net</div><div class="mono">时不再来</div></div>
+  <div class="pad">
+    <div class="eyebrow" style="margin-bottom:10px">5.1.1 · Интерактив</div>
+    <div class="h-d h3" style="margin-bottom:6px">ОБРАТНО · <span class="o">ВЫЧИТАНИЕМ ВЕСОВ</span></div>
+    <p class="body sm g2c" style="margin-bottom:22px">Переведём 168 в двоичное: идём по весам от 128 к 1, вычитаем, что влезает.</p>
+    <div class="grid" style="grid-template-columns:1.3fr 1fr;gap:40px;align-items:center;max-width:1500px;margin:0 auto">
+      <div class="bits" id="revBits"></div>
+      <div><div class="mono" id="revLog" style="font-size:22px;line-height:1.7"></div>
+        <div style="display:flex;gap:12px;margin-top:18px"><button class="abtn acc" id="revNext">Дальше ▸</button><button class="abtn" id="revReset">Сброс</button></div></div>
+    </div>
+  </div><div class="foot">5.1.1 · Обратный перевод</div></section>
+<section class="slide "><div class="top"><div class="brand"><span class="lg"></span>Global Net</div><div class="mono">时不再来</div></div>
+  <div class="pad">
+    <div class="eyebrow" style="margin-bottom:12px">5.1.1 · Обозначение</div>
+    <div class="h-d h3" style="margin-bottom:22px">ПОЛНОЕ И <span class='o'>СОКРАЩЁННОЕ</span></div>
+    <p class="body sm">На схемах IP-адреса подписывают двумя способами: <b>полным</b> (у каждого интерфейса весь адрес) и <b>сокращённым</b> (адрес сети, а у интерфейсов — только последняя цифра). Сокращённая форма экономит место на плотных схемах.</p><div class="grid g2" style="margin-top:22px">
+   <div class="card"><div class="h4 h-d" style="margin-bottom:10px">Полное</div><div class="mono" style="font-size:22px;line-height:1.7">192.168.15.1<br>192.168.15.2<br>192.168.15.3</div></div>
+   <div class="card inv"><div class="h4 h-d" style="margin-bottom:10px">Сокращённое</div><div class="mono" style="font-size:22px;line-height:1.7">сеть 192.168.15.0<br>.1 · .2 · .3</div></div>
+  </div>
+  </div><div class="foot">5.1.1 · Обозначение</div></section>
 <section class="slide "><div class="top"><div class="brand"><span class="lg"></span>Global Net</div><div class="mono">时不再来</div></div>
   <div class="pad">
     <div class="eyebrow" style="margin-bottom:12px">5.1.2 · Маска подсети</div>
@@ -249,6 +283,15 @@ input[type=range]::-moz-range-thumb{width:34px;height:34px;border-radius:50%;bac
     <div class="h-d h3" style="margin-bottom:22px">ШЛЮЗ ПО <span class='o'>УМОЛЧАНИЮ</span></div>
     <p class="body sm">Как распределять узловые адреса — решает владелец сети. Негласное правило: шлюзу дают <b>первый или последний</b> узловой адрес (<span class="mono">.1</span> или <span class="mono">.254</span>) — инженер в незнакомой сети почти наверняка угадает.</p><div class="def" style="margin-top:22px"><div class="badge">под запись</div><div class="term">Шлюз по умолчанию</div><p>интерфейс устройства уровня <b>L3</b> (обычно маршрутизатора), через который трафик уходит из сети. «Свой» — вручается напрямую; «чужой» — отправляют на шлюз.</p></div>
   </div><div class="foot">5.1.5 · Шлюз</div></section>
+<section class="slide "><div class="top"><div class="brand"><span class="lg"></span>Global Net</div><div class="mono">时不再来</div></div>
+  <div class="pad">
+    <div class="eyebrow" style="margin-bottom:12px">5.1.5 · Настройка</div>
+    <div class="h-d h3" style="margin-bottom:22px">УСТРОЙСТВО ЗНАЕТ <span class='o'>ТРИ ВЕЩИ</span></div>
+    <p class="body sm">Устройство всегда знает о себе три параметра: свой <b>IP-адрес</b>, свою <b>маску подсети</b> и адрес <b>шлюза по умолчанию</b>. Их задают вручную или автоматически по <b>DHCP</b>. Посмотреть — командой <span class="mono">ipconfig</span> (Windows) или <span class="mono">ifconfig</span> (Linux).</p><div class="card inv" style="margin-top:22px"><div class="mono" style="font-size:22px;line-height:1.8;color:#e8e6e0">
+   IPv4 Address . . . . : <span style="color:#FF5A1F">192.168.1.233</span><br>
+   Subnet Mask . . . . : <span style="color:#FF5A1F">255.255.255.0</span><br>
+   Default Gateway . . : <span style="color:#FF5A1F">192.168.1.1</span></div></div>
+  </div><div class="foot">5.1.5 · Настройка</div></section>
 <section class="slide" data-init="band"><div class="top"><div class="brand"><span class="lg"></span>Global Net</div><div class="mono">时不再来</div></div>
   <div class="pad">
     <div class="eyebrow" style="margin-bottom:10px">5.1.6 · Интерактив</div>
@@ -322,6 +365,12 @@ input[type=range]::-moz-range-thumb{width:34px;height:34px;border-radius:50%;bac
         <button class="abtn acc" id="apipaBtn" style="margin-top:10px">DHCP не ответил…</button></div>
     </div>
   </div><div class="foot">5.1.12 · Спец-адреса</div></section>
+<section class="slide "><div class="top"><div class="brand"><span class="lg"></span>Global Net</div><div class="mono">时不再来</div></div>
+  <div class="pad"><div class="eyebrow" style="margin-bottom:10px">5.1.12 · Спец-адреса</div><div class="h-d h3" style="margin-bottom:24px">СПЕЦИАЛЬНЫЕ <span class="o">АДРЕСА</span></div>
+  <table class="tbl" style="max-width:1200px"><tr><th>Диапазон</th><th>Назначение</th></tr>
+   <tr><td>127.0.0.0/8</td><td class="mono">loopback — проверка своего стека (127.0.0.1)</td></tr>
+   <tr class="hot"><td>169.254.0.0/16</td><td>APIPA — сам себе адрес при отказе DHCP; не маршрутизируется</td></tr>
+   <tr><td>192.0.2.0/24</td><td>TEST-NET — адреса для обучения и примеров в документации</td></tr></table></div><div class="foot">5.1.12 · Спец-адреса</div></section>
 <section class="slide" data-init="dhcp"><div class="top"><div class="brand"><span class="lg"></span>Global Net</div><div class="mono">时不再来</div></div>
   <div class="pad">
     <div class="eyebrow" style="margin-bottom:10px">5.1.13 · Интерактив</div>
@@ -410,6 +459,20 @@ input[type=range]::-moz-range-thumb{width:34px;height:34px;border-radius:50%;bac
   </div>
   <p class="body sm g2c" style="margin-top:20px">Префикс LAN обычно <span class="mono">/64</span>: 64 бита — сеть, 64 — идентификатор интерфейса. В IPv6 у интерфейса штатно несколько адресов сразу.</p>
   </div><div class="foot">5.2 · Unicast</div></section>
+<section class="slide "><div class="top"><div class="brand"><span class="lg"></span>Global Net</div><div class="mono">时不再来</div></div>
+  <div class="pad">
+    <div class="eyebrow" style="margin-bottom:12px">5.2 · Link-local</div>
+    <div class="h-d h3" style="margin-bottom:22px">LINK-LOCAL <span class='o'>ПОДРОБНЕЕ</span></div>
+    <p class="body sm">Локальный адрес канала позволяет общаться с соседями по тому же каналу — и только по нему. Пакеты с таким адресом не выходят за пределы канала. GUA устройству не обязателен, а <b>link-local обязан быть у каждого IPv6-интерфейса</b>: если не задан вручную — создаётся автоматически. Благодаря этому узлы находят друг друга и шлюз сразу, без настройки.</p><div class="def" style="margin-top:22px"><div class="badge">ключевое</div><p>В IPv4 у интерфейса обычно один IP. В IPv6 штатно сосуществует <b>несколько</b>: обязательный <b>link-local</b> для «разговоров с соседями» и, при необходимости, <b>GUA</b> для выхода в большой мир.</p></div>
+  </div><div class="foot">5.2 · Link-local</div></section>
+<section class="slide" data-init="sn"><div class="top"><div class="brand"><span class="lg"></span>Global Net</div><div class="mono">时不再来</div></div>
+  <div class="pad">
+    <div class="eyebrow" style="margin-bottom:10px">5.2 · Интерактив</div>
+    <div class="h-d h3" style="margin-bottom:6px">SOLICITED-NODE · <span class="o">FF02::1:FFxx:xxxx</span></div>
+    <p class="body sm g2c" style="margin-bottom:22px">Точечный групповой адрес: последние 24 бита копируются из unicast-адреса интерфейса.</p>
+    <div id="snBody" style="max-width:1100px;margin:0 auto"></div>
+    <div style="text-align:center;margin-top:20px"><button class="abtn acc" id="snBtn">Скопировать 24 бита ▸</button></div>
+  </div><div class="foot">5.2 · Solicited-node</div></section>
 <section class="slide "><div class="top"><div class="brand"><span class="lg"></span>Global Net</div><div class="mono">时不再来</div></div>
   <div class="pad">
     <div class="eyebrow" style="margin-bottom:12px">5.2 · Multicast IPv6</div>
@@ -636,6 +699,48 @@ function qzShow(){var box=document.getElementById('qzBtns'),it=QZ[qzI],ch=qzAns[
  var nav=document.getElementById('qzNav');nav.innerHTML='';var p=document.createElement('button');p.className='abtn';p.textContent='‹';p.disabled=qzI===0;p.onclick=function(){if(qzI>0){qzI--;qzShow();}};var c=document.createElement('span');c.className='mono';c.style.color='#9A9A94';c.textContent=(qzI+1)+'/'+QZ.length;var nx=document.createElement('button');nx.className='abtn';nx.textContent='›';nx.disabled=qzI===QZ.length-1;nx.onclick=function(){if(qzI<QZ.length-1){qzI++;qzShow();}};nav.appendChild(p);nav.appendChild(c);nav.appendChild(nx);}
 function qzAns2(k){if(!qzRun)return;if(qzAns[qzI]===-1){qzAns[qzI]=k;qzAll++;if(k===QZ[qzI].ok)qzOk++;document.getElementById('qzOk').textContent=qzOk;document.getElementById('qzAll').textContent=qzAll;}else qzAns[qzI]=k;qzShow();}
 inits.quiz=function(){var b=document.getElementById('qzStart');b.onclick=qzStart;if(!qzRun){document.getElementById('qzQ').textContent='Нажми «Старт»';document.getElementById('qzBtns').innerHTML='';document.getElementById('qzNav').innerHTML='';}};
+
+/* ---- posylka: two addresses projection ---- */
+inits.posylka=function(sl){var svg=document.getElementById('posSvg');var mode='both';
+ function render(){var ok=mode==='both';
+  var s='<rect x="90" y="120" width="240" height="180" rx="16" fill="#fff" stroke="#111" stroke-width="2.5"/>'
+   +'<text x="210" y="100" text-anchor="middle" font-family="Manrope" font-weight="800" font-size="22">коробка</text>'
+   +'<text x="210" y="175" text-anchor="middle" font-family="JetBrains Mono" font-size="18" fill="'+(mode==='name'?'#9A9A94':'#111')+'">адрес дома '+(mode==='name'?'✗':'')+'</text>'
+   +'<text x="210" y="230" text-anchor="middle" font-family="JetBrains Mono" font-size="18" fill="'+(mode==='addr'?'#9A9A94':'#111')+'">ФИО '+(mode==='addr'?'✗':'')+'</text>'
+   +'<path d="M370 210 h120" stroke="#FF5A1F" stroke-width="3" marker-end="url(#pa)"/><text x="430" y="196" text-anchor="middle" font-family="JetBrains Mono" font-size="15" fill="#FF5A1F">проекция</text>'
+   +'<rect x="540" y="120" width="240" height="180" rx="16" fill="#111"/><text x="660" y="100" text-anchor="middle" font-family="Manrope" font-weight="800" font-size="22">пакет</text>'
+   +'<text x="660" y="175" text-anchor="middle" font-family="JetBrains Mono" font-size="18" fill="#fff">IP назначения</text>'
+   +'<text x="660" y="230" text-anchor="middle" font-family="JetBrains Mono" font-size="18" fill="#FF5A1F">MAC назначения</text>'
+   +'<circle cx="1080" cy="210" r="72" fill="#fff" stroke="#111" stroke-width="2.5"/><text x="1080" y="205" text-anchor="middle" font-family="Manrope" font-weight="800" font-size="18">'+(ok?'доставлено':'сбой')+'</text><text x="1080" y="232" text-anchor="middle" font-size="30">'+(ok?'✅':'❌')+'</text>'
+   +'<defs><marker id="pa" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0 L8 3 L0 6" fill="#FF5A1F"/></marker></defs>';
+  svg.innerHTML=s;
+  var msg=mode==='both'?'Оба адреса на месте → почта ведёт по IP, у двери сверяют MAC. Дошло.':mode==='name'?'Только имя (MAC): почта не знает, куда вести — пришлось бы обходить всех.':'Только адрес (IP): человек мог переехать — посылка не найдёт адресата.';
+  document.getElementById('posHint').textContent=msg;}
+ [].forEach.call(sl.querySelectorAll('[data-mode]'),function(b){b.onclick=function(){mode=b.dataset.mode;[].forEach.call(sl.querySelectorAll('[data-mode]'),function(x){x.classList.toggle('on',x===b);x.classList.toggle('acc',x===b);});render();};});
+ render();};
+
+/* ---- rev: reverse convert by subtracting weights ---- */
+inits.rev=function(sl){var target=168;var step=0;
+ function render(){var rest=target;var bits='';var rows='';
+  for(var k=0;k<8;k++){var w=W[k];var active=k<step;var fit=false;
+   if(active){if(rest>=w){fit=true;rest-=w;bits+='1';}else bits+='0';}
+   rows+='<div class="bit '+(active&&bits[k]==='1'?'on':'')+'" style="'+(k===step?'outline:3px solid #FF5A1F':'')+'"><div class="w">'+w+'</div><div class="v">'+(active?bits[k]:'?')+'</div></div>';}
+  document.getElementById('revBits').innerHTML=rows;
+  var restNow=target;var log='';for(var k=0;k<step;k++){var w=W[k];if(restNow>=w){log+=w+' влезает (остаток '+(restNow-w)+') → 1<br>';restNow-=w;}else log+=w+' не влезает → 0<br>';}
+  document.getElementById('revLog').innerHTML=log||'Жми «Дальше»: подбираем гири от 128 к 1.';
+  if(step>=8)document.getElementById('revLog').innerHTML+='<b style="color:#FF5A1F">168 = '+bits+'</b>';}
+ render();
+ document.getElementById('revNext').onclick=function(){if(step<8)step++;render();};
+ document.getElementById('revReset').onclick=function(){step=0;render();};};
+
+/* ---- solicited-node ---- */
+inits.sn=function(sl){var reveal=false;
+ function render(){var uni='FE80:ABCD::CDBA:A801';var last24='BA:A801';var sn='FF02::1:FF'+last24;
+  document.getElementById('snBody').innerHTML='<div class="card" style="text-align:center"><div class="mono g2c" style="font-size:18px">unicast-адрес</div><div class="mbig" style="font-size:30px;margin-top:6px">'+uni+'</div>'
+   +'<div style="margin:18px 0;font-size:30px;color:#FF5A1F">↓ копируем последние 24 бита</div>'
+   +'<div class="mono g2c" style="font-size:18px">solicited-node</div><div class="mbig" style="font-size:30px;margin-top:6px">FF02::1:FF<span style="color:'+(reveal?'#FF5A1F':'#9A9A94')+'">'+(reveal?last24:'??:????')+'</span></div></div>';}
+ render();
+ document.getElementById('snBtn').onclick=function(){reveal=true;render();};};
 
 fit();show(0);
 })();
