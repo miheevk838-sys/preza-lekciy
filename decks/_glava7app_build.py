@@ -920,6 +920,10 @@ slide("До свидания", "", "", f"""
 ICON_L = '<svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>'
 ICON_R = '<svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>'
 
+# слайды, где анимацию продвигает лектор кнопкой «Дальше» (остальные — автозапуск)
+MANUAL = {3, 8, 9, 11, 12, 13, 14, 15, 16, 17, 18, 21, 22, 23, 25, 26, 27, 29,
+          38, 39, 40, 43, 44, 45, 47, 48, 49, 51, 52, 53, 54, 56}
+
 def render():
     osw = "data:font/woff;base64," + base64.b64encode(OSW.read_bytes()).decode()
     out = ['<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">'
@@ -927,10 +931,11 @@ def render():
     for k, (label, t1, t2, body, cls, sub) in enumerate(S, start=1):
         sb = f'<div class="sub">{sub}</div>' if sub else ""
         head = "" if not t1 else f'<header class="sh"><span class="snum">{k:02d}</span><div><h2>{t1}<span class="o2">{t2}</span></h2>{sb}</div></header>'
-        out.append(f'<section class="slide {cls}" data-label="{label}"><div class="sc"><div class="wrap">{head}{body}</div></div></section>')
+        mc = " man" if k in MANUAL else ""
+        out.append(f'<section class="slide {cls}{mc}" data-label="{label}"><div class="sc"><div class="wrap">{head}{body}</div></div></section>')
     out.append('</main><nav id="nav" aria-label="Навигация">'
                f'<button id="b-prev" type="button" aria-label="Предыдущий слайд">{ICON_L}</button><span id="ind"></span>'
-               f'<button id="b-next" type="button" aria-label="Следующий слайд">{ICON_R}</button><span class="nsep"></span>'
+               f'<button id="b-next" type="button" aria-label="Дальше"><span class="lbl3">Дальше</span>{ICON_R}</button><span class="nsep"></span>'
                '<button id="b-play" type="button" title="Клавиша R"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.5-5.8M4 4v5h5"/></svg><span class="lbl2">Повторить анимацию</span></button>'
                '<button id="b-ov" type="button" title="Esc"><svg viewBox="0 0 24 24"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"/></svg><span class="lbl2">Меню</span></button></nav>'
                '<div id="lb" hidden role="dialog" aria-label="Фото во весь экран"><img alt=""></div>'

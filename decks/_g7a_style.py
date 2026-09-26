@@ -236,7 +236,7 @@ JS = r"""
 'use strict';
 var $=function(s,r){return (r||document).querySelector(s)}, $$=function(s,r){return [].slice.call((r||document).querySelectorAll(s))};
 var SCENES=__SCENES__;
-var slides=$$('.slide'), N=slides.length, cur=0, step=0;
+var slides=$$('.slide'), N=slides.length, cur=0, step=0, timer=null;
 var RM=window.matchMedia('(prefers-reduced-motion: reduce)');
 function recalcMax(s){
   var mx=0; s._els.forEach(function(e){ mx=Math.max(mx,+e.dataset.s||0); });
@@ -272,27 +272,41 @@ function setStep(k,instant){
   (sl._scenes||[]).forEach(function(sc){ if(!sc.hidden) applyScene(sc,step,instant); });
   if(instant){ void sl.offsetWidth; sl.classList.remove('ni'); }
 }
+function waitFor(sl,k){
+  if(sl._scene && k<=sl._scene._sp.n) return sl._scene._sp.w[k]||1100;
+  var w=0; sl._els.forEach(function(e){ if(+e.dataset.s===k) w=Math.max(w,+e.dataset.w||0); });
+  return w||450;
+}
+function man(){ return slides[cur].classList.contains('man') && !RM.matches && slides[cur]._max>0; }
 function upd(){
-  var sl=slides[cur], ind=$('#ind');
+  var sl=slides[cur], ind=$('#ind'), m=man();
   ind.innerHTML='<b></b><i></i>';
   ind.firstChild.textContent=(cur+1)+' / '+N;
-  ind.lastChild.textContent=sl._max?('шаг '+step+'/'+sl._max):'';
+  ind.lastChild.textContent=m?('шаг '+step+'/'+sl._max):'';
   $('#prog i').style.width=((cur+1)/N*100)+'%';
   $('#b-play').disabled=!sl._max;
   $('#b-prev').disabled=(cur===0&&step===0);
-  $('#b-next').disabled=(cur===N-1&&step>=sl._max);
+  $('#b-next').disabled=(cur===N-1&&(!m||step>=sl._max));
+  $('#nav').classList.toggle('manual',m);
 }
-function play(){ var sl=slides[cur]; setStep(RM.matches?sl._max:0,true); upd(); }
+function tick(){ var sl=slides[cur]; if(step>=sl._max){ timer=null; return; } setStep(step+1,false); upd(); timer=setTimeout(tick,waitFor(sl,step)); }
+function play(){
+  clearTimeout(timer); timer=null; var sl=slides[cur];
+  if(RM.matches||!sl._max){ setStep(sl._max,true); upd(); return; }
+  setStep(0,true); upd();
+  if(!sl.classList.contains('man')) timer=setTimeout(tick,350);
+}
 function go(i,atEnd){
-  i=Math.max(0,Math.min(N-1,i));
+  i=Math.max(0,Math.min(N-1,i)); clearTimeout(timer); timer=null;
   slides.forEach(function(s){s.classList.remove('on')}); cur=i; slides[cur].classList.add('on');
   var sc=$('.sc',slides[cur]); if(sc) sc.scrollTop=0;
-  setStep(atEnd?slides[cur]._max:0,true);
+  if(atEnd && slides[cur].classList.contains('man')){ setStep(slides[cur]._max,true); upd(); }
+  else play();
   try{ history.replaceState(null,'','#'+(cur+1)); }catch(e){}
   upd();
 }
-function next(){ var sl=slides[cur]; if(step<sl._max){ setStep(step+1,false); upd(); return; } if(cur<N-1) go(cur+1); }
-function prev(){ if(step>0){ setStep(step-1,true); upd(); return; } if(cur>0) go(cur-1,true); }
+function next(){ if(man() && step<slides[cur]._max){ setStep(step+1,false); upd(); return; } if(cur<N-1) go(cur+1); }
+function prev(){ if(man() && step>0){ setStep(step-1,true); upd(); return; } if(cur>0) go(cur-1,true); }
 $('#b-prev').onclick=prev; $('#b-next').onclick=next; $('#b-play').onclick=play;
 var ov=$('#ov'), ovg=$('.ovg',ov);
 slides.forEach(function(s,k){ var b=document.createElement('button'); b.className='ovi'; b.type='button';

@@ -125,3 +125,11 @@ CSS3 += """
 .fang{column-gap:.9rem}
 .card.red .alert{margin-top:.7rem}
 """
+
+CSS3 += """
+/* ---- на слайдах с ручной анимацией у кнопки появляется подпись «Дальше» ---- */
+#nav .lbl3{display:none}
+#nav.manual .lbl3{display:inline}
+#nav.manual #b-next{background:rgba(46,230,200,.16);color:var(--ice)}
+#nav.manual #b-next:hover{background:rgba(46,230,200,.3)}
+"""
